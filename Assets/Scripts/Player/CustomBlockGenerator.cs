@@ -11,7 +11,7 @@ public class CustomBlockGenerator: MonoBehaviour
 	public	bool					canCreate = true;	                // 생성 가능상태인지
 
 	[SerializeField]
-	private float					createZposition;					// 생성 z포지션
+	private float					createZPosition;					// 생성 z포지션
 
 
 	// 프레임
@@ -29,7 +29,7 @@ public class CustomBlockGenerator: MonoBehaviour
 	{
 		Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-		position.z = createZposition;
+		position.z = createZPosition;
 		Instantiate(customBlockPrefab, position, Quaternion.identity, transform);
 	}
 }

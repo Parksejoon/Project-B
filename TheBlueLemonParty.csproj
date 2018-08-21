@@ -303,7 +303,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Camera\CameraChase.cs" />
     <Compile Include="Assets\Scripts\Player\CustomBlockGenerator.cs" />
+    <Compile Include="Assets\Scripts\Player\CustomBlockLimit.cs" />
+    <Compile Include="Assets\Scripts\Player\MouseChase.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
   </ItemGroup>
