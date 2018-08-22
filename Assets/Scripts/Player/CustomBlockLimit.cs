@@ -11,12 +11,19 @@ public class CustomBlockLimit : MonoBehaviour
 	// 트리거안에 유지
 	private void OnTriggerStay2D(Collider2D collision)
 	{
-		customBlockGenerator.canCreate = false;
+		if (collision.CompareTag("Block"))
+		{
+			customBlockGenerator.canCreate = false;
+		}
 	}
 	
 	// 트리거 탈출
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		customBlockGenerator.canCreate = true;
+		if (collision.CompareTag("Block"))
+		{
+			customBlockGenerator.canCreate = true;
+		}
 	}
 }
+	

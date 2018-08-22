@@ -304,11 +304,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\CameraChase.cs" />
+    <Compile Include="Assets\Scripts\Map\BallGenerator.cs" />
+    <Compile Include="Assets\Scripts\Map\BottomBlock.cs" />
     <Compile Include="Assets\Scripts\Player\CustomBlockGenerator.cs" />
     <Compile Include="Assets\Scripts\Player\CustomBlockLimit.cs" />
     <Compile Include="Assets\Scripts\Player\MouseChase.cs" />
+    <Compile Include="Assets\Scripts\Player\MouseCollider.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
+    <Compile Include="Assets\Scripts\System\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />

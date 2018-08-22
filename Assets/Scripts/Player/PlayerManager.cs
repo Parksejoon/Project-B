@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		// 블록일 경우
-		if (collision.gameObject.layer == 8)
+		if (collision.gameObject.CompareTag("Block"))
 		{
 			playerControl.ResetJump();
 		}
