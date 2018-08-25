@@ -30,7 +30,7 @@ public class BallGenerator : MonoBehaviour
 		Vector3 position = transform.position;
 
 		position.z = zPosition;
-		Rigidbody2D target = Instantiate(ballPrefab, position, Quaternion.identity, transform).GetComponent<Rigidbody2D>();
+		Rigidbody2D target = Instantiate(ballPrefab, position, Quaternion.identity).GetComponent<Rigidbody2D>();
 
 		target.AddForce(shotWay * shotPower);
 	}

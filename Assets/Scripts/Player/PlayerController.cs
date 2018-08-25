@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 	private Transform			playerTransform;            // 플레이어 트랜스폼
 	[SerializeField]
 	private Rigidbody2D			playerRigidbody2D;          // 플레이어 리지드바디 2D
+	[SerializeField]
+	private SpriteRenderer		spriteRenderer;				// 플레이어 스프라이트 렌더러
 
 	// 수치
 	public	int					originJumpCount;			// 기본 점프 카운트
@@ -66,6 +68,14 @@ public class PlayerController : MonoBehaviour
 		position.x += horizontalMove * Time.deltaTime * moveSpeed;
 		playerTransform.position = position;
 
+		if (horizontalMove < 0)
+		{
+			spriteRenderer.flipX = true;
+		}
+		else
+		{
+			spriteRenderer.flipX = false;
+		}
 	}
 
 	// 점프
