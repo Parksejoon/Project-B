@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
 		{
 			spriteRenderer.flipX = true;
 		}
-		else
+		else if (horizontalMove > 0)
 		{
 			spriteRenderer.flipX = false;
 		}
