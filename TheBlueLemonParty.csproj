@@ -314,9 +314,11 @@
     <Compile Include="Assets\Add-Ons\2d-extras-master\Assets\Tilemap\Tiles\Weighted Random Tile\WeightedRandomTile.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraChase.cs" />
     <Compile Include="Assets\Scripts\Map\BallGenerator.cs" />
+    <Compile Include="Assets\Scripts\Map\BallGeneratorDisabled.cs" />
     <Compile Include="Assets\Scripts\Map\BallGoal.cs" />
     <Compile Include="Assets\Scripts\Map\BottomBlock.cs" />
     <Compile Include="Assets\Scripts\Map\SelfDestroyer.cs" />
+    <Compile Include="Assets\Scripts\Map\UnstableBlock.cs" />
     <Compile Include="Assets\Scripts\Player\CustomBlockGenerator.cs" />
     <Compile Include="Assets\Scripts\Player\CustomBlockLimit.cs" />
     <Compile Include="Assets\Scripts\Player\MouseChase.cs" />
