@@ -33,6 +33,7 @@ public class BallGenerator : MonoBehaviour
 		Rigidbody2D target = Instantiate(ballPrefab, position, Quaternion.identity).GetComponent<Rigidbody2D>();
 
 		target.AddForce(shotWay * shotPower);
+		target.AddTorque(-shotWay.x * shotPower);
 	}
 
 	// 생성 반복 코루틴

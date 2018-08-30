@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Block
   - DangerBlock
+  - Ball
   layers:
   - Default
   - TransparentFX
