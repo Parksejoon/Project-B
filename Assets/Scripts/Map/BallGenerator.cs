@@ -5,17 +5,19 @@ public class BallGenerator : MonoBehaviour
 {
 	// 일반
 	[SerializeField]
-	private GameObject		ballPrefab;					// 라바 볼
+	private GameObject ballPrefab;                 // 라바 볼
 
 	// 수치
 	[SerializeField]
-	private float			createDelay;				// 생성 주기
+	private float	createMinDelay;                 // 생성 최소 주기
 	[SerializeField]
-	private Vector2			shotWay;					// 발사 방향
+	private float	createMaxDelay;                 // 생성 최대 주기
 	[SerializeField]
-	private float			shotPower;                  // 발사 힘
+	private Vector2 shotWay;						// 발사 방향
 	[SerializeField]
-	private float			zPosition = 0;				// z 포지션
+	private float	shotPower;						// 발사 힘
+	[SerializeField]
+	private float	zPosition = 0;					// z 포지션
 
 
 	// 초기화
@@ -39,7 +41,7 @@ public class BallGenerator : MonoBehaviour
 	// 생성 반복 코루틴
 	private IEnumerator GenerateCoroutine()
 	{
-		yield return new WaitForSeconds(createDelay);
+		yield return new WaitForSeconds(Random.Range(createMinDelay, createMaxDelay));
 
 		GenerateLavaBall();
 

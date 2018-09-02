@@ -50,7 +50,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1863520227510998}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.01, y: 4.545, z: -2.2758148}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4737576955292902}
@@ -64,7 +64,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1116474743064308}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 4722719185234514}
@@ -82,10 +82,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 1036463975809406, guid: cdfadf337b82adc4f81da4fe7ccb920f, type: 2}
-  createDelay: 3
+  createMinDelay: 0
+  createMaxDelay: 0
   shotWay: {x: 1, y: 1}
   shotPower: 300
-  zPosition: 0
+  zPosition: 4
 --- !u!212 &212814395545530614
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -121,7 +122,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 17b2179fa14871649a06160007986085, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d4c10b9d7c0d8f4da1094d1ec3ada4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
