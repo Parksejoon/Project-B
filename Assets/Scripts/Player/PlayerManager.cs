@@ -17,11 +17,11 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
-	// 충돌체 진입
-	private void OnCollisionEnter2D(Collision2D collision)
+	// 트리거 진입
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		// 블록일 경우
-		if (collision.gameObject.CompareTag("Block") || collision.gameObject.CompareTag("DangerBlock") || collision.gameObject.CompareTag("Ball"))
+		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball"))
 		{
 			playerControl.ResetJump();
 		}
