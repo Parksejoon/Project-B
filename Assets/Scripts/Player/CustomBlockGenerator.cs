@@ -9,8 +9,6 @@ public class CustomBlockGenerator: MonoBehaviour
 	private GameObject				customBlockPrefab;                  // 커스텀 블럭 프리팹
 
 	// 수치
-	public	bool					canCreate = true;	                // 생성 가능상태인지
-
 	[SerializeField]
 	private float					createZPosition;                    // 생성 z포지션
 
@@ -18,12 +16,15 @@ public class CustomBlockGenerator: MonoBehaviour
 	// 일반
 	private Transform				targetBlock = null;                 // 생성한 블럭
 
+	// 수치
+	private Vector3					mousePosition;						// 마우스 위치
+
 
 	// 프레임
 	private void Update()
 	{
 		// 클릭 시작
-		if (Input.GetMouseButtonDown(0) && canCreate)
+		if (Input.GetMouseButtonDown(0) && CanCreate())
 		{
 			CreateBlock();
 		}
@@ -45,10 +46,26 @@ public class CustomBlockGenerator: MonoBehaviour
 	// 블럭 생성
 	private void CreateBlock()
 	{
-		Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		
-		position.z = createZPosition;
-		targetBlock = Instantiate(customBlockPrefab, position, Quaternion.identity, transform).transform;
+		targetBlock = Instantiate(customBlockPrefab, mousePosition, Quaternion.identity, transform).transform;
+	}
+
+	// 블럭 생성 가능상태 확인
+	private bool CanCreate()
+	{
+		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		mousePosition.z = createZPosition;
+
+		Collider2D[] hitColliders2D = Physics2D.OverlapBoxAll(mousePosition, new Vector2(1f, 1f), 0);
+
+		foreach (Collider2D collider in hitColliders2D)
+		{
+			if (collider.CompareTag("Block"))
+			{
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	// 블럭 회전
