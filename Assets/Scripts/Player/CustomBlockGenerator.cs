@@ -59,7 +59,7 @@ public class CustomBlockGenerator: MonoBehaviour
 
 		foreach (Collider2D collider in hitColliders2D)
 		{
-			if (collider.CompareTag("Block"))
+			if (collider.CompareTag("Block") || collider.CompareTag("NoCreate"))
 			{
 				return false;
 			}

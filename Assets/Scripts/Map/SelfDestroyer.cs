@@ -7,6 +7,8 @@ public class SelfDestroyer : MonoBehaviour
 	// 수치
 	[SerializeField]
 	private float			destroyTime = 3f;                   // 파괴 시간
+	[SerializeField]
+	private string			name = "";							// 오브젝트 이름
 
 
 	// 시작
@@ -20,6 +22,6 @@ public class SelfDestroyer : MonoBehaviour
 	{
 		yield return new WaitForSeconds(destroyTime);
 
-		Destroy(gameObject);
+		ObjectPoolManager.Release(name, gameObject);
 	}
 }
