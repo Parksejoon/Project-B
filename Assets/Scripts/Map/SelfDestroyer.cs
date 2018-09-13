@@ -12,7 +12,7 @@ public class SelfDestroyer : MonoBehaviour
 
 
 	// 시작
-	private void Start()
+	private void OnEnable()
 	{
 		StartCoroutine(DestroyCoroutine());
 	}
