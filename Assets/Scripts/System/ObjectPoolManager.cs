@@ -28,12 +28,20 @@ public class ObjectPoolManager : MonoBehaviour
 	public static GameObject GetGameObject(string name, Vector3 position)
 	{
 		Stack<GameObject> objects = (Stack<GameObject>)objectPools[name];
-		GameObject gameObj = objects.Pop();
 
-		gameObj.SetActive(true);
-		gameObj.transform.position = position;
+		if (objects.Count > 0)
+		{
+			GameObject gameObj = objects.Pop();
 
-		return gameObj;
+			gameObj.SetActive(true);
+			gameObj.transform.position = position;
+
+			return gameObj;
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	// 오브젝트 해제

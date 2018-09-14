@@ -366,6 +366,7 @@
     <Compile Include="Assets\Add-Ons\Cinemachine\Timeline\CinemachineShot.cs" />
     <Compile Include="Assets\Add-Ons\Cinemachine\Timeline\CinemachineTrack.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraChase.cs" />
+    <Compile Include="Assets\Scripts\Camera\EnableArea.cs" />
     <Compile Include="Assets\Scripts\Map\BallGenerator.cs" />
     <Compile Include="Assets\Scripts\Map\BallGeneratorDisabled.cs" />
     <Compile Include="Assets\Scripts\Map\BallGoal.cs" />
