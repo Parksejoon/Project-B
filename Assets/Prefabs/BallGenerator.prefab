@@ -108,9 +108,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 1036463975809406, guid: cdfadf337b82adc4f81da4fe7ccb920f, type: 2}
-  createMinDelay: 1
-  createMaxDelay: 2
-  shotPower: 1500
+  enabledGenerate: 0
+  createMinDelay: 3
+  createMaxDelay: 3
+  shotPower: 700
   zPosition: 4
 --- !u!212 &212814395545530614
 SpriteRenderer:

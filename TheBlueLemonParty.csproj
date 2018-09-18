@@ -380,6 +380,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\System\BallPoolManager.cs" />
     <Compile Include="Assets\Scripts\System\GameManager.cs" />
+    <Compile Include="Assets\Scripts\System\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\System\ObjectPoolManager.cs" />
   </ItemGroup>
   <ItemGroup>
