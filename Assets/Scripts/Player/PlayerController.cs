@@ -83,8 +83,14 @@ public class PlayerController : MonoBehaviour
 	{
 		if (isJumping)
 		{
-			playerRigidbody2D.velocity = Vector2.zero;
-			playerRigidbody2D.AddForce(Vector2.up * jumpPower * Input.GetAxis("Jump"));
+			Vector3 velocity = playerRigidbody2D.velocity;
+
+			if (velocity.y < 0)
+			{
+				playerRigidbody2D.velocity = new Vector3(velocity.x, 0);
+			}
+
+			playerRigidbody2D.AddForce(Vector2.up * jumpPower * Input.GetAxis("Jump"), ForceMode2D.Impulse);
 
 			jumpCount--;
 			isJumping = false;
