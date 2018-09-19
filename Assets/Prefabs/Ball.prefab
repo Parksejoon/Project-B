@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 3
-  name: Ball
+  objectName: Ball
 --- !u!212 &212520922166787874
 SpriteRenderer:
   m_ObjectHideFlags: 1

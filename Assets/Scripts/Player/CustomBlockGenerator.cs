@@ -6,7 +6,9 @@ public class CustomBlockGenerator: MonoBehaviour
 	// 인스펙터 노출 변수
 	// 일반
 	[SerializeField]
-	private GameObject				customBlockPrefab;                  // 커스텀 블럭 프리팹
+	private	InventoryManager		inventoryManager;					// 인벤토리 매니저
+
+	public	GameObject				customBlockPrefab;                  // 커스텀 블럭 프리팹
 
 	// 수치
 	[SerializeField]
@@ -17,7 +19,8 @@ public class CustomBlockGenerator: MonoBehaviour
 	private Transform				targetBlock = null;                 // 생성한 블럭
 
 	// 수치
-	private Vector3					mousePosition;						// 마우스 위치
+	private Vector3					mousePosition;                      // 마우스 위치
+	private int						slotNumber = 1;						// 슬롯 번호
 
 
 	// 프레임
@@ -46,7 +49,10 @@ public class CustomBlockGenerator: MonoBehaviour
 	// 블럭 생성
 	private void CreateBlock()
 	{
-		targetBlock = Instantiate(customBlockPrefab, mousePosition, Quaternion.identity, transform).transform;
+		if (customBlockPrefab != null)
+		{
+			targetBlock = Instantiate(customBlockPrefab, mousePosition, Quaternion.identity, transform).transform;
+		}
 	}
 
 	// 블럭 생성 가능상태 확인
@@ -63,6 +69,11 @@ public class CustomBlockGenerator: MonoBehaviour
 			{
 				return false;
 			}
+		}
+
+		if (!inventoryManager.UseItem(slotNumber))
+		{
+			return false;
 		}
 
 		return true;
