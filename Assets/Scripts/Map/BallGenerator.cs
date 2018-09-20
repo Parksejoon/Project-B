@@ -49,8 +49,7 @@ public class BallGenerator : MonoBehaviour
 		{
 			Rigidbody2D target = gameObj.GetComponent<Rigidbody2D>();
 
-			target.AddForce(shotWay * shotPower);
-			target.AddTorque(-shotWay.x * shotPower);
+			target.AddForce(shotWay * shotPower, ForceMode2D.Impulse);
 		}
 	}
 

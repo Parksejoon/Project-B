@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
 	private void Run()
 	{
 		Vector2 position = playerTransform.position;
+		Vector3 velocity = playerRigidbody2D.velocity;
 
 		position.x += horizontalMove * Time.deltaTime * moveSpeed;
 		playerTransform.position = position;
@@ -71,10 +72,20 @@ public class PlayerController : MonoBehaviour
 		if (horizontalMove < 0)
 		{
 			spriteRenderer.flipX = true;
+
+			if (velocity.x > 0)
+			{
+				playerRigidbody2D.velocity = new Vector3(velocity.x - 0.5f, velocity.y);
+			}
 		}
 		else if (horizontalMove > 0)
 		{
 			spriteRenderer.flipX = false;
+
+			if (velocity.x < 0)
+			{
+				playerRigidbody2D.velocity = new Vector3(velocity.x + 0.5f, velocity.y);
+			}
 		}
 	}
 

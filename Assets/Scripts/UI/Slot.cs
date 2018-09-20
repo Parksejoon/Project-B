@@ -20,7 +20,12 @@ public class Slot : MonoBehaviour
 	{
 		itemCountLabel = GetComponentInChildren<UILabel>();
 
-		itemCountLabel.text = itemCount.ToString();
+		itemCountLabel.text = "";
+
+		if (isConstantSlot)
+		{
+			itemCountLabel.text = itemCount.ToString();
+		}
 	}
 
 	// 아이템 등록
