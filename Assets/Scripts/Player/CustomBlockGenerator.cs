@@ -5,9 +5,6 @@ public class CustomBlockGenerator: MonoBehaviour
 {
 	// 인스펙터 노출 변수
 	// 일반
-	[SerializeField]
-	private	InventoryManager		inventoryManager;					// 인벤토리 매니저
-
 	public	GameObject				customBlockPrefab;                  // 커스텀 블럭 프리팹
 
 	// 수치
@@ -44,15 +41,26 @@ public class CustomBlockGenerator: MonoBehaviour
 			StopCoroutine("ClickTimer");
 			targetBlock = null;
 		}
+
+		// 슬롯 변경
+		if (Input.GetKeyDown(KeyCode.Alpha1))
+		{
+			slotNumber = 1;
+		}
+		else if (Input.GetKeyDown(KeyCode.Alpha2))
+		{
+			slotNumber = 2;
+		}
+		else if (Input.GetKeyDown(KeyCode.Alpha3))
+		{
+			slotNumber = 3;
+		}
 	}
 
 	// 블럭 생성
 	private void CreateBlock()
 	{
-		if (customBlockPrefab != null)
-		{
-			targetBlock = Instantiate(customBlockPrefab, mousePosition, Quaternion.identity, transform).transform;
-		}
+		targetBlock = Instantiate(customBlockPrefab, mousePosition, Quaternion.identity, transform).transform;
 	}
 
 	// 블럭 생성 가능상태 확인
@@ -71,7 +79,9 @@ public class CustomBlockGenerator: MonoBehaviour
 			}
 		}
 
-		if (!inventoryManager.UseItem(slotNumber))
+		customBlockPrefab = InventoryManager.instance.UseItem(slotNumber);
+
+		if (customBlockPrefab == null)
 		{
 			return false;
 		}

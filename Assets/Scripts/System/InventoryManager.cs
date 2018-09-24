@@ -17,19 +17,21 @@ public class InventoryManager : MonoBehaviour
 	}
 
 	// 아이템 등록
-	public void AddItem(GameObject itemPrefab, int itemCount)
+	public bool AddItem(GameObject itemPrefab, int itemCount)
 	{
 		foreach (Slot slot in inventory)
 		{
 			if (slot.AddItem(itemPrefab, itemCount))
 			{
-				break;
+				return true;
 			}
 		}
+
+		return false;
 	}
 
 	// 아이템 사용
-	public bool UseItem(int slotNumber)
+	public GameObject UseItem(int slotNumber)
 	{
 		return inventory[slotNumber - 1].UseItem();
 	}

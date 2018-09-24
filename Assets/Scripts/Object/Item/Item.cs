@@ -17,9 +17,10 @@ public class Item : MonoBehaviour
 		// 플레이어 = 아이템 획득
 		if (collision.CompareTag("Player"))
 		{
-			InventoryManager.instance.AddItem(targetObject, itemCount);
-
-			Destroy(gameObject);
+			if (InventoryManager.instance.AddItem(targetObject, itemCount))
+			{
+				Destroy(gameObject);
+			}
 		}
 	}
 }

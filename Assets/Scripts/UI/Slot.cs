@@ -47,22 +47,24 @@ public class Slot : MonoBehaviour
 	}
 
 	// 아이템 사용
-	public bool UseItem()
+	public GameObject UseItem()
 	{
 		if (itemCount > 0)
 		{
 			itemCount--;
 			itemCountLabel.text = itemCount.ToString();
 
+			GameObject returnPrefab = itemPrefab;
+
 			if (itemCount <= 0 && !isConstantSlot)
 			{
 				ResetSlot();
 			}
 
-			return true;
+			return returnPrefab;
 		}
 
-		return false;
+		return null;
 	}
 
 	// 슬롯 초기화
