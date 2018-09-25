@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 	// 수치
 	private int					jumpCount;                  // 점프 카운트
 	private float				horizontalMove;             // 좌우 이동
+	private float				verticalMove;				// 상하 이동
 	private bool				isJumping = false;			// 점프 여부
 
 
@@ -45,7 +46,8 @@ public class PlayerController : MonoBehaviour
 	// 프레임
 	private void Update()
 	{
-		horizontalMove = Input.GetAxis("Horizontal");
+		horizontalMove	= Input.GetAxis("Horizontal");
+		verticalMove	= Input.GetAxis("Vertical");
 
 		if (Input.GetButtonDown("Jump") && jumpCount > 0)
 		{
@@ -86,6 +88,11 @@ public class PlayerController : MonoBehaviour
 			{
 				playerRigidbody2D.velocity = new Vector3(velocity.x + 0.5f, velocity.y);
 			}
+		}
+
+		if (verticalMove < 0)
+		{
+			playerRigidbody2D.AddForce(Vector3.down, ForceMode2D.Impulse);
 		}
 	}
 

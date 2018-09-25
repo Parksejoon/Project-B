@@ -8,20 +8,16 @@ public class JumpRack : MonoBehaviour
 	private		float			jumpPower = 20;		// 점프 파워
 
 
-	private void Awake()
-	{
-		Vector3 rotation = transform.parent.rotation.eulerAngles;
-		float angle = rotation.z * Mathf.PI / 180;
-
-		jumpWay = new Vector2(-Mathf.Sin(angle), Mathf.Cos(angle));
-	}
-
-
 	// 트리거 진입
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.CompareTag("Player"))
 		{
+			Vector3 rotation = transform.parent.rotation.eulerAngles;
+			float angle = rotation.z * Mathf.PI / 180;
+
+			jumpWay = new Vector2(-Mathf.Sin(angle), Mathf.Cos(angle));
+
 			Rigidbody2D targetRigidbody = collision.GetComponent<Rigidbody2D>();
 
 			targetRigidbody.velocity = Vector2.zero;
