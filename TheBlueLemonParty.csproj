@@ -511,6 +511,7 @@
     <Compile Include="Assets\Scripts\Object\BallGeneratorDisabled.cs" />
     <Compile Include="Assets\Scripts\Object\BallGoal.cs" />
     <Compile Include="Assets\Scripts\Object\BottomBlock.cs" />
+    <Compile Include="Assets\Scripts\Object\Item\Bomb.cs" />
     <Compile Include="Assets\Scripts\Object\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Object\Item\JumpRack.cs" />
     <Compile Include="Assets\Scripts\Object\SelfDestroyer.cs" />
