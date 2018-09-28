@@ -20,20 +20,10 @@ public class Bomb : MonoBehaviour
 		tileMap = target.GetComponent<Tilemap>();
 	}
 
-	// 오브젝트 온
-	private void OnEnable()
+	// 시작
+	private void Start()
 	{
 		StartCoroutine("BombCountDown");
-	}
-
-	// 충돌체 진입
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-		if (collision.gameObject.CompareTag("Block"))
-		{
-			StopCoroutine("BombCountDown");
-			ComitBomb();
-		}
 	}
 
 	// 폭발
@@ -49,7 +39,7 @@ public class Bomb : MonoBehaviour
 			}
 		}
 
-		ObjectPoolManager.Release("Bomb", gameObject);
+		Destroy(gameObject);
 	}
 
 	// 폭발 코루틴
