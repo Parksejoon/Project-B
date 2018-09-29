@@ -8,8 +8,9 @@ public class SelfDestroyer : MonoBehaviour
 	[SerializeField]
 	private float			destroyTime = 3f;                   // 파괴 시간
 	[SerializeField]
-	private string			objectName = "";					// 오브젝트 이름
-
+	private bool			useObjectPool;						// 오브젝트 풀 사용 여부
+	[SerializeField]
+	private string			objectName = "";                    // 오브젝트 이름
 
 	// 시작
 	private void OnEnable()
@@ -22,6 +23,13 @@ public class SelfDestroyer : MonoBehaviour
 	{
 		yield return new WaitForSeconds(destroyTime);
 
-		ObjectPoolManager.Release(objectName, gameObject);
+		if (useObjectPool)
+		{
+			ObjectPoolManager.Release(objectName, gameObject);
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
 	}
 }
