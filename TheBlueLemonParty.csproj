@@ -527,6 +527,7 @@
     <Compile Include="Assets\Scripts\System\ObjectGiver.cs" />
     <Compile Include="Assets\Scripts\System\ObjectPoolGenerator.cs" />
     <Compile Include="Assets\Scripts\System\ObjectPoolManager.cs" />
+    <Compile Include="Assets\Scripts\System\RandomMapGenerator.cs" />
     <Compile Include="Assets\Scripts\UI\Slot.cs" />
   </ItemGroup>
   <ItemGroup>
