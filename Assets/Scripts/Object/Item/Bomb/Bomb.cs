@@ -19,10 +19,10 @@ public class Bomb : MonoBehaviour
 	// 초기화
 	private void Awake()
 	{
-		GameObject target = GameObject.Find("Sub");
-
-		grid = target.transform.parent.GetComponent<Grid>();
-		tileMap = target.GetComponent<Tilemap>();
+		GameObject targetGrid = ClosestObject("SoilBlock");
+		
+		grid = targetGrid.transform.parent.GetComponent<Grid>();
+		tileMap = targetGrid.GetComponent<Tilemap>();
 	}
 
 	// 시작
@@ -48,6 +48,29 @@ public class Bomb : MonoBehaviour
 		Instantiate(explosion, transform.position, Quaternion.identity);
 
 		Destroy(gameObject);
+	}
+
+	// 가장 가까운 오브젝트 반환
+	private GameObject ClosestObject(string tag)
+	{
+		GameObject[] targetObjects = GameObject.FindGameObjectsWithTag(tag);
+		GameObject returnValue = null;
+		float minLength = float.MaxValue;
+
+		foreach (GameObject targetObject in targetObjects)
+		{
+			float lengthX = transform.position.x - targetObject.transform.position.x;
+			float lengthY = transform.position.y - targetObject.transform.position.y;
+			float newLength = Mathf.Sqrt(lengthX * lengthX + lengthY * lengthY);
+
+			if (newLength < minLength)
+			{
+				minLength = newLength;
+				returnValue = targetObject;
+			}
+		}
+
+		return returnValue;
 	}
 
 	// 폭발 코루틴

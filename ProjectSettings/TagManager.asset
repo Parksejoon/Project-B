@@ -9,6 +9,7 @@ TagManager:
   - Ball
   - NoCreate
   - BallGenerator
+  - SoilBlock
   layers:
   - Default
   - TransparentFX
