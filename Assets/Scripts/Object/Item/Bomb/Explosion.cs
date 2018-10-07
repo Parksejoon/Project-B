@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
@@ -9,12 +7,20 @@ public class Explosion : MonoBehaviour
 	{
 		if (collision.CompareTag("Player") || collision.CompareTag("Ball"))
 		{
-			collision.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position) * 10f, ForceMode2D.Impulse);
+			collision.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position) * 5f, ForceMode2D.Impulse);
 		}
+
+		Debug.Log(collision.tag);
 
 		if (collision.CompareTag("BallGenerator"))
 		{
+			Debug.Log("asdf");
 			Destroy(collision.gameObject);
 		}
+	}
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		Debug.Log(collision.gameObject.tag);
 	}
 }

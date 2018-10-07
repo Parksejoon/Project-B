@@ -56,7 +56,7 @@ public class Bomb : MonoBehaviour
 		// 폭발 충돌체 소환
 		Instantiate(explosion, transform.position, Quaternion.identity);
 
-		Destroy(gameObject);
+		//Destroy(gameObject);
 	}
 	
 	// 폭발 코루틴
