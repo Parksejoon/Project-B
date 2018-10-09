@@ -26,4 +26,14 @@ public class PlayerManager : MonoBehaviour
 			playerControl.ResetJump();
 		}
 	}
+
+	// 트리거 안에 존재
+	private void OnTriggerStay2D(Collider2D collision)
+	{
+		// 블록일 경우
+		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball") || collision.CompareTag("SoilBlock"))
+		{
+			playerControl.ResetJump();
+		}
+	}
 }

@@ -10,11 +10,8 @@ public class Explosion : MonoBehaviour
 			collision.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position) * 5f, ForceMode2D.Impulse);
 		}
 
-		Debug.Log(collision.tag);
-
 		if (collision.CompareTag("BallGenerator"))
 		{
-			Debug.Log("asdf");
 			Destroy(collision.gameObject);
 		}
 	}
