@@ -12,13 +12,15 @@ public class Slot : MonoBehaviour
 
 	// 인스펙터 비노출 변수
 	// 일반
-	private UILabel				itemCountLabel;				// 아이템 개수 텍스트
+	private UILabel				itemCountLabel;             // 아이템 개수 텍스트
+	private UITexture			itemImageTexture;			// 아이템 이미지 텍스쳐
 
 
 	// 초기화
 	private void Awake()
 	{
-		itemCountLabel = GetComponentInChildren<UILabel>();
+		itemCountLabel		= GetComponentInChildren<UILabel>();
+		itemImageTexture	= GetComponentInChildren<UITexture>();
 
 		itemCountLabel.text = "";
 
@@ -37,6 +39,7 @@ public class Slot : MonoBehaviour
 			itemCount += _itemCount;
 
 			itemCountLabel.text = itemCount.ToString();
+			itemImageTexture.mainTexture = _itemPrefab.GetComponent<SpriteRenderer>().sprite.texture;
 
 			return true;
 		}
@@ -71,6 +74,7 @@ public class Slot : MonoBehaviour
 	private void ResetSlot()
 	{
 		itemCountLabel.text = "";
+		itemImageTexture.mainTexture = null;
 		itemPrefab = null;
 	}
 }
