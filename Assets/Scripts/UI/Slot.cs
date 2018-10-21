@@ -30,6 +30,19 @@ public class Slot : MonoBehaviour
 		}
 	}
 
+	// 아이템 비교
+	public bool CompareItem(GameObject _itemPrefab, int _itemCount)
+	{
+		if (itemPrefab == _itemPrefab)
+		{
+			AddItem(_itemPrefab, _itemCount);
+
+			return true;
+		}
+
+		return false;
+	}
+
 	// 아이템 등록
 	public bool AddItem(GameObject _itemPrefab, int _itemCount)
 	{
@@ -39,6 +52,7 @@ public class Slot : MonoBehaviour
 			itemCount += _itemCount;
 
 			itemCountLabel.text = itemCount.ToString();
+			itemImageTexture.color = new Color(1, 1, 1, 1);
 			itemImageTexture.mainTexture = _itemPrefab.GetComponent<SpriteRenderer>().sprite.texture;
 
 			return true;
@@ -74,7 +88,7 @@ public class Slot : MonoBehaviour
 	private void ResetSlot()
 	{
 		itemCountLabel.text = "";
-		itemImageTexture.mainTexture = null;
+		itemImageTexture.color = new Color(0, 0, 0, 0);
 		itemPrefab = null;
 	}
 }

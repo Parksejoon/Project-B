@@ -795,7 +795,7 @@ Transform:
   m_GameObject: {fileID: 958184718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -725, y: -0, z: 0}
-  m_LocalScale: {x: 0.4729631, y: 0.4729631, z: 0.4729631}
+  m_LocalScale: {x: 0.60302794, y: 0.60302794, z: 0.60302794}
   m_Children:
   - {fileID: 1691330630}
   m_Father: {fileID: 1664071160}
@@ -1013,8 +1013,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1218206251}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 358.713, y: -309.75232, z: 0}
+  m_LocalScale: {x: 1.2123451, y: 1.2123451, z: 1.2123451}
   m_Children: []
   m_Father: {fileID: 1808291111}
   m_RootOrder: 0
@@ -1047,7 +1047,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0, b: 0, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 588
   mHeight: 568
@@ -1058,18 +1058,18 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 1.0352113
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 12800000, guid: 5001d3aea389156499a9d6cf9a65f919, type: 3}
   mFont: {fileID: 0}
-  mText: 
+  mText: 5
   mFontSize: 300
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
-  mEffectStyle: 0
+  mEffectStyle: 3
   mEffectColor: {r: 0, g: 0, b: 0, a: 1}
   mSymbols: 1
-  mEffectDistance: {x: 1, y: 1}
+  mEffectDistance: {x: 15, y: 15}
   mOverflow: 0
   mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
@@ -135082,8 +135082,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1691330629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 359, y: -310, z: 0}
+  m_LocalScale: {x: 1.2123451, y: 1.2123451, z: 1.2123451}
   m_Children: []
   m_Father: {fileID: 958184719}
   m_RootOrder: 0
@@ -135116,7 +135116,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0, b: 0, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 588
   mHeight: 568
@@ -135127,18 +135127,18 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 1.0352113
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 12800000, guid: 5001d3aea389156499a9d6cf9a65f919, type: 3}
   mFont: {fileID: 0}
-  mText: 
+  mText: 5
   mFontSize: 300
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
-  mEffectStyle: 0
+  mEffectStyle: 3
   mEffectColor: {r: 0, g: 0, b: 0, a: 1}
   mSymbols: 1
-  mEffectDistance: {x: 1, y: 1}
+  mEffectDistance: {x: 15, y: 15}
   mOverflow: 0
   mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
@@ -135362,7 +135362,7 @@ Transform:
   m_GameObject: {fileID: 1808291110}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 0.47334144, y: 0.47334144, z: 0.47334144}
+  m_LocalScale: {x: 0.6035103, y: 0.6035103, z: 0.6035103}
   m_Children:
   - {fileID: 1218206252}
   m_Father: {fileID: 1664071160}
@@ -135468,7 +135468,7 @@ Transform:
   m_GameObject: {fileID: 1892781669}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 725, y: -0, z: 0}
-  m_LocalScale: {x: 0.47334144, y: 0.47334144, z: 0.47334144}
+  m_LocalScale: {x: 0.6035103, y: 0.6035103, z: 0.6035103}
   m_Children:
   - {fileID: 1947456074}
   m_Father: {fileID: 1664071160}
@@ -135614,8 +135614,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1947456073}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 358.713, y: -309.75232, z: 0}
+  m_LocalScale: {x: 1.2123451, y: 1.2123451, z: 1.2123451}
   m_Children: []
   m_Father: {fileID: 1892781670}
   m_RootOrder: 0
@@ -135648,7 +135648,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0, b: 0, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 588
   mHeight: 568
@@ -135659,18 +135659,18 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 1.0352113
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  mTrueTypeFont: {fileID: 12800000, guid: 5001d3aea389156499a9d6cf9a65f919, type: 3}
   mFont: {fileID: 0}
-  mText: 
+  mText: 5
   mFontSize: 300
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
-  mEffectStyle: 0
+  mEffectStyle: 3
   mEffectColor: {r: 0, g: 0, b: 0, a: 1}
   mSymbols: 1
-  mEffectDistance: {x: 1, y: 1}
+  mEffectDistance: {x: 15, y: 15}
   mOverflow: 0
   mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
