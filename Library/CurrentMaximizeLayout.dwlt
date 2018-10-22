@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 817, y: 492}
   m_MaxSize: {x: 22012, y: 14042}
   vertical: 0
-  controlID: 4941
+  controlID: 917
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_MinSize: {x: 540, y: 492}
   m_MaxSize: {x: 18010, y: 14042}
   vertical: 1
-  controlID: 4942
+  controlID: 918
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 4943
+  controlID: 867
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -209,9 +209,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.45464098, y: -6.3147764, z: -7.0406857}
+    m_Target: {x: 78.2023, y: 19.587776, z: -7.2382812}
     speed: 2
-    m_Value: {x: -0.45464098, y: -6.3147764, z: -7.0406857}
+    m_Value: {x: 78.2023, y: 19.587776, z: -7.2382812}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -235,22 +235,22 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     zGrid:
-      m_Target: 1
+      m_Target: 0
       speed: 2
-      m_Value: 1
+      m_Value: 0
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.635074
+    m_Target: 24.492237
     speed: 2
-    m_Value: 4.635074
+    m_Value: 24.492237
   m_Ortho:
     m_Target: 1
     speed: 2
     m_Value: 1
-  m_ShowGlobalGrid: 1
+  m_ShowGlobalGrid: 0
   m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
@@ -410,9 +410,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4c110000
-    m_LastClickedID: 0
-    m_ExpandedIDs: e4fbffff000000000e16000018160000561600006c160000721600007a160000
+    m_SelectedIDs: 7cfbffff
+    m_LastClickedID: -1156
+    m_ExpandedIDs: defbffffe2fbffffe4fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_MinSize: {x: 540, y: 271}
   m_MaxSize: {x: 18010, y: 10021}
   vertical: 0
-  controlID: 4990
+  controlID: 919
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -578,20 +578,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/System
+    - Assets/Scripts/Object/Item/Bomb
   m_ViewMode: 1
   m_StartGridSize: 67
   m_LastFolders:
-  - Assets/Scripts/System
+  - Assets/Scripts/Object/Item/Bomb
   m_LastFoldersGridSize: 67
   m_LastProjectPath: "C:\\Users\\qkeh4\\OneDrive\\\uBB38\uC11C\\Unity Projects\\TheBlueLemonParty"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 361}
-    m_SelectedIDs: 02100000
-    m_LastClickedID: 4098
-    m_ExpandedIDs: 00000000380d00007e0d0000a40d0000a60d0000d80d0000e40d0000320e0000340e00009e0e0000aa0e0000e60e0000220f00004c110000521100009a110000d2380000d4380000d6380000d838000000ca9a3b
+    m_SelectedIDs: 32140000
+    m_LastClickedID: 5170
+    m_ExpandedIDs: 00000000380d00007e0d0000a40d0000a60d0000da0d0000e60d0000340e0000360e0000a00e0000ac0e0000e80e0000240f00004e110000541100009c110000da380000dc380000de380000e038000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,7 +619,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000380d00007e0d0000a40d0000a60d0000d80d0000e40d0000320e0000340e00009e0e0000aa0e0000e60e0000220f00004c110000521100009a110000d2380000d4380000d6380000d838000000ca9a3b
+    m_ExpandedIDs: 00000000380d00007e0d0000a40d0000a60d0000da0d0000e60d0000340e0000360e0000a00e0000ac0e0000e80e0000240f00004e110000541100009c110000da380000dc380000de380000e038000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -644,8 +644,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 4c110000
-    m_LastClickedInstanceID: 4428
+    m_SelectedInstanceIDs: 7cfbffff
+    m_LastClickedInstanceID: -1156
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: fa28000052290000222a0000f0290000182a0000e82900001c290000702a0000f8280000242a0000e6280000fc280000a6290000e22900001e2a0000ec290000b4300000a40a00000c0a0000f6300000e40b0000ea0b0000ec0b00006a0e00006c0e00005212000000000000
     m_RenameOverlay:
