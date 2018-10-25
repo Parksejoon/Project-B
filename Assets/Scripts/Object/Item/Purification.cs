@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Purification : MonoBehaviour
@@ -34,9 +35,9 @@ public class Purification : MonoBehaviour
 	}
 
 	// 시작
-	private void OnEnable()
+	private void Start()
 	{
-		ComitBomb();
+		StartCoroutine("BombCountDown");
 	}
 
 	// 폭발
@@ -58,5 +59,15 @@ public class Purification : MonoBehaviour
 				}
 			}
 		}
+
+		Destroy(gameObject);
+	}
+
+	// 폭발 코루틴
+	private IEnumerator BombCountDown()
+	{
+		yield return new WaitForSeconds(1f);
+
+		ComitBomb();
 	}
 }
