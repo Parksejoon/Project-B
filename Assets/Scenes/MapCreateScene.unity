@@ -228,7 +228,7 @@ MonoBehaviour:
   m_ZDamping: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 10
+  m_CameraDistance: 30
   m_DeadZoneWidth: 0.022916596
   m_DeadZoneHeight: 0.051851854
   m_DeadZoneDepth: 0
@@ -344,6 +344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a16757875cd87c4ab03291e2661a96a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseBombEffect: {fileID: 1223670231946044, guid: 55be02e6f458dd841ab231eba2ffc96a,
+    type: 2}
 --- !u!114 &378111006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,7 +689,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -710,7 +712,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.00000044703484, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 71109718}
