@@ -7,6 +7,8 @@ public class Purification : MonoBehaviour
 	// 인스펙터 노출 변수
 	// 일반
 	[SerializeField]
+	private GameObject	explosion;          // 폭발
+	[SerializeField]
 	private TileBase	soilTile;			// 흙 타일
 
 	// 인스펙터 비노출 변수
@@ -59,6 +61,9 @@ public class Purification : MonoBehaviour
 				}
 			}
 		}
+
+		// 폭발 충돌체 소환
+		Instantiate(explosion, transform.position, Quaternion.identity);
 
 		Destroy(gameObject);
 	}
