@@ -512,11 +512,11 @@
     <Compile Include="Assets\Scripts\Object\BallGoal.cs" />
     <Compile Include="Assets\Scripts\Object\BottomBlock.cs" />
     <Compile Include="Assets\Scripts\Object\Item\Bomb.cs" />
-    <Compile Include="Assets\Scripts\Object\Item\Explosion.cs" />
     <Compile Include="Assets\Scripts\Object\Item\GravityExplosion.cs" />
     <Compile Include="Assets\Scripts\Object\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Object\Item\JumpRack.cs" />
-    <Compile Include="Assets\Scripts\Object\Item\PurificationBomb.cs" />
+    <Compile Include="Assets\Scripts\Object\Item\OriginalExplosion.cs" />
+    <Compile Include="Assets\Scripts\Object\Item\PurificationExplosion.cs" />
     <Compile Include="Assets\Scripts\Object\Item\Teleport.cs" />
     <Compile Include="Assets\Scripts\Object\SelfDestroyer.cs" />
     <Compile Include="Assets\Scripts\Object\UnstableBlock.cs" />

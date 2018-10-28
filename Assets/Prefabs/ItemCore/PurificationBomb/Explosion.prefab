@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4558869938229900}
   - component: {fileID: 58401686632163444}
   - component: {fileID: 114864574197068390}
-  - component: {fileID: 114747318923158476}
+  - component: {fileID: 114559839246595606}
   - component: {fileID: 50227341733058458}
   m_Layer: 0
   m_Name: Explosion
@@ -184,7 +184,7 @@ MonoBehaviour:
   destroyTime: 3
   useObjectPool: 0
   objectName: 
---- !u!114 &114747318923158476
+--- !u!114 &114559839246595606
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,9 +192,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1600163856390094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37356a0b91ba8994da372aa98e00af18, type: 3}
+  m_Script: {fileID: 11500000, guid: 5e09d20120bdf15479ba440b3e9e7ded, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soilTile: {fileID: 11400000, guid: 8eec02093dcbf7b41b766283ebf76f5a, type: 2}
 --- !u!114 &114864574197068390
 MonoBehaviour:
   m_ObjectHideFlags: 1

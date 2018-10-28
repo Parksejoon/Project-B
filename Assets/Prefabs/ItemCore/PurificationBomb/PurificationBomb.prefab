@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4101446589029976}
   - component: {fileID: 61147151251994458}
-  - component: {fileID: 114508503936856204}
+  - component: {fileID: 114750312104138468}
   - component: {fileID: 212733984196798586}
   m_Layer: 0
   m_Name: PurificationBomb
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &114508503936856204
+--- !u!114 &114750312104138468
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,11 +75,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1316604141663226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e09d20120bdf15479ba440b3e9e7ded, type: 3}
+  m_Script: {fileID: 11500000, guid: 597563c7481537d4b9d4c22a2a12e94d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 1050034719933372, guid: 7fc36833316993743956531b362dd3f4, type: 2}
-  soilTile: {fileID: 11400000, guid: 8eec02093dcbf7b41b766283ebf76f5a, type: 2}
 --- !u!212 &212733984196798586
 SpriteRenderer:
   m_ObjectHideFlags: 1
