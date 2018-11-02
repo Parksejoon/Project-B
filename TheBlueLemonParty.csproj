@@ -521,8 +521,7 @@
     <Compile Include="Assets\Scripts\Object\SelfDestroyer.cs" />
     <Compile Include="Assets\Scripts\Object\UnstableBlock.cs" />
     <Compile Include="Assets\Scripts\Player\CustomBlockGenerator.cs" />
-    <Compile Include="Assets\Scripts\Player\MouseChase.cs" />
-    <Compile Include="Assets\Scripts\Player\MouseCollider.cs" />
+    <Compile Include="Assets\Scripts\Player\Fairy.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\System\GameManager.cs" />
