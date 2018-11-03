@@ -5,6 +5,9 @@ public class CustomBlockGenerator: MonoBehaviour
 {
 	// 인스펙터 노출 변수
 	// 일반
+	[SerializeField]
+	private Transform				fairyTransform;						// 요정 트랜스폼
+
 	public	GameObject				customBlockPrefab;                  // 커스텀 블럭 프리팹
 
 	// 수치
@@ -16,7 +19,7 @@ public class CustomBlockGenerator: MonoBehaviour
 	private Transform				targetBlock = null;                 // 생성한 블럭
 
 	// 수치
-	private Vector3					mousePosition;                      // 마우스 위치
+	private Vector3					targetPosition;                     // 생성 위치
 	private int						slotNumber = 1;						// 슬롯 번호
 
 
@@ -60,20 +63,20 @@ public class CustomBlockGenerator: MonoBehaviour
 	// 블럭 생성
 	private void CreateBlock()
 	{
-		targetBlock = Instantiate(customBlockPrefab, mousePosition, Quaternion.identity, transform).transform;
+		targetBlock = Instantiate(customBlockPrefab, targetPosition, Quaternion.identity, transform).transform;
 	}
 
 	// 블럭 생성 가능상태 확인
 	private bool CanCreate()
 	{
-		mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		mousePosition.z = createZPosition;
+		targetPosition = fairyTransform.position;
+		targetPosition.z = createZPosition;
 
-		Collider2D[] hitColliders2D = Physics2D.OverlapBoxAll(mousePosition, new Vector2(1f, 1f), 0);
+		Collider2D[] hitColliders2D = Physics2D.OverlapBoxAll(targetPosition, new Vector2(1f, 1f), 0);
 
 		foreach (Collider2D collider in hitColliders2D)
 		{
-			if (collider.CompareTag("Block") || collider.CompareTag("NoCreate") || collider.CompareTag("SoilBlock"))
+			if (collider.CompareTag("Block") || collider.CompareTag("CustomBlock") || collider.CompareTag("DangerBlock") || collider.CompareTag("NoCreate") || collider.CompareTag("Ball") || collider.CompareTag("SoilBlock"))
 			{
 				return false;
 			}

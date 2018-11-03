@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Fairy : MonoBehaviour
+public class FairyMove : MonoBehaviour
 {
 	// 인스펙터 노출 변수
 	// 일반
@@ -69,7 +69,7 @@ public class Fairy : MonoBehaviour
 
 		foreach (Collider2D collider in colliders)
 		{
-			if (collider.CompareTag("Block") || collider.CompareTag("DangerBlock") || collider.CompareTag("Ball") || collider.CompareTag("SoilBlock"))
+			if (collider.CompareTag("Block") || collider.CompareTag("DangerBlock") || collider.CompareTag("SoilBlock"))
 			{
 				return;
 			}

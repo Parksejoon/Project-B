@@ -21,7 +21,7 @@ public class PlayerManager : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		// 블록일 경우
-		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball") || collision.CompareTag("SoilBlock"))
+		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") || collision.CompareTag("CustomBlock"))
 		{
 			playerControl.ResetJump();
 		}
@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour
 	private void OnTriggerStay2D(Collider2D collision)
 	{
 		// 블록일 경우
-		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball") || collision.CompareTag("SoilBlock"))
+		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") || collision.CompareTag("CustomBlock"))
 		{
 			playerControl.ResetJump();
 		}

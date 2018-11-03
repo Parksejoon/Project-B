@@ -322,8 +322,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 378111009}
-  - component: {fileID: 378111008}
-  - component: {fileID: 378111007}
   - component: {fileID: 378111005}
   - component: {fileID: 378111010}
   m_Layer: 0
@@ -348,51 +346,6 @@ MonoBehaviour:
     type: 2}
   zPosition: -8
   speed: 7
---- !u!50 &378111007
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 378111004}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 1
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
---- !u!61 &378111008
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 378111004}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!4 &378111009
 Transform:
   m_ObjectHideFlags: 0
@@ -400,8 +353,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 378111004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.114314996, y: 0.114314996, z: 2.2863}
+  m_LocalPosition: {x: 2.92, y: 3, z: -8}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -441,7 +394,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 631e49e51b6f840439f8cf720e505ed5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a7c73dfcdb1d8a3419214f6be9dc0781, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135343,6 +135296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9e3ff72ea13f5479362b11d1d91424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fairyTransform: {fileID: 378111009}
   customBlockPrefab: {fileID: 1429968794032364, guid: ebab011f49a306e409f00aacbd2ab487,
     type: 2}
   createZPosition: 0
@@ -135397,7 +135351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapPattern:
-  - {fileID: 1915345700741028, guid: 59bf53c328847e74f9925da30dd2457c, type: 2}
+  - {fileID: 1949817272122430, guid: 3d18552dfefe90348987644542ee9ff3, type: 2}
 --- !u!1001 &1659298669
 Prefab:
   m_ObjectHideFlags: 0

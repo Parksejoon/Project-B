@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114985738260851222}
   m_Layer: 8
   m_Name: TeleportBlock
-  m_TagString: Block
+  m_TagString: CustomBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
