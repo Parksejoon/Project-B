@@ -36,7 +36,6 @@ public class FairyMove : MonoBehaviour
 		goalVector.z = zPosition;
 
 		// 충돌 처리
-		//CheckCollider(goalVector);
 		CheckCollider(new Vector2(goalVector.x, transform.position.y));
 		CheckCollider(new Vector2(transform.position.x, goalVector.y));
 	}
@@ -64,12 +63,21 @@ public class FairyMove : MonoBehaviour
 	{
 		Collider2D[] colliders;
 
+		pos.z = zPosition;
+
 		// 충돌처리
 		colliders = Physics2D.OverlapCircleAll(pos, colliderRadius);
 
 		foreach (Collider2D collider in colliders)
 		{
-			if (collider.CompareTag("Block") || collider.CompareTag("DangerBlock") || collider.CompareTag("SoilBlock"))
+			if (collider.CompareTag("DangerBlock"))
+			{
+				GameManager.instance.GameOver();
+
+				return;
+			}
+
+			if (collider.CompareTag("Block") || collider.CompareTag("SoilBlock"))
 			{
 				return;
 			}
