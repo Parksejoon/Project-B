@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1600
     height: 807
-  m_MinSize: {x: 817, y: 492}
-  m_MaxSize: {x: 22012, y: 14042}
+  m_MinSize: {x: 809, y: 492}
+  m_MaxSize: {x: 22004, y: 14042}
   vertical: 0
-  controlID: 5605
+  controlID: 2137
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,10 +130,10 @@ MonoBehaviour:
     y: 0
     width: 1323
     height: 807
-  m_MinSize: {x: 540, y: 492}
-  m_MaxSize: {x: 18010, y: 14042}
+  m_MinSize: {x: 534, y: 492}
+  m_MaxSize: {x: 18004, y: 14042}
   vertical: 1
-  controlID: 5542
+  controlID: 2138
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -154,10 +154,10 @@ MonoBehaviour:
     y: 0
     width: 1323
     height: 536
-  m_MinSize: {x: 402, y: 221}
-  m_MaxSize: {x: 8002, y: 4021}
+  m_MinSize: {x: 406, y: 221}
+  m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 5543
+  controlID: 2139
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -231,10 +231,10 @@ MonoBehaviour:
     y: 536
     width: 1323
     height: 271
-  m_MinSize: {x: 540, y: 271}
-  m_MaxSize: {x: 18010, y: 10021}
+  m_MinSize: {x: 534, y: 271}
+  m_MaxSize: {x: 18004, y: 10021}
   vertical: 0
-  controlID: 5572
+  controlID: 2225
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -448,9 +448,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.555495, y: 1.6094003, z: 0.86955684}
+    m_Target: {x: 1.0940623, y: 2.9111037, z: 0.57945526}
     speed: 2
-    m_Value: {x: 2.555495, y: 1.6094003, z: 0.86955684}
+    m_Value: {x: 1.0940623, y: 2.9111037, z: 0.57945526}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -482,9 +482,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 5.6268535
+    m_Target: 34.707096
     speed: 2
-    m_Value: 5.6268535
+    m_Value: 34.707096
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -624,9 +624,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2a160000
-    m_LastClickedID: 5674
-    m_ExpandedIDs: e4fbffff000000002a16000042160000
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 70f2ffffe4fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -678,7 +678,7 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 5674
+  m_LastSelectedObjectID: -3472
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -716,20 +716,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/ResourcesN/Sprites/Character
+    - Assets/Materials/Particle
   m_ViewMode: 1
   m_StartGridSize: 67
   m_LastFolders:
-  - Assets/ResourcesN/Sprites/Character
+  - Assets/Materials/Particle
   m_LastFoldersGridSize: 67
   m_LastProjectPath: "C:\\Users\\qkeh4\\OneDrive\\\uBB38\uC11C\\Unity Projects\\TheBlueLemonParty"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 387}
-    m_SelectedIDs: d60f0000
-    m_LastClickedID: 4054
-    m_ExpandedIDs: 000000003c0d0000820d0000a80d0000aa0d0000e20d0000ee0d0000460e0000480e0000be0e0000ca0e0000120f00004e0f00008011000086110000d41100000e3a0000103a0000123a0000143a000000ca9a3b
+    scrollPos: {x: 0, y: 87}
+    m_SelectedIDs: d6110000
+    m_LastClickedID: 4566
+    m_ExpandedIDs: 00000000400d0000860d0000ac0d0000ae0d0000e60d0000f20d00004a0e00004c0e0000c20e0000ce0e0000160f0000520f0000861100008c110000d81100001e3a0000203a0000223a0000243a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -757,7 +757,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003c0d0000820d0000a80d0000aa0d0000e20d0000ee0d0000460e0000480e0000be0e0000ca0e0000120f00004e0f00008011000086110000d41100000e3a0000103a0000123a0000143a000000ca9a3b
+    m_ExpandedIDs: 00000000400d0000860d0000ac0d0000ae0d0000e60d0000f20d00004a0e00004c0e0000c20e0000ce0e0000160f0000520f0000861100008c110000d81100001e3a0000203a0000223a0000243a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

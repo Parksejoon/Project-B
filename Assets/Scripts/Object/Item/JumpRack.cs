@@ -4,8 +4,8 @@ public class JumpRack : MonoBehaviour
 {
 	// 인스펙터 비노출 변수
 	// 일반
-	private		Vector2			jumpWay;            // 점프 방향
-	private		float			jumpPower = 20;		// 점프 파워
+	private const	float			jumpPower = 10;     // 점프 파워
+	private			Vector2			jumpWay;            // 점프 방향
 
 
 	// 트리거 진입
