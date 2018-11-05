@@ -5,9 +5,11 @@ public class Slot : MonoBehaviour
 	// 인스펙터 노출 변수
 	// 수치
 	[SerializeField]
-	private	bool				isConstantSlot = false;		// 고정 슬롯인지
+	private	bool				isConstantSlot = false;     // 고정 슬롯인지
+	[SerializeField]
+	private Texture				noneTexture = null;         // 투명 이미지
 
-	public	GameObject			itemPrefab = null;			// 아이템 프리팹
+	public	GameObject			itemPrefab = null;          // 아이템 프리팹
 	public	int					itemCount = 0;				// 아이템 개수
 
 	// 인스펙터 비노출 변수
@@ -52,7 +54,6 @@ public class Slot : MonoBehaviour
 			itemCount += _itemCount;
 
 			itemCountLabel.text = itemCount.ToString();
-			itemImageTexture.color = new Color(1, 1, 1, 1);
 			itemImageTexture.mainTexture = _itemPrefab.GetComponent<SpriteRenderer>().sprite.texture;
 
 			return true;
@@ -88,7 +89,7 @@ public class Slot : MonoBehaviour
 	private void ResetSlot()
 	{
 		itemCountLabel.text = "";
-		itemImageTexture.color = new Color(0, 0, 0, 0);
+		itemImageTexture.mainTexture = noneTexture; 
 		itemPrefab = null;
 	}
 }

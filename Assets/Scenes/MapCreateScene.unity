@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 456753350}
   - component: {fileID: 456753351}
   m_Layer: 5
-  m_Name: Texture
+  m_Name: SlotSelecter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -516,8 +516,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 456753349}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.5859165, y: 9.5859165, z: 9.5859165}
+  m_LocalPosition: {x: 0, y: 0, z: -75}
+  m_LocalScale: {x: 10.772144, y: 10.772144, z: 10.772144}
   m_Children: []
   m_Father: {fileID: 1892781670}
   m_RootOrder: 1
@@ -579,7 +579,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: e5397f1e8be8a6c4ca048ab55b59e990, type: 3}
+  mTexture: {fileID: 2800000, guid: 2af2ca9365cdaed4d8ced88b5d989c64, type: 3}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
   mFixedAspect: 0
@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 524641107}
   - component: {fileID: 524641108}
   m_Layer: 5
-  m_Name: Texture
+  m_Name: SlotSelecter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -757,8 +757,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 524641106}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.5924, y: 9.5924, z: 9.5924}
+  m_LocalPosition: {x: 0, y: 0, z: -75.06008}
+  m_LocalScale: {x: 10.779429, y: 10.779429, z: 10.779429}
   m_Children: []
   m_Father: {fileID: 958184719}
   m_RootOrder: 1
@@ -820,7 +820,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: e5397f1e8be8a6c4ca048ab55b59e990, type: 3}
+  mTexture: {fileID: 2800000, guid: 2af2ca9365cdaed4d8ced88b5d989c64, type: 3}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
   mFixedAspect: 0
@@ -1047,6 +1047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConstantSlot: 1
+  noneTexture: {fileID: 2800000, guid: cf6d668ed61e6bb42ae065d9f98b26b1, type: 3}
   itemPrefab: {fileID: 1429968794032364, guid: ebab011f49a306e409f00aacbd2ab487, type: 2}
   itemCount: 5
 --- !u!114 &958184722
@@ -5891,7 +5892,7 @@ GameObject:
   - component: {fileID: 1237765143}
   - component: {fileID: 1237765144}
   m_Layer: 5
-  m_Name: Texture
+  m_Name: SlotSelecter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5904,8 +5905,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1237765142}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 9.5859165, y: 9.5859165, z: 9.5859165}
+  m_LocalPosition: {x: 0, y: 0, z: -75.000084}
+  m_LocalScale: {x: 10.772144, y: 10.772144, z: 10.772144}
   m_Children: []
   m_Father: {fileID: 1808291111}
   m_RootOrder: 1
@@ -5967,7 +5968,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mTexture: {fileID: 2800000, guid: e5397f1e8be8a6c4ca048ab55b59e990, type: 3}
+  mTexture: {fileID: 2800000, guid: 2af2ca9365cdaed4d8ced88b5d989c64, type: 3}
   mShader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   mBorder: {x: 0, y: 0, z: 0, w: 0}
   mFixedAspect: 0
@@ -140703,6 +140704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConstantSlot: 0
+  noneTexture: {fileID: 2800000, guid: cf6d668ed61e6bb42ae065d9f98b26b1, type: 3}
   itemPrefab: {fileID: 0}
   itemCount: 0
 --- !u!1 &1892781669
@@ -140810,6 +140812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isConstantSlot: 0
+  noneTexture: {fileID: 2800000, guid: cf6d668ed61e6bb42ae065d9f98b26b1, type: 3}
   itemPrefab: {fileID: 0}
   itemCount: 0
 --- !u!1001 &1910204411
