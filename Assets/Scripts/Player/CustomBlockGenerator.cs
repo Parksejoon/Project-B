@@ -6,7 +6,9 @@ public class CustomBlockGenerator: MonoBehaviour
 	// 인스펙터 노출 변수
 	// 일반
 	[SerializeField]
-	private Transform				fairyTransform;						// 요정 트랜스폼
+	private Transform				fairyTransform;                     // 요정 트랜스폼
+	[SerializeField]
+	private SlotSelecter			slotSelecter;						// 슬롯 선택 이미지
 
 	public	GameObject				customBlockPrefab;                  // 커스텀 블럭 프리팹
 
@@ -49,14 +51,17 @@ public class CustomBlockGenerator: MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
 			slotNumber = 1;
+			slotSelecter.SetSelecter(1);
 		}
 		else if (Input.GetKeyDown(KeyCode.Alpha2))
 		{
 			slotNumber = 2;
+			slotSelecter.SetSelecter(2);
 		}
 		else if (Input.GetKeyDown(KeyCode.Alpha3))
 		{
 			slotNumber = 3;
+			slotSelecter.SetSelecter(3);
 		}
 	}
 

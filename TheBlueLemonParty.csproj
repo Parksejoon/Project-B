@@ -531,6 +531,7 @@
     <Compile Include="Assets\Scripts\System\ObjectPoolManager.cs" />
     <Compile Include="Assets\Scripts\System\RandomMapGenerator.cs" />
     <Compile Include="Assets\Scripts\UI\Slot.cs" />
+    <Compile Include="Assets\Scripts\UI\SlotSelecter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Add-Ons\2d-extras-master\Assets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />
