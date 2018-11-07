@@ -40,6 +40,20 @@ public class PurificationExplosion : MonoBehaviour
 		ComitBomb();
 	}
 
+	// 트리거 진입
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.CompareTag("Player") || collision.CompareTag("Ball"))
+		{
+			collision.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position) * 3f, ForceMode2D.Impulse);
+		}
+
+		if (collision.CompareTag("BallGenerator"))
+		{
+			Destroy(collision.gameObject);
+		}
+	}
+
 	// 폭발
 	private void ComitBomb()
 	{

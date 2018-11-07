@@ -7,7 +7,12 @@ public class GravityExplosion : MonoBehaviour
 	{
 		if (collision.CompareTag("Player") || collision.CompareTag("Ball"))
 		{
-			collision.GetComponent<Rigidbody2D>().AddForce((transform.position - collision.transform.position) * 5f, ForceMode2D.Impulse);
+			collision.GetComponent<Rigidbody2D>().AddForce((transform.position - collision.transform.position) * 4f, ForceMode2D.Impulse);
+		}
+
+		if (collision.CompareTag("BallGenerator"))
+		{
+			Destroy(collision.gameObject);
 		}
 	}
 }
