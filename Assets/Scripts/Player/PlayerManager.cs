@@ -6,6 +6,8 @@ public class PlayerManager : MonoBehaviour
 	// 일반
 	[SerializeField]
 	private PlayerController				playerControl;              // 플레이어 컨트롤
+	[SerializeField]
+	private MoveParticle					moveParticle;				// 움직임 파티클
 
 
 	// 초기화
@@ -24,6 +26,8 @@ public class PlayerManager : MonoBehaviour
 		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") || collision.CompareTag("CustomBlock"))
 		{
 			playerControl.ResetJump();
+
+			moveParticle.flagArray[1] = true;
 		}
 	}
 
@@ -34,6 +38,17 @@ public class PlayerManager : MonoBehaviour
 		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") || collision.CompareTag("CustomBlock"))
 		{
 			playerControl.ResetJump();
+		}
+	}
+
+	// 트리거 탈출
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+
+		// 블록일 경우
+		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") || collision.CompareTag("CustomBlock"))
+		{
+			moveParticle.flagArray[1] = false;
 		}
 	}
 }

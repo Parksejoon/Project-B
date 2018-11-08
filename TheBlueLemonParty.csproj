@@ -522,6 +522,7 @@
     <Compile Include="Assets\Scripts\Object\UnstableBlock.cs" />
     <Compile Include="Assets\Scripts\Player\CustomBlockGenerator.cs" />
     <Compile Include="Assets\Scripts\Player\FairyMove.cs" />
+    <Compile Include="Assets\Scripts\Player\MoveParticle.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\System\GameManager.cs" />

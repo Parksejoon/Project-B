@@ -9,7 +9,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private Rigidbody2D			playerRigidbody2D;          // 플레이어 리지드바디 2D
 	[SerializeField]
-	private SpriteRenderer		spriteRenderer;				// 플레이어 스프라이트 렌더러
+	private SpriteRenderer		spriteRenderer;             // 플레이어 스프라이트 렌더러
+	[SerializeField]
+	private MoveParticle		moveParticle;				// 움직임 파티클
 
 	// 수치
 	public	int					originJumpCount;			// 기본 점프 카운트
@@ -24,7 +26,7 @@ public class PlayerController : MonoBehaviour
 	private int					jumpCount;                  // 점프 카운트
 	private float				horizontalMove;             // 좌우 이동
 	private float				verticalMove;				// 상하 이동
-	private bool				isJumping = false;			// 점프 여부
+	private bool				isJumping = false;          // 점프 여부
 
 
 	// 초기화
@@ -70,10 +72,12 @@ public class PlayerController : MonoBehaviour
 
 		position.x += horizontalMove * Time.deltaTime * moveSpeed;
 		playerTransform.position = position;
+		moveParticle.flagArray[0] = false;
 
 		if (horizontalMove < 0)
 		{
 			spriteRenderer.flipX = true;
+			moveParticle.flagArray[0] = true;
 
 			if (velocity.x > 0)
 			{
@@ -83,6 +87,7 @@ public class PlayerController : MonoBehaviour
 		else if (horizontalMove > 0)
 		{
 			spriteRenderer.flipX = false;
+			moveParticle.flagArray[0] = true;
 
 			if (velocity.x < 0)
 			{
