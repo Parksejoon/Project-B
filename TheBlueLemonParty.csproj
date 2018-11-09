@@ -531,6 +531,7 @@
     <Compile Include="Assets\Scripts\System\ObjectPoolGenerator.cs" />
     <Compile Include="Assets\Scripts\System\ObjectPoolManager.cs" />
     <Compile Include="Assets\Scripts\System\RandomMapGenerator.cs" />
+    <Compile Include="Assets\Scripts\UI\Pause.cs" />
     <Compile Include="Assets\Scripts\UI\Slot.cs" />
     <Compile Include="Assets\Scripts\UI\SlotSelecter.cs" />
   </ItemGroup>
