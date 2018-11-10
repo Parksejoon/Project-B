@@ -3,9 +3,16 @@
 public class Pause : MonoBehaviour
 {
 	// 정지
-	public void Stop()
+	public void StopOrStart()
 	{
-		Time.timeScale = 0f;
+		if (Time.timeScale == 0f)
+		{
+			Time.timeScale = 1f;
+		}
+		else
+		{
+			Time.timeScale = 0f;
+		}
 	}
 
 }
