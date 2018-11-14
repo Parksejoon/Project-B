@@ -51,17 +51,41 @@ public class CustomBlockGenerator: MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Alpha1))
 		{
 			slotNumber = 1;
-			slotSelecter.SetSelecter(1);
+			slotSelecter.SetSelecter(slotNumber);
 		}
 		else if (Input.GetKeyDown(KeyCode.Alpha2))
 		{
 			slotNumber = 2;
-			slotSelecter.SetSelecter(2);
+			slotSelecter.SetSelecter(slotNumber);
 		}
 		else if (Input.GetKeyDown(KeyCode.Alpha3))
 		{
 			slotNumber = 3;
-			slotSelecter.SetSelecter(3);
+			slotSelecter.SetSelecter(slotNumber);
+		}
+
+		if (Input.GetAxis("Mouse ScrollWheel") < 0)
+		{
+			slotNumber--;
+
+			if (slotNumber < 1)
+			{
+				slotNumber = 3;
+			}
+
+			slotSelecter.SetSelecter(slotNumber);
+		}
+
+		if (Input.GetAxis("Mouse ScrollWheel") > 0)
+		{
+			slotNumber++;
+
+			if (slotNumber > 3)
+			{
+				slotNumber = 1;
+			}
+
+			slotSelecter.SetSelecter(slotNumber);
 		}
 	}
 
