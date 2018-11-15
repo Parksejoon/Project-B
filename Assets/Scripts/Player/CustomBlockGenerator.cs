@@ -66,11 +66,11 @@ public class CustomBlockGenerator: MonoBehaviour
 
 		if (Input.GetAxis("Mouse ScrollWheel") < 0)
 		{
-			slotNumber--;
+			slotNumber++;
 
-			if (slotNumber < 1)
+			if (slotNumber > 3)
 			{
-				slotNumber = 3;
+				slotNumber = 1;
 			}
 
 			slotSelecter.SetSelecter(slotNumber);
@@ -78,11 +78,11 @@ public class CustomBlockGenerator: MonoBehaviour
 
 		if (Input.GetAxis("Mouse ScrollWheel") > 0)
 		{
-			slotNumber++;
+			slotNumber--;
 
-			if (slotNumber > 3)
+			if (slotNumber < 1)
 			{
-				slotNumber = 1;
+				slotNumber = 3;
 			}
 
 			slotSelecter.SetSelecter(slotNumber);
