@@ -8,8 +8,10 @@ public class CustomBlockGenerator: MonoBehaviour
 	[SerializeField]
 	private Transform				fairyTransform;                     // 요정 트랜스폼
 	[SerializeField]
-	private SlotSelecter			slotSelecter;						// 슬롯 선택 이미지
-
+	private SlotSelecter			slotSelecter;                       // 슬롯 선택 이미지
+	[SerializeField]
+	private GameObject				cantCreateEffect;					// 설치 불가 이펙트
+		
 	public	GameObject				customBlockPrefab;                  // 커스텀 블럭 프리팹
 
 	// 수치
@@ -29,9 +31,16 @@ public class CustomBlockGenerator: MonoBehaviour
 	private void Update()
 	{
 		// 클릭 시작
-		if (Input.GetMouseButtonDown(0) && CanCreate())
+		if (Input.GetMouseButtonDown(0))
 		{
-			CreateBlock();
+			if (CanCreate())
+			{
+				CreateBlock();
+			}
+			else
+			{
+				Instantiate(cantCreateEffect, targetPosition, Quaternion.identity);
+			}
 		}
 
 		// 클릭 중
