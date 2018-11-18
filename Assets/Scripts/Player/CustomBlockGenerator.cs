@@ -39,6 +39,8 @@ public class CustomBlockGenerator: MonoBehaviour
 			}
 			else
 			{
+				targetPosition.z = -10;
+
 				Instantiate(cantCreateEffect, targetPosition, Quaternion.identity);
 			}
 		}
