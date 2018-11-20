@@ -39,9 +39,6 @@ public class CustomBlockGenerator: MonoBehaviour
 			}
 			else
 			{
-				targetPosition.z = -10;
-
-				Instantiate(cantCreateEffect, targetPosition, Quaternion.identity);
 			}
 		}
 
@@ -109,6 +106,11 @@ public class CustomBlockGenerator: MonoBehaviour
 	// 블럭 생성 가능상태 확인
 	private bool CanCreate()
 	{
+		if (Pause.isPause)
+		{
+			return false;
+		}
+
 		targetPosition = fairyTransform.position;
 		targetPosition.z = createZPosition;
 
@@ -118,6 +120,10 @@ public class CustomBlockGenerator: MonoBehaviour
 		{
 			if (collider.CompareTag("Block") || collider.CompareTag("CustomBlock") || collider.CompareTag("DangerBlock") || collider.CompareTag("NoCreate") || collider.CompareTag("Ball") || collider.CompareTag("SoilBlock"))
 			{
+				targetPosition.z = -10;
+
+				Instantiate(cantCreateEffect, targetPosition, Quaternion.identity);
+
 				return false;
 			}
 		}

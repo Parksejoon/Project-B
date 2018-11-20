@@ -2,6 +2,8 @@
 
 public class Pause : MonoBehaviour
 {
+	public static bool isPause = false;					// 일시정지 상태 확인 변수
+
 	// 인스펙터 노출 변수
 	// 일반
 	[SerializeField]
@@ -20,16 +22,18 @@ public class Pause : MonoBehaviour
 	// 정지
 	public void PauseOrContinue()
 	{
-		if (Time.timeScale == 0f)
+		if (isPause)
 		{
 			Time.timeScale = 1f;
 
+			isPause = false;
 			pauseMenu.SetActive(false);
 		}
 		else
 		{
 			Time.timeScale = 0f;
 
+			isPause = true;
 			pauseMenu.SetActive(true);
 		}
 	}
