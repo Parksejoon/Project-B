@@ -514,6 +514,7 @@
     <Compile Include="Assets\Scripts\Object\Item\Bomb.cs" />
     <Compile Include="Assets\Scripts\Object\Item\GravityExplosion.cs" />
     <Compile Include="Assets\Scripts\Object\Item\Item.cs" />
+    <Compile Include="Assets\Scripts\Object\Item\ItemGenerator.cs" />
     <Compile Include="Assets\Scripts\Object\Item\JumpRack.cs" />
     <Compile Include="Assets\Scripts\Object\Item\OriginalExplosion.cs" />
     <Compile Include="Assets\Scripts\Object\Item\PurificationExplosion.cs" />
