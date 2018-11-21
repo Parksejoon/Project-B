@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
 		{
 			if (InventoryManager.instance.AddItem(targetObject, itemCount))
 			{
-				Destroy(gameObject);
+				Destroy(transform.parent.gameObject);
 			}
 		}
 	}
