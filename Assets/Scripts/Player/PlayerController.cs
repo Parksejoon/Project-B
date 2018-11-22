@@ -2,11 +2,10 @@
 
 public class PlayerController : MonoBehaviour
 {
+	public static Transform		playerTransform;            // 플레이어 트랜스폼
+
 	// 인스펙터 노출 변수
-	// 일반
-	[SerializeField]
-	private Transform			playerTransform;            // 플레이어 트랜스폼
-	[SerializeField]
+	// 일반[SerializeField]
 	private Rigidbody2D			playerRigidbody2D;          // 플레이어 리지드바디 2D
 	[SerializeField]
 	private SpriteRenderer		spriteRenderer;             // 플레이어 스프라이트 렌더러

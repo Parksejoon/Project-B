@@ -158,6 +158,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetObject: {fileID: 1722350624192444, guid: 26067762f9f36a845bb14309a5f99a10,
     type: 2}
+  destroyParticle: {fileID: 1333032296611408, guid: 5de516338eb625f43b8617869bd812d9,
+    type: 2}
   itemCount: 10
 --- !u!212 &212186285403085560
 SpriteRenderer:

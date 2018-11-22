@@ -3,7 +3,10 @@ guid: c81942f836918f94b9f97a984fb38eac
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - targetObject: {instanceID: 0}
+  - destroyParticle: {fileID: 1333032296611408, guid: 5de516338eb625f43b8617869bd812d9,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

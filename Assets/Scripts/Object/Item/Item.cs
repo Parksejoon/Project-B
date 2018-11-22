@@ -6,6 +6,8 @@ public class Item : MonoBehaviour
 	// 일반
 	[SerializeField]
 	private		GameObject		targetObject;           // 아이템 오브젝트
+	[SerializeField]
+	private		GameObject		destroyParticle;		// 파괴 이펙트
 
 	// 수치
 	[SerializeField]
@@ -19,6 +21,11 @@ public class Item : MonoBehaviour
 		{
 			if (InventoryManager.instance.AddItem(targetObject, itemCount))
 			{
+				Vector3 position = PlayerController.playerTransform.position;
+
+				position.z = -15;
+				Instantiate(destroyParticle, position, Quaternion.identity);
+
 				Destroy(transform.parent.gameObject);
 			}
 		}
