@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1089445198009272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.68, y: 3.74, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4105650330078628}
@@ -1469,7 +1469,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -1478,7 +1478,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.19582377, g: 0.18752226, b: 0.9245283, a: 1}
-        key1: {r: 0.19582377, g: 0.18752226, b: 0.9245283, a: 1}
+        key1: {r: 0.19582377, g: 0.18752226, b: 0.9245283, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
