@@ -22,9 +22,10 @@ public class Item : MonoBehaviour
 			if (InventoryManager.instance.AddItem(targetObject, itemCount))
 			{
 				Vector3 position = PlayerController.playerTransform.position;
+				//Vector3 position = transform.position;
 
 				position.z = -15;
-				Instantiate(destroyParticle, position, Quaternion.identity);
+				Instantiate(destroyParticle, position, Quaternion.identity, PlayerController.playerTransform);
 
 				Destroy(transform.parent.gameObject);
 			}
