@@ -10,7 +10,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField]
 	private SpriteRenderer		spriteRenderer;             // 플레이어 스프라이트 렌더러
 	[SerializeField]
-	private MoveParticle		moveParticle;				// 움직임 파티클
+	private MoveParticle		moveParticle;               // 움직임 파티클
+	[SerializeField]
+	private GameObject			jumpEffect;					// 점프 이펙트
 
 	// 수치
 	public	int					originJumpCount;			// 기본 점프 카운트
@@ -112,6 +114,15 @@ public class PlayerController : MonoBehaviour
 				playerRigidbody2D.velocity = new Vector3(velocity.x, 0);
 			}
 
+			// 이펙트
+			Vector3 position = transform.position;
+
+			position.y -= 0.5f;
+			position.z = -15;
+
+			Instantiate(jumpEffect, position, Quaternion.identity);
+
+			// 점프
 			playerRigidbody2D.AddForce(Vector2.up * jumpPower * Input.GetAxis("Jump"), ForceMode2D.Impulse);
 
 			jumpCount--;
