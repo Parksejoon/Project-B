@@ -10,7 +10,9 @@ public class CustomBlockGenerator: MonoBehaviour
 	[SerializeField]
 	private SlotSelecter			slotSelecter;                       // 슬롯 선택 이미지
 	[SerializeField]
-	private GameObject				cantCreateEffect;					// 설치 불가 이펙트
+	private GameObject				cantCreateEffect;                   // 설치 불가 이펙트
+	[SerializeField]
+	private GameObject				itemCreateEffect;					// 블록 설치 이펙트
 		
 	public	GameObject				customBlockPrefab;                  // 커스텀 블럭 프리팹
 
@@ -100,6 +102,8 @@ public class CustomBlockGenerator: MonoBehaviour
 	// 블럭 생성
 	private void CreateBlock()
 	{
+		Instantiate(itemCreateEffect, targetPosition, Quaternion.identity, transform);
+
 		targetBlock = Instantiate(customBlockPrefab, targetPosition, Quaternion.identity, transform).transform;
 	}
 
