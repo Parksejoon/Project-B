@@ -14,8 +14,17 @@ public class MoveParticle : MonoBehaviour
 	// 인스펙터 비노출 변수
 	// 수치
 	[HideInInspector]
-	public	bool[]				flagArray;				// 플래그 배열
+	public	bool[]				flagArray;              // 플래그 배열
 
+
+	// 초기화
+	private void Awake()
+	{
+		if (targetParticle == null)
+		{
+			targetParticle = GetComponent<ParticleSystem>();
+		}
+	}
 
 	// 시작
 	private void Start()

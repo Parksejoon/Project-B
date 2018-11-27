@@ -160,7 +160,7 @@ MonoBehaviour:
     type: 2}
   destroyParticle: {fileID: 1333032296611408, guid: 5de516338eb625f43b8617869bd812d9,
     type: 2}
-  itemCount: 10
+  itemCount: 1
 --- !u!212 &212484465491246574
 SpriteRenderer:
   m_ObjectHideFlags: 1
