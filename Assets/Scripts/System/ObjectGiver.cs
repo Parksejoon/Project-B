@@ -29,6 +29,15 @@ public class ObjectGiver : MonoBehaviour
 		StartCoroutine("GiveBlock");
 	}
 
+	// 블럭 한번에 지급
+	public void GiveAllBlock()
+	{
+		while (targetSlot.itemCount < maxItemCount)
+		{
+			targetSlot.AddItem(targetObject, 1);
+		}
+	}
+
 	// 블럭 지급 코루틴
 	private IEnumerator GiveBlock()
 	{

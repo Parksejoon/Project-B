@@ -28,6 +28,11 @@ public class PlayerManager : MonoBehaviour
 			playerControl.ResetJump();
 
 			moveParticle.flagArray[1] = true;
+
+			if (!collision.CompareTag("CustomBlock") && !collision.CompareTag("Ball"))
+			{
+				GameManager.instance.NormalBlockReset();
+			}
 		}
 	}
 
