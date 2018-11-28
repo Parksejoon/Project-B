@@ -507,6 +507,7 @@
     <Compile Include="Assets\Add-Ons\NGUI\Scripts\UI\UIViewport.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraChase.cs" />
     <Compile Include="Assets\Scripts\Camera\EnableArea.cs" />
+    <Compile Include="Assets\Scripts\Monster\MonsterMove.cs" />
     <Compile Include="Assets\Scripts\Object\BallGenerator.cs" />
     <Compile Include="Assets\Scripts\Object\BallGeneratorDisabled.cs" />
     <Compile Include="Assets\Scripts\Object\BallGoal.cs" />

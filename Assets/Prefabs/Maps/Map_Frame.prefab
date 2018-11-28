@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 2113883504805420254}
   - component: {fileID: 50137799528187074}
   - component: {fileID: 66224446187730858}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NoCreateZone
   m_TagString: NoCreate
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 2113883505860547630}
   - component: {fileID: 50760134156959584}
   - component: {fileID: 66757953775675122}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Base
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1349256846698522
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4448116502651942}
   - component: {fileID: 2569400266316193138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MapGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 2113883504804997974}
   - component: {fileID: 50275508068831924}
   - component: {fileID: 66836783089201320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Danger
   m_TagString: DangerBlock
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 2113883507131568704}
   - component: {fileID: 50674831521211336}
   - component: {fileID: 66860606897257526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sub
   m_TagString: SoilBlock
   m_Icon: {fileID: 0}
@@ -359,9 +359,7 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 2113883504805420254}
-    m_ColliderPaths: []
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths: []
   m_VertexDistance: 0.0005
@@ -381,33 +379,7 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 2113883505860547630}
-    m_ColliderPaths:
-    - - X: -170000000
-        Y: 670000000
-      - X: -180000000
-        Y: 670000000
-      - X: -180000000
-        Y: -30000000
-      - X: -170000000
-        Y: -30000000
-    - - X: 180000000
-        Y: 670000000
-      - X: 170000000
-        Y: 670000000
-      - X: 170000000
-        Y: -30000000
-      - X: 180000000
-        Y: -30000000
-    - - X: 20000000
-        Y: -10000000
-      - X: -20000000
-        Y: -10000000
-      - X: -20000000
-        Y: -30000000
-      - X: 20000000
-        Y: -30000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: -17, y: 67}
@@ -439,9 +411,7 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 2113883504804997974}
-    m_ColliderPaths: []
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths: []
   m_VertexDistance: 0.0005
@@ -461,9 +431,7 @@ CompositeCollider2D:
   m_GeometryType: 1
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 2113883507131568704}
-    m_ColliderPaths: []
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths: []
   m_VertexDistance: 0.0005
