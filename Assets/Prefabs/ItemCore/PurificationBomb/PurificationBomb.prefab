@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 61147151251994458}
   - component: {fileID: 114750312104138468}
   - component: {fileID: 212733984196798586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PurificationBomb
   m_TagString: CustomBlock
   m_Icon: {fileID: 0}

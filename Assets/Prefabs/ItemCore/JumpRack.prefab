@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4212639370131034}
   - component: {fileID: 61390413433038418}
   - component: {fileID: 114238914750798508}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JumpCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4063131904996978}
   - component: {fileID: 61544171797387328}
   - component: {fileID: 212045593652003210}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: JumpRack
   m_TagString: CustomBlock
   m_Icon: {fileID: 0}

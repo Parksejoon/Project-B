@@ -11,6 +11,7 @@ TagManager:
   - BallGenerator
   - SoilBlock
   - CustomBlock
+  - Monster
   layers:
   - Default
   - TransparentFX

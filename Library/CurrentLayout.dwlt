@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1600
     height: 857
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_MinSize: {x: 717, y: 492}
   m_MaxSize: {x: 22012, y: 14042}
   vertical: 0
-  controlID: 658
+  controlID: 5881
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 440, y: 492}
   m_MaxSize: {x: 18010, y: 14042}
   vertical: 1
-  controlID: 606
+  controlID: 6011
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -154,10 +154,10 @@ MonoBehaviour:
     y: 0
     width: 1320
     height: 518
-  m_MinSize: {x: 406, y: 221}
-  m_MaxSize: {x: 8006, y: 4021}
+  m_MinSize: {x: 402, y: 221}
+  m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 607
+  controlID: 6012
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -234,7 +234,7 @@ MonoBehaviour:
   m_MinSize: {x: 440, y: 271}
   m_MaxSize: {x: 18010, y: 10021}
   vertical: 0
-  controlID: 637
+  controlID: 5860
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -363,7 +363,7 @@ MonoBehaviour:
     width: 470
     height: 268
   m_PersistentViewDataDictionary: {fileID: 0}
-  m_MaximizeOnPlay: 0
+  m_MaximizeOnPlay: 1
   m_Gizmos: 0
   m_Stats: 0
   m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
@@ -490,7 +490,7 @@ MonoBehaviour:
     speed: 2
     m_Value: 1
   m_ShowGlobalGrid: 1
-  m_LastSceneViewRotation: {x: -0.034169175, y: -0.029075794, z: -0.0009944995, w: 0.99899256}
+  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -624,23 +624,23 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: dad3ffff
-    m_LastClickedID: -11302
-    m_ExpandedIDs: dad3ffff62fbffff66fbffffe4fbffff00000000b8160000de160000
+    m_SelectedIDs: 000f0000
+    m_LastClickedID: 0
+    m_ExpandedIDs: 18fbffff62fbffffdefbffffe4fbffff000000003e1700006e170000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: MonsterCollisionFront
-      m_OriginalName: MonsterCollisionFront
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -58528
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
@@ -678,7 +678,7 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -11302
+  m_LastSelectedObjectID: 5998
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -716,20 +716,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/ResourcesN/Sprites/Textures
+    - Assets/Prefabs/ItemCore/PurificationBomb
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/ResourcesN/Sprites/Textures
+  - Assets/Prefabs/ItemCore/PurificationBomb
   m_LastFoldersGridSize: 71
   m_LastProjectPath: "C:\\Users\\qkeh4\\OneDrive\\\uBB38\uC11C\\Unity Projects\\TheBlueLemonParty"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 337}
-    m_SelectedIDs: e80e0000
-    m_LastClickedID: 3816
-    m_ExpandedIDs: 00000000580d0000a20d0000ca0d0000cc0d0000040e0000100e0000680e00006a0e0000e80e0000f40e0000800f00001e10000046100000ca110000d0110000241200007a3a00007c3a00007e3a0000803a000000ca9a3b
+    scrollPos: {x: 0, y: 120}
+    m_SelectedIDs: 74100000
+    m_LastClickedID: 4212
+    m_ExpandedIDs: 000000005a0d0000a40d0000cc0d0000ce0d0000060e0000120e00006a0e00006c0e0000ea0e0000f60e0000820f00002010000048100000ce110000d4110000281200009a3a00009c3a00009e3a0000a03a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -757,7 +757,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000580d0000a20d0000ca0d0000cc0d0000040e0000100e0000680e00006a0e0000e80e0000f40e0000800f00001e10000046100000ca110000d0110000241200007a3a00007c3a00007e3a0000803a000000ca9a3b
+    m_ExpandedIDs: 000000005a0d0000a40d0000cc0d0000ce0d0000060e0000120e00006a0e00006c0e0000ea0e0000f60e0000820f00002010000048100000ce110000d4110000281200009a3a00009c3a00009e3a0000a03a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -784,7 +784,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: fa28000052290000222a0000f0290000182a0000e82900001c290000702a0000f8280000242a0000e6280000fc280000a6290000e22900001e2a0000ec290000b4300000a40a00000c0a0000f6300000e40b0000ea0b0000ec0b00006a0e0000521200008c60fffffe0e0000000000004a0e0000a00f00009210000054120000c60e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

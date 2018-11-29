@@ -25,7 +25,7 @@ public class MonsterMove : MonoBehaviour
 	// 초기화
 	private void Awake()
 	{
-		//contactFilter2D.SetLayerMask(8);
+		contactFilter2D.SetLayerMask(1<<8);
 	}
 
 	// 픽스 프레임 
