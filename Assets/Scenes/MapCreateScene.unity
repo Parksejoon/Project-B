@@ -156,6 +156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerControl: {fileID: 1070208807}
   moveParticle: {fileID: 474730556}
+  isGround: 0
 --- !u!61 &67520746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -315,6 +316,47 @@ MonoBehaviour:
     FarClipPlane: 5000
     Dutch: 0
   m_ComponentOwner: {fileID: 70085316}
+--- !u!1 &76625634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 76625636}
+  - component: {fileID: 76625635}
+  m_Layer: 0
+  m_Name: SkillList
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &76625635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 76625634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5c8ed502d443049b4c804b68dbca74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalBlockGiver: {fileID: 958184722}
+--- !u!4 &76625636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 76625634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1617088177}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &288841445
 GameObject:
   m_ObjectHideFlags: 0
@@ -150253,6 +150295,7 @@ GameObject:
   - component: {fileID: 1617088182}
   - component: {fileID: 1617088183}
   - component: {fileID: 1617088184}
+  - component: {fileID: 1617088185}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -150271,7 +150314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03044cfc29dbc4e41b4bb827131ac168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalBlockGiver: {fileID: 958184722}
 --- !u!4 &1617088177
 Transform:
   m_ObjectHideFlags: 0
@@ -150281,7 +150323,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 76625636}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -150384,6 +150427,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1605128592}
+--- !u!114 &1617088185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1617088175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecfa4a94eeb25b04ba0fb4ddbc469460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillQ: {fileID: 76625635}
 --- !u!1 &1664071159
 GameObject:
   m_ObjectHideFlags: 0
