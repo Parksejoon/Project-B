@@ -2,19 +2,15 @@
 
 public class PlayerManager : MonoBehaviour
 {
-	public static PlayerManager instance;	// 싱글턴 인스턴스
+	public static PlayerManager instance;				// 싱글턴 인스턴스
 
-	// 인스펙터 노출 변수
-	// 일반
 	[SerializeField]
-	private PlayerController	playerControl;              // 플레이어 컨트롤
+	private PlayerController	playerControl;          // 플레이어 컨트롤
 	[SerializeField]
-	private MoveParticle		moveParticle;               // 움직임 파티클
-
-	// 인스펙터 비노출 변수
-	// 수치
+	private MoveParticle		moveParticle;           // 움직임 파티클
+	
 	[HideInInspector]
-	public	bool				isGround = false;			// 바닥인지
+	public	bool				isGround = false;		// 바닥인지
 
 
 	// 초기화

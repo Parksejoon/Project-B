@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반
 	[SerializeField]
 	private GameObject	explosion;          // 폭발
 

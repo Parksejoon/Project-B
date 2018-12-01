@@ -2,7 +2,6 @@
 
 public class SlotSelecter : MonoBehaviour
 {
-	// 인스펙터 노출 변수
 	[SerializeField]
 	private UITexture[]			selecterTextures;				// 선택 이미지 텍스쳐들
 

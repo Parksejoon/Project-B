@@ -2,8 +2,6 @@
 
 public class RandomMapGenerator : MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반
 	[SerializeField]
 	private		GameObject[]		mapPattern;         // 맵 패턴
 

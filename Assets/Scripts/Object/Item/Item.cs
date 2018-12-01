@@ -2,16 +2,13 @@
 
 public class Item : MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반
 	[SerializeField]
 	private		GameObject		targetObject;           // 아이템 오브젝트
 	[SerializeField]
 	private		GameObject		destroyParticle;		// 파괴 이펙트
-
-	// 수치
 	[SerializeField]
 	private		int				itemCount;				// 아이템 개수
+
 
 	// 트리거 진입
 	private void OnTriggerEnter2D(Collider2D collision)

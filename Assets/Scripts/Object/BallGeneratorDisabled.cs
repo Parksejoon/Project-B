@@ -2,8 +2,6 @@
 
 public class BallGeneratorDisabled : MonoBehaviour
 {
-	// 인스펙터 비노출 변수
-	// 일반
 	private		GameObject		ballGenerator;              // 볼 제네레이터
 
 

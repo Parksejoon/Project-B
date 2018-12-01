@@ -4,13 +4,9 @@ using UnityEngine.Tilemaps;
 
 public class PurificationExplosion : MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반
 	[SerializeField]
 	private TileBase	soilTile;			// 흙 타일
 
-	// 인스펙터 비노출 변수
-	// 일반
 	private Tilemap[]	dangerTileMaps;     // 위험 블록 타일맵들
 	private Tilemap[]	normalTileMaps;     // 일반 블록 타일맵들
 	private Grid[]		grids;				// 그리드들

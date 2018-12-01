@@ -3,9 +3,8 @@
 public class PlayerController : MonoBehaviour
 {
 	public static Transform		playerTransform;            // 플레이어 트랜스폼
-
-	// 인스펙터 노출 변수
-	// 일반[SerializeField]
+	
+	[SerializeField]
 	private Rigidbody2D			playerRigidbody2D;          // 플레이어 리지드바디 2D
 	[SerializeField]
 	private SpriteRenderer		spriteRenderer;             // 플레이어 스프라이트 렌더러
@@ -13,21 +12,17 @@ public class PlayerController : MonoBehaviour
 	private MoveParticle		moveParticle;               // 움직임 파티클
 	[SerializeField]
 	private GameObject			jumpEffect;					// 점프 이펙트
-
-	// 수치
-	public	int					originJumpCount;			// 기본 점프 카운트
-
 	[SerializeField]
 	private float				moveSpeed;                  // 움직임 속도
 	[SerializeField]
 	private float				jumpPower;                  // 점프 파워
-
-	// 인스펙터 비노출 변수
-	// 수치
+	
 	private int					jumpCount;                  // 점프 카운트
 	private float				horizontalMove;             // 좌우 이동
 	private float				verticalMove;				// 상하 이동
 	private bool				isJumping = false;          // 점프 여부
+
+	public	int					originJumpCount;			// 기본 점프 카운트
 
 
 	// 초기화

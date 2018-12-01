@@ -2,13 +2,9 @@
 
 public class JumpRack : MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반
 	[SerializeField]
 	private			GameObject		jumpEffect;			// 점프 파티클
-
-	// 인스펙터 비노출 변수
-	// 일반
+	
 	private const	float			jumpPower = 10;     // 점프 파워
 	private			Vector2			jumpWay;            // 점프 방향
 

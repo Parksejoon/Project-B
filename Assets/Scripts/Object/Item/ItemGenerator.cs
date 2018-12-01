@@ -2,7 +2,6 @@
 
 public class ItemGenerator : MonoBehaviour
 {
-	// 인스펙터 노출 변수
 	enum ItemType
 	{
 		Bomb,

@@ -3,14 +3,10 @@ using UnityEngine;
 
 public class ObjectGiver : MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반 
 	[SerializeField]
 	private Slot				targetSlot;				// 지급될 슬롯
 	[SerializeField]
 	private GameObject			targetObject;			// 지급 아이템
-
-	// 수치
 	[SerializeField]
 	private float				givePeriod;             // 지급 주기
 	[SerializeField]

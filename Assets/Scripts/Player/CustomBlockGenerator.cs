@@ -3,30 +3,22 @@ using UnityEngine;
 
 public class CustomBlockGenerator: MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반
 	[SerializeField]
-	private Transform				fairyTransform;                     // 요정 트랜스폼
+	private Transform			fairyTransform;             // 요정 트랜스폼
 	[SerializeField]
-	private SlotSelecter			slotSelecter;                       // 슬롯 선택 이미지
+	private SlotSelecter		slotSelecter;               // 슬롯 선택 이미지
 	[SerializeField]
-	private GameObject				cantCreateEffect;                   // 설치 불가 이펙트
+	private GameObject			cantCreateEffect;           // 설치 불가 이펙트
 	[SerializeField]
-	private GameObject				itemCreateEffect;					// 블록 설치 이펙트
-		
-	public	GameObject				customBlockPrefab;                  // 커스텀 블럭 프리팹
+	private GameObject			itemCreateEffect;           // 블록 설치 이펙트
+	[SerializeField]
+	private float				createZPosition;            // 생성 z포지션
+	
+	private Transform			targetBlock = null;         // 생성한 블럭
+	private Vector3				targetPosition;             // 생성 위치
+	private int					slotNumber = 1;				// 슬롯 번호
 
-	// 수치
-	[SerializeField]
-	private float					createZPosition;                    // 생성 z포지션
-
-	// 인스펙터 비노출 변수
-	// 일반
-	private Transform				targetBlock = null;                 // 생성한 블럭
-
-	// 수치
-	private Vector3					targetPosition;                     // 생성 위치
-	private int						slotNumber = 1;						// 슬롯 번호
+	public GameObject			customBlockPrefab;          // 커스텀 블럭 프리팹
 
 
 	// 프레임

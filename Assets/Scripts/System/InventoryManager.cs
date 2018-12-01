@@ -2,12 +2,10 @@
 
 public class InventoryManager : MonoBehaviour
 {
-	public static InventoryManager instance;
-
-	// 인스펙터 노출 변수
-	// 일반
+	public static InventoryManager instance;	// 싱글톤 인스턴스
+	
 	[SerializeField]
-	private Slot[]				inventory;              // 인벤토리
+	private Slot[]		inventory;              // 인벤토리
 
 
 	// 초기화

@@ -2,14 +2,10 @@
 
 public class ObjectPoolGenerator : MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반
 	[SerializeField]
-	private GameObject			ballPrefab;             // 공 프리팹
-	
-	// 수치
+	private GameObject		ballPrefab;         // 공 프리팹
 	[SerializeField]
-	private int					ballSize;               // 공 크기
+	private int				ballSize;           // 공 크기
 
 
 	// 초기화

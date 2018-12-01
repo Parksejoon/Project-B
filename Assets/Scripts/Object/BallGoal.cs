@@ -2,7 +2,6 @@
 
 public class BallGoal : MonoBehaviour
 {
-	// 인스펙터 노출 변수
 	[SerializeField]
 	private		GameObject			targetDoor;				// 타겟 도어
 

@@ -3,9 +3,7 @@
 public class Pause : MonoBehaviour
 {
 	public static bool isPause = false;					// 일시정지 상태 확인 변수
-
-	// 인스펙터 노출 변수
-	// 일반
+	
 	[SerializeField]
 	private		GameObject		pauseMenu;              // 일시정지 메뉴화면
 

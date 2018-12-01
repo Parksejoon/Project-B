@@ -2,20 +2,14 @@
 
 public class FairyMove : MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반
 	[SerializeField]
-	private GameObject		mouseBombEffect;					// 마우스 폭발 이펙트
+	private GameObject		mouseBombEffect;			// 마우스 폭발 이펙트
+	[SerializeField]
+	private float			zPosition = 0;				// z 포지션
+	[SerializeField]
+	private float			speed = 1;                  // 속도
 	
-	// 수치
-	[SerializeField]
-	private float			zPosition = 0;						// z 포지션
-	[SerializeField]
-	private float			speed = 1;                          // 속도
-
-	// 인스펙터 비노출 변수
-	// 수치
-	private const float colliderRadius = 0.3f;			// 충돌체 반지름
+	private const float		colliderRadius = 0.3f;		// 충돌체 반지름
 	
 
 	// 고정 프레임

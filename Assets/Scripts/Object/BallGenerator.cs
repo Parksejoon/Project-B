@@ -3,26 +3,20 @@ using UnityEngine;
 
 public class BallGenerator : MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반
 	[SerializeField]
-	private GameObject	ballPrefab;						// 라바 볼
+	private GameObject	ballPrefab;			// 볼
+	[SerializeField]
+	private float		createMinDelay;     // 생성 최소 주기
+	[SerializeField]
+	private float		createMaxDelay;     // 생성 최대 주기
+	[SerializeField]
+	private float		shotPower;			// 발사 힘
+	[SerializeField]
+	private float		zPosition = 0;      // z 포지션
 
-	public	bool		enabledGenerate = false;		// 생성 상태
+	private Vector2		shotWay;            // 발사 방향
 
-	// 수치
-	[SerializeField]
-	private float		createMinDelay;                 // 생성 최소 주기
-	[SerializeField]
-	private float		createMaxDelay;                 // 생성 최대 주기
-	[SerializeField]
-	private float		shotPower;						// 발사 힘
-	[SerializeField]
-	private float		zPosition = 0;                  // z 포지션
-
-	// 인스펙터 비노출 변수
-	// 수치
-	private Vector2		shotWay;                        // 발사 방향
+	public bool enabledGenerate = false;    // 생성 상태
 
 
 	// 초기화

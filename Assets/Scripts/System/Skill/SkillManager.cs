@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반
 	public Skill	skillQ;           // q스킬
 
 

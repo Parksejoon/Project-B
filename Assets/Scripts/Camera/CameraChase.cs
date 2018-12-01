@@ -2,18 +2,14 @@
 
 public class CameraChase : MonoBehaviour
 {
-	// 인스펙터 노출 변수
-	// 일반
 	[SerializeField]
-	private Transform targetObject;                 // 카메라를 추적할 오브젝트
-
-	// 수치
+	private Transform targetObject;         // 카메라를 추적할 오브젝트
 	[SerializeField]
-	private float     speed;						// 속도
+	private float     speed;				// 속도
 	[SerializeField]
-	private float	  pocusX;						// 카메라의 초첨 ( X )
+	private float	  pocusX;				// 카메라의 초첨 ( X )
 	[SerializeField]
-	private float	  pocusY;                       // 카메라의 초점 ( Y )
+	private float	  pocusY;               // 카메라의 초점 ( Y )
 	
 
 	// 프레임
