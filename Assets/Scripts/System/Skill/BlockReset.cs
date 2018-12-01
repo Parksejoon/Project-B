@@ -1,24 +1,38 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class BlockReset : Skill
 {
 	// 인스펙터 노출 변수
 	// 일반
 	[SerializeField]
-	private ObjectGiver normalBlockGiver;   // 일반 블럭 공급자
+	private ObjectGiver normalBlockGiver;			// 일반 블럭 공급자
+
+	// 인스펙터 비노출 변수
+	private bool		isCoolDowning = false;		// 쿨다운 중인지
 
 
 	// 스킬 사용
 	public override void ShotSkill()
 	{
-		if (PlayerManager.instance.isGround)
+		Debug.Log(isCoolDowning);
+
+		if (PlayerManager.instance.isGround && !isCoolDowning)
 		{
-			Debug.Log("a");
+			StartCoroutine(CoolDown());
+
 			normalBlockGiver.GiveAllBlock();
 		}
-		else
-		{
-			Debug.Log("b");
-		}
 	}
+
+	// 쿨다운
+	protected override IEnumerator CoolDown()
+	{
+		isCoolDowning = true;
+
+		yield return new WaitForSeconds(CoolDownTime);
+
+		isCoolDowning = false;
+	}
+
 }

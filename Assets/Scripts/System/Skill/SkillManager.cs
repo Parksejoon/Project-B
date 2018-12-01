@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class SkillManager : MonoBehaviour
 {
@@ -19,5 +20,12 @@ public class SkillManager : MonoBehaviour
 
 public abstract class Skill : MonoBehaviour
 {
-	public abstract void ShotSkill();
+	// 변수
+	[SerializeField]
+	protected float		CoolDownTime;                   // 쿨타임
+	protected bool		isCoolDowning = false;			// 쿨다운 중인지
+
+	// 함수
+	public abstract void ShotSkill();					// 스킬 사용
+	protected abstract IEnumerator CoolDown();			// 쿨다운 코루틴
 }

@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a5c8ed502d443049b4c804b68dbca74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CoolDownTime: 5
   normalBlockGiver: {fileID: 958184722}
 --- !u!4 &76625636
 Transform:
