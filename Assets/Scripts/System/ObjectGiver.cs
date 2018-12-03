@@ -44,7 +44,10 @@ public class ObjectGiver : MonoBehaviour
 
 		yield return new WaitForSeconds(givePeriod);
 
-		targetSlot.AddItem(targetObject, 1);
+		if (targetSlot.itemCount < maxItemCount)
+		{
+			targetSlot.AddItem(targetObject, 1);
+		}
 
 		StartCoroutine("GiveBlock");
 	}
