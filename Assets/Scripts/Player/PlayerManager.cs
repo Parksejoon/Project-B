@@ -2,15 +2,10 @@
 
 public class PlayerManager : MonoBehaviour
 {
-	public static PlayerManager instance;				// 싱글턴 인스턴스
+	public static PlayerManager		instance;           // 싱글톤 인스턴스
 
 	[SerializeField]
-	private PlayerController	playerControl;          // 플레이어 컨트롤
-	[SerializeField]
-	private MoveParticle		moveParticle;           // 움직임 파티클
-	
-	[HideInInspector]
-	public	bool				isGround = false;		// 바닥인지
+	private GameObject normalBlockItem;     // 드랍용 노말 블럭
 
 
 	// 초기화
@@ -20,55 +15,16 @@ public class PlayerManager : MonoBehaviour
 		{
 			instance = this;
 		}
-
-		if (playerControl == null)
-		{
-			playerControl = GetComponent<PlayerController>();
-		}
 	}
 
-	// 트리거 진입
-	private void OnTriggerEnter2D(Collider2D collision)
+	// 노말 블럭 드랍
+	public void DropNormalBlock(float shotWay)
 	{
-		// 블록일 경우
-		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") || collision.CompareTag("CustomBlock"))
+		if (InventoryManager.instance.UseItem(1) != null)
 		{
-			playerControl.ResetJump();
+			GameObject target = Instantiate(normalBlockItem, transform.position, Quaternion.identity);
 
-			// 움직임 파티클 플래그 설정
-			moveParticle.flagArray[1] = true;
-
-			// 스킬 플래그 설정
-			if (!collision.CompareTag("CustomBlock") && !collision.CompareTag("Ball"))
-			{
-				isGround = true;
-			}
-		}
-	}
-
-	// 트리거 안에 존재
-	private void OnTriggerStay2D(Collider2D collision)
-	{
-		// 블록일 경우
-		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") || collision.CompareTag("CustomBlock"))
-		{
-			playerControl.ResetJump();
-		}
-	}
-
-	// 트리거 탈출
-	private void OnTriggerExit2D(Collider2D collision)
-	{
-		// 블록일 경우
-		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") || collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") || collision.CompareTag("CustomBlock"))
-		{
-			moveParticle.flagArray[1] = false;
-
-			// 스킬 플래그 설정
-			if (!collision.CompareTag("CustomBlock") && !collision.CompareTag("Ball"))
-			{
-				isGround = false;
-			}
+			target.GetComponent<Rigidbody2D>().AddForce(new Vector2(shotWay * 2, 1.5f) * 7, ForceMode2D.Impulse);
 		}
 	}
 }

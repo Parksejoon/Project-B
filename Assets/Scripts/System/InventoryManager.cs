@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
 		instance = this;
 	}
 
-	// 아이템 등록
+	// 아이템 추가
 	public bool AddItem(GameObject itemPrefab, int itemCount)
 	{
 		foreach (Slot slot in inventory)

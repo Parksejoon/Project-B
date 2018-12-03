@@ -57,12 +57,17 @@ public class MonsterMove : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
+			// 플레이어 넉백
 			Rigidbody2D playerRigidbody = collision.rigidbody;
 
 			float shotWay = Mathf.Round(playerRigidbody.position.x - transform.position.x);
+			Vector2 shotVec2 = new Vector2(shotWay, 0.6f) * 7;
 
 			playerRigidbody.velocity = Vector2.zero;
-			playerRigidbody.AddForce(new Vector2(shotWay, 0.6f) * 7, ForceMode2D.Impulse);
+			playerRigidbody.AddForce(shotVec2, ForceMode2D.Impulse);
+
+			// 노말 블럭 드랍
+			PlayerManager.instance.DropNormalBlock(shotWay);
 		}
 	}
 

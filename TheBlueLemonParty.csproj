@@ -513,6 +513,7 @@
     <Compile Include="Assets\Scripts\Object\BallGoal.cs" />
     <Compile Include="Assets\Scripts\Object\BottomBlock.cs" />
     <Compile Include="Assets\Scripts\Object\Item\Bomb.cs" />
+    <Compile Include="Assets\Scripts\Object\Item\Buble.cs" />
     <Compile Include="Assets\Scripts\Object\Item\GravityExplosion.cs" />
     <Compile Include="Assets\Scripts\Object\Item\Item.cs" />
     <Compile Include="Assets\Scripts\Object\Item\ItemGenerator.cs" />
@@ -526,6 +527,7 @@
     <Compile Include="Assets\Scripts\Player\FairyMove.cs" />
     <Compile Include="Assets\Scripts\Player\MoveParticle.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerJumpManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\System\GameManager.cs" />
     <Compile Include="Assets\Scripts\System\InventoryManager.cs" />
