@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212573002158849752}
   - component: {fileID: 114625218896538770}
   - component: {fileID: 61449784834946592}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4698940483015994}
   - component: {fileID: 212202432164445390}
   - component: {fileID: 95890189201597808}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PurificationBombItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4345570860000918}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PurificationBombItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

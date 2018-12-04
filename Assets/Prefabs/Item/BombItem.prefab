@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4432681434582944}
   - component: {fileID: 212484465491246574}
   - component: {fileID: 95819586387769694}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BombItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4342768075204830}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BombItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 212892742060698188}
   - component: {fileID: 114668212087634006}
   - component: {fileID: 61066933615957528}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

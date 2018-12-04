@@ -61,13 +61,13 @@ public class MonsterMove : MonoBehaviour
 			Rigidbody2D playerRigidbody = collision.rigidbody;
 
 			float shotWay = Mathf.Round(playerRigidbody.position.x - transform.position.x);
-			Vector2 shotVec2 = new Vector2(shotWay, 0.6f) * 7;
+			Vector2 shotVec2 = new Vector2(shotWay, 0.6f) * 4;
 
 			playerRigidbody.velocity = Vector2.zero;
 			playerRigidbody.AddForce(shotVec2, ForceMode2D.Impulse);
 
-			// 노말 블럭 드랍
-			PlayerManager.instance.DropNormalBlock(shotWay);
+			// 플레이어 피격
+			PlayerManager.instance.Hit(shotWay);
 		}
 	}
 

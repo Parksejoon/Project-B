@@ -10,7 +10,7 @@ public class BlockReset : Skill
 	// 스킬 사용
 	public override void ShotSkill()
 	{
-		if (PlayerJumpManager.isGround && !isCoolDowning)
+		if (PlayerJumpManager.IsGround && !isCoolDowning)
 		{
 			StartCoroutine(CoolDown());
 

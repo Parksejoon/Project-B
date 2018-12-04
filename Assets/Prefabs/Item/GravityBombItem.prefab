@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4321655834143656}
   - component: {fileID: 212186285403085560}
   - component: {fileID: 95963677428820968}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GravityBombItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4386696661041810}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GravityBombItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 212512353447637096}
   - component: {fileID: 114913667810718366}
   - component: {fileID: 61007242112065838}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

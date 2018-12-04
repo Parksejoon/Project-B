@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212132784190184718}
   - component: {fileID: 114788850683866220}
   - component: {fileID: 61438907394760472}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4679848461331404}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TeleportItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4290638350979246}
   - component: {fileID: 212662998182249794}
   - component: {fileID: 95685502016275782}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TeleportItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

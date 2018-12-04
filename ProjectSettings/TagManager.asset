@@ -23,9 +23,9 @@ TagManager:
   - 
   - Map
   - Player
-  - 
-  - 
-  - 
+  - Monster
+  - Object
+  - InvPlayer
   - 
   - 
   - 

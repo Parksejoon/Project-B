@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4436732276329296}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RackItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4146054254803666}
   - component: {fileID: 212811527635477656}
   - component: {fileID: 95261122551075500}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RackItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 212409567311633972}
   - component: {fileID: 114664625787383012}
   - component: {fileID: 61564472962661558}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ItemCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2,7 +2,18 @@
 
 public class PlayerJumpManager : MonoBehaviour
 {
-	public static bool			isGround = false;       // 바닥인지
+	private static bool isGround;		// 바닥인지
+	public static bool IsGround			// 접근자
+	{
+		get
+		{
+			return isGround;
+		}
+		private set
+		{
+			isGround = value;
+		}
+	}
 
 	[SerializeField]
 	private PlayerController	playerControl;          // 플레이어 컨트롤
@@ -13,6 +24,8 @@ public class PlayerJumpManager : MonoBehaviour
 	// 초기화
 	private void Awake()
 	{
+		IsGround = true;
+
 		if (playerControl == null)
 		{
 			playerControl = GetComponent<PlayerController>();
@@ -35,7 +48,7 @@ public class PlayerJumpManager : MonoBehaviour
 			// 플래그 설정
 			if (!collision.CompareTag("CustomBlock") && !collision.CompareTag("Ball"))
 			{
-				isGround = true;
+				IsGround = true;
 			}
 		}
 	}
@@ -65,7 +78,7 @@ public class PlayerJumpManager : MonoBehaviour
 			// 플래그 설정
 			if (!collision.CompareTag("CustomBlock") && !collision.CompareTag("Ball"))
 			{
-				isGround = false;
+				IsGround = false;
 			}
 		}
 	}
