@@ -547,7 +547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 288841446}
   - component: {fileID: 288841447}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,7 +677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 378111009}
   - component: {fileID: 378111005}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fairy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5809,7 +5809,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5832,7 +5832,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.00000044703484, y: 0, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 71109718}
@@ -6464,7 +6464,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1.63}
@@ -6478,7 +6478,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.87, y: 0.36}
+  m_Size: {x: 2.05, y: 0.6}
   m_EdgeRadius: 0
 --- !u!4 &887675292
 Transform:
@@ -6798,7 +6798,7 @@ GameObject:
   - component: {fileID: 1078795578}
   - component: {fileID: 1078795580}
   - component: {fileID: 1078795579}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SubParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11606,7 +11606,7 @@ GameObject:
   - component: {fileID: 1229202314}
   - component: {fileID: 1229202316}
   - component: {fileID: 1229202315}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BaseParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151520,8 +151520,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1800695037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.222, y: -0.151, z: 0}
-  m_LocalScale: {x: 0.20687278, y: 0.20687278, z: 0.20687278}
+  m_LocalPosition: {x: 5.08, y: -0.11, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 2140070048}
   - {fileID: 887675292}
@@ -151541,7 +151541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2388ebed301f78c43839bb401137329f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topCollider: {fileID: 887675290}
   frontCollider: {fileID: 512977625}
   bottomCollider: {fileID: 953097544}
   speed: 0.05
@@ -151934,13 +151933,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2140070048}
+  - component: {fileID: 2140070050}
+  - component: {fileID: 2140070049}
   m_Layer: 10
   m_Name: MonsterCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2140070048
 Transform:
   m_ObjectHideFlags: 0
@@ -151949,8 +151950,45 @@ Transform:
   m_GameObject: {fileID: 2140070047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.6263, y: 2.6263, z: 2.6263}
   m_Children: []
   m_Father: {fileID: 1800695041}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2140070049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2140070047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb19b8a1b3b91c245b98d4a656b9ee68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topCollider: {fileID: 887675290}
+--- !u!61 &2140070050
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2140070047}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
