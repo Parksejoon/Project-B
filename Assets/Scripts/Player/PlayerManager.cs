@@ -74,8 +74,6 @@ public class PlayerManager : MonoBehaviour
 	// 스프라이트 깜빡거림
 	private IEnumerator BlinkingSprite()
 	{
-		Debug.Log("BlinkingSprite");
-
 		while (IsInvincibility)
 		{
 			yield return new WaitForSeconds(0.1f);
