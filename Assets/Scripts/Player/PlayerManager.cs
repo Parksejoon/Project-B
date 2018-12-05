@@ -10,10 +10,11 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField]
 	private	SpriteRenderer	charSprite;					// 캐릭터 스프라이트
 	[SerializeField]
-	private	float			invincibleTime;				// 무적 시간
+	private	float			invincibleTime;             // 무적 시간
 
-	private	bool isInvincibility;						// 무적 상태인지
-	public bool	IsInvincibility							// 접근자
+	private IEnumerator		blinkingSprite;				// 스프라이트 깜빡거림 코루틴
+	private	bool			isInvincibility;			// 무적 상태인지
+	public bool				IsInvincibility				// 접근자
 	{
 		get { return isInvincibility; }
 		private set { isInvincibility = value; }
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviour
 	// 초기화
 	private void Awake()
 	{
+		blinkingSprite = BlinkingSprite();
 		IsInvincibility = false;
 
 		if (instance == null)
@@ -56,10 +58,13 @@ public class PlayerManager : MonoBehaviour
 	// 무적 상태
 	private IEnumerator Invincible()
 	{
+		StopCoroutine(blinkingSprite);
+
 		IsInvincibility = true;
 		gameObject.layer = 12;
+		blinkingSprite = BlinkingSprite();
 
-		StartCoroutine(BlinkingSprite());
+		StartCoroutine(blinkingSprite);
 		yield return new WaitForSeconds(invincibleTime);
 
 		gameObject.layer = 9;
@@ -69,6 +74,8 @@ public class PlayerManager : MonoBehaviour
 	// 스프라이트 깜빡거림
 	private IEnumerator BlinkingSprite()
 	{
+		Debug.Log("BlinkingSprite");
+
 		while (IsInvincibility)
 		{
 			yield return new WaitForSeconds(0.1f);
