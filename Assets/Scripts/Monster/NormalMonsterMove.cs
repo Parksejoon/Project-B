@@ -3,17 +3,16 @@
 public class NormalMonsterMove : MonoBehaviour
 {
 	[SerializeField]
-	private BoxCollider2D	frontCollider;                  // 전면 콜라이더
+	private BoxCollider2D	frontCollider;								// 전면 콜라이더
 	[SerializeField]
-	private BoxCollider2D	bottomCollider;					// 밑면 콜라이더
+	private BoxCollider2D	bottomCollider;								// 밑면 콜라이더
 	[SerializeField]
-	private float			speed = 0.05f;					// 속도
-
-	public int				directionSpeed = 1;             // 방향 속도
+	private float			speed = 0.05f;								// 속도
 
 	private Collider2D[]	colliders = new Collider2D[10];				// 충돌체 모음
-	private ContactFilter2D contactFilter = new ContactFilter2D();		// Contact Filter
-	
+	private ContactFilter2D contactFilter = new ContactFilter2D();      // Contact Filter
+
+	public	int				directionSpeed = 1;							// 방향 속도
 
 	// 초기화
 	private void Awake()

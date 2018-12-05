@@ -91,14 +91,6 @@ public class CustomBlockGenerator: MonoBehaviour
 		}
 	}
 
-	// 블럭 생성
-	private void CreateBlock()
-	{
-		Instantiate(itemCreateEffect, targetPosition, Quaternion.identity, transform);
-
-		targetBlock = Instantiate(customBlockPrefab, targetPosition, Quaternion.identity, transform).transform;
-	}
-
 	// 블럭 생성 가능상태 확인
 	private bool CanCreate()
 	{
@@ -132,6 +124,14 @@ public class CustomBlockGenerator: MonoBehaviour
 		}
 
 		return true;
+	}
+
+	// 블럭 생성
+	private void CreateBlock()
+	{
+		Instantiate(itemCreateEffect, targetPosition, Quaternion.identity, transform);
+
+		targetBlock = Instantiate(customBlockPrefab, targetPosition, Quaternion.identity, transform).transform;
 	}
 
 	// 블럭 회전

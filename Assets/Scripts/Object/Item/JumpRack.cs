@@ -12,7 +12,7 @@ public class JumpRack : MonoBehaviour
 	// 트리거 진입
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.CompareTag("Player"))
+		if (collision.CompareTag("Player") || collision.CompareTag("Ball"))
 		{
 			// 물리
 			Vector3 rotation = transform.parent.rotation.eulerAngles;
@@ -26,10 +26,9 @@ public class JumpRack : MonoBehaviour
 			targetRigidbody.AddForce(jumpWay * jumpPower, ForceMode2D.Impulse);
 
 			// 파티클
-			Vector3 position = transform.position;
+			Vector3 position = (collision.transform.position + transform.position) / 2;
 
 			position.z = -15;
-			position.y += 0.5f;
 
 			Instantiate(jumpEffect, position, Quaternion.identity);
 		}

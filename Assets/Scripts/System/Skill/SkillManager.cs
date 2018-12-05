@@ -60,7 +60,18 @@ public class Skill : MonoBehaviour
 	{
 		Debug.Log("NONE SKILL");
 	}
-	
+
+	// 쿨다운
+	protected IEnumerator CoolDown()
+	{
+		isCoolDowning = true;
+
+		StartCoroutine(UICoolDown());
+		yield return new WaitForSeconds(CoolDownTime);
+
+		isCoolDowning = false;
+	}
+
 	// UI 쿨다운
 	protected IEnumerator UICoolDown()
 	{
@@ -74,16 +85,5 @@ public class Skill : MonoBehaviour
 		}
 
 		skillCoolDownTexture.fillAmount = 0;
-	}
-
-	// 쿨다운
-	protected IEnumerator CoolDown()
-	{
-		isCoolDowning = true;
-
-		StartCoroutine(UICoolDown());
-		yield return new WaitForSeconds(CoolDownTime);
-
-		isCoolDowning = false;
 	}
 }

@@ -60,6 +60,40 @@ public class PlayerController : MonoBehaviour
 		Jump();
 	}
 
+	// 점프
+	private void Jump()
+	{
+		if (isJumping)
+		{
+			Vector3 velocity = playerRigidbody2D.velocity;
+
+			if (velocity.y < 0)
+			{
+				playerRigidbody2D.velocity = new Vector3(velocity.x, 0);
+			}
+
+			// 이펙트
+			Vector3 position = transform.position;
+
+			position.y -= 0.5f;
+			position.z = -15;
+
+			Instantiate(jumpEffect, position, Quaternion.identity);
+
+			// 점프
+			playerRigidbody2D.AddForce(Vector2.up * jumpPower * Input.GetAxis("Jump"), ForceMode2D.Impulse);
+
+			jumpCount--;
+			isJumping = false;
+		}
+	}
+
+	// 점프 리셋
+	public void ResetJump()
+	{
+		jumpCount = originJumpCount;
+	}
+
 	// 움직임
 	private void Run()
 	{
@@ -95,39 +129,5 @@ public class PlayerController : MonoBehaviour
 		{
 			playerRigidbody2D.AddForce(Vector3.down, ForceMode2D.Impulse);
 		}
-	}
-
-	// 점프
-	private void Jump()
-	{
-		if (isJumping)
-		{
-			Vector3 velocity = playerRigidbody2D.velocity;
-
-			if (velocity.y < 0)
-			{
-				playerRigidbody2D.velocity = new Vector3(velocity.x, 0);
-			}
-
-			// 이펙트
-			Vector3 position = transform.position;
-
-			position.y -= 0.5f;
-			position.z = -15;
-
-			Instantiate(jumpEffect, position, Quaternion.identity);
-
-			// 점프
-			playerRigidbody2D.AddForce(Vector2.up * jumpPower * Input.GetAxis("Jump"), ForceMode2D.Impulse);
-
-			jumpCount--;
-			isJumping = false;
-		}
-	}
-
-	// 점프 리셋
-	public void ResetJump()
-	{
-		jumpCount = originJumpCount;
 	}
 }

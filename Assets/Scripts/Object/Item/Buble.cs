@@ -6,7 +6,6 @@ public class Buble : MonoBehaviour
 	private Collider2D	targetCollider;         // 활성화 할 콜리전
 
 
-
 	// 충돌체 진입
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
@@ -16,7 +15,5 @@ public class Buble : MonoBehaviour
 		{
 			targetCollider.enabled = true;
 		}
-
-
 	}
 }
