@@ -5,7 +5,9 @@ public class NormalMonsterMove : MonoBehaviour
 	[SerializeField]
 	private BoxCollider2D	frontCollider;								// 전면 콜라이더
 	[SerializeField]
-	private BoxCollider2D	bottomCollider;								// 밑면 콜라이더
+	private BoxCollider2D	bottomCollider;                             // 밑면 콜라이더
+	[SerializeField]
+	private SpriteRenderer	sprite;										// 몬스터 sprite
 	[SerializeField]
 	private float			speed = 0.05f;								// 속도
 
@@ -47,5 +49,7 @@ public class NormalMonsterMove : MonoBehaviour
 
 		frontCollider.offset = frontOffset;
 		bottomCollider.offset = bottomOffset;
+
+		sprite.flipX = !sprite.flipX;
 	}
 }
