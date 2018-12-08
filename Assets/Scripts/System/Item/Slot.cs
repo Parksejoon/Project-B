@@ -6,6 +6,8 @@ public class Slot : MonoBehaviour
 	private	bool				isConstantSlot = false;     // 고정 슬롯인지
 	[SerializeField]
 	private Texture				noneTexture = null;         // 투명 이미지
+	[SerializeField]
+	private GameObject			itemAddEffect;				// 아이템 등록 이펙트
 
 	private UILabel				itemCountLabel;             // 아이템 개수 텍스트
 	private UITexture			itemImageTexture;			// 아이템 이미지 텍스쳐
@@ -34,29 +36,24 @@ public class Slot : MonoBehaviour
 		{
 			if (itemCount + _itemCount <= InventoryManager.instance.maxItemCount)
 			{
+				// 아이템 등록
 				itemPrefab = _itemPrefab;
 				itemCount += _itemCount;
 
 				itemCountLabel.text = itemCount.ToString();
 				itemImageTexture.mainTexture = _itemPrefab.GetComponent<SpriteRenderer>().sprite.texture;
 
+				// 파티클
+				Vector3 position = Vector3.zero;
+
+				position.z = -500f;
+
+				Instantiate(itemAddEffect, Vector3.zero, Quaternion.identity, transform).transform.localPosition = position;
+
 				return true;
 			}
 
 			return false;
-		}
-
-		return false;
-	}
-
-	// 아이템 비교
-	public bool CompareItem(GameObject _itemPrefab, int _itemCount)
-	{
-		if (itemPrefab == _itemPrefab)
-		{
-			AddItem(_itemPrefab, _itemCount);
-
-			return true;
 		}
 
 		return false;

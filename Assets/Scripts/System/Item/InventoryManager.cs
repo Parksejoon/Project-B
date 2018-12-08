@@ -21,14 +21,6 @@ public class InventoryManager : MonoBehaviour
 	{
 		foreach (Slot slot in inventory)
 		{
-			if (slot.CompareItem(itemPrefab, itemCount))
-			{
-				return true;
-			}
-		}
-
-		foreach (Slot slot in inventory)
-		{
 			if (slot.AddItem(itemPrefab, itemCount))
 			{
 				return true;
