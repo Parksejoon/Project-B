@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
 		{
 			instance = this;
 		}
+
+		// 그래픽 설정 ( 나중에 옮기세요 )
+		Application.targetFrameRate = 60;
 	}
 
 	// 게임 오버
