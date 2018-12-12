@@ -14,5 +14,10 @@ public class GravityExplosion : MonoBehaviour
 		{
 			Destroy(collision.gameObject);
 		}
+
+		if (collision.CompareTag("Monster"))
+		{
+			collision.GetComponentInChildren<MonsterCollider>().Death();
+		}
 	}
 }

@@ -52,6 +52,12 @@ public class MonsterCollider : MonoBehaviour
 		playerRigidbody.velocity = Vector2.zero;
 		playerRigidbody.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
 
+		Death();
+	}
+
+	// 죽음
+	public void Death()
+	{
 		Debug.Log("MOOO!");
 		//Destroy(gameObject);
 	}

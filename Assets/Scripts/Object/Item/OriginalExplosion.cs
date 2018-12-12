@@ -44,6 +44,11 @@ public class OriginalExplosion : MonoBehaviour
 		{
 			Destroy(collision.gameObject);
 		}
+
+		if (collision.CompareTag("Monster"))
+		{
+			collision.GetComponentInChildren<MonsterCollider>().Death();
+		}
 	}
 
 	// 폭발
