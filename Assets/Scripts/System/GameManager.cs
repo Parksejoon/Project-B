@@ -1,5 +1,16 @@
 ﻿using UnityEngine;
 
+// sprite z value
+// -4.8 NoCreateZone
+// -4.9 CustomBlock
+// -5 Base
+// -5.1 Danger
+// -5.2 Sub
+// -6 Monster
+// -7 Player
+// -7.5 Effect
+// -8 Fairy(Light)
+
 public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;

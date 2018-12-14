@@ -159,7 +159,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1422579014907914}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4}
+  m_LocalPosition: {x: 0, y: 0, z: -5.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4578271325792462}
@@ -172,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1685690377268684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4578271325792462}
@@ -201,7 +201,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1728281627521130}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -3}
+  m_LocalPosition: {x: 0, y: 0, z: -5.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4578271325792462}
@@ -214,7 +214,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1248975376071592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: -4.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4578271325792462}
@@ -257,7 +257,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1112143147436850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4357607367490620}
@@ -534,22 +534,6 @@ CompositeCollider2D:
         Y: 430000000
       - X: 120000000
         Y: 430000000
-    - - X: -40000000
-        Y: 350000000
-      - X: -60000000
-        Y: 350000000
-      - X: -60000000
-        Y: 380000000
-      - X: -90000000
-        Y: 380000000
-      - X: -90000000
-        Y: 310000000
-      - X: -70000000
-        Y: 310000000
-      - X: -70000000
-        Y: 290000000
-      - X: -40000000
-        Y: 290000000
     - - X: 80000000
         Y: 360000000
       - X: 60000000
@@ -566,6 +550,22 @@ CompositeCollider2D:
         Y: 330000000
       - X: 80000000
         Y: 330000000
+    - - X: -40000000
+        Y: 350000000
+      - X: -60000000
+        Y: 350000000
+      - X: -60000000
+        Y: 380000000
+      - X: -90000000
+        Y: 380000000
+      - X: -90000000
+        Y: 310000000
+      - X: -70000000
+        Y: 310000000
+      - X: -70000000
+        Y: 290000000
+      - X: -40000000
+        Y: 290000000
     - - X: -30000000
         Y: 210000000
       - X: -110000000
@@ -728,14 +728,6 @@ CompositeCollider2D:
       - {x: 7, y: 46}
       - {x: 7, y: 43}
       - {x: 12, y: 43}
-    - - {x: -4, y: 35}
-      - {x: -6, y: 35}
-      - {x: -6, y: 38}
-      - {x: -9, y: 38}
-      - {x: -9, y: 31}
-      - {x: -7, y: 31}
-      - {x: -7, y: 29}
-      - {x: -4, y: 29}
     - - {x: 8, y: 36}
       - {x: 6, y: 36}
       - {x: 6, y: 38}
@@ -744,6 +736,14 @@ CompositeCollider2D:
       - {x: 3, y: 35}
       - {x: 3, y: 33}
       - {x: 8, y: 33}
+    - - {x: -4, y: 35}
+      - {x: -6, y: 35}
+      - {x: -6, y: 38}
+      - {x: -9, y: 38}
+      - {x: -9, y: 31}
+      - {x: -7, y: 31}
+      - {x: -7, y: 29}
+      - {x: -4, y: 29}
     - - {x: -3, y: 21}
       - {x: -11, y: 21}
       - {x: -11, y: 18}
@@ -893,7 +893,7 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 41e44190a0aa2034f81cc4ebb31bf7cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -935,7 +935,7 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 41e44190a0aa2034f81cc4ebb31bf7cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -977,7 +977,7 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 41e44190a0aa2034f81cc4ebb31bf7cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1019,7 +1019,7 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 41e44190a0aa2034f81cc4ebb31bf7cf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

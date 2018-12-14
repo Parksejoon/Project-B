@@ -35,7 +35,7 @@ public class OriginalExplosion : MonoBehaviour
 	// 트리거 진입
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.CompareTag("Player") || collision.CompareTag("Ball"))
+		if (collision.CompareTag("Player") || collision.CompareTag("Ball") || collision.CompareTag("Monster"))
 		{
 			collision.GetComponent<Rigidbody2D>().AddForce((collision.transform.position - transform.position) * 3f, ForceMode2D.Impulse);
 		}
@@ -43,11 +43,6 @@ public class OriginalExplosion : MonoBehaviour
 		if (collision.CompareTag("BallGenerator"))
 		{
 			Destroy(collision.gameObject);
-		}
-
-		if (collision.CompareTag("Monster"))
-		{
-			collision.GetComponentInChildren<MonsterCollider>().Death();
 		}
 	}
 

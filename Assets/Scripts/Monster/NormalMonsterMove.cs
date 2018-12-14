@@ -5,7 +5,9 @@ public class NormalMonsterMove : MonoBehaviour
 	[SerializeField]
 	private BoxCollider2D	frontCollider;								// 전면 콜라이더
 	[SerializeField]
-	private BoxCollider2D	bottomCollider;                             // 밑면 콜라이더
+	private BoxCollider2D	bottomFrontCollider;                        // 밑면 앞쪽 콜라이더
+	[SerializeField]
+	private BoxCollider2D	bottomCollider;		                        // 밑면 콜라이더
 	[SerializeField]
 	private SpriteRenderer	sprite;										// 몬스터 sprite
 	[SerializeField]
@@ -25,9 +27,15 @@ public class NormalMonsterMove : MonoBehaviour
 	// 프레임 
 	private void Update()
 	{
-		// 전면 콜라이더 체크 및 밑면 콜라이더 체크
-		if (0 < frontCollider.OverlapCollider(contactFilter, colliders)
-			|| 0 >= bottomCollider.OverlapCollider(contactFilter, colliders))
+		// 전면 콜라이더 체크
+		if (0 < frontCollider.OverlapCollider(contactFilter, colliders))
+		{
+			Reverse();
+		}
+
+		// 밑면 콜라이더 체크
+		if (0 >= bottomFrontCollider.OverlapCollider(contactFilter, colliders)
+			&& 0 < bottomCollider.OverlapCollider(contactFilter, colliders))
 		{
 			Reverse();
 		}
@@ -42,13 +50,13 @@ public class NormalMonsterMove : MonoBehaviour
 		directionSpeed *= -1;
 
 		Vector2 frontOffset = frontCollider.offset;
-		Vector2 bottomOffset = bottomCollider.offset;
+		Vector2 bottomOffset = bottomFrontCollider.offset;
 
 		frontOffset.x *= -1;
 		bottomOffset.x *= -1;
 
 		frontCollider.offset = frontOffset;
-		bottomCollider.offset = bottomOffset;
+		bottomFrontCollider.offset = bottomOffset;
 
 		sprite.flipX = !sprite.flipX;
 	}
