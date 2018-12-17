@@ -17,7 +17,7 @@ public class RandomMapGenerator : MonoBehaviour
 	{
 		for (int i = 0; i < 5; i++)
 		{
-			Instantiate(mapPattern[Random.Range(0, mapPattern.Length)], new Vector2(0, 70 * i), Quaternion.identity);
+			Instantiate(mapPattern[Random.Range(0, mapPattern.Length)], new Vector2(0, 70 * i), Quaternion.identity, transform);
 		}
 	}
 }

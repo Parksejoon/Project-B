@@ -3,47 +3,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Rendering;
 
-public class GameLight : ShadowCaster {
+public class GameLight : ShadowCaster
+{
+	public float Angle
+	{
+		get
+		{
+			return mAngle;
+		}
+		set
+		{
+			if (mAngle != value)
+			{
+				mAngle = value;
 
-    public Color        mColour;
+				transform.localRotation = Quaternion.Euler(0.0f, 0.0f, mAngle);
+			}
+		}
+	}
+	public float Spread
+	{
+		get
+		{
+			return mSpread;
+		}
+		set
+		{
+			if (mSpread != value)
+			{
+				mSpread = value;
+				RebuildQuad();
+			}
+		}
+	}
+
+	public	Color       mColor;
     private float       mAngle = 0;
     private float       mSpread = 360;
-    public float        mFalloffExponent = 1.0f;
-    public float        mAngleFalloffExponent = 1.0f;
-	public float 		mFullBrightRadius = 0.0f;
+    public	float       mFalloffExponent = 1.0f;
+    public	float       mAngleFalloffExponent = 1.0f;
+	public	float 		mFullBrightRadius = 0.0f;
     private float       mRadius = 0.0f;
 
-    public float Angle
-    {
-        get
-        {
-            return mAngle;
-        }
-        set
-        {
-            if (mAngle != value)
-            {
-                mAngle = value;
-
-                transform.localRotation = Quaternion.Euler(0.0f, 0.0f, mAngle);
-            }
-        }
-    }
-    public float Spread
-    {
-        get
-        {
-            return mSpread;
-        }
-        set
-        {
-            if (mSpread != value)
-            {
-                mSpread = value;
-                RebuildQuad();
-            }
-        }
-    }
 
 	public void Start() 
 	{
@@ -120,7 +121,7 @@ public class GameLight : ShadowCaster {
         float radius = mRadius;
 
 		// 머티리얼에 정보를 넘겨줌
-        mat.SetVector("_Color", mColour);
+        mat.SetVector("_Color", mColor);
 		mat.SetVector("_LightPosition", new Vector4(transform.position.x, transform.position.y, mFalloffExponent, mAngleFalloffExponent));
 		mat.SetVector("_Params2", new Vector4(mAngle * Mathf.Deg2Rad, mSpread * Mathf.Deg2Rad * 0.5f, 1.0f / ((1.0f - mFullBrightRadius) * radius), mFullBrightRadius * radius));
         mat.SetVector("_ShadowMapParams", shadowMapParams);

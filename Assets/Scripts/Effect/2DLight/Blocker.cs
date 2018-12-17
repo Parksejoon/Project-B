@@ -1,17 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
-//
-// This is a rectangular object which blocks light
-//
-
-public class demoblocker : MonoBehaviour {
-
-	// Use this for initialization
-	void Start ()
-    {
-	}
+public class Blocker : MonoBehaviour
+{
+	public TilemapRenderer abs;
 
 	// Get the outline of the object for shadow map rendering
 	// 모서리를 가져옴 ( 문제는 사각형만 된다는것. )

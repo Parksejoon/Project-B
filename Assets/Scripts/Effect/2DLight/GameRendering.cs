@@ -1,24 +1,23 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 
 public class GameRendering : MonoBehaviour
 {
-	private CommandBuffer mCommandBuffer1;			// 커맨드 버퍼
-	private Mesh mShadowBlockerDynamicMesh = null;	// 쉐도우 블로커 동적 메쉬
-	public RenderTexture mShadowMapInitialTexture;  // 이것은 540도의 가치를 가진다 (속이기 위해). 주어진 각도를 샘플링 하기 위해 두번의 참조가 필요하다.
-    public RenderTexture mShadowMapFinalTexture;    // 이것은 360도 보다 위의 것을 360도로 줄인다. 각도를 샘플링 하려면 한번의 참조가 필요하다.
-    public Material mShadowMapMaterial;				// 쉐도우 맵 머티리얼
-    private Mesh mShadowMapOptimiseMesh = null;		// 쉐도우 맵 최적화 메쉬
-    public Material mShadowMapOptimiseMaterial;		// 쉐도우 맵 최적화 머티리얼
+	public static GameRendering Instance
+	{
+		get;
+		private set;
+	}
 
-    public static GameRendering Instance
-    {
-        get;
-        private set;
-    }
+	private CommandBuffer	mCommandBuffer1;						// 커맨드 버퍼
+	private Mesh			mShadowBlockerDynamicMesh = null;		// 쉐도우 블로커 동적 메쉬
+	public	RenderTexture	mShadowMapInitialTexture;				// 이것은 540도의 가치를 가진다 (속이기 위해). 주어진 각도를 샘플링 하기 위해 두번의 참조가 필요하다.
+    public	RenderTexture	mShadowMapFinalTexture;					// 이것은 360도 보다 위의 것을 360도로 줄인다. 각도를 샘플링 하려면 한번의 참조가 필요하다.
+    public	Material		mShadowMapMaterial;						// 쉐도우 맵 머티리얼
+    private Mesh			mShadowMapOptimizeMesh = null;			// 쉐도우 맵 최적화 메쉬
+    public	Material		mShadowMapOptimizeMaterial;				// 쉐도우 맵 최적화 머티리얼
+
 
     void Awake()
     {
@@ -27,7 +26,7 @@ public class GameRendering : MonoBehaviour
             Instance = this;
         }
 
-        mShadowMapOptimiseMesh = MakeFullscreenRenderMesh();
+        mShadowMapOptimizeMesh = MakeFullscreenRenderMesh();
 
         Debug.Assert(mShadowMapInitialTexture.height == ShadowCaster.MAX_SHADOW_MAPS);
     }
@@ -44,7 +43,7 @@ public class GameRendering : MonoBehaviour
         }
 
         // 동적 블로커 메쉬 재생성
-        mShadowBlockerDynamicMesh = demo.Instance.GetLightBlockerMesh(); 
+        mShadowBlockerDynamicMesh = BlockerManager.Instance.GetLightBlockerMesh(); 
 
         if (mShadowBlockerDynamicMesh != null)
         {
@@ -71,11 +70,11 @@ public class GameRendering : MonoBehaviour
 
         // 쉐도우맵을 단일 샘플을 얻을 수 있는 텍스처로 줄여 180도 더 떨어진 덮어씌여진 지역을 제거
         {
-            mShadowMapOptimiseMaterial.SetTexture("_ShadowMap", mShadowMapInitialTexture);
+            mShadowMapOptimizeMaterial.SetTexture("_ShadowMap", mShadowMapInitialTexture);
 
             mCommandBuffer1.SetRenderTarget(mShadowMapFinalTexture);
 
-            mCommandBuffer1.DrawMesh(mShadowMapOptimiseMesh, Matrix4x4.identity, mShadowMapOptimiseMaterial);
+            mCommandBuffer1.DrawMesh(mShadowMapOptimizeMesh, Matrix4x4.identity, mShadowMapOptimizeMaterial);
         }
     }
 

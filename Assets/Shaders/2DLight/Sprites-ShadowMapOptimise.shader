@@ -1,4 +1,4 @@
-Shader "Sprites/ShadowMapOptimise"
+Shader "Sprites/ShadowMapOptimize"
 {
 	Properties
 	{

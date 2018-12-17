@@ -423,6 +423,10 @@
     <None Include="Assets\Add-Ons\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
     <None Include="Assets\Add-Ons\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
     <None Include="Assets\Add-Ons\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+    <None Include="Assets\Shaders\2DLight\ShadowMap.shader" />
+    <None Include="Assets\Shaders\2DLight\ShadowMap1D.cginc" />
+    <None Include="Assets\Shaders\2DLight\Sprites-Light.shader" />
+    <None Include="Assets\Shaders\2DLight\Sprites-ShadowMapOptimise.shader" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />

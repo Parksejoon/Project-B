@@ -507,6 +507,11 @@
     <Compile Include="Assets\Add-Ons\NGUI\Scripts\UI\UIViewport.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraChase.cs" />
     <Compile Include="Assets\Scripts\Camera\EnableArea.cs" />
+    <Compile Include="Assets\Scripts\Effect\2DLight\Blocker.cs" />
+    <Compile Include="Assets\Scripts\Effect\2DLight\BlockerManager.cs" />
+    <Compile Include="Assets\Scripts\Effect\2DLight\GameLight.cs" />
+    <Compile Include="Assets\Scripts\Effect\2DLight\GameRendering.cs" />
+    <Compile Include="Assets\Scripts\Effect\2DLight\ShadowCaster.cs" />
     <Compile Include="Assets\Scripts\Monster\MonsterCollider.cs" />
     <Compile Include="Assets\Scripts\Monster\NormalMonsterMove.cs" />
     <Compile Include="Assets\Scripts\Object\BallGenerator.cs" />
@@ -587,6 +592,10 @@
     <None Include="Assets\Add-Ons\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
     <None Include="Assets\Add-Ons\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
     <None Include="Assets\Add-Ons\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+    <None Include="Assets\Shaders\2DLight\ShadowMap.shader" />
+    <None Include="Assets\Shaders\2DLight\ShadowMap1D.cginc" />
+    <None Include="Assets\Shaders\2DLight\Sprites-Light.shader" />
+    <None Include="Assets\Shaders\2DLight\Sprites-ShadowMapOptimise.shader" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />

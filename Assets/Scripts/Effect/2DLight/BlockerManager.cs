@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class demo : MonoBehaviour
+public class BlockerManager : MonoBehaviour
 {
-    public static demo Instance
+    public static BlockerManager Instance
     {
         get;
         private set;
@@ -29,12 +29,12 @@ public class demo : MonoBehaviour
 	// 모든 light blocker들의 모서리를 이용해 하나의 매쉬로 만든다!
     public Mesh GetLightBlockerMesh()
     {
-		// 자식 오브젝트의 demoblocker 컴포넌트들을 가져옴
-        demoblocker[] blockers = GetComponentsInChildren<demoblocker>();
+		// 자식 오브젝트의 Blocker 컴포넌트들을 가져옴
+        Blocker[] blockers = GetComponentsInChildren<Blocker>();
 
 		// 모서리 리스트를 만듬
         List<Vector2> edges = new List<Vector2>();
-        foreach (demoblocker b in blockers)
+        foreach (Blocker b in blockers)
         {
             b.GetEdges(edges);
         }
