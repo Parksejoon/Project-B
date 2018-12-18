@@ -34,7 +34,7 @@
 				float t1 = dot(lineTwoStart-lineOneStart,line2Perp ) / line1Proj;
 				return t1;
 			}
-
+			
 			struct appdata
 			{
 				float3 vertex1 : POSITION;
