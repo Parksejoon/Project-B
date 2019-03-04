@@ -36,7 +36,7 @@ public class ShadowCaster : MonoBehaviour
 		// 쉐도우 캐스터 풀 관리
 		ShadowCasterPool.Remove(this);
 
-		//
+		// 쉐도우 맵 슬롯에서 할당을 해제한다.
         if (mShadowMapSlot >= 0)
         {
             ShadowMapFree(mShadowMapSlot);

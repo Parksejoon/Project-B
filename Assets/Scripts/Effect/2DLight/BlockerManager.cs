@@ -48,7 +48,7 @@ public class BlockerManager : MonoBehaviour
 			// 각 정점들을 넣음
             verts.Add(edges[i + 0]);
             verts.Add(edges[i + 1]);
-			// 마찬가지로 정점들을 넣음, 하지만 반대로
+			// 노말들을 넣음
             normals.Add(edges[i + 1]);
             normals.Add(edges[i + 0]);
         }

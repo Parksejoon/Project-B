@@ -4,7 +4,6 @@ using UnityEngine;
 public class Blocker : MonoBehaviour
 {
 	public CompositeCollider2D	compositeCollider;      // 타일맵 콜라이더
-	public GameObject			debugObject;			
 
 	private bool				isCalc;					// 계산 했는지
 	private List<Vector2>		calcEdges;              // 계산된 엣지들
@@ -20,12 +19,12 @@ public class Blocker : MonoBehaviour
 	// 모서리를 구함
 	public void GetEdges(List<Vector2> edges)
     {
-		//if (gameObject.isStatic && isCalc)
-		//{
-		//	edges = calcEdges;
+		if (gameObject.isStatic && isCalc)
+		{
+			edges = calcEdges;
 
-		//	return;
-		//}
+			return;
+		}
 
 		for (int i = 0; i < compositeCollider.pathCount; i++)
 		{
@@ -43,16 +42,9 @@ public class Blocker : MonoBehaviour
 
 			edges.Add(pathVerts[pathPointCount - 1]);
 			edges.Add(pathVerts[0]);
-
-			Debug.Log(pathPointCount);
-			for (int j = 0; j < pathPointCount; j++)
-			{
-				Debug.Log(pathVerts[j]);
-				Instantiate(debugObject, new Vector2(pathVerts[j].x, pathVerts[j].y), Quaternion.identity, transform);
-			}
 		}
 
-		//calcEdges = edges;
+		calcEdges = edges;
 
 		//// 사각형 기준으로 4방향
 		//Vector3 v1 = new Vector3(-0.5f, -0.5f, 0.0f);

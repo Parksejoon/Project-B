@@ -418,6 +418,7 @@
     <None Include="Assets\Add-Ons\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
     <None Include="Assets\Add-Ons\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
     <None Include="Assets\Add-Ons\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+    <None Include="Assets\Materials\Sprite\Sprites-Diffuse.shader" />
     <None Include="Assets\Shaders\2DLight\ShadowMap.shader" />
     <None Include="Assets\Shaders\2DLight\ShadowMap1D.cginc" />
     <None Include="Assets\Shaders\2DLight\Sprites-Light.shader" />
