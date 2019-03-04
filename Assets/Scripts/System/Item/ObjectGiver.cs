@@ -40,6 +40,11 @@ public class ObjectGiver : MonoBehaviour
 			yield return null;
 		}
 
+		while (!PlayerJumpManager.IsGround)
+		{
+			yield return null;
+		}
+
 		yield return new WaitForSeconds(givePeriod);
 		
 		targetSlot.AddItem(targetObject, 1);
