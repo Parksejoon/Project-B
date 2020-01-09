@@ -71,10 +71,14 @@ public class GameLight : ShadowCaster
 		// 180도가 넘으면 전체를 하나의 메쉬로 잡음
         if (mSpread > 180.0f)
         {
+            //verts.Add(new Vector3(-mRadius, -mRadius));
+            //verts.Add(new Vector3(+mRadius, +mRadius));
+            //verts.Add(new Vector3(+mRadius, -mRadius));
+            //verts.Add(new Vector3(-mRadius, +mRadius));
             verts.Add(new Vector3(-mRadius, -mRadius));
-            verts.Add(new Vector3(+mRadius, +mRadius));
             verts.Add(new Vector3(+mRadius, -mRadius));
             verts.Add(new Vector3(-mRadius, +mRadius));
+            verts.Add(new Vector3(+mRadius, +mRadius));
         }
 		// 180도 미만이면 반절만 하나의 메쉬로 잡음
         else

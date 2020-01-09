@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour
 			Instantiate(jumpEffect, position, Quaternion.identity);
 
 			// 점프
+			playerRigidbody2D.velocity = Vector2.zero;
 			playerRigidbody2D.AddForce(Vector2.up * jumpPower * Input.GetAxis("Jump"), ForceMode2D.Impulse);
 
 			jumpCount--;
