@@ -1,28 +1,32 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
 	public static Transform		playerTransform;            // 플레이어 트랜스폼
-	
 	[SerializeField]
 	private Rigidbody2D			playerRigidbody2D;          // 플레이어 리지드바디 2D
 	[SerializeField]
 	private SpriteRenderer		spriteRenderer;             // 플레이어 스프라이트 렌더러
+
 	[SerializeField]
-	private MoveParticle		moveParticle;               // 움직임 파티클
+	private MoveParticle		moveParticle;               // 이동 파티클
+
 	[SerializeField]
-	private GameObject			jumpEffect;					// 점프 이펙트
-	[SerializeField]
-	private float				moveSpeed;                  // 움직임 속도
-	[SerializeField]
-	private float				jumpPower;                  // 점프 파워
-	
-	private int					jumpCount;                  // 점프 카운트
+	private float				moveSpeed;                  // 이동 속도
 	private float				horizontalMove;             // 좌우 이동
 	private float				verticalMove;				// 상하 이동
-	private bool				isJumping = false;          // 점프 여부
 
+	[SerializeField]
+	private float				jumpPower;                  // 점프 파워
+	[SerializeField]
+	private GameObject			jumpEffect;                 // 점프 이펙트
 	public	int					originJumpCount;			// 기본 점프 카운트
+	private int					jumpCount;                  // 점프 카운트
+	private bool				isJumping = false;          // 점프 여부
+	private float				jumpTimer;                  // 점프 타이머
+	private float				jumpTimeLimit = 0.3f;		// 최대 점프 시간
+
 
 
 	// 초기화
@@ -56,22 +60,31 @@ public class PlayerController : MonoBehaviour
 	// 고정 프레임
 	private void FixedUpdate()
 	{
-		Run();
-		Jump();
+		Move();
+		
+		if (isJumping) Jump();
 	}
 
 	// 점프
 	private void Jump()
 	{
-		if (isJumping)
+		// 2번째 점프부터는 체공없이 일반점프
+		if (jumpCount < originJumpCount)
 		{
-			Vector3 velocity = playerRigidbody2D.velocity;
+			// 점프
+			playerRigidbody2D.velocity = Vector2.zero;
+			playerRigidbody2D.AddForce(Vector2.up * jumpPower * 1.5f, ForceMode2D.Impulse);
 
-			if (velocity.y < 0)
-			{
-				playerRigidbody2D.velocity = new Vector3(velocity.x, 0);
-			}
+			// 점프 갱신
+			isJumping = false;
+			jumpCount--;
 
+			return;
+		}
+
+		// 점프 시작시
+		if (jumpTimer == 0)
+		{
 			// 이펙트
 			Vector3 position = transform.position;
 
@@ -79,24 +92,35 @@ public class PlayerController : MonoBehaviour
 			position.z = -15;
 
 			Instantiate(jumpEffect, position, Quaternion.identity);
-
-			// 점프
-			playerRigidbody2D.velocity = Vector2.zero;
-			playerRigidbody2D.AddForce(Vector2.up * jumpPower * Input.GetAxis("Jump"), ForceMode2D.Impulse);
-
-			jumpCount--;
-			isJumping = false;
 		}
+
+		// 점프 체공시간을 초과했거나, 점프키를 떼면
+		if (!Input.GetButton("Jump") || jumpTimer >= jumpTimeLimit)
+		{
+			// 점프 갱신
+			isJumping = false;
+			jumpCount--;
+
+			return;
+		}
+		
+		// 점프
+		playerRigidbody2D.velocity = Vector2.zero;
+		playerRigidbody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+
+		// 점프 타이머 증가
+		jumpTimer += Time.deltaTime;
 	}
 
 	// 점프 리셋
 	public void ResetJump()
 	{
 		jumpCount = originJumpCount;
+		jumpTimer = 0;
 	}
 
 	// 움직임
-	private void Run()
+	private void Move()
 	{
 		Vector2 position = playerTransform.position;
 		Vector3 velocity = playerRigidbody2D.velocity;
@@ -130,5 +154,13 @@ public class PlayerController : MonoBehaviour
 		{
 			playerRigidbody2D.AddForce(Vector3.down, ForceMode2D.Impulse);
 		}
+	}
+
+	// 테스트 코루틴
+	private IEnumerator TestCoroutine()
+	{
+		yield return new WaitForSeconds(0.2f);
+
+		isJumping = true;
 	}
 }

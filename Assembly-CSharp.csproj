@@ -355,18 +355,6 @@
     <None Include="Assets\Add-Ons\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
     <None Include="Assets\Add-Ons\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
     <None Include="Assets\Add-Ons\NGUI\Examples\Resources\Localization.txt" />
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
@@ -376,11 +364,17 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
       <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
@@ -402,6 +396,12 @@
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
       <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
