@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class CustomBlockGenerator: MonoBehaviour
 {
+	//[SerializeField]
+	//private SlotSelecter		slotSelecter;               // 슬롯 선택 이미지
+	//private int				slotNumber = 1;				// 슬롯 번호
+
 	[SerializeField]
 	private Transform			fairyTransform;             // 요정 트랜스폼
-	[SerializeField]
-	private SlotSelecter		slotSelecter;               // 슬롯 선택 이미지
 	[SerializeField]
 	private GameObject			cantCreateEffect;           // 설치 불가 이펙트
 	[SerializeField]
@@ -16,7 +18,6 @@ public class CustomBlockGenerator: MonoBehaviour
 	
 	private Transform			targetBlock = null;         // 생성한 블럭
 	private Vector3				targetPosition;             // 생성 위치
-	private int					slotNumber = 1;				// 슬롯 번호
 
 	public GameObject			customBlockPrefab;          // 커스텀 블럭 프리팹
 
@@ -49,46 +50,46 @@ public class CustomBlockGenerator: MonoBehaviour
 			targetBlock = null;
 		}
 
-		// 슬롯 변경
-		if (Input.GetKeyDown(KeyCode.Alpha1))
-		{
-			slotNumber = 1;
-			slotSelecter.SetSelecter(slotNumber);
-		}
-		else if (Input.GetKeyDown(KeyCode.Alpha2))
-		{
-			slotNumber = 2;
-			slotSelecter.SetSelecter(slotNumber);
-		}
-		else if (Input.GetKeyDown(KeyCode.Alpha3))
-		{
-			slotNumber = 3;
-			slotSelecter.SetSelecter(slotNumber);
-		}
+		//// 슬롯 변경
+		//if (Input.GetKeyDown(KeyCode.Alpha1))
+		//{
+		//	slotNumber = 1;
+		//	slotSelecter.SetSelecter(slotNumber);
+		//}
+		//else if (Input.GetKeyDown(KeyCode.Alpha2))
+		//{
+		//	slotNumber = 2;
+		//	slotSelecter.SetSelecter(slotNumber);
+		//}
+		//else if (Input.GetKeyDown(KeyCode.Alpha3))
+		//{
+		//	slotNumber = 3;
+		//	slotSelecter.SetSelecter(slotNumber);
+		//}
 
-		if (Input.GetAxis("Mouse ScrollWheel") < 0)
-		{
-			slotNumber++;
+		//if (Input.GetAxis("Mouse ScrollWheel") < 0)
+		//{
+		//	slotNumber++;
 
-			if (slotNumber > 3)
-			{
-				slotNumber = 1;
-			}
+		//	if (slotNumber > 3)
+		//	{
+		//		slotNumber = 1;
+		//	}
 
-			slotSelecter.SetSelecter(slotNumber);
-		}
+		//	slotSelecter.SetSelecter(slotNumber);
+		//}
 
-		if (Input.GetAxis("Mouse ScrollWheel") > 0)
-		{
-			slotNumber--;
+		//if (Input.GetAxis("Mouse ScrollWheel") > 0)
+		//{
+		//	slotNumber--;
 
-			if (slotNumber < 1)
-			{
-				slotNumber = 3;
-			}
+		//	if (slotNumber < 1)
+		//	{
+		//		slotNumber = 3;
+		//	}
 
-			slotSelecter.SetSelecter(slotNumber);
-		}
+		//	slotSelecter.SetSelecter(slotNumber);
+		//}
 	}
 
 	// 블럭 생성 가능상태 확인
@@ -108,6 +109,7 @@ public class CustomBlockGenerator: MonoBehaviour
 		{
 			if (collider.CompareTag("Block") || collider.CompareTag("CustomBlock") || collider.CompareTag("DangerBlock") || collider.CompareTag("NoCreate") || collider.CompareTag("Ball") || collider.CompareTag("SoilBlock"))
 			{
+				// 블럭 설치가 불가능하다는 이펙트 표시
 				targetPosition.z = -10;
 
 				Instantiate(cantCreateEffect, targetPosition, Quaternion.identity);
@@ -116,12 +118,12 @@ public class CustomBlockGenerator: MonoBehaviour
 			}
 		}
 
-		customBlockPrefab = InventoryManager.instance.UseItem(slotNumber);
+		//customBlockPrefab = InventoryManager.instance.UseItem(slotNumber);
 
-		if (customBlockPrefab == null)
-		{
-			return false;
-		}
+		//if (customBlockPrefab == null)
+		//{
+		//	return false;
+		//}
 
 		return true;
 	}

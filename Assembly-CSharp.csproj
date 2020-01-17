@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{887F18F9-2450-D851-F2CC-E57D319A3717}</ProjectGuid>
+    <ProjectGuid>{4273915B-5B4C-21D9-93DA-5D9E3B3BA45F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -264,6 +264,22 @@
     <Compile Include="Assets\Add-Ons\NGUI\Scripts\UI\UITexture.cs" />
     <Compile Include="Assets\Add-Ons\NGUI\Scripts\UI\UITooltip.cs" />
     <Compile Include="Assets\Add-Ons\NGUI\Scripts\UI\UIViewport.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\BallGenerator.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\BallGeneratorDisabled.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\BallGoal.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\Item\Bomb.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\Item\Buble.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\Item\GravityExplosion.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\Item\Item.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\Item\ItemGenerator.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\Item\JumpRack.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\Item\OriginalExplosion.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\Item\PurificationExplosion.cs" />
+    <Compile Include="Assets\Scripts\Archive\Objects\Item\Teleport.cs" />
+    <Compile Include="Assets\Scripts\Archive\Systems\Item\InventoryManager.cs" />
+    <Compile Include="Assets\Scripts\Archive\Systems\Item\ObjectGiver.cs" />
+    <Compile Include="Assets\Scripts\Archive\Systems\Item\Slot.cs" />
+    <Compile Include="Assets\Scripts\Archive\Systems\Item\SlotSelecter.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraChase.cs" />
     <Compile Include="Assets\Scripts\Camera\EnableArea.cs" />
     <Compile Include="Assets\Scripts\Effect\2DLight\Blocker.cs" />
@@ -273,38 +289,22 @@
     <Compile Include="Assets\Scripts\Effect\2DLight\ShadowCaster.cs" />
     <Compile Include="Assets\Scripts\Monster\MonsterCollider.cs" />
     <Compile Include="Assets\Scripts\Monster\NormalMonsterMove.cs" />
-    <Compile Include="Assets\Scripts\Object\BallGenerator.cs" />
-    <Compile Include="Assets\Scripts\Object\BallGeneratorDisabled.cs" />
-    <Compile Include="Assets\Scripts\Object\BallGoal.cs" />
-    <Compile Include="Assets\Scripts\Object\BottomBlock.cs" />
-    <Compile Include="Assets\Scripts\Object\Item\Bomb.cs" />
-    <Compile Include="Assets\Scripts\Object\Item\Buble.cs" />
-    <Compile Include="Assets\Scripts\Object\Item\GravityExplosion.cs" />
-    <Compile Include="Assets\Scripts\Object\Item\Item.cs" />
-    <Compile Include="Assets\Scripts\Object\Item\ItemGenerator.cs" />
-    <Compile Include="Assets\Scripts\Object\Item\JumpRack.cs" />
-    <Compile Include="Assets\Scripts\Object\Item\OriginalExplosion.cs" />
-    <Compile Include="Assets\Scripts\Object\Item\PurificationExplosion.cs" />
-    <Compile Include="Assets\Scripts\Object\Item\Teleport.cs" />
-    <Compile Include="Assets\Scripts\Object\SelfDestroyer.cs" />
-    <Compile Include="Assets\Scripts\Object\UnstableBlock.cs" />
+    <Compile Include="Assets\Scripts\Objects\BottomBlock.cs" />
+    <Compile Include="Assets\Scripts\Objects\SelfDestroyer.cs" />
+    <Compile Include="Assets\Scripts\Objects\UnstableBlock.cs" />
     <Compile Include="Assets\Scripts\Player\CustomBlockGenerator.cs" />
     <Compile Include="Assets\Scripts\Player\FairyMove.cs" />
     <Compile Include="Assets\Scripts\Player\MoveParticle.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerJumpManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerManager.cs" />
-    <Compile Include="Assets\Scripts\System\GameManager.cs" />
-    <Compile Include="Assets\Scripts\System\Item\InventoryManager.cs" />
-    <Compile Include="Assets\Scripts\System\Item\ObjectGiver.cs" />
-    <Compile Include="Assets\Scripts\System\Item\Slot.cs" />
-    <Compile Include="Assets\Scripts\System\Item\SlotSelecter.cs" />
-    <Compile Include="Assets\Scripts\System\ObjectPoolGenerator.cs" />
-    <Compile Include="Assets\Scripts\System\ObjectPoolManager.cs" />
-    <Compile Include="Assets\Scripts\System\RandomMapGenerator.cs" />
-    <Compile Include="Assets\Scripts\System\Skill\BlockReset.cs" />
-    <Compile Include="Assets\Scripts\System\Skill\SkillManager.cs" />
-    <Compile Include="Assets\Scripts\System\UI\Pause.cs" />
+    <Compile Include="Assets\Scripts\Systems\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\ObjectPoolGenerator.cs" />
+    <Compile Include="Assets\Scripts\Systems\ObjectPoolManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\RandomMapGenerator.cs" />
+    <Compile Include="Assets\Scripts\Systems\Skill\BlockReset.cs" />
+    <Compile Include="Assets\Scripts\Systems\Skill\SkillManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\UI\Pause.cs" />
     <None Include="Assets\Add-Ons\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
     <None Include="Assets\Add-Ons\NGUI\ReadMe - 3.12.1.txt" />
     <None Include="Assets\Add-Ons\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
@@ -356,61 +356,61 @@
     <None Include="Assets\Add-Ons\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
     <None Include="Assets\Add-Ons\NGUI\Examples\Resources\Localization.txt" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -590,13 +590,13 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/TheBlueLemonParty/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

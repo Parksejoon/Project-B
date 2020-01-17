@@ -16,15 +16,18 @@ public class Item : MonoBehaviour
 		// 플레이어 = 아이템 획득
 		if (collision.CompareTag("Player"))
 		{
-			if (InventoryManager.instance.AddItem(targetObject, itemCount))
+			if (InventoryManager.instance != null)
 			{
-				Vector3 position = PlayerController.playerTransform.position;
-				//Vector3 position = transform.position;
+				if (InventoryManager.instance.AddItem(targetObject, itemCount))
+				{
+					Vector3 position = PlayerController.playerTransform.position;
+					//Vector3 position = transform.position;
 
-				position.z = -15;
-				Instantiate(destroyParticle, position, Quaternion.identity, PlayerController.playerTransform);
+					position.z = -15;
+					Instantiate(destroyParticle, position, Quaternion.identity, PlayerController.playerTransform);
 
-				Destroy(transform.parent.gameObject);
+					Destroy(transform.parent.gameObject);
+				}
 			}
 		}
 	}

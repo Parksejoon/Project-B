@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 	private int					jumpCount;                  // 점프 카운트
 	private bool				isJumping = false;          // 점프 여부
 	private float				jumpTimer;                  // 점프 타이머
-	private float				jumpTimeLimit = 0.3f;		// 최대 점프 시간
+	private float				jumpTimeLimit = 0.1f;		// 최대 점프 시간
 
 
 
@@ -71,6 +71,14 @@ public class PlayerController : MonoBehaviour
 		// 2번째 점프부터는 체공없이 일반점프
 		if (jumpCount < originJumpCount)
 		{
+			// 이펙트
+			Vector3 position = transform.position;
+
+			position.y -= 0.5f;
+			position.z = -15;
+
+			Instantiate(jumpEffect, position, Quaternion.identity);
+
 			// 점프
 			playerRigidbody2D.velocity = Vector2.zero;
 			playerRigidbody2D.AddForce(Vector2.up * jumpPower * 1.5f, ForceMode2D.Impulse);
@@ -106,7 +114,7 @@ public class PlayerController : MonoBehaviour
 		
 		// 점프
 		playerRigidbody2D.velocity = Vector2.zero;
-		playerRigidbody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+		playerRigidbody2D.AddForce(Vector2.up * jumpPower * ((jumpTimer * 10) + 1f), ForceMode2D.Impulse);
 
 		// 점프 타이머 증가
 		jumpTimer += Time.deltaTime;

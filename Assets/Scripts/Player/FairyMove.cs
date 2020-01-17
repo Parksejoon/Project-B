@@ -37,19 +37,19 @@ public class FairyMove : MonoBehaviour
 	// 충돌체 진입
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.CompareTag("DangerBlock"))
-		{
-			// 마우스 충돌 이펙트
-			Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		//if (collision.gameObject.CompareTag("DangerBlock"))
+		//{
+		//	// 마우스 충돌 이펙트
+		//	Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-			mousePos.z = -9;
+		//	mousePos.z = -9;
 
-			Instantiate(mouseBombEffect, mousePos, Quaternion.identity);
+		//	Instantiate(mouseBombEffect, mousePos, Quaternion.identity);
 
 
-			// 게임 종료
-			GameManager.instance.GameOver();
-		}
+		//	// 게임 종료
+		//	GameManager.instance.GameOver();
+		//}
 	}
 
 	// 충돌 처리
