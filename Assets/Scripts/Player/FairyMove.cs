@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// 페어리 움직임
+// 마우스 체이싱, 페어리 충돌처리, 카메라 이탈처리
 public class FairyMove : MonoBehaviour
 {
 	[SerializeField]
@@ -15,6 +17,7 @@ public class FairyMove : MonoBehaviour
 	// 고정 프레임
 	private void FixedUpdate()
 	{
+		// 마우스 체이싱
 		Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector3 goalVector;
 
@@ -32,6 +35,9 @@ public class FairyMove : MonoBehaviour
 		// 충돌 처리
 		CheckCollider(new Vector2(goalVector.x, transform.position.y));
 		CheckCollider(new Vector2(transform.position.x, goalVector.y));
+
+		// 카메라 처리
+		PreventionCameraDeviation();
 	}
 
 	// 충돌체 진입
@@ -52,6 +58,19 @@ public class FairyMove : MonoBehaviour
 		//}
 	}
 
+	// 카메라 밖으로 못나가게 조정
+	private void PreventionCameraDeviation()
+	{
+		Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+
+		if (pos.x < 0f) pos.x = 0f;
+		if (pos.x > 1f) pos.x = 1f;
+		if (pos.y < 0f) pos.y = 0f;
+		if (pos.y > 1f) pos.y = 1f;
+
+		transform.position = Camera.main.ViewportToWorldPoint(pos);
+	}
+
 	// 충돌 처리
 	private void CheckCollider(Vector3 pos)
 	{
@@ -64,17 +83,7 @@ public class FairyMove : MonoBehaviour
 
 		foreach (Collider2D collider in colliders)
 		{
-			if (collider.CompareTag("DangerBlock"))
-			{
-				GameManager.instance.GameOver();
 
-				return;
-			}
-
-			if (collider.CompareTag("Block") || collider.CompareTag("SoilBlock"))
-			{
-				return;
-			}
 		}
 
 		transform.position = pos;

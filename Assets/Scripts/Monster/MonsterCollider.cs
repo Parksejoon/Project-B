@@ -40,7 +40,7 @@ public class MonsterCollider : MonoBehaviour
 			playerRigidbody.AddForce(shotVec2, ForceMode2D.Impulse);
 
 			// 플레이어 피격
-			PlayerManager.instance.Hit(shotWay);
+			collision.GetComponent<PlayerManager>().Hit(shotWay);
 		}
 	}
 

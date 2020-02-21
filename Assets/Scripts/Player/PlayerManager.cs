@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+// 플레이어 매니저
+// 스테이터스 관리, 피격, 타격
 public class PlayerManager : MonoBehaviour
 {
-	public static PlayerManager instance;               // 싱글톤 인스턴스
+	// (@@ 여기서 싱글톤 사용 금지 @@)
 
 	private bool isInvincibility;						// 무적 상태인지
 	public	bool IsInvincibility						// 접근자
@@ -27,11 +29,6 @@ public class PlayerManager : MonoBehaviour
 	{
 		blinkingSprite = BlinkingSprite();
 		IsInvincibility = false;
-
-		if (instance == null)
-		{
-			instance = this;
-		}
 	}
 
 	// 노말 블럭 드랍
@@ -56,7 +53,7 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
-	// 스프라이트 깜빡거림
+	// 스프라이트 깜빡거림 (!! 이거 나중에 플레이어 애니메이션 관련 스크립트로 이동 !!)
 	private IEnumerator BlinkingSprite()
 	{
 		while (IsInvincibility)

@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
 			// 점프
 			playerRigidbody2D.velocity = Vector2.zero;
-			playerRigidbody2D.AddForce(Vector2.up * jumpPower * 1.5f, ForceMode2D.Impulse);
+			playerRigidbody2D.AddForce(Vector2.up * jumpPower * 3f, ForceMode2D.Impulse);
 
 			// 점프 갱신
 			isJumping = false;
@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
 		
 		// 점프
 		playerRigidbody2D.velocity = Vector2.zero;
-		playerRigidbody2D.AddForce(Vector2.up * jumpPower * ((jumpTimer * 10) + 1f), ForceMode2D.Impulse);
+		playerRigidbody2D.AddForce(Vector2.up * jumpPower * ((jumpTimer * 20) + 1f), ForceMode2D.Impulse);
 
 		// 점프 타이머 증가
 		jumpTimer += Time.deltaTime;

@@ -1102,7 +1102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &451787146
 Transform:
   m_ObjectHideFlags: 0
@@ -6694,7 +6694,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1314121620}
   moveParticle: {fileID: 474730556}
   moveSpeed: 7
-  jumpPower: 6
+  jumpPower: 4
   jumpEffect: {fileID: 1638717943023278, guid: 9718beaadad258b418f6720902212009, type: 3}
   originJumpCount: 2
 --- !u!61 &1070208808

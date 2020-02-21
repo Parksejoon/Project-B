@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// 이동 파티클
+// 파티클 조정(정지, 다시움직임)
 public class MoveParticle : MonoBehaviour
 {
 	[SerializeField]

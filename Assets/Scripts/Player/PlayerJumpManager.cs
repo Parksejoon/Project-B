@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// 플레이어 점프 매니저
+// 착지 판정, 체공 판정
 public class PlayerJumpManager : MonoBehaviour
 {
 	private static bool isGround;		// 바닥인지
