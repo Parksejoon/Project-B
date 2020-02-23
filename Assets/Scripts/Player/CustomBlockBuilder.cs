@@ -1,28 +1,42 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 // 커스텀 블록 설치
 // 클릭 입력,
-public class CustomBlockGenerator: MonoBehaviour
+public class CustomBlockBuilder : MonoBehaviour
 {
 	//[SerializeField]
 	//private SlotSelecter		slotSelecter;               // 슬롯 선택 이미지
 	//private int				slotNumber = 1;				// 슬롯 번호
 
+	public	GameObject			customBlockPrefab;          // 커스텀 블럭 프리팹
+	[SerializeField]
+	private GameObject			cantCreateEffect;           // 설치 불가 이펙트 프리팹
+	[SerializeField]
+	private GameObject			itemCreateEffect;           // 블록 설치 이펙트 프리팹
+
 	[SerializeField]
 	private Transform			fairyTransform;             // 요정 트랜스폼
-	[SerializeField]
-	private GameObject			cantCreateEffect;           // 설치 불가 이펙트
-	[SerializeField]
-	private GameObject			itemCreateEffect;           // 블록 설치 이펙트
+
 	[SerializeField]
 	private float				createZPosition;            // 생성 z포지션
-	
-	private Transform			targetBlock = null;         // 생성한 블럭
-	private Vector3				targetPosition;             // 생성 위치
+	[SerializeField]
+	private int					maxCreatableBlockCount;		// 최대 생성 가능 블럭 갯수
 
-	public GameObject			customBlockPrefab;          // 커스텀 블럭 프리팹
 
+	private List<GameObject>	createdBlockList;							// 생성된 블럭들의 목록
+
+	private Transform			currentCreatingTargetBlock = null;			// 현재 생성중인 블럭
+	private Vector3				targetPosition;								// 생성 위치
+
+
+
+	// 초기화
+	private void Awake()
+	{
+		createdBlockList = new List<GameObject>();
+	}
 
 	// 프레임
 	private void Update()
@@ -42,7 +56,7 @@ public class CustomBlockGenerator: MonoBehaviour
 		}
 
 		// 클릭 중
-		if (Input.GetMouseButton(0) && targetBlock != null)
+		if (Input.GetMouseButton(0) && currentCreatingTargetBlock != null)
 		{
 			StartCoroutine("ClickTimer");
 		}
@@ -51,7 +65,7 @@ public class CustomBlockGenerator: MonoBehaviour
 		if (Input.GetMouseButtonUp(0))
 		{
 			StopCoroutine("ClickTimer");
-			targetBlock = null;
+			currentCreatingTargetBlock = null;
 		}
 
 		//// 슬롯 변경
@@ -104,6 +118,7 @@ public class CustomBlockGenerator: MonoBehaviour
 			return false;
 		}
 
+		// 위치가 협소해서 블럭을 설치 못하는 경우
 		targetPosition = fairyTransform.position;
 		targetPosition.z = createZPosition;
 
@@ -111,7 +126,9 @@ public class CustomBlockGenerator: MonoBehaviour
 
 		foreach (Collider2D collider in hitColliders2D)
 		{
-			if (collider.CompareTag("Block") || collider.CompareTag("CustomBlock") || collider.CompareTag("DangerBlock") || collider.CompareTag("NoCreate") || collider.CompareTag("Ball") || collider.CompareTag("SoilBlock"))
+			if (collider.CompareTag("Block") || collider.CompareTag("CustomBlock") || 
+				collider.CompareTag("DangerBlock") || collider.CompareTag("NoCreate") || 
+				collider.CompareTag("Ball") || collider.CompareTag("SoilBlock"))
 			{
 				// 블럭 설치가 불가능하다는 이펙트 표시
 				targetPosition.z = -10;
@@ -120,6 +137,12 @@ public class CustomBlockGenerator: MonoBehaviour
 
 				return false;
 			}
+		}
+
+		// 최대 갯수를 초과해서 설치를 못하는 경우
+		if (createdBlockList.Count >= maxCreatableBlockCount)
+		{
+			return false;
 		}
 
 		//customBlockPrefab = InventoryManager.instance.UseItem(slotNumber);
@@ -132,12 +155,28 @@ public class CustomBlockGenerator: MonoBehaviour
 		return true;
 	}
 
+	// 블럭 초기화
+	public void ResetBlocks()
+	{
+		foreach (GameObject target in createdBlockList)
+		{
+			// 블럭 삭제
+			Destroy(target);
+		}
+
+		createdBlockList.Clear();
+	}
+
 	// 블럭 생성
 	private void CreateBlock()
 	{
+		// 생성 이펙트
 		Instantiate(itemCreateEffect, targetPosition, Quaternion.identity, transform);
 
-		targetBlock = Instantiate(customBlockPrefab, targetPosition, Quaternion.identity, transform).transform;
+		// 블럭 생성
+		currentCreatingTargetBlock = Instantiate(customBlockPrefab, targetPosition, Quaternion.identity, transform).transform;
+
+		createdBlockList.Add(currentCreatingTargetBlock.gameObject);
 	}
 
 	// 블럭 회전
@@ -146,12 +185,12 @@ public class CustomBlockGenerator: MonoBehaviour
 		Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector2 targetPos;
 
-		targetPos.x = position.x - targetBlock.position.x;
-		targetPos.y = position.y - targetBlock.position.y;
+		targetPos.x = position.x - currentCreatingTargetBlock.position.x;
+		targetPos.y = position.y - currentCreatingTargetBlock.position.y;
 
 		float angle = -1 * Mathf.Rad2Deg * Mathf.Atan2(targetPos.x, targetPos.y) + 90;
 
-		targetBlock.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+		currentCreatingTargetBlock.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 	}
 
 	// 클릭 시간 코루틴
@@ -159,7 +198,7 @@ public class CustomBlockGenerator: MonoBehaviour
 	{
 		yield return new WaitForSeconds(1f);
 
-		if (Input.GetMouseButton(0) && targetBlock != null)
+		if (Input.GetMouseButton(0) && currentCreatingTargetBlock != null)
 		{
 			RotateBlock();
 		}

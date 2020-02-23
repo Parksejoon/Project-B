@@ -292,7 +292,7 @@
     <Compile Include="Assets\Scripts\Objects\BottomBlock.cs" />
     <Compile Include="Assets\Scripts\Objects\SelfDestroyer.cs" />
     <Compile Include="Assets\Scripts\Objects\UnstableBlock.cs" />
-    <Compile Include="Assets\Scripts\Player\CustomBlockGenerator.cs" />
+    <Compile Include="Assets\Scripts\Player\CustomBlockBuilder.cs" />
     <Compile Include="Assets\Scripts\Player\FairyMove.cs" />
     <Compile Include="Assets\Scripts\Player\MoveParticle.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />

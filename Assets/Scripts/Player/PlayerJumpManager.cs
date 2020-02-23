@@ -20,6 +20,8 @@ public class PlayerJumpManager : MonoBehaviour
 	[SerializeField]
 	private PlayerController	playerControl;          // 플레이어 컨트롤
 	[SerializeField]
+	private CustomBlockBuilder	customBlockBuilder;		// 커스텀 블럭 빌더
+	[SerializeField]
 	private MoveParticle		moveParticle;           // 움직임 파티클
 	
 
@@ -37,7 +39,7 @@ public class PlayerJumpManager : MonoBehaviour
 	// 트리거 진입
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		// 블록일 경우
+		// 모든 착지 가능한 블록일 경우
 		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock") 
 			|| collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") 
 			|| collision.CompareTag("CustomBlock"))
@@ -52,6 +54,13 @@ public class PlayerJumpManager : MonoBehaviour
 			{
 				IsGround = true;
 			}
+		}
+
+		// 커스텀 블럭을 제외한 착지 가능한 블록일 경우
+		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock")
+			|| collision.CompareTag("Ball") || collision.CompareTag("SoilBlock"))
+		{
+			customBlockBuilder.ResetBlocks();
 		}
 	}
 

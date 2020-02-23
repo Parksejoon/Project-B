@@ -17,7 +17,7 @@
  -7 Player
  -7.5 Effect
  -8 Fairy(Light)
-
+ (!! #define으로 정형화 !!)
 */
 
 using UnityEngine;

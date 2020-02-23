@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerControl: {fileID: 1070208807}
+  customBlockBuilder: {fileID: 1617088178}
   moveParticle: {fileID: 474730556}
 --- !u!61 &67520746
 BoxCollider2D:
@@ -151280,14 +151281,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be9e3ff72ea13f5479362b11d1d91424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fairyTransform: {fileID: 378111009}
+  customBlockPrefab: {fileID: 1429968794032364, guid: ebab011f49a306e409f00aacbd2ab487,
+    type: 3}
   cantCreateEffect: {fileID: 1870568074055656, guid: 13aef5eb93162134a8e50e3a5cb2130e,
     type: 3}
   itemCreateEffect: {fileID: 1612187159097438, guid: dde1d38089c3ad84e8a6568d6cee2627,
     type: 3}
+  fairyTransform: {fileID: 378111009}
   createZPosition: -4.95
-  customBlockPrefab: {fileID: 1429968794032364, guid: ebab011f49a306e409f00aacbd2ab487,
-    type: 3}
+  maxCreatableBlockCount: 3
 --- !u!114 &1617088181
 MonoBehaviour:
   m_ObjectHideFlags: 0
