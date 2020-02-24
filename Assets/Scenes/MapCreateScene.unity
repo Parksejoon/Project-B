@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8053540dc8f8ecf4a82f9cab34999ae8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerControl: {fileID: 1070208807}
+  playerController: {fileID: 1070208807}
   customBlockBuilder: {fileID: 1617088178}
   moveParticle: {fileID: 474730556}
 --- !u!61 &67520746
@@ -6697,7 +6697,7 @@ MonoBehaviour:
   moveSpeed: 7
   jumpPower: 4
   jumpEffect: {fileID: 1638717943023278, guid: 9718beaadad258b418f6720902212009, type: 3}
-  originJumpCount: 2
+  jumpCountLimit: 2
 --- !u!61 &1070208808
 BoxCollider2D:
   m_ObjectHideFlags: 0

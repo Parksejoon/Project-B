@@ -21,9 +21,8 @@ public class PlayerController : MonoBehaviour
 	private float				jumpPower;                  // 점프 파워
 	[SerializeField]
 	private GameObject			jumpEffect;                 // 점프 이펙트
-	public	int					originJumpCount;			// 기본 점프 카운트
-	private int					jumpCount;                  // 점프 카운트
-	private bool				isJumping = false;          // 점프 여부
+	public	int					jumpCountLimit;				// 최대 점프 횟수
+	private int					jumpCount;                  // 점프 횟수
 	private float				jumpTimer;                  // 점프 타이머
 	private float				jumpTimeLimit = 0.1f;		// 최대 점프 시간
 
@@ -51,9 +50,9 @@ public class PlayerController : MonoBehaviour
 		horizontalMove	= Input.GetAxis("Horizontal");
 		verticalMove	= Input.GetAxis("Vertical");
 
-		if (Input.GetButtonDown("Jump") && jumpCount > 0)
+		if (Input.GetButtonDown("Jump"))
 		{
-			isJumping = true;
+			Jump();
 		}
 	}
 
@@ -61,16 +60,18 @@ public class PlayerController : MonoBehaviour
 	private void FixedUpdate()
 	{
 		Move();
-		
-		if (isJumping) Jump();
 	}
 
 	// 점프
 	private void Jump()
 	{
-		// 2번째 점프부터는 체공없이 일반점프
-		if (jumpCount < originJumpCount)
+		if (jumpCount >= jumpCountLimit) return;
+
+		// 2번째 점프부터는 일반점프
+		if (jumpCount >= 1)
 		{
+			Debug.Log("Extra Jump : " + (jumpCount));
+
 			// 이펙트
 			Vector3 position = transform.position;
 
@@ -84,14 +85,12 @@ public class PlayerController : MonoBehaviour
 			playerRigidbody2D.AddForce(Vector2.up * jumpPower * 3f, ForceMode2D.Impulse);
 
 			// 점프 갱신
-			isJumping = false;
-			jumpCount--;
+			jumpCount++;
 
 			return;
 		}
-
-		// 점프 시작시
-		if (jumpTimer == 0)
+		// 일반 점프
+		else
 		{
 			// 이펙트
 			Vector3 position = transform.position;
@@ -100,30 +99,24 @@ public class PlayerController : MonoBehaviour
 			position.z = -15;
 
 			Instantiate(jumpEffect, position, Quaternion.identity);
-		}
 
-		// 점프 체공시간을 초과했거나, 점프키를 떼면
-		if (!Input.GetButton("Jump") || jumpTimer >= jumpTimeLimit)
-		{
-			// 점프 갱신
-			isJumping = false;
-			jumpCount--;
+			// 코루틴
+			StartCoroutine(JumpFlight());
 
 			return;
 		}
-		
-		// 점프
-		playerRigidbody2D.velocity = Vector2.zero;
-		playerRigidbody2D.AddForce(Vector2.up * jumpPower * ((jumpTimer * 20) + 1f), ForceMode2D.Impulse);
+	}
 
-		// 점프 타이머 증가
-		jumpTimer += Time.deltaTime;
+	// 공중에 뜬 상태가 될시 jump count를 1로 초기화
+	public void Flight()
+	{
+		jumpCount = 1;
 	}
 
 	// 점프 리셋
 	public void ResetJump()
 	{
-		jumpCount = originJumpCount;
+		jumpCount = 0;
 		jumpTimer = 0;
 	}
 
@@ -164,11 +157,19 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	// 테스트 코루틴
-	private IEnumerator TestCoroutine()
+	// 점프 체공 코루틴
+	private IEnumerator JumpFlight()
 	{
-		yield return new WaitForSeconds(0.2f);
+		while (Input.GetButton("Jump") && jumpTimer < jumpTimeLimit)
+		{
+			// 점프
+			playerRigidbody2D.velocity = Vector2.zero;
+			playerRigidbody2D.AddForce(Vector2.up * jumpPower * ((jumpTimer * 20) + 1f), ForceMode2D.Impulse);
 
-		isJumping = true;
+			// 점프 타이머 증가
+			jumpTimer += Time.deltaTime;
+
+			yield return new WaitForFixedUpdate();
+		}
 	}
 }

@@ -18,7 +18,7 @@ public class PlayerJumpManager : MonoBehaviour
 	}
 
 	[SerializeField]
-	private PlayerController	playerControl;          // 플레이어 컨트롤
+	private PlayerController	playerController;          // 플레이어 컨트롤
 	[SerializeField]
 	private CustomBlockBuilder	customBlockBuilder;		// 커스텀 블럭 빌더
 	[SerializeField]
@@ -30,9 +30,9 @@ public class PlayerJumpManager : MonoBehaviour
 	{
 		IsGround = true;
 
-		if (playerControl == null)
+		if (playerController == null)
 		{
-			playerControl = GetComponent<PlayerController>();
+			playerController = GetComponent<PlayerController>();
 		}
 	}
 
@@ -44,9 +44,9 @@ public class PlayerJumpManager : MonoBehaviour
 			|| collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") 
 			|| collision.CompareTag("CustomBlock"))
 		{
-			playerControl.ResetJump();
+			playerController.ResetJump();
 
-			// 움직임 파티클 플래그 설정
+			// 이펙트 플래그 설정
 			moveParticle.flagArray[1] = true;
 
 			// 플래그 설정
@@ -72,7 +72,7 @@ public class PlayerJumpManager : MonoBehaviour
 			|| collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") 
 			|| collision.CompareTag("CustomBlock"))
 		{
-			playerControl.ResetJump();
+			playerController.ResetJump();
 		}
 	}
 
@@ -84,6 +84,9 @@ public class PlayerJumpManager : MonoBehaviour
 			|| collision.CompareTag("Ball") || collision.CompareTag("SoilBlock") 
 			|| collision.CompareTag("CustomBlock"))
 		{
+			playerController.Flight();
+
+			// 이펙트 플래그 설정
 			moveParticle.flagArray[1] = false;
 
 			// 플래그 설정
