@@ -7,17 +7,6 @@
 (!! 수정이 필요한 내용 !!)
 (@@ 코드 삽입시 주의가 필요한 부분 @@)
 
-## sprite z value ##
- -4.8 NoCreateZone
- -4.9 CustomBlock
- -5 Base
- -5.1 Danger
- -5.2 Sub
- -6 Monster
- -7 Player
- -7.5 Effect
- -8 Fairy(Light)
- (!! #define으로 정형화 !!)
 */
 
 using UnityEngine;
@@ -46,4 +35,29 @@ public class GameManager : MonoBehaviour
 	{
 		Debug.Log("GameOver");
 	}
+}
+
+/*
+
+## sprite z value ##
+
+ -4.5 CustomBlock
+ -5 Base
+ -6 Monster
+ -7 Player
+ -7.5 Effect
+ -8 Fairy & Light
+
+ */
+ 
+
+public static class Depth
+{
+	public const float CustomBlock	= -4.5f;
+	public const float Base			= -5f;
+	public const float Monster		= -6f;
+	public const float Player		= -7f;
+	public const float Effect		= -7.5f;
+	public const float Fairy		= -8f;
+	public const float Light		= -8f;
 }

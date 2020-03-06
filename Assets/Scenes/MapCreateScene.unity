@@ -1064,7 +1064,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseBombEffect: {fileID: 1734257059202780, guid: 60856796b19e64444bb1102b09214987,
     type: 3}
-  zPosition: -8
   speed: 15
 --- !u!4 &378111009
 Transform:
@@ -1297,7 +1296,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474730552}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.46, z: -10}
+  m_LocalPosition: {x: 0, y: -0.46, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1070208810}
@@ -6165,7 +6164,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6189,7 +6188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0000004172325, y: 2.3999996, z: -30}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 71109718}
@@ -16581,7 +16580,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1314121618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -6.2}
+  m_LocalPosition: {x: 0, y: 0, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1070208810}
@@ -151288,7 +151287,6 @@ MonoBehaviour:
   itemCreateEffect: {fileID: 1612187159097438, guid: dde1d38089c3ad84e8a6568d6cee2627,
     type: 3}
   fairyTransform: {fileID: 378111009}
-  createZPosition: -4.95
   maxCreatableBlockCount: 3
 --- !u!114 &1617088181
 MonoBehaviour:
@@ -151873,7 +151871,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1762961465}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.61}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 52.535404, y: 52.535404, z: 1}
   m_Children: []
   m_Father: {fileID: 378111009}

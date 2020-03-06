@@ -7,8 +7,6 @@ public class FairyMove : MonoBehaviour
 	[SerializeField]
 	private GameObject		mouseBombEffect;			// 마우스 폭발 이펙트
 	[SerializeField]
-	private float			zPosition = 0;				// z 포지션
-	[SerializeField]
 	private float			speed = 1;                  // 속도
 	
 	private const float		colliderRadius = 0.3f;		// 충돌체 반지름
@@ -30,7 +28,7 @@ public class FairyMove : MonoBehaviour
 		{
 			goalVector = Vector2.MoveTowards(transform.position, new Vector2(position.x, position.y), Time.deltaTime * speed);
 		}
-		goalVector.z = zPosition;
+		goalVector.z = Depth.Fairy;
 
 		// 충돌 처리
 		CheckCollider(new Vector2(goalVector.x, transform.position.y));
@@ -76,7 +74,7 @@ public class FairyMove : MonoBehaviour
 	{
 		Collider2D[] colliders;
 
-		pos.z = zPosition;
+		pos.z = Depth.Fairy;
 
 		// 충돌처리
 		colliders = Physics2D.OverlapCircleAll(pos, colliderRadius);

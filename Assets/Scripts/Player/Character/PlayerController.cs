@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 			Vector3 position = transform.position;
 
 			position.y -= 0.5f;
-			position.z = -15;
+			position.z = Depth.Effect;
 
 			Instantiate(jumpEffect, position, Quaternion.identity);
 
@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour
 			Vector3 position = transform.position;
 
 			position.y -= 0.5f;
-			position.z = -15;
+			position.z = Depth.Effect;
 
 			Instantiate(jumpEffect, position, Quaternion.identity);
 

@@ -18,9 +18,7 @@ public class CustomBlockBuilder : MonoBehaviour
 
 	[SerializeField]
 	private Transform			fairyTransform;             // 요정 트랜스폼
-
-	[SerializeField]
-	private float				createZPosition;            // 생성 z포지션
+	
 	[SerializeField]
 	private int					maxCreatableBlockCount;		// 최대 생성 가능 블럭 갯수
 
@@ -118,10 +116,11 @@ public class CustomBlockBuilder : MonoBehaviour
 			return false;
 		}
 
-		// 위치가 협소해서 블럭을 설치 못하는 경우
 		targetPosition = fairyTransform.position;
-		targetPosition.z = createZPosition;
+		targetPosition.z = Depth.CustomBlock;
 
+
+		// 위치가 협소해서 블럭을 설치 못하는 경우
 		Collider2D[] hitColliders2D = Physics2D.OverlapBoxAll(targetPosition, new Vector2(1f, 1f), 0);
 
 		foreach (Collider2D collider in hitColliders2D)
@@ -131,7 +130,7 @@ public class CustomBlockBuilder : MonoBehaviour
 				collider.CompareTag("Ball") || collider.CompareTag("SoilBlock"))
 			{
 				// 블럭 설치가 불가능하다는 이펙트 표시
-				targetPosition.z = -10;
+				targetPosition.z = Depth.Effect;
 
 				Instantiate(cantCreateEffect, targetPosition, Quaternion.identity);
 
