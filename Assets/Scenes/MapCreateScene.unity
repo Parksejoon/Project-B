@@ -6164,7 +6164,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6188,7 +6188,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0000004172325, y: 2.3999996, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 71109718}
@@ -151282,7 +151282,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customBlockPrefab: {fileID: 1429968794032364, guid: ebab011f49a306e409f00aacbd2ab487,
     type: 3}
-  cantCreateEffect: {fileID: 1870568074055656, guid: 13aef5eb93162134a8e50e3a5cb2130e,
+  spacenarrowerEffect: {fileID: 1870568074055656, guid: 13aef5eb93162134a8e50e3a5cb2130e,
+    type: 3}
+  countexcessEffect: {fileID: 3014113647032459233, guid: 482c3e13843a3e846a93cd20cd6c86ac,
     type: 3}
   itemCreateEffect: {fileID: 1612187159097438, guid: dde1d38089c3ad84e8a6568d6cee2627,
     type: 3}

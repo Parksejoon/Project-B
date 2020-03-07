@@ -12,7 +12,9 @@ public class CustomBlockBuilder : MonoBehaviour
 
 	public	GameObject			customBlockPrefab;          // 커스텀 블럭 프리팹
 	[SerializeField]
-	private GameObject			cantCreateEffect;           // 설치 불가 이펙트 프리팹
+	private GameObject			spacenarrowerEffect;        // 장소 협소 설치 불가 이펙트 프리팹
+	[SerializeField]
+	private GameObject			countexcessEffect;			// 블록 최개갯수 초과 설치 불가 이펙트 프리팹
 	[SerializeField]
 	private GameObject			itemCreateEffect;           // 블록 설치 이펙트 프리팹
 
@@ -119,6 +121,16 @@ public class CustomBlockBuilder : MonoBehaviour
 		targetPosition = fairyTransform.position;
 		targetPosition.z = Depth.CustomBlock;
 
+		// 최대 갯수를 초과해서 설치를 못하는 경우
+		if (createdBlockList.Count >= maxCreatableBlockCount)
+		{
+			// 블럭 설치가 불가능하다는 이펙트 표시
+			targetPosition.z = Depth.Effect;
+
+			Instantiate(countexcessEffect, targetPosition, Quaternion.identity);
+
+			return false;
+		}
 
 		// 위치가 협소해서 블럭을 설치 못하는 경우
 		Collider2D[] hitColliders2D = Physics2D.OverlapBoxAll(targetPosition, new Vector2(1f, 1f), 0);
@@ -132,16 +144,10 @@ public class CustomBlockBuilder : MonoBehaviour
 				// 블럭 설치가 불가능하다는 이펙트 표시
 				targetPosition.z = Depth.Effect;
 
-				Instantiate(cantCreateEffect, targetPosition, Quaternion.identity);
+				Instantiate(spacenarrowerEffect, targetPosition, Quaternion.identity);
 
 				return false;
 			}
-		}
-
-		// 최대 갯수를 초과해서 설치를 못하는 경우
-		if (createdBlockList.Count >= maxCreatableBlockCount)
-		{
-			return false;
 		}
 
 		//customBlockPrefab = InventoryManager.instance.UseItem(slotNumber);
