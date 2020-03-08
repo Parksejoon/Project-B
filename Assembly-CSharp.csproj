@@ -299,8 +299,10 @@
     <Compile Include="Assets\Scripts\Player\Fairy\CustomBlockBuilder.cs" />
     <Compile Include="Assets\Scripts\Player\Fairy\FairyMove.cs" />
     <Compile Include="Assets\Scripts\Systems\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Systems\ObjectPoolGenerator.cs" />
-    <Compile Include="Assets\Scripts\Systems\ObjectPoolManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\Others\Depth.cs" />
+    <Compile Include="Assets\Scripts\Systems\Others\ObjectPoolGenerator.cs" />
+    <Compile Include="Assets\Scripts\Systems\Others\ObjectPoolManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\Others\ResourceLoader.cs" />
     <Compile Include="Assets\Scripts\Systems\RandomMapGenerator.cs" />
     <Compile Include="Assets\Scripts\Systems\Skill\BlockReset.cs" />
     <Compile Include="Assets\Scripts\Systems\Skill\SkillManager.cs" />
