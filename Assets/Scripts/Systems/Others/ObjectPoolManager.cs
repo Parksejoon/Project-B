@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPoolManager : MonoBehaviour
 {
-	public static Hashtable objectPools = new Hashtable();
+	private static Hashtable objectPools = new Hashtable();
 
 
 	// 오브젝트 생성
@@ -52,5 +52,11 @@ public class ObjectPoolManager : MonoBehaviour
 		gameObj.SetActive(false);
 
 		objects.Push(gameObj);
+	}
+
+	// 풀에서 삭제
+	public static void Remove(string name)
+	{
+		objectPools.Remove(name);
 	}
 }

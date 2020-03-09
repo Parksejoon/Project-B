@@ -11,12 +11,12 @@ public class CustomBlockBuilder : MonoBehaviour
 	//private int				slotNumber = 1;				// 슬롯 번호
 
 	public	GameObject			customBlockPrefab;          // 커스텀 블럭 프리팹
-	[SerializeField]
-	private GameObject			spacenarrowerEffect;        // 장소 협소 설치 불가 이펙트 프리팹
-	[SerializeField]
-	private GameObject			countexcessEffect;			// 블록 최개갯수 초과 설치 불가 이펙트 프리팹
-	[SerializeField]
-	private GameObject			itemCreateEffect;           // 블록 설치 이펙트 프리팹
+	//[SerializeField]
+	//private GameObject			spacenarrowerEffect;        // 장소 협소 설치 불가 이펙트 프리팹
+	//[SerializeField]
+	//private GameObject			countexcessEffect;			// 블록 최개갯수 초과 설치 불가 이펙트 프리팹
+	//[SerializeField]
+	//private GameObject			blockreatedEffect;           // 블록 설치 이펙트 프리팹
 
 	[SerializeField]
 	private Transform			fairyTransform;             // 요정 트랜스폼
@@ -36,6 +36,12 @@ public class CustomBlockBuilder : MonoBehaviour
 	private void Awake()
 	{
 		createdBlockList = new List<GameObject>();
+
+		ResourceLoader.Load("Effects/Block");
+
+		ObjectPoolManager.Create("BlockCreated", ResourceLoader.Get("BlockCreated"), 10);
+		ObjectPoolManager.Create("CountExcess", ResourceLoader.Get("CountExcess"), 20);
+		ObjectPoolManager.Create("SpaceNarrower", ResourceLoader.Get("SpaceNarrower"), 20);
 	}
 
 	// 프레임
@@ -127,7 +133,8 @@ public class CustomBlockBuilder : MonoBehaviour
 			// 블럭 설치가 불가능하다는 이펙트 표시
 			targetPosition.z = Depth.Effect;
 
-			Instantiate(countexcessEffect, targetPosition, Quaternion.identity);
+			ObjectPoolManager.GetGameObject("CountExcess", targetPosition);
+			//Instantiate(countexcessEffect, targetPosition, Quaternion.identity);
 
 			return false;
 		}
@@ -144,7 +151,8 @@ public class CustomBlockBuilder : MonoBehaviour
 				// 블럭 설치가 불가능하다는 이펙트 표시
 				targetPosition.z = Depth.Effect;
 
-				Instantiate(spacenarrowerEffect, targetPosition, Quaternion.identity);
+				ObjectPoolManager.GetGameObject("SpaceNarrower", targetPosition);
+				//Instantiate(spacenarrowerEffect, targetPosition, Quaternion.identity);
 
 				return false;
 			}
@@ -176,7 +184,8 @@ public class CustomBlockBuilder : MonoBehaviour
 	private void CreateBlock()
 	{
 		// 생성 이펙트
-		Instantiate(itemCreateEffect, targetPosition, Quaternion.identity, transform);
+		ObjectPoolManager.GetGameObject("BlockCreated", targetPosition);
+		//Instantiate(itemCreateEffect, targetPosition, Quaternion.identity, transform);
 
 		// 블럭 생성
 		currentCreatingTargetBlock = Instantiate(customBlockPrefab, targetPosition, Quaternion.identity, transform).transform;
