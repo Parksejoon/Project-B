@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterRockie : MonsterPattern
+public class MonsterRockie : Monster
 {
 
 	//[SerializeField]
