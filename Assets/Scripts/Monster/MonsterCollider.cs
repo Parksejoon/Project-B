@@ -2,9 +2,6 @@
 
 public class MonsterCollider : MonoBehaviour
 {
-	[SerializeField]
-	private BoxCollider2D	topCollider;								// 윗면 콜라이더
-
 	private Collider2D[] colliders = new Collider2D[10];                // 충돌체 모음
 	private ContactFilter2D contactFilter = new ContactFilter2D();		// Contact Filter
 
@@ -18,11 +15,6 @@ public class MonsterCollider : MonoBehaviour
 	// 프레임 
 	private void Update()
 	{
-		// 윗면 콜라이더 체크
-		if (0 < topCollider.OverlapCollider(contactFilter, colliders))
-		{
-			StepOn();
-		}
 	}
 
 	// 충돌체 진입
@@ -44,21 +36,9 @@ public class MonsterCollider : MonoBehaviour
 		}
 	}
 
-	// 밟힘
-	private void StepOn()
-	{
-		Rigidbody2D playerRigidbody = PlayerController.playerTransform.GetComponent<Rigidbody2D>();
-
-		playerRigidbody.velocity = Vector2.zero;
-		playerRigidbody.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
-
-		Death();
-	}
-
 	// 죽음
 	public void Death()
 	{
-		Debug.Log("MOOO!");
-		//Destroy(gameObject);
+		Debug.Log("Monster (" + gameObject.name + ") is dead.");
 	}
 }
