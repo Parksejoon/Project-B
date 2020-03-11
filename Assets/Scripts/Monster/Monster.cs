@@ -6,7 +6,7 @@ public struct Statistics
 {
 	public int		health_point;			// 체력
 	public int		attack_damage;			// 공격력
-	public int		move_speed;				// 이동 속도
+	public float	move_speed;				// 이동 속도
 	public float	attack_speed;			// 공격 속도
 	public int		abillity_power;			// 마력
 	public float	defensive_power;		// 방어력
@@ -38,7 +38,7 @@ public abstract class Monster : MonoBehaviour
 	}
 
 	// 대미지 받음
-	public void Dealt(int damage)
+	public virtual void Dealt(int damage)
 	{
 		statistics.health_point -= damage;
 
@@ -46,6 +46,12 @@ public abstract class Monster : MonoBehaviour
 		{
 			statistics.health_point = 0;
 		}
+	}
+
+	// 사망
+	protected virtual void Dead()
+	{
+		Debug.Log(gameObject.name + "_ Monster dead.");
 	}
 
 	// 좌우 반전
