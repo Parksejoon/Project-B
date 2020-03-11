@@ -11,61 +11,51 @@ public class MonsterRockie : Monster
 	//private BoxCollider2D	bottomFrontCollider;                        // 밑면 앞쪽 콜라이더
 	//[SerializeField]
 	//private BoxCollider2D	bottomCollider;		                        // 밑면 콜라이더
-	[SerializeField]
-	private SpriteRenderer sprite;                                      // 몬스터 sprite
-																		//[SerializeField]
-																		//private float			speed = 0.05f;								// 속도
-
-	private Collider2D[] colliders = new Collider2D[10];                // 충돌체 모음
-	private ContactFilter2D contactFilter = new ContactFilter2D();      // Contact Filter
 
 	//public	int				directionSpeed = 1;							// 방향 속도
+
 
 	// 초기화
 	private void Awake()
 	{
+		// 필터의 레이어 마스크 설정(레이어 8번 map)
 		contactFilter.SetLayerMask(1 << 8);
+
+		Statistics stats;
+
+		stats.health_point = 100;
+		stats.attack_damage = 1;
+		stats.move_speed = 1;
+		stats.attack_speed = 1.0f;
+		stats.abillity_power = 0;
+		stats.defensive_power = 1.0f;
+
+		SetStatistics(stats);
+
+		Init();
 	}
 
-	// 프레임 
-	private void Update()
+	// 시작
+	private void Start()
 	{
+		StartCoroutine(RunPattern());
 	}
 
-	//// 이동
-	//private void Move()
-	//{
-	//	// 전면 콜라이더 체크
-	//	if (0 < frontCollider.OverlapCollider(contactFilter, colliders))
-	//	{
-	//		Reverse();
-	//	}
-
-	//	// 밑면 콜라이더 체크
-	//	if (0 >= bottomFrontCollider.OverlapCollider(contactFilter, colliders)
-	//		&& 0 < bottomCollider.OverlapCollider(contactFilter, colliders))
-	//	{
-	//		Reverse();
-	//	}
-
-	//	// 이동
-	//	transform.Translate(Vector3.right * directionSpeed * speed);
-	//}
-
-	// 좌우 반전
-	private void Reverse()
+	// 몬스터 패턴 실행
+	protected override IEnumerator RunPattern()
 	{
-		//directionSpeed *= -1;
+		yield return StartCoroutine(Move());
+	}
 
-		//Vector2 frontOffset = frontCollider.offset;
-		//Vector2 bottomOffset = bottomFrontCollider.offset;
+	// 이동
+	private IEnumerator Move()
+	{
+		// 이동
+		while (true)
+		{
+			transform.Translate(Vector3.right * statistics.move_speed * 0.1f);
 
-		//frontOffset.x *= -1;
-		//bottomOffset.x *= -1;
-
-		//frontCollider.offset = frontOffset;
-		//bottomFrontCollider.offset = bottomOffset;
-
-		sprite.flipX = !sprite.flipX;
+			yield return null;
+		}
 	}
 }

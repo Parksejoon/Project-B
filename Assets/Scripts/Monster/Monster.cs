@@ -1,45 +1,59 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 // 스탯
 public struct Statistics
 {
-	public int health_point;			// 체력
-	public int attack_damage;			// 공격력
-	public int move_speed;				// 이동 속도
-	public int attack_speed;			// 공격 속도
-	public int abillity_power;			// 마력
-	public int defensive_power;			// 방어력
+	public int		health_point;			// 체력
+	public int		attack_damage;			// 공격력
+	public int		move_speed;				// 이동 속도
+	public float	attack_speed;			// 공격 속도
+	public int		abillity_power;			// 마력
+	public float	defensive_power;		// 방어력
 }
 
 public abstract class Monster : MonoBehaviour
 {
-	protected Statistics	statistics;				// 스탯				
+	protected Statistics		statistics;			// 스탯
 
 	[SerializeField]
-	protected SpriteRenderer	sprite;                                     // 몬스터 sprite
+	protected SpriteRenderer	sprite;             // 몬스터 sprite
 
-	protected Collider2D[]	colliders = new Collider2D[10];					// 충돌체 모음
-	protected ContactFilter2D contactFilter = new ContactFilter2D();        // Contact Filter
+	[SerializeField]
+	protected Collider2D[]		colliders;			// 충돌체 모음
+	protected ContactFilter2D	contactFilter		// 수동 충돌 처리를 할때 필요한 Contact Filter
+		= new ContactFilter2D();
 
 
 	// 초기화
-	private void Awake()
+	protected void Init()
 	{
-		contactFilter.SetLayerMask(1 << 8);
+		sprite = GetComponentInChildren<SpriteRenderer>();
 	}
 
-	// 프레임 
-	private void Update()
+	// 스탯 초기화
+	public void SetStatistics(Statistics stats)
 	{
-		RunPattern();
+		statistics = stats;
+	}
+
+	// 대미지 받음
+	public void Dealt(int damage)
+	{
+		statistics.health_point -= damage;
+
+		if (statistics.health_point <= 0)
+		{
+			statistics.health_point = 0;
+		}
 	}
 
 	// 좌우 반전
-	private void Reverse()
+	protected void Reverse()
 	{
 		sprite.flipX = !sprite.flipX;
 	}
 
 	// 몬스터 패턴 실행
-	public abstract void RunPattern();
+	protected abstract IEnumerator RunPattern();
 }
