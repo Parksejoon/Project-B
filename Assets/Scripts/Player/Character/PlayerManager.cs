@@ -43,11 +43,11 @@ public class PlayerManager : MonoBehaviour
 	}
 
 	// 피격
-	public void Hit(float shotWay)
+	public void Dealt(float shotWay)
 	{
 		if (!IsInvincibility)
 		{
-			DropNormalBlock(shotWay);
+			//DropNormalBlock(shotWay);
 
 			StartCoroutine(Invincible());
 		}

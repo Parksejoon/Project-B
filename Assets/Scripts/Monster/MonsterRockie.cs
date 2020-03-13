@@ -5,15 +5,19 @@ using UnityEngine;
 public class MonsterRockie : Monster
 {
 	
-	private int		directionSpeed = 1;							// 방향 속도
+	private int		directionSpeed = 1;                         // 방향 속도
+
+	// 충돌 필터
+	private ContactFilter2D		moveContactFilter;		// 이동시 사용할 contactFilter
 
 
 	// 초기화
 	private void Awake()
 	{
 		// 필터의 레이어 마스크 설정(레이어 8번 map)
-		contactFilter.SetLayerMask(1 << 8);
+		moveContactFilter.SetLayerMask(1 << 8);
 
+		// 스텟 초기화 ( 임시 )
 		Statistics stats;
 
 		stats.health_point = 100;
@@ -37,6 +41,17 @@ public class MonsterRockie : Monster
 	// 사망
 	protected override void Dead()
 	{
+		Destroy(gameObject);
+
+		Debug.Log("Rockie is dead.");
+	}
+
+	// 좌우 반전
+	protected override void Reverse()
+	{
+		directionSpeed *= -1;
+
+		base.Reverse();
 	}
 
 	// 몬스터 패턴 실행
@@ -48,12 +63,24 @@ public class MonsterRockie : Monster
 	// 이동
 	private IEnumerator Move()
 	{
+		Collider2D[] overlapColliderResult = new Collider2D[10];
+		RaycastHit2D raycastHit2D;
+
 		// 이동
 		while (true)
 		{
 			transform.Translate(Vector3.right * statistics.move_speed * directionSpeed);
 
-			if ()
+			Debug.DrawRay(transform.position, transform.right * directionSpeed * 1f, Color.red);
+
+			raycastHit2D = Physics2D.Raycast(transform.position, transform.right * directionSpeed, 1f, (1 << 8));
+
+			if (raycastHit2D)
+			{
+				Debug.Log("ASD");
+
+				Reverse();
+			}
 
 			yield return null;
 		}

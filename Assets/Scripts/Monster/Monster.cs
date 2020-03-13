@@ -21,8 +21,6 @@ public abstract class Monster : MonoBehaviour
 
 	[SerializeField]
 	protected Collider2D[]		colliders;			// 충돌체 모음
-	protected ContactFilter2D	contactFilter		// 수동 충돌 처리를 할때 필요한 Contact Filter
-		= new ContactFilter2D();
 
 
 	// 초기화
@@ -55,7 +53,7 @@ public abstract class Monster : MonoBehaviour
 	}
 
 	// 좌우 반전
-	protected void Reverse()
+	protected virtual void Reverse()
 	{
 		sprite.flipX = !sprite.flipX;
 	}
