@@ -5,10 +5,13 @@ using UnityEngine;
 public class MonsterRockie : Monster
 {
 	
-	private int		directionSpeed = 1;                         // 방향 속도
+	private int		directionSpeed = 1;                 // 방향 속도
 
 	// 충돌 필터
-	private ContactFilter2D		moveContactFilter;		// 이동시 사용할 contactFilter
+	private ContactFilter2D		moveContactFilter;      // 이동시 사용할 contactFilter
+
+	// 플래그
+	private bool		moveFlag = false;   // 이동 플래그
 
 
 	// 초기화
@@ -28,6 +31,13 @@ public class MonsterRockie : Monster
 		stats.defensive_power = 1.0f;
 
 		SetStatistics(stats);
+
+		// 패턴 초기화 ( 임시 )
+		singlePattern = new[]
+		{
+			new MonsterPattern(Move)
+		};
+
 
 		Init();
 	}
@@ -57,32 +67,44 @@ public class MonsterRockie : Monster
 	// 몬스터 패턴 실행
 	protected override IEnumerator RunPattern()
 	{
-		yield return StartCoroutine(Move());
-	}
-
-	// 이동
-	private IEnumerator Move()
-	{
-		Collider2D[] overlapColliderResult = new Collider2D[10];
-		RaycastHit2D raycastHit2D;
-
-		// 이동
 		while (true)
 		{
+			yield return StartCoroutine(singlePattern[0]());
+		}
+	}
+
+	// 이동 메인
+	private IEnumerator Move()
+	{
+		StartCoroutine(FlagTimer(MoveFlagFunc, Random.Range(3f, 5f)));
+
+		while (moveFlag)
+		{
+			Collider2D[] overlapColliderResult = new Collider2D[10];
+			RaycastHit2D raycastHit2D;
+
+			// 이동
 			transform.Translate(Vector3.right * statistics.move_speed * directionSpeed);
 
+			// 앞쪽 벽면 레이캐스트
 			Debug.DrawRay(transform.position, transform.right * directionSpeed * 1f, Color.red);
 
 			raycastHit2D = Physics2D.Raycast(transform.position, transform.right * directionSpeed, 1f, (1 << 8));
 
 			if (raycastHit2D)
 			{
-				Debug.Log("ASD");
-
 				Reverse();
 			}
 
 			yield return null;
 		}
+		
+		// 1초 딜레이
+		yield return new WaitForSeconds(1f);
+	}
+
+	private void MoveFlagFunc(bool isTrue)
+	{
+		moveFlag = isTrue;
 	}
 }
