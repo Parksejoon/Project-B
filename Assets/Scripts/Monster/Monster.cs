@@ -1,17 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-// 스탯
-public struct Statistics
-{
-	public int		health_point;			// 체력
-	public int		attack_damage;			// 공격력
-	public float	move_speed;				// 이동 속도
-	public float	attack_speed;			// 공격 속도
-	public int		abillity_power;			// 마력
-	public float	defensive_power;		// 방어력
-}
-
 public abstract class Monster : MonoBehaviour
 {
 	public delegate IEnumerator		MonsterPattern();		// 몬스터 패턴 델리게이트

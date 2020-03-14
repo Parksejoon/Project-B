@@ -12,6 +12,7 @@ TagManager:
   - SoilBlock
   - CustomBlock
   - Monster
+  - PlayerAttack
   layers:
   - Default
   - TransparentFX

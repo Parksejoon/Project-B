@@ -1,6 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+// 스탯
+public struct Statistics
+{
+	public int		health_point;       // 체력
+	public int		attack_damage;      // 공격력
+	public float	move_speed;         // 이동 속도
+	public float	attack_speed;       // 공격 속도
+	public int		abillity_power;     // 마력
+	public float	defensive_power;    // 방어력
+}
+
 // 플레이어 매니저
 // 스테이터스 관리, 피격, 타격
 public class PlayerManager : MonoBehaviour
@@ -21,8 +32,14 @@ public class PlayerManager : MonoBehaviour
 	[SerializeField]
 	private	float			invincibleTime;             // 무적 시간
 
-	private IEnumerator		blinkingSprite;				// 스프라이트 깜빡거림 코루틴
+	private IEnumerator		blinkingSprite;             // 스프라이트 깜빡거림 코루틴
 
+	private Statistics stats;
+	public Statistics Stats
+	{
+		get { return stats; }
+		private set { stats = value; }
+	}
 
 	// 초기화
 	private void Awake()
