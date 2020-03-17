@@ -40,17 +40,21 @@ public class PlayerManager : Character
 		// 무적상태 확인
 		if (!IsInvincibility)
 		{
-			StartCoroutine(Invincible());
+			// 대미지 계산
+			base.Dealt(damage, attackPosition);
 
 			// 플레이어 넉백
-			float shotWay = Mathf.Round(attackPosition.x - attackPosition.x);
-			Vector2 shotVec2 = new Vector2(shotWay, 0.6f) * 4;
+			float shotWay = transform.position.x - attackPosition.x;
+			Vector2 shotVec2 = new Vector2(shotWay, 0.6f);
+
+			shotVec2 = shotVec2.normalized;
+			shotVec2 *= 7f;
 
 			rigidbody2D.velocity = Vector2.zero;
 			rigidbody2D.AddForce(shotVec2, ForceMode2D.Impulse);
 
-			// 대미지 계산
-			base.Dealt(damage, attackPosition);
+			// 무적상태
+			StartCoroutine(Invincible());
 		}
 	}
 
