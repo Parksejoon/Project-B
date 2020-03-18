@@ -21,6 +21,15 @@ public abstract class Monster : Character
 	{
 		sprite = GetComponentInChildren<SpriteRenderer>();
 	}
+
+	// 피격
+	public override void Dealt(int damage, Vector3 attackPosition)
+	{
+		// 대미지 계산
+		base.Dealt(damage, attackPosition);
+
+		StartCoroutine(DealtColorAnimation());
+	}
 	
 	// 좌우 반전
 	protected virtual void Reverse()
@@ -36,6 +45,16 @@ public abstract class Monster : Character
 		yield return new WaitForSeconds(time);
 
 		flagFunc(false);
+	}
+
+	// 피격 색변경 코루틴
+	protected IEnumerator DealtColorAnimation()
+	{
+		sprite.color = Color.red;
+
+		yield return new WaitForSeconds(0.1f);
+
+		sprite.color = Color.white;
 	}
 
 	// 몬스터 패턴 실행
