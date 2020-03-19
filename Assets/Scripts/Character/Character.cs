@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
 	public Statistics Stats
 	{
 		get { return stats; }
-		protected set { stats = value; }
+		private set { stats = value; }
 	}
 
 
@@ -31,6 +31,7 @@ public class Character : MonoBehaviour
 		if (stats.health_point <= 0)
 		{
 			stats.health_point = 0;
+			Dead();
 		}
 	}
 
