@@ -7,22 +7,20 @@ public class PlayerManager : Character
 {
 	// (@@ 여기서 싱글톤 사용 금지 @@)
 
-	private bool isInvincibility;						// 무적 상태인지 체크 플래그
-	public	bool IsInvincibility						// 접근자
+	private bool isInvincibility;                   // 무적 상태인지 체크 플래그
+	public bool IsInvincibility                     // 접근자
 	{
 		get { return isInvincibility; }
 		private set { isInvincibility = value; }
 	}
 
-	private	new Rigidbody2D	rigidbody2D;			// 리짓바디
+	[SerializeField]
+	private PlayerAnimation playerAnimation;        // 플레이어 애니메이션
+
+	private new Rigidbody2D rigidbody2D;            // 리짓바디
 
 	[SerializeField]
-	private	SpriteRenderer	charSprite;				// 캐릭터 스프라이트
-
-	[SerializeField]
-	private	float			invincibleTime;         // 무적 시간
-
-	private IEnumerator		blinkingSprite;         // 스프라이트 깜빡거림 코루틴
+	private float		invincibleTime;				// 무적 시간
 
 
 	// 초기화
@@ -30,7 +28,11 @@ public class PlayerManager : Character
 	{
 		rigidbody2D = GetComponent<Rigidbody2D>();
 
-		blinkingSprite = BlinkingSprite();
+		if (playerAnimation == null)
+		{
+			playerAnimation = GetComponent<PlayerAnimation>();
+		}
+
 		IsInvincibility = false;
 	}
 
@@ -58,30 +60,15 @@ public class PlayerManager : Character
 		}
 	}
 
-	// 스프라이트 깜빡거림 (!! 이거 나중에 플레이어 애니메이션 관련 스크립트로 이동 !!)
-	private IEnumerator BlinkingSprite()
-	{
-		while (IsInvincibility)
-		{
-			yield return new WaitForSeconds(0.1f);
-
-			charSprite.enabled = !charSprite.enabled;
-		}
-
-		charSprite.enabled = true;
-	}
-
 	// 무적 상태
 	private IEnumerator Invincible()
 	{
-		StopCoroutine(blinkingSprite);
-
 		IsInvincibility = true;
 		gameObject.layer = 12;
-		blinkingSprite = BlinkingSprite();
 
-		StartCoroutine(blinkingSprite);
+		playerAnimation.StartBlinking();
 		yield return new WaitForSeconds(invincibleTime);
+		playerAnimation.StopBlinking();
 
 		gameObject.layer = 9;
 		IsInvincibility = false;

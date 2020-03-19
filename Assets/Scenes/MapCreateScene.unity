@@ -6182,7 +6182,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6206,7 +6206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0000004172325, y: 2.3999996, z: -30}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 71109718}
@@ -6692,6 +6692,7 @@ GameObject:
   - component: {fileID: 1070208808}
   - component: {fileID: 1070208807}
   - component: {fileID: 1070208806}
+  - component: {fileID: 1070208811}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -6711,7 +6712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9190f407920ea1747ade7ef3fd3de1e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charSprite: {fileID: 1314121620}
+  playerAnimation: {fileID: 1070208811}
   invincibleTime: 3
 --- !u!114 &1070208807
 MonoBehaviour:
@@ -6726,7 +6727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7750410b8eccbb74d8d22901b395d036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRigidbody2D: {fileID: 0}
+  playerRigidbody2D: {fileID: 1070208809}
   spriteRenderer: {fileID: 1314121620}
   moveParticle: {fileID: 474730556}
   moveSpeed: 7
@@ -6799,6 +6800,19 @@ Transform:
   m_Father: {fileID: 270013527}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1070208811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070208805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0f246a0798df042adc7ee85645454c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charSprite: {fileID: 1314121620}
 --- !u!1 &1078795577
 GameObject:
   m_ObjectHideFlags: 0

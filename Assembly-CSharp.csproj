@@ -288,6 +288,7 @@
     <Compile Include="Assets\Scripts\Character\Player\Fairy\CustomBlockBuilder.cs" />
     <Compile Include="Assets\Scripts\Character\Player\Fairy\FairyMove.cs" />
     <Compile Include="Assets\Scripts\Character\Player\MoveParticle.cs" />
+    <Compile Include="Assets\Scripts\Character\Player\PlayerAnimation.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerJumpManager.cs" />
     <Compile Include="Assets\Scripts\Character\Player\PlayerManager.cs" />
