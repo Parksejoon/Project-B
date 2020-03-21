@@ -5,7 +5,6 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-
 	private bool attackAxisInUse = false;		// 공격 키 사용 플래그
 
 

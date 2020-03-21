@@ -47,7 +47,7 @@ public abstract class Monster : Character
 		flagFunc(false);
 	}
 
-	// 피격 색변경 코루틴
+	// 피격시 색변경 코루틴
 	protected IEnumerator DealtColorAnimation()
 	{
 		sprite.color = Color.red;
