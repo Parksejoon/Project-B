@@ -22,7 +22,7 @@ public class MonsterRockie : Monster
 		// 스텟 초기화 ( 임시 )
 		Statistics stats;
 
-		stats.health_point = 100;
+		stats.max_health_point = 5;
 		stats.attack_damage = 1;
 		stats.move_speed = 0.1f;
 		stats.attack_speed = 1.0f;

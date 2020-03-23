@@ -303,6 +303,7 @@
     <Compile Include="Assets\Scripts\Systems\AttackSystem\AttackCore.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Skills\BlockReset.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Skills\SkillManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\AttackSystem\Weapons\Ammo.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Weapons\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Weapons\OriginalBowWeapon.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Weapons\Weapon.cs" />

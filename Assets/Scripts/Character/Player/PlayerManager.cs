@@ -26,6 +26,19 @@ public class PlayerManager : Character
 	// 초기화
 	private void Awake()
 	{
+		// 스텟 초기화 ( 임시 )
+		Statistics stats;
+
+		stats.max_health_point = 10;
+		stats.attack_damage = 1;
+		stats.move_speed = 0.1f;
+		stats.attack_speed = 1.0f;
+		stats.abillity_power = 0;
+		stats.defensive_power = 1.0f;
+
+		SetStats(stats);
+
+		// 초기화
 		rigidbody2D = GetComponent<Rigidbody2D>();
 
 		if (playerAnimation == null)

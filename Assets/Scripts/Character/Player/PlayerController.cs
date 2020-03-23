@@ -8,12 +8,13 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D			playerRigidbody2D;          // 플레이어 리지드바디 2D
 	[SerializeField]
 	private SpriteRenderer		spriteRenderer;             // 플레이어 스프라이트 렌더러
+	[SerializeField]
+	private PlayerManager		playerManager;				// 플레이어 매니저
 
 	[SerializeField]
 	private MoveParticle		moveParticle;               // 이동 파티클
 
 	[SerializeField]
-	private float				moveSpeed;                  // 이동 속도
 	private float				horizontalMove;             // 좌우 이동
 	private float				verticalMove;				// 상하 이동
 
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
 		// 2번째 점프부터는 일반점프
 		if (jumpCount >= 1)
 		{
-			Debug.Log("Extra Jump : " + (jumpCount));
+			//Debug.Log("Extra Jump : " + (jumpCount));
 
 			// 이펙트
 			Vector3 position = transform.position;
@@ -126,7 +127,7 @@ public class PlayerController : MonoBehaviour
 		Vector2 position = playerTransform.position;
 		Vector3 velocity = playerRigidbody2D.velocity;
 
-		position.x += horizontalMove * Time.deltaTime * moveSpeed;
+		position.x += horizontalMove * Time.deltaTime * playerManager.Stats.move_speed;
 		playerTransform.position = position;
 		moveParticle.flagArray[0] = false;
 

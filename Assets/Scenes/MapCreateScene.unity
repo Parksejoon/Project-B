@@ -6678,6 +6678,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 31604201}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1021024786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1021024787}
+  m_Layer: 0
+  m_Name: ObjectPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1021024787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021024786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8585048, y: 1.470302, z: -6.1015625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1070208805
 GameObject:
   m_ObjectHideFlags: 0
@@ -6729,8 +6759,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody2D: {fileID: 1070208809}
   spriteRenderer: {fileID: 1314121620}
+  playerManager: {fileID: 0}
   moveParticle: {fileID: 474730556}
-  moveSpeed: 7
+  horizontalMove: 0
   jumpPower: 4
   jumpEffect: {fileID: 1638717943023278, guid: 9718beaadad258b418f6720902212009, type: 3}
   jumpCountLimit: 2
@@ -11611,7 +11642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: {fileID: 702828464311300818, guid: de85eb4c1a0d7704e8c35aa45730dc74, type: 3}
-  ammoSpeed: 1
+  ammoParent: {fileID: 1021024787}
+  ammoSpeed: 20
 --- !u!1 &1160374834
 GameObject:
   m_ObjectHideFlags: 0

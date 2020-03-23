@@ -5,7 +5,7 @@ using UnityEngine;
 // 스탯
 public struct Statistics
 {
-	public int		health_point;       // 체력
+	public int		max_health_point;   // 최대 체력
 	public int		attack_damage;      // 공격력
 	public float	move_speed;         // 이동 속도
 	public float	attack_speed;       // 공격 속도
@@ -22,15 +22,24 @@ public class Character : MonoBehaviour
 		private set { stats = value; }
 	}
 
+	private int healthPoint;		// 현재 체력
+	public int HealthPoint
+	{
+		get { return healthPoint; }
+		private set { healthPoint = value; }
+	}
+
 
 	// 대미지 받음
 	public virtual void Dealt(int damage, Vector3 attackPosition)
 	{
-		stats.health_point -= damage;
+		HealthPoint -= damage;
 
-		if (stats.health_point <= 0)
+		Debug.Log(HealthPoint + "/" + stats.max_health_point + "|| CharacterName: <" + gameObject.name + ">");
+
+		if (HealthPoint <= 0)
 		{
-			stats.health_point = 0;
+			HealthPoint = 0;
 			Dead();
 		}
 	}
@@ -38,19 +47,27 @@ public class Character : MonoBehaviour
 	// 사망
 	protected virtual void Dead()
 	{
-		Debug.Log("<" + gameObject.name + "> is dead.");
+		Debug.Log("CharacterName: <" + gameObject.name + "> is dead.");
 	}
 
 	// 스탯 초기화
 	public void SetStats(Statistics _stats)
 	{
 		stats = _stats;
+
+		ResetHealth();
+	}
+
+	// 체력 초기화
+	public void ResetHealth()
+	{
+		HealthPoint = stats.max_health_point;
 	}
 
 	// 스탯 추가
 	public void AddStats(Statistics stats)
 	{
-		stats.health_point += stats.health_point;
+		stats.max_health_point += stats.max_health_point;
 		stats.attack_damage += stats.attack_damage;
 		stats.move_speed += stats.move_speed;
 		stats.attack_speed += stats.attack_speed;

@@ -21,7 +21,7 @@ public abstract class Weapon : MonoBehaviour
 		{
 			if (attackAxisInUse == false)
 			{
-				Attack(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+				Attack(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
 				attackAxisInUse = true;
 			}
@@ -34,5 +34,5 @@ public abstract class Weapon : MonoBehaviour
 	}
 
 	// 공격
-	public abstract void Attack(Vector3 mousePosition);
+	public abstract void Attack(Vector2 currentPosition, Vector2 mousePosition);
 }
