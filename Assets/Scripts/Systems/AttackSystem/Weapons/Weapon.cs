@@ -5,8 +5,16 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-	private bool attackAxisInUse = false;		// 공격 키 사용 플래그
+	private bool attackAxisInUse = false;			// 공격 키 사용 플래그
 
+	protected PlayerManager playerManager;			// 플레이어 매니저
+
+
+	// 초기화
+	protected virtual void Awake()
+	{
+		GetPlayerManagerFromParent();
+	}
 
 	// 업데이트
 	private void Update()
@@ -31,6 +39,12 @@ public abstract class Weapon : MonoBehaviour
 		{
 			attackAxisInUse = false;
 		}
+	}
+
+	// player manager 초기화
+	private void GetPlayerManagerFromParent()
+	{
+		playerManager = GetComponentInParent<PlayerManager>();
 	}
 
 	// 공격

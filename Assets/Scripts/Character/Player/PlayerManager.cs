@@ -31,7 +31,7 @@ public class PlayerManager : Character
 
 		stats.max_health_point = 10;
 		stats.attack_damage = 1;
-		stats.move_speed = 0.1f;
+		stats.move_speed = 7f;
 		stats.attack_speed = 1.0f;
 		stats.abillity_power = 0;
 		stats.defensive_power = 1.0f;

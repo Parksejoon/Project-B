@@ -6759,7 +6759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody2D: {fileID: 1070208809}
   spriteRenderer: {fileID: 1314121620}
-  playerManager: {fileID: 0}
+  playerManager: {fileID: 1070208806}
   moveParticle: {fileID: 474730556}
   horizontalMove: 0
   jumpPower: 4
@@ -11608,6 +11608,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1081577761}
   - component: {fileID: 1081577762}
+  - component: {fileID: 1081577763}
   m_Layer: 9
   m_Name: Bow
   m_TagString: Untagged
@@ -11641,9 +11642,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212830fab42843f46b31b4f4b2e3e0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: {fileID: 702828464311300818, guid: de85eb4c1a0d7704e8c35aa45730dc74, type: 3}
-  ammoParent: {fileID: 1021024787}
-  ammoSpeed: 20
+  attackAxisInUse: 0
+  playerManager: {fileID: 0}
+  projectile: {fileID: 702828464311300818, guid: de85eb4c1a0d7704e8c35aa45730dc74,
+    type: 3}
+  projectileParent: {fileID: 1081577761}
+  projectileSpeed: 20
+  targetTag: Monster
+--- !u!114 &1081577763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081577760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a1e4805dc2a2254b836f07dd84c4963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  targetTag: Monster
 --- !u!1 &1160374834
 GameObject:
   m_ObjectHideFlags: 0
@@ -17023,6 +17042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCore: {fileID: 1257433796}
+  targetTag: Monster
 --- !u!1 &1461579921
 GameObject:
   m_ObjectHideFlags: 0

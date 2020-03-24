@@ -7,6 +7,17 @@ public class MeleeWeapon : Weapon
 	[SerializeField]
 	private GameObject attackCore;
 
+	[SerializeField]
+	private string targetTag = "Monster";       // 타겟 태그
+
+
+	// 초기화
+	protected override void Awake()
+	{
+		base.Awake();
+
+		attackCore.GetComponent<AttackCore>().SetAttack(playerManager.Stats.attack_damage, targetTag);
+	}
 
 	// 시작
 	private void Start()

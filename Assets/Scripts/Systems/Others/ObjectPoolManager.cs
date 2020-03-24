@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectPoolManager : MonoBehaviour
 {
 	private static Hashtable objectPools = new Hashtable();
-
+	
 
 	// 오브젝트 생성
 	public static void Create(string name, GameObject prefab, int size)
