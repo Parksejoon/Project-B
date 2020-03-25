@@ -11642,8 +11642,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 212830fab42843f46b31b4f4b2e3e0bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAxisInUse: 0
-  playerManager: {fileID: 0}
   projectile: {fileID: 702828464311300818, guid: de85eb4c1a0d7704e8c35aa45730dc74,
     type: 3}
   projectileParent: {fileID: 1081577761}

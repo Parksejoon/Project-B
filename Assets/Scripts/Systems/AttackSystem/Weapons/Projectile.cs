@@ -20,5 +20,4 @@ public class Projectile : MonoBehaviour
 		speed = _speed;
 		shotWay = way.normalized;
 	}
-
 }

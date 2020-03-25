@@ -6,30 +6,21 @@ using UnityEngine;
 // 클릭 입력,
 public class CustomBlockBuilder : MonoBehaviour
 {
-	//[SerializeField]
-	//private SlotSelecter		slotSelecter;               // 슬롯 선택 이미지
-	//private int				slotNumber = 1;				// 슬롯 번호
-
-	public	GameObject			customBlockPrefab;          // 커스텀 블럭 프리팹
-	//[SerializeField]
-	//private GameObject			spacenarrowerEffect;        // 장소 협소 설치 불가 이펙트 프리팹
-	//[SerializeField]
-	//private GameObject			countexcessEffect;			// 블록 최개갯수 초과 설치 불가 이펙트 프리팹
-	//[SerializeField]
-	//private GameObject			blockreatedEffect;           // 블록 설치 이펙트 프리팹
+	public	GameObject			customBlockPrefab;							// 커스텀 블럭 프리팹
 
 	[SerializeField]
-	private Transform			fairyTransform;             // 요정 트랜스폼
+	private Transform			fairyTransform;								// 요정 트랜스폼
 	
 	[SerializeField]
-	private int					maxCreatableBlockCount;		// 최대 생성 가능 블럭 갯수
+	private int					maxCreatableBlockCount;						// 최대 생성 가능 블럭 갯수
 
 
 	private List<GameObject>	createdBlockList;							// 생성된 블럭들의 목록
 
 	private Transform			currentCreatingTargetBlock = null;			// 현재 생성중인 블럭
-	private Vector3				targetPosition;								// 생성 위치
+	private Vector3				targetPosition;                             // 생성 위치
 
+	private bool				setblockAxisInUse = false;                  // 블럭설치 키 사용 플래그
 
 
 	// 초기화
@@ -49,71 +40,55 @@ public class CustomBlockBuilder : MonoBehaviour
 	{
 		// (!! 여기 입력부분 나중에 패드 호환 가능하게 변경 !!)
 
-		// 클릭 시작
-		if (Input.GetMouseButtonDown(0))
+		//// 클릭 시작
+		//if (Input.GetMouseButtonDown(0))
+		//{
+		//	if (CanCreate())
+		//	{
+		//		CreateBlock();
+		//	}
+		//	else
+		//	{
+		//	}
+		//}
+
+		//// 클릭 중
+		//if (Input.GetMouseButton(0) && currentCreatingTargetBlock != null)
+		//{
+		//	StartCoroutine("ClickTimer");
+		//}
+
+		//// 클릭 끝
+		//if (Input.GetMouseButtonUp(0))
+		//{
+		//	StopCoroutine("ClickTimer");
+		//	currentCreatingTargetBlock = null;
+		//}
+
+
+		if (Input.GetAxis("Setblock") != 0)
 		{
-			if (CanCreate())
+			if (setblockAxisInUse == false)
 			{
-				CreateBlock();
-			}
-			else
-			{
+				// 블럭 설치
+				if (CanCreate())
+				{
+					CreateBlock();
+					StartCoroutine("ClickTimer");
+				}
+
+				setblockAxisInUse = true;
 			}
 		}
 
-		// 클릭 중
-		if (Input.GetMouseButton(0) && currentCreatingTargetBlock != null)
+		if (Input.GetAxis("Setblock") == 0)
 		{
-			StartCoroutine("ClickTimer");
-		}
-
-		// 클릭 끝
-		if (Input.GetMouseButtonUp(0))
-		{
-			StopCoroutine("ClickTimer");
+			// 블럭 설치 해제
+			//StopCoroutine(clickTimer);
 			currentCreatingTargetBlock = null;
+
+			setblockAxisInUse = false;
 		}
-
-		//// 슬롯 변경
-		//if (Input.GetKeyDown(KeyCode.Alpha1))
-		//{
-		//	slotNumber = 1;
-		//	slotSelecter.SetSelecter(slotNumber);
-		//}
-		//else if (Input.GetKeyDown(KeyCode.Alpha2))
-		//{
-		//	slotNumber = 2;
-		//	slotSelecter.SetSelecter(slotNumber);
-		//}
-		//else if (Input.GetKeyDown(KeyCode.Alpha3))
-		//{
-		//	slotNumber = 3;
-		//	slotSelecter.SetSelecter(slotNumber);
-		//}
-
-		//if (Input.GetAxis("Mouse ScrollWheel") < 0)
-		//{
-		//	slotNumber++;
-
-		//	if (slotNumber > 3)
-		//	{
-		//		slotNumber = 1;
-		//	}
-
-		//	slotSelecter.SetSelecter(slotNumber);
-		//}
-
-		//if (Input.GetAxis("Mouse ScrollWheel") > 0)
-		//{
-		//	slotNumber--;
-
-		//	if (slotNumber < 1)
-		//	{
-		//		slotNumber = 3;
-		//	}
-
-		//	slotSelecter.SetSelecter(slotNumber);
-		//}
 	}
 
 	// 블럭 생성 가능상태 확인
@@ -212,9 +187,12 @@ public class CustomBlockBuilder : MonoBehaviour
 	{
 		yield return new WaitForSeconds(1f);
 
-		if (Input.GetMouseButton(0) && currentCreatingTargetBlock != null)
+		while (setblockAxisInUse && currentCreatingTargetBlock != null)
 		{
 			RotateBlock();
+			Debug.Log("ASD");
+
+			yield return null;
 		}
 	}
 }
