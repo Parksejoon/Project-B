@@ -9,8 +9,17 @@ public class FairyMove : MonoBehaviour
 	[SerializeField]
 	private float			speed = 1;                  // 속도
 	
-	private const float		colliderRadius = 0.3f;		// 충돌체 반지름
-	
+	private const float		colliderRadius = 0.3f;       // 충돌체 반지름
+
+
+	// 프레임 
+	private void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.K))
+		{
+			Flash();
+		}
+	}
 
 	// 고정 프레임
 	private void FixedUpdate()
@@ -88,5 +97,11 @@ public class FairyMove : MonoBehaviour
 		}
 
 		transform.position = pos;
+	}
+
+	// 즉시 이동
+	private void Flash()
+	{
+		transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 	}
 }
