@@ -4,29 +4,32 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
 	[SerializeField]
-	private	UITexture	skillCoolDownTextureQ;          // q스킬 ui 텍스쳐
-	[SerializeField]
-	private UITexture	skillCoolDownTextureE;			// e스킬 ui 텍스쳐
-
-	public	Skill		skillQ;							// q스킬
-	public	Skill		skillE;							// e스킬
+	private		UITexture[]	skillCoolDownTextures;      // 스킬 ui 텍스쳐 목록
+	public		Skill[]		skills;						// 스킬 목록
+	protected	bool[]		isCoolDowningFlags;			// 스킬 쿨다운 플래그 목록
 
 
 	// 초기화
 	private void Awake()
 	{
-		if (skillQ == null)
-		{
-			skillQ = new Skill();
-		}
+		//if (skillQ == null)
+		//{
+		//	skillQ = new Skill();
+		//}
 
-		if (skillE == null)
-		{
-			skillE = new Skill();
-		}
+		//if (skillE == null)
+		//{
+		//	skillE = new Skill();
+		//}
 
-		skillQ.skillCoolDownTexture = skillCoolDownTextureQ;
-		skillE.skillCoolDownTexture = skillCoolDownTextureE;
+		//skillQ.skillCoolDownTexture = skillCoolDownTextureQ;
+		//skillE.skillCoolDownTexture = skillCoolDownTextureE;
+
+		isCoolDowningFlags = new bool[skills.Length];
+		for (int i = 0; i < isCoolDowningFlags.Length; i++)
+		{
+			isCoolDowningFlags[i] = false;
+		}
 	}
 
 	// 프레임
@@ -34,56 +37,49 @@ public class SkillManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Q))
 		{
-			skillQ.ShotSkill();
+			skills[0].ShotSkill();
 		}
 
 		if (Input.GetKeyDown(KeyCode.E))
 		{
-			skillE.ShotSkill();
+			skills[1].ShotSkill();
 		}
-	}
-}
-
-public class Skill : MonoBehaviour
-{
-	// 변수
-	[SerializeField]
-	protected	float		CoolDownTime;                   // 쿨타임
-
-	protected	bool		isCoolDowning = false;          // 쿨다운 중인지
-
-	public		UITexture	skillCoolDownTexture;           // 스킬 ui 텍스쳐
-
-
-	// 스킬 사용
-	public virtual void ShotSkill()
-	{
-		Debug.Log("NONE SKILL");
 	}
 
 	// 쿨다운
-	protected IEnumerator CoolDown()
+	protected IEnumerator CoolDown(int index)
 	{
-		isCoolDowning = true;
+		isCoolDowningFlags[index] = true;
+		
+		yield return new WaitForSeconds(skills[index].CoolDownTime);
 
-		StartCoroutine(UICoolDown());
-		yield return new WaitForSeconds(CoolDownTime);
-
-		isCoolDowning = false;
+		isCoolDowningFlags[index] = false;
 	}
+}
 
-	// UI 쿨다운
-	protected IEnumerator UICoolDown()
-	{
-		skillCoolDownTexture.fillAmount = 1;
+public abstract class Skill : MonoBehaviour
+{
+	// 변수
+	public		float		CoolDownTime;       // 쿨타임
 
-		while (isCoolDowning)
-		{
-			skillCoolDownTexture.fillAmount -= Time.smoothDeltaTime / CoolDownTime;
+	public		UITexture	skillTexture;       // 스킬 ui 텍스쳐
 
-			yield return null;
-		}
 
-		skillCoolDownTexture.fillAmount = 0;
-	}
+	// 스킬 사용
+	public abstract void ShotSkill();
+
+	//// UI 쿨다운
+	//protected IEnumerator UICoolDown()
+	//{
+	//	skillCoolDownTexture.fillAmount = 1;
+
+	//	while (isCoolDowning)
+	//	{
+	//		skillCoolDownTexture.fillAmount -= Time.smoothDeltaTime / CoolDownTime;
+
+	//		yield return null;
+	//	}
+
+	//	skillCoolDownTexture.fillAmount = 0;
+	//}
 }
