@@ -30,19 +30,34 @@ public class SkillManager : MonoBehaviour
 		{
 			isCoolDowningFlags[i] = false;
 		}
+
+		gameObject.AddComponent<BlockReset>();
 	}
 
 	// 프레임
 	private void Update()
 	{
+		// (!! 현재 임시로 키보드 Q E에만 스킬 할당해놓음 !!)
 		if (Input.GetKeyDown(KeyCode.Q))
 		{
-			skills[0].ShotSkill();
+			ShotSkill(0);
 		}
 
 		if (Input.GetKeyDown(KeyCode.E))
 		{
-			skills[1].ShotSkill();
+			ShotSkill(1);
+		}
+	}
+
+	// index의 스킬 사용
+	private void ShotSkill(int index)
+	{
+		// 쿨타임 확인
+		if (!isCoolDowningFlags[index])
+		{
+			// 스킬 사용
+			skills[index].ShotSkill();
+			StartCoroutine(CoolDown(index));
 		}
 	}
 
@@ -60,7 +75,12 @@ public class SkillManager : MonoBehaviour
 public abstract class Skill : MonoBehaviour
 {
 	// 변수
-	public		float		CoolDownTime;       // 쿨타임
+	private		float		coolDownTime;       // 쿨타임
+	public		float		CoolDownTime
+	{
+		get { return coolDownTime; }
+		protected set { coolDownTime = value; }
+	}
 
 	public		UITexture	skillTexture;       // 스킬 ui 텍스쳐
 

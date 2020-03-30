@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class BlockReset : Skill
 {
-	[SerializeField]
-	private ObjectGiver normalBlockGiver;           // 일반 블럭 공급자
+	private CustomBlockBuilder customBlockBuilder;
 
+
+	// 초기화
+	public void Awake()
+	{
+		customBlockBuilder = GetComponent<CustomBlockBuilder>();
+	}
 
 	// 스킬 사용
 	public override void ShotSkill()
 	{
-		if (PlayerJumpManager.IsGround && !isCoolDowning)
-		{
-			StartCoroutine(CoolDown());
-
-			normalBlockGiver.GiveAllBlock();
-		}
+		customBlockBuilder.ResetBlocks();
 	}
 }

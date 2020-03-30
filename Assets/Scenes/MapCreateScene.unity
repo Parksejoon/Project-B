@@ -592,12 +592,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 76625634}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a5c8ed502d443049b4c804b68dbca74, type: 3}
+  m_Script: {fileID: 11500000, guid: ecfa4a94eeb25b04ba0fb4ddbc469460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoolDownTime: 5
-  skillCoolDownTexture: {fileID: 0}
-  normalBlockGiver: {fileID: 958184722}
+  skillCoolDownTextures: []
+  skills: []
 --- !u!4 &76625636
 Transform:
   m_ObjectHideFlags: 0
@@ -151567,7 +151566,6 @@ GameObject:
   - component: {fileID: 1617088181}
   - component: {fileID: 1617088183}
   - component: {fileID: 1617088184}
-  - component: {fileID: 1617088185}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -151664,22 +151662,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1605128592}
---- !u!114 &1617088185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1617088175}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecfa4a94eeb25b04ba0fb4ddbc469460, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skillCoolDownTextureQ: {fileID: 1476968851}
-  skillCoolDownTextureE: {fileID: 1636685599}
-  skillQ: {fileID: 76625635}
-  skillE: {fileID: 0}
 --- !u!1 &1636685597
 GameObject:
   m_ObjectHideFlags: 0

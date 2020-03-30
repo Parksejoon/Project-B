@@ -113,7 +113,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 18008, y: 14044}
   vertical: 0
-  controlID: 145
+  controlID: 55
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 18008, y: 14044}
   vertical: 1
-  controlID: 146
+  controlID: 56
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 222}
   m_MaxSize: {x: 12008, y: 4022}
   vertical: 0
-  controlID: 49
+  controlID: 57
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_MinSize: {x: 438, y: 272}
   m_MaxSize: {x: 18008, y: 10022}
   vertical: 0
-  controlID: 147
+  controlID: 112
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 16542
+  m_LastSelectedObjectID: 16228
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -692,9 +692,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 762e0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 70fbffff
+      m_SelectedIDs: 583e0000
+      m_LastClickedID: 15960
+      m_ExpandedIDs: 42fbffff723e0000643f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -755,7 +755,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 80
 --- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -828,20 +828,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Systems/AttackSystem/Weapons
+    - Assets/Scripts/Systems/AttackSystem/Skills
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/Scripts/Systems/AttackSystem/Weapons
+  - Assets/Scripts/Systems/AttackSystem/Skills
   m_LastFoldersGridSize: 71
   m_LastProjectPath: C:\Users\qkeh4\Documents\Unity Projects\Project B
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 855}
-    m_SelectedIDs: 9e340000
-    m_LastClickedID: 13470
-    m_ExpandedIDs: 0000000042330000aa330000d4330000da3300002634000040340000b4340000b6340000c8340000623500006a3500007c350000963500009a35000034360000e23600000c3700001a370000303700007437000096370000ce370000c6390000f2390000123a0000243a0000303a0000803a0000823a0000843a0000403d0000124300001443000016430000184300001a4300001c43000000ca9a3b
+    m_SelectedIDs: e4380000
+    m_LastClickedID: 14564
+    m_ExpandedIDs: 00000000d8320000423300006c33000072330000be330000d8330000543400005634000068340000063500000e350000203500003a3500003e350000de35000092360000bc360000ca360000e0360000283700004c3700008637000088390000b4390000d6390000e8390000f43900004a3a00004c3a00004e3a00000e3d00002c4100002e4100003041000032410000344100003641000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -869,7 +869,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000042330000aa330000d4330000da3300002634000040340000b4340000b6340000c8340000623500006a3500007c350000963500009a35000034360000e23600000c3700001a370000303700007437000096370000ce370000c6390000f2390000123a0000243a0000303a0000803a0000823a0000843a0000403d0000124300001443000016430000184300001a4300001c430000
+    m_ExpandedIDs: 00000000d8320000423300006c33000072330000be330000d8330000543400005634000068340000063500000e350000203500003a3500003e350000de35000092360000bc360000ca360000e0360000283700004c3700008637000088390000b4390000d6390000e8390000f43900004a3a00004c3a00004e3a00000e3d00002c4100002e41000030410000324100003441000036410000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
