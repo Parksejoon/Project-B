@@ -301,7 +301,9 @@
     <Compile Include="Assets\Scripts\Objects\SelfDestroyer.cs" />
     <Compile Include="Assets\Scripts\Objects\UnstableBlock.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\AttackCore.cs" />
-    <Compile Include="Assets\Scripts\Systems\AttackSystem\Skills\BlockReset.cs" />
+    <Compile Include="Assets\Scripts\Systems\AttackSystem\Skills\PlayerSkillManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\AttackSystem\Skills\Skill_BlockReset.cs" />
+    <Compile Include="Assets\Scripts\Systems\AttackSystem\Skills\Skill_None.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Skills\SkillManager.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Weapons\MeleeWeapon.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Weapons\Projectile.cs" />

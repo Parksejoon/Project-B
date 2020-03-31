@@ -576,6 +576,8 @@ GameObject:
   m_Component:
   - component: {fileID: 76625636}
   - component: {fileID: 76625635}
+  - component: {fileID: 76625638}
+  - component: {fileID: 76625637}
   m_Layer: 0
   m_Name: SkillList
   m_TagString: Untagged
@@ -595,8 +597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecfa4a94eeb25b04ba0fb4ddbc469460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCoolDownTextures: []
-  skills: []
 --- !u!4 &76625636
 Transform:
   m_ObjectHideFlags: 0
@@ -611,6 +611,33 @@ Transform:
   m_Father: {fileID: 1617088177}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &76625637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76625634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5c8ed502d443049b4c804b68dbca74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillTexture: {fileID: 0}
+  customBlockBuilder: {fileID: 1617088178}
+--- !u!114 &76625638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76625634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f8d0dac63a192e408e4a3519fce6326, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillTexture: {fileID: 0}
 --- !u!4 &123826863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4480537917759622, guid: 70be982bee74a854dbee41c82601fd59,
@@ -151566,6 +151593,7 @@ GameObject:
   - component: {fileID: 1617088181}
   - component: {fileID: 1617088183}
   - component: {fileID: 1617088184}
+  - component: {fileID: 1617088179}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -151616,6 +151644,19 @@ MonoBehaviour:
     type: 3}
   fairyTransform: {fileID: 378111009}
   maxCreatableBlockCount: 3
+--- !u!114 &1617088179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617088175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0ad9cff43c124e4cb2ade82a9866bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillCoolDownTextures: []
 --- !u!114 &1617088181
 MonoBehaviour:
   m_ObjectHideFlags: 0

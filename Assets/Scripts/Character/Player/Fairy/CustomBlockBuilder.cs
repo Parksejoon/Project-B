@@ -190,7 +190,6 @@ public class CustomBlockBuilder : MonoBehaviour
 		while (setblockAxisInUse && currentCreatingTargetBlock != null)
 		{
 			RotateBlock();
-			Debug.Log("ASD");
 
 			yield return null;
 		}
