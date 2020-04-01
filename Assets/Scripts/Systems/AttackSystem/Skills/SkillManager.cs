@@ -13,28 +13,28 @@ public enum SkillCode
 // 시작시 불러온 스킬들을 저장
 public class SkillManager : MonoBehaviour
 {
-	public static SkillManager instance;		// 싱글톤
+	//public static SkillManager instance;		// 싱글톤
 
-	private Skill[]	skills;				// 모든 스킬 목록
+	private static Skill[]	skills;				// 모든 스킬 목록
 
 
 	// 초기화
 	private void Awake()
 	{
-		if (instance == null)
-		{
-			instance = this;
-		}
-		else
-		{
-			Destroy(this);
-		}
+		//if (instance == null)
+		//{
+		//	instance = this;
+		//}
+		//else
+		//{
+		//	Destroy(this);
+		//}
 
 		skills = GetComponents<Skill>();
 	}
 
 	// 스킬 목록에서 가져오기
-	public Skill GetSkill(SkillCode skillCode)
+	public static Skill GetSkill(SkillCode skillCode)
 	{
 		int index = (int)skillCode;
 

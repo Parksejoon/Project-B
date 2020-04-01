@@ -34,7 +34,8 @@ public class MonsterRockie : Monster
 		// 패턴 초기화 ( 임시 )
 		singlePattern = new[]
 		{
-			new MonsterPattern(Move)
+			new MonsterPattern(Move),
+			ResetBlock
 		};
 
 
@@ -45,6 +46,24 @@ public class MonsterRockie : Monster
 	private void Start()
 	{
 		StartCoroutine(RunPattern());
+	}
+
+	// 몬스터 패턴 실행
+	protected override IEnumerator RunPattern()
+	{
+		while (true)
+		{
+			if (Random.Range(0f, 1f) > 0.8f)
+			{
+				yield return StartCoroutine(singlePattern[1]());
+			}
+			else
+			{
+				yield return StartCoroutine(singlePattern[0]());
+			}
+
+			yield return null;
+		}
 	}
 
 	// 사망
@@ -63,13 +82,11 @@ public class MonsterRockie : Monster
 		base.Reverse();
 	}
 
-	// 몬스터 패턴 실행
-	protected override IEnumerator RunPattern()
+	// 블럭 리셋 스킬
+	private IEnumerator ResetBlock()
 	{
-		while (true)
-		{
-			yield return StartCoroutine(singlePattern[0]());
-		}
+		SkillManager.GetSkill(SkillCode.Skill_BlockReset).ShotSkill();
+		yield return null;
 	}
 
 	// 이동 메인
@@ -102,6 +119,7 @@ public class MonsterRockie : Monster
 		yield return new WaitForSeconds(1f);
 	}
 
+	// 이동 플래그
 	private void MoveFlagFunc(bool isTrue)
 	{
 		moveFlag = isTrue;

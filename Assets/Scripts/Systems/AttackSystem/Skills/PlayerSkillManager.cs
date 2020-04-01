@@ -59,8 +59,8 @@ public class PlayerSkillManager : MonoBehaviour
 	{
 		skills = new Skill[4];
 
-		skills[0] = SkillManager.instance.GetSkill(SkillCode.Skill_BlockReset);
-		skills[1] = SkillManager.instance.GetSkill(0);
+		skills[0] = SkillManager.GetSkill(SkillCode.Skill_BlockReset);
+		skills[1] = SkillManager.GetSkill(0);
 	}
 
 	// 쿨다운
