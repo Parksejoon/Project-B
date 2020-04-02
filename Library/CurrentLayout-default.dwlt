@@ -113,7 +113,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 18004, y: 14044}
   vertical: 0
-  controlID: 63
+  controlID: 70
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 18004, y: 14044}
   vertical: 1
-  controlID: 64
+  controlID: 71
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 222}
   m_MaxSize: {x: 12008, y: 4022}
   vertical: 0
-  controlID: 65
+  controlID: 16
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_MinSize: {x: 434, y: 272}
   m_MaxSize: {x: 18004, y: 10022}
   vertical: 0
-  controlID: 147
+  controlID: 72
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -468,9 +468,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0, y: 0, z: 0}
+    m_Target: {x: -7.7586727, y: 357.48715, z: -320.29514}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: -8.124786, y: 357.6653, z: -320.07684}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 2
@@ -495,17 +495,17 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     zGrid:
-      m_Target: 1
+      m_Target: 0
       speed: 2
-      m_Value: 1
+      m_Value: 0
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 22
+    m_Target: 57.91118
     speed: 2
-    m_Value: 22
+    m_Value: 60.639977
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -692,23 +692,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: c42a0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 70fbffff2e40000094400000
+      m_SelectedIDs: b0560000
+      m_LastClickedID: 22192
+      m_ExpandedIDs: a0e1ffff42e3fffffeecffff46eeffff88efffffd4f2ffff86f4ffffb8f4ffff54f6ffff92f6ffffe0f7ffff70fbffffea50000066530000525600001c570000205700003457000064570000725700008a570000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: GameManager
+        m_OriginalName: GameManager
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 22386
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 9}
       m_SearchString: 
@@ -828,20 +828,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Systems/AttackSystem/Skills
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/Scripts/Systems/AttackSystem/Skills
+  - Assets/Scenes
   m_LastFoldersGridSize: 71
   m_LastProjectPath: C:\Users\qkeh4\Documents\Unity Projects\Project B
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 855}
-    m_SelectedIDs: 28390000
-    m_LastClickedID: 14632
-    m_ExpandedIDs: 0000000046330000ae330000d8330000de3300002a34000044340000b8340000ba340000cc340000663500006e350000803500009a3500009e35000038360000e6360000103700001e37000034370000783700009a370000d2370000ca390000f6390000163a0000283a0000343a0000843a0000863a0000883a0000443d00001e430000204300002243000024430000264300002843000000ca9a3b
+    scrollPos: {x: 0, y: 591}
+    m_SelectedIDs: d2330000
+    m_LastClickedID: 13266
+    m_ExpandedIDs: 0000000046330000ae330000d2330000d8330000de3300002a34000044340000b8340000ba340000cc340000663500006e350000803500009a3500009e35000038360000e6360000103700001e37000034370000783700009a370000d2370000ca390000f6390000163a0000283a0000343a0000843a0000863a0000883a0000443d00001e430000204300002243000024430000264300002843000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

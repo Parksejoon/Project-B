@@ -18,7 +18,7 @@ public class PlayerJumpManager : MonoBehaviour
 	}
 
 	[SerializeField]
-	private PlayerController	playerController;          // 플레이어 컨트롤
+	private PlayerController	playerController;       // 플레이어 컨트롤
 	[SerializeField]
 	private CustomBlockBuilder	customBlockBuilder;		// 커스텀 블럭 빌더
 	[SerializeField]
@@ -56,11 +56,11 @@ public class PlayerJumpManager : MonoBehaviour
 			}
 		}
 
-		// 커스텀 블럭을 제외한 착지 가능한 블록일 경우
+		// 커스텀 블럭을 제외한 착지 가능한 블록일 경우 블록 초기화
 		if (collision.CompareTag("Block") || collision.CompareTag("DangerBlock")
 			|| collision.CompareTag("Ball") || collision.CompareTag("SoilBlock"))
 		{
-			customBlockBuilder.ResetBlocks();
+			if (customBlockBuilder != null) customBlockBuilder.ResetBlocks();
 		}
 	}
 
