@@ -13,6 +13,7 @@ TagManager:
   - CustomBlock
   - Monster
   - PlayerAttack
+  - NPC
   layers:
   - Default
   - TransparentFX
