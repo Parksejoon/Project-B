@@ -21,6 +21,7 @@ public class CustomBlockBuilder : MonoBehaviour
 	private Vector3				targetPosition;                             // 생성 위치
 
 	private bool				setblockAxisInUse = false;                  // 블럭설치 키 사용 플래그
+	private IEnumerator			clickTimer;									// 클릭 타이머 코루틴
 
 
 	// 초기화
@@ -33,6 +34,8 @@ public class CustomBlockBuilder : MonoBehaviour
 		ObjectPoolManager.Create("BlockCreated", ResourceLoader.Get("BlockCreated"), 10);
 		ObjectPoolManager.Create("CountExcess", ResourceLoader.Get("CountExcess"), 20);
 		ObjectPoolManager.Create("SpaceNarrower", ResourceLoader.Get("SpaceNarrower"), 20);
+
+		clickTimer = ClickTimer();
 	}
 
 	// 프레임
@@ -70,11 +73,18 @@ public class CustomBlockBuilder : MonoBehaviour
 		{
 			if (setblockAxisInUse == false)
 			{
-				// 블럭 설치
+				// 설치가 가능하면
 				if (CanCreate())
 				{
+					// 클릭 타이머 중지
+					StopCoroutine(clickTimer);
+
+					// 블럭 설치
 					CreateBlock();
-					StartCoroutine("ClickTimer");
+
+					// 클릭 타이머 시작
+					clickTimer = ClickTimer();
+					StartCoroutine(clickTimer);
 				}
 
 				setblockAxisInUse = true;

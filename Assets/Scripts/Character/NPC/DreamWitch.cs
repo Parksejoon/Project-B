@@ -10,6 +10,6 @@ public class DreamWitch : NPC
 	// NPC와 대화
 	public override void Converse()
 	{
-		Debug.Log("ASD");
+		OnConverseWindow();
 	}
 }
