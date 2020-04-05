@@ -11,7 +11,7 @@ public class Converser : MonoBehaviour
 	// 프레임
 	private void Update()
 	{
-		// (!! 일단은 키보드 전용으로 해놓음 나중에 수정 !!)
+		// (## NPC에게 상호작용/대화 걸기 ##)
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			Converse();

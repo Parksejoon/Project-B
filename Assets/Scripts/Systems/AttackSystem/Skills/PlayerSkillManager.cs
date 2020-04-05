@@ -28,7 +28,8 @@ public class PlayerSkillManager : MonoBehaviour
 	// 프레임
 	private void Update()
 	{
-		// (!! 현재 임시로 키보드 Q E에만 스킬 할당해놓음 !!)
+		// (## 스킬 키 ##)
+		// 임시로 Q E에만 할당
 		if (Input.GetKeyDown(KeyCode.Q))
 		{
 			ShotSkill(0);

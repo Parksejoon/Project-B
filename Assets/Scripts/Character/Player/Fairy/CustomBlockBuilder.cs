@@ -41,7 +41,7 @@ public class CustomBlockBuilder : MonoBehaviour
 	// 프레임
 	private void Update()
 	{
-		// (!! 여기 입력부분 나중에 패드 호환 가능하게 변경 !!)
+		// (## 커스텀 블록 설치 ##)
 
 		//// 클릭 시작
 		//if (Input.GetMouseButtonDown(0))
