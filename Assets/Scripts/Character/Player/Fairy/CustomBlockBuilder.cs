@@ -20,7 +20,7 @@ public class CustomBlockBuilder : MonoBehaviour
 	private Transform			currentCreatingTargetBlock = null;			// 현재 생성중인 블럭
 	private Vector3				targetPosition;                             // 생성 위치
 
-	private bool				setblockAxisInUse = false;                  // 블럭설치 키 사용 플래그
+	private bool				setblockAxisInUse = false;                  // 블럭설치 입력 플래그
 	private IEnumerator			clickTimer;									// 클릭 타이머 코루틴
 
 
@@ -69,7 +69,7 @@ public class CustomBlockBuilder : MonoBehaviour
 		//}
 
 
-		if (Input.GetAxis("Setblock") != 0)
+		if (Input.GetAxisRaw("Setblock") != 0)
 		{
 			if (setblockAxisInUse == false)
 			{
@@ -91,7 +91,7 @@ public class CustomBlockBuilder : MonoBehaviour
 			}
 		}
 
-		if (Input.GetAxis("Setblock") == 0)
+		if (Input.GetAxisRaw("Setblock") == 0)
 		{
 			// 블럭 설치 해제
 			//StopCoroutine(clickTimer);

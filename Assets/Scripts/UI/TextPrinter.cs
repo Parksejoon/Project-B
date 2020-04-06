@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TextPrinter : MonoBehaviour, IPointerClickHandler
+public class TextPrinter : MonoBehaviour
 {
+
 	[SerializeField]
 	private UILabel		uiLabel;					// 라벨
 
 	private IEnumerator printEachTextRoutine;       // 한글자씩 출력하는 코루틴
 
-	private string		currentText;				// 현재 문자열
+	private string		currentText;                // 현재 문자열
+
+	private bool		interactionAxisInUse = false;		// 대화 입력 플래그
 
 
 	// 초기화
@@ -22,10 +25,8 @@ public class TextPrinter : MonoBehaviour, IPointerClickHandler
 	}
 
 	// (## 대화 스킵 ##)
-	public void OnPointerClick(PointerEventData pointerEventData)
+	public void SkipText()
 	{
-		Debug.Log("ASD");
-
 		StopCoroutine(printEachTextRoutine);
 		uiLabel.text = currentText;
 	}

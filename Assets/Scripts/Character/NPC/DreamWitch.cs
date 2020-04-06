@@ -8,8 +8,10 @@ using UnityEngine;
 public class DreamWitch : NPC
 {
 	// NPC와 대화
-	public override void Converse()
+	public override TextPrinter Converse()
 	{
 		OnConverseWindow();
+
+		return textPrinter;
 	}
 }

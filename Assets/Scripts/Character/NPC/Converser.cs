@@ -6,15 +6,44 @@ using UnityEngine;
 // NPC와 대화가 가능하게 해주는 클래스
 public class Converser : MonoBehaviour
 {
+	private bool interactionAxisInUse = false;      // 대화 입력 플래그
+	private bool inConversation = false;            // 대화중인지 플래그
+
+	private TextPrinter npcTextPrinter;				// 대화중인 NPC의 textprinter
 
 
 	// 프레임
 	private void Update()
 	{
-		// (## NPC에게 상호작용/대화 걸기 ##)
-		if (Input.GetKeyDown(KeyCode.R))
+		// 입력 트리거
+		if (Input.GetAxisRaw("Interaction") != 0)
 		{
-			Converse();
+			if (interactionAxisInUse == false)
+			{
+				// 대화중이 아니면
+				if (inConversation == false)
+				{
+					// 대화
+					interactionAxisInUse = true;
+
+					Converse();
+				}
+				// 이미 대화중이면
+				else
+				{
+					if (npcTextPrinter != null)
+					{
+						// 스킵
+						npcTextPrinter.SkipText();
+					}
+				}
+			}
+		}
+
+		// 입력 해제 트리거
+		if (Input.GetAxisRaw("Interaction") == 0)
+		{
+			interactionAxisInUse = false;
 		}
 	}
 
@@ -30,9 +59,18 @@ public class Converser : MonoBehaviour
 			if (collider.CompareTag("NPC"))
 			{
 				// 대화
-				collider.GetComponent<NPC>().Converse();
+				npcTextPrinter = collider.GetComponent<NPC>().Converse();
+				inConversation = true;
+
 				break;
 			}
 		}
+	}
+
+	// 대화 종료
+	public void EndConverse()
+	{
+		inConversation = false;
+		npcTextPrinter = null;
 	}
 }
