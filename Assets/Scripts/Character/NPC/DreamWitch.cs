@@ -10,8 +10,13 @@ public class DreamWitch : NPC
 	// NPC와 대화
 	public override TextPrinter Converse()
 	{
-		OnConverseWindow();
+		Queue<string> textQueue = new Queue<string>();
 
-		return textPrinter;
+		textQueue.Enqueue("Ahhhhhhhhhhhh!\nYou so fuckin' precious when you smile\nABC");
+		textQueue.Enqueue("Im waking up.\nI feel it in my bones.\nEnough to make my systems blow.");
+
+		OnConverseWindow(textQueue);
+
+		return TextPrinter;
 	}
 }

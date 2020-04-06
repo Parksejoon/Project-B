@@ -285,8 +285,9 @@
     <Compile Include="Assets\Scripts\Character\Character.cs" />
     <Compile Include="Assets\Scripts\Character\Monster\Monster.cs" />
     <Compile Include="Assets\Scripts\Character\Monster\MonsterRockie.cs" />
-    <Compile Include="Assets\Scripts\Character\NPC\Converser.cs" />
     <Compile Include="Assets\Scripts\Character\NPC\DreamWitch.cs" />
+    <Compile Include="Assets\Scripts\Character\NPC\IInteractionHooker.cs" />
+    <Compile Include="Assets\Scripts\Character\NPC\Interacter.cs" />
     <Compile Include="Assets\Scripts\Character\NPC\NPC.cs" />
     <Compile Include="Assets\Scripts\Character\Player\Fairy\CustomBlockBuilder.cs" />
     <Compile Include="Assets\Scripts\Character\Player\Fairy\FairyMove.cs" />
