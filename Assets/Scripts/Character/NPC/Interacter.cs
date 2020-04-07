@@ -6,18 +6,9 @@ using UnityEngine;
 // 상호작용을 가능하게 해주는 클래스
 public class Interacter : MonoBehaviour
 {
-	public delegate void InteractionKeyHookCallback();  // 상호작용 키 후킹시 사용될 콜백 함수의 델리게이트
-
-	private InteractionKeyHookCallback interactionKeyHookCallback;
-
 	private bool interactionAxisInUse = false;      // 상호작용 키 입력 플래그
+	private bool inInteraction = false;				// 상호작용 중인지 플래그
 
-
-	// 초기화
-	private void Awake()
-	{
-		interactionKeyHookCallback = null;
-	}
 
 	// 프레임
 	private void Update()
@@ -27,19 +18,13 @@ public class Interacter : MonoBehaviour
 		{
 			if (interactionAxisInUse == false)
 			{
-				// 후킹중이 아니면
-				if (interactionKeyHookCallback == null)
+				// 상호작용 진행중이 아니면
+				if (inInteraction == false)
 				{
 					// 상호작용 시도
 					Interact();
 				}
-				// 후킹에 걸려있으면
-				else
-				{
-					// 지정된 델리게이트 실행
-					interactionKeyHookCallback();
-				}
-
+				
 				// 플래그 설정
 				interactionAxisInUse = true;
 			}
@@ -52,27 +37,29 @@ public class Interacter : MonoBehaviour
 		}
 	}
 
-	// 상호작용 키 후킹
-	public void HookInteractKey(InteractionKeyHookCallback func)
+	// 상호작용 종료
+	public void EndInteract()
 	{
-		interactionKeyHookCallback = func;
+		inInteraction = false;
 	}
 
 	// 주위에 상호 작용 가능한 개체를 찾아 상호작용을 진행
 	private void Interact()
 	{
 		Collider2D[] hitColliders2D = Physics2D.OverlapBoxAll(transform.position, new Vector2(1f, 1f), 0);
-		IInteractionHooker interactionHooker = null;
+		IInteractionHandler interactionHooker = null;
 
 		// 모든 충돌체를 확인
 		foreach (Collider2D collider in hitColliders2D)
 		{
-			interactionHooker = collider.GetComponent<IInteractionHooker>();
+			interactionHooker = collider.GetComponent<IInteractionHandler>();
 
 			// 충돌체가 상호작용 가능하면
 			if (interactionHooker != null)
 			{
+				// 상호작용 시도
 				interactionHooker.Interact(this);
+				inInteraction = true;
 
 				break;
 			}

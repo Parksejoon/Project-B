@@ -4,10 +4,9 @@ using UnityEngine;
 
 
 // NPC의 기본 클래스
-public abstract class NPC : MonoBehaviour, IInteractionHooker
+public abstract class NPC : MonoBehaviour, IInteractionHandler
 {
 	private Interacter currentInteracter = null;			// 현재 상호작용중인 상호작용자
-
 
 	[SerializeField] TextPrinter textPrinter; public TextPrinter TextPrinter		// 텍스트 출력기
 	{
@@ -15,36 +14,25 @@ public abstract class NPC : MonoBehaviour, IInteractionHooker
 		private set { textPrinter = value; }
 	}
 
-	// 상호작용 받음
-	public void Interact(Interacter interacter)
-	{
-		currentInteracter = interacter;
 
-		Interacter.InteractionKeyHookCallback targetCallback = InteractKeyDown;
-
-		currentInteracter.HookInteractKey(targetCallback);
-		Converse();
-	}
-	
 	// NPC에게 대화를 거는 함수
 	public abstract TextPrinter Converse();
-
-	// 상호작용 키 후킹용 델리게이트 함수
-	public void InteractKeyDown()
-	{
-		if (textPrinter.PressConverse() == false)
-		{
-			currentInteracter.HookInteractKey(null);
-		}
-	}
 
 	// 대화 창 출력
 	protected virtual void OnConverseWindow(Queue<string> textQueue)
 	{
+		// 종료 콜백 함수 설정
+		textPrinter.SetCallbackFunction(currentInteracter.EndInteract);
+
 		// 대화 창 출력
-		textPrinter.gameObject.SetActive(true);
 		textPrinter.PrintTextQueue(textQueue);
+	}
 
-
+	// 상호작용 받음
+	public void Interact(Interacter interacter)
+	{
+		currentInteracter = interacter;
+		
+		Converse();
 	}
 }
