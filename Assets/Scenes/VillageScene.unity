@@ -5352,6 +5352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 240993517}
   - component: {fileID: 240993516}
+  - component: {fileID: 240993518}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5389,6 +5390,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &240993518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240993515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d1a0f5b97aab949bf8e967834aad33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &383870093
 GameObject:
   m_ObjectHideFlags: 0
@@ -19512,7 +19525,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -19536,7 +19549,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650730167}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0000004172325, y: 2.3999996, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1166214564}

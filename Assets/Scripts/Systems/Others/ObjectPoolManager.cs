@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectPoolManager : MonoBehaviour
 {
-	private static Hashtable objectPools = new Hashtable();
+	private static Dictionary<string, Stack<GameObject>> objectPools = new Dictionary<string, Stack<GameObject>>();
 	
 
 	// 오브젝트 생성
@@ -27,7 +27,7 @@ public class ObjectPoolManager : MonoBehaviour
 	// 오브젝트 가져오기
 	public static GameObject GetGameObject(string name, Vector3 position)
 	{
-		Stack<GameObject> objects = (Stack<GameObject>)objectPools[name];
+		Stack<GameObject> objects = objectPools[name];
 
 		if (objects.Count > 0)
 		{
@@ -47,7 +47,7 @@ public class ObjectPoolManager : MonoBehaviour
 	// 오브젝트 해제
 	public static void Release(string name, GameObject gameObj)
 	{
-		Stack<GameObject> objects = (Stack<GameObject>)objectPools[name];
+		Stack<GameObject> objects = objectPools[name];
 
 		gameObj.SetActive(false);
 

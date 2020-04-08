@@ -13,27 +13,37 @@ public class Interacter : MonoBehaviour
 	// 프레임
 	private void Update()
 	{
-		// 입력 트리거
-		if (Input.GetAxisRaw("Interaction") != 0)
-		{
-			if (interactionAxisInUse == false)
-			{
-				// 상호작용 진행중이 아니면
-				if (inInteraction == false)
-				{
-					// 상호작용 시도
-					Interact();
-				}
+		//// 입력 트리거
+		//if (Input.GetAxisRaw("Interaction") != 0)
+		//{
+		//	if (interactionAxisInUse == false)
+		//	{
+		//		// 상호작용 진행중이 아니면
+		//		if (inInteraction == false)
+		//		{
+		//			// 상호작용 시도
+		//			Interact();
+		//		}
 				
-				// 플래그 설정
-				interactionAxisInUse = true;
-			}
-		}
+		//		// 플래그 설정
+		//		interactionAxisInUse = true;
+		//	}
+		//}
 
-		// 입력 해제 트리거
-		if (Input.GetAxisRaw("Interaction") == 0)
+		//// 입력 해제 트리거
+		//if (Input.GetAxisRaw("Interaction") == 0)
+		//{
+		//	interactionAxisInUse = false;
+		//}
+
+		if (InputManager.GetButtonDown("Interaction"))
 		{
-			interactionAxisInUse = false;
+			// 상호작용 진행중이 아니면
+			if (inInteraction == false)
+			{
+				// 상호작용 시도
+				Interact();
+			}
 		}
 	}
 

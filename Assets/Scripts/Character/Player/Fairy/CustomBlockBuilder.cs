@@ -41,63 +41,52 @@ public class CustomBlockBuilder : MonoBehaviour
 	// 프레임
 	private void Update()
 	{
-		// (## 커스텀 블록 설치 ##)
-
-		//// 클릭 시작
-		//if (Input.GetMouseButtonDown(0))
+		//if (Input.GetAxisRaw("Setblock") != 0)
 		//{
-		//	if (CanCreate())
+		//	if (setblockAxisInUse == false)
 		//	{
-		//		CreateBlock();
-		//	}
-		//	else
-		//	{
+		//		// 설치가 가능하면
+		//		if (CanCreate())
+		//		{
+		//			// 클릭 타이머 중지
+		//			StopCoroutine(clickTimer);
+
+		//			// 블럭 설치
+		//			CreateBlock();
+
+		//			// 클릭 타이머 시작
+		//			clickTimer = ClickTimer();
+		//			StartCoroutine(clickTimer);
+		//		}
+
+		//		setblockAxisInUse = true;
 		//	}
 		//}
 
-		//// 클릭 중
-		//if (Input.GetMouseButton(0) && currentCreatingTargetBlock != null)
+		//if (Input.GetAxisRaw("Setblock") == 0)
 		//{
-		//	StartCoroutine("ClickTimer");
-		//}
-
-		//// 클릭 끝
-		//if (Input.GetMouseButtonUp(0))
-		//{
-		//	StopCoroutine("ClickTimer");
+		//	// 블럭 설치 해제
+		//	//StopCoroutine(clickTimer);
 		//	currentCreatingTargetBlock = null;
+
+		//	setblockAxisInUse = false;
 		//}
 
-
-		if (Input.GetAxisRaw("Setblock") != 0)
+		if (InputManager.GetButtonDown("Setblock"))
 		{
-			if (setblockAxisInUse == false)
+			// 설치가 가능하면
+			if (CanCreate())
 			{
-				// 설치가 가능하면
-				if (CanCreate())
-				{
-					// 클릭 타이머 중지
-					StopCoroutine(clickTimer);
+				// 클릭 타이머 중지
+				StopCoroutine(clickTimer);
 
-					// 블럭 설치
-					CreateBlock();
+				// 블럭 설치
+				CreateBlock();
 
-					// 클릭 타이머 시작
-					clickTimer = ClickTimer();
-					StartCoroutine(clickTimer);
-				}
-
-				setblockAxisInUse = true;
+				// 클릭 타이머 시작
+				clickTimer = ClickTimer();
+				StartCoroutine(clickTimer);
 			}
-		}
-
-		if (Input.GetAxisRaw("Setblock") == 0)
-		{
-			// 블럭 설치 해제
-			//StopCoroutine(clickTimer);
-			currentCreatingTargetBlock = null;
-
-			setblockAxisInUse = false;
 		}
 	}
 

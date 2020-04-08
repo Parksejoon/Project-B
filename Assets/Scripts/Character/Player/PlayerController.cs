@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
 	private float				jumpTimeLimit = 0.1f;		// 최대 점프 시간
 
 
-
 	// 초기화
 	private void Awake()
 	{
@@ -48,10 +47,10 @@ public class PlayerController : MonoBehaviour
 	// 프레임
 	private void Update()
 	{
-		horizontalMove	= Input.GetAxis("Horizontal");
-		verticalMove	= Input.GetAxis("Vertical");
+		horizontalMove	= InputManager.GetAxis("Horizontal");
+		verticalMove	= InputManager.GetAxis("Vertical");
 
-		if (Input.GetButtonDown("Jump"))
+		if (InputManager.GetButtonDown("Jump"))
 		{
 			Jump();
 		}
@@ -161,7 +160,7 @@ public class PlayerController : MonoBehaviour
 	// 점프 체공 코루틴
 	private IEnumerator JumpFlight()
 	{
-		while (Input.GetButton("Jump") && jumpTimer < jumpTimeLimit)
+		while (InputManager.GetButton("Jump") && jumpTimer < jumpTimeLimit)
 		{
 			// 점프
 			playerRigidbody2D.velocity = Vector2.zero;

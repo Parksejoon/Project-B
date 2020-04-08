@@ -314,6 +314,7 @@
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Weapons\RangeWeapon.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\Systems\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\InputManager.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\Depth.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\ObjectPoolGenerator.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\ObjectPoolManager.cs" />
