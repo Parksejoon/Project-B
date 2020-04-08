@@ -54,6 +54,12 @@ public class InputManager : MonoBehaviour
 			inputCoefficient.Add(name, true);
 		}
 	}
+	
+	// axis를 잠그고 여는 함수
+	public static void SetAxis(string axisName, bool isEnable)
+	{
+		inputCoefficient[axisName] = isEnable;
+	}
 
 	// GetAxis
 	public static float GetAxis(string axisName)

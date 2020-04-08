@@ -13,29 +13,6 @@ public class Interacter : MonoBehaviour
 	// 프레임
 	private void Update()
 	{
-		//// 입력 트리거
-		//if (Input.GetAxisRaw("Interaction") != 0)
-		//{
-		//	if (interactionAxisInUse == false)
-		//	{
-		//		// 상호작용 진행중이 아니면
-		//		if (inInteraction == false)
-		//		{
-		//			// 상호작용 시도
-		//			Interact();
-		//		}
-				
-		//		// 플래그 설정
-		//		interactionAxisInUse = true;
-		//	}
-		//}
-
-		//// 입력 해제 트리거
-		//if (Input.GetAxisRaw("Interaction") == 0)
-		//{
-		//	interactionAxisInUse = false;
-		//}
-
 		if (InputManager.GetButtonDown("Interaction"))
 		{
 			// 상호작용 진행중이 아니면
@@ -50,26 +27,44 @@ public class Interacter : MonoBehaviour
 	// 상호작용 종료
 	public void EndInteract()
 	{
+		// 입력 제어 해제
+		InputManager.SetAxis("Vertical", true);
+		InputManager.SetAxis("Horizontal", true);
+		InputManager.SetAxis("Jump", true);
+		InputManager.SetAxis("Setblock", true);
+
 		inInteraction = false;
+	}
+
+	// 상호작용 시작
+	private void StartInteract(IInteractionHandler interactionHandler)
+	{
+		// 상호작용 시작
+		interactionHandler.Interact(this);
+		inInteraction = true;
+
+		// 입력 제어
+		InputManager.SetAxis("Vertical", false);
+		InputManager.SetAxis("Horizontal", false);
+		InputManager.SetAxis("Jump", false);
+		InputManager.SetAxis("Setblock", false);
 	}
 
 	// 주위에 상호 작용 가능한 개체를 찾아 상호작용을 진행
 	private void Interact()
 	{
 		Collider2D[] hitColliders2D = Physics2D.OverlapBoxAll(transform.position, new Vector2(1f, 1f), 0);
-		IInteractionHandler interactionHooker = null;
+		IInteractionHandler interactionHandler = null;
 
 		// 모든 충돌체를 확인
 		foreach (Collider2D collider in hitColliders2D)
 		{
-			interactionHooker = collider.GetComponent<IInteractionHandler>();
+			interactionHandler = collider.GetComponent<IInteractionHandler>();
 
 			// 충돌체가 상호작용 가능하면
-			if (interactionHooker != null)
+			if (interactionHandler != null)
 			{
-				// 상호작용 시도
-				interactionHooker.Interact(this);
-				inInteraction = true;
+				StartInteract(interactionHandler);
 
 				break;
 			}

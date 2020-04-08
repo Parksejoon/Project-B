@@ -41,37 +41,6 @@ public class CustomBlockBuilder : MonoBehaviour
 	// 프레임
 	private void Update()
 	{
-		//if (Input.GetAxisRaw("Setblock") != 0)
-		//{
-		//	if (setblockAxisInUse == false)
-		//	{
-		//		// 설치가 가능하면
-		//		if (CanCreate())
-		//		{
-		//			// 클릭 타이머 중지
-		//			StopCoroutine(clickTimer);
-
-		//			// 블럭 설치
-		//			CreateBlock();
-
-		//			// 클릭 타이머 시작
-		//			clickTimer = ClickTimer();
-		//			StartCoroutine(clickTimer);
-		//		}
-
-		//		setblockAxisInUse = true;
-		//	}
-		//}
-
-		//if (Input.GetAxisRaw("Setblock") == 0)
-		//{
-		//	// 블럭 설치 해제
-		//	//StopCoroutine(clickTimer);
-		//	currentCreatingTargetBlock = null;
-
-		//	setblockAxisInUse = false;
-		//}
-
 		if (InputManager.GetButtonDown("Setblock"))
 		{
 			// 설치가 가능하면
