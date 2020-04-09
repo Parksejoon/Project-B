@@ -304,6 +304,7 @@
     <Compile Include="Assets\Scripts\Objects\BottomBlock.cs" />
     <Compile Include="Assets\Scripts\Objects\SelfDestroyer.cs" />
     <Compile Include="Assets\Scripts\Objects\UnstableBlock.cs" />
+    <Compile Include="Assets\Scripts\Stage\StageSelecter.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\AttackCore.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Skills\PlayerSkillManager.cs" />
     <Compile Include="Assets\Scripts\Systems\AttackSystem\Skills\Skill_BlockReset.cs" />
