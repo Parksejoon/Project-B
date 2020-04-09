@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 	private void Update()
 	{
 		horizontalMove	= InputManager.GetAxis("Horizontal");
-		verticalMove	= InputManager.GetAxis("Vertical");
+		//verticalMove	= InputManager.GetAxis("Vertical");
 
 		if (InputManager.GetButtonDown("Jump"))
 		{
