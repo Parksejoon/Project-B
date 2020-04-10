@@ -19,13 +19,13 @@ public abstract class NPC : MonoBehaviour, IInteractionHandler
 	public abstract TextPrinter Converse();
 
 	// 대화 창 출력
-	protected virtual void OnConverseWindow(Queue<string> textQueue)
+	protected virtual void OnConverseWindow(Queue<string> textQueue, string title)
 	{
 		// 종료 콜백 함수 설정
 		textPrinter.SetCallbackFunction(currentInteracter.EndInteract);
 
 		// 대화 창 출력
-		textPrinter.PrintTextQueue(textQueue);
+		textPrinter.PrintTextQueue(textQueue, title);
 	}
 
 	// 상호작용 받음

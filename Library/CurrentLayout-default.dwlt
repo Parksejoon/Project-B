@@ -113,7 +113,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 18008, y: 14044}
   vertical: 0
-  controlID: 377
+  controlID: 7797
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 18008, y: 14044}
   vertical: 1
-  controlID: 378
+  controlID: 7798
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 222}
   m_MaxSize: {x: 12008, y: 4022}
   vertical: 0
-  controlID: 379
+  controlID: 7799
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_MinSize: {x: 438, y: 272}
   m_MaxSize: {x: 18008, y: 10022}
   vertical: 0
-  controlID: 342
+  controlID: 7806
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -468,9 +468,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.7449374, y: -0.3172429, z: -28.035242}
+    m_Target: {x: -9.489438, y: -3.925944, z: -10.908127}
     speed: 2
-    m_Value: {x: 3.7449374, y: -0.3172429, z: -28.035242}
+    m_Value: {x: -9.489438, y: -3.925944, z: -10.908127}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 2
@@ -503,9 +503,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 25.520576
+    m_Target: 10.428418
     speed: 2
-    m_Value: 25.520576
+    m_Value: 10.428418
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -14888
+  m_LastSelectedObjectID: 20436
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -692,9 +692,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d82d0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 70fbffff
+      m_SelectedIDs: d44f0000
+      m_LastClickedID: 20436
+      m_ExpandedIDs: 80bfffff60d2ffff9ed2ffff68d4ffff70fbffff56440000864400009e4400004a450000744f0000d44f0000045000004c500000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -828,19 +828,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Stage
+    - Assets/Scripts/Character/NPC
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/Scripts/Stage
+  - Assets/Scripts/Character/NPC
   m_LastFoldersGridSize: 71
   m_LastProjectPath: C:\Users\qkeh4\Documents\Unity Projects\Project B
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 754}
-    m_SelectedIDs: 003b0000
-    m_LastClickedID: 15104
+    scrollPos: {x: 0, y: 815}
+    m_SelectedIDs: c6360000
+    m_LastClickedID: 14022
     m_ExpandedIDs: 0000000054330000bc330000e6330000ec3300003834000052340000c8340000ca340000dc340000763500007e35000090350000ae350000b23500004c360000fe36000028370000363700004c37000090370000b2370000ea370000e23900000e3a00002e3a0000403a00004c3a00009c3a00009e3a0000a03a00005e3d0000fa410000fc410000fe41000000420000024200000442000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0

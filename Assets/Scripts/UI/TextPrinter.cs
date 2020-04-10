@@ -20,7 +20,9 @@ public class TextPrinter : MonoBehaviour
 	private EndPrintCallback endPrintCallback;
 
 	[SerializeField]
-	private UILabel			uiLabel;				// 라벨
+	private UILabel			uiText;					// 라벨
+	[SerializeField]
+	private UILabel			uiTitle;				// 라벨
 
 	private IEnumerator		printEachTextRoutine;   // 한글자씩 출력하는 코루틴
 
@@ -92,7 +94,7 @@ public class TextPrinter : MonoBehaviour
 	{
 		// 출력중인 텍스트 스킵
 		StopCoroutine(printEachTextRoutine);
-		uiLabel.text = currentText;
+		uiText.text = currentText;
 
 		// 상태 초기화
 		printStats = PrintStatus.Done;
@@ -102,7 +104,7 @@ public class TextPrinter : MonoBehaviour
 	private void EndPrint()
 	{
 		// 텍스트 초기화
-		uiLabel.text = "";
+		uiText.text = "";
 
 		// 상태 초기화
 		printStats = 0;
@@ -122,7 +124,7 @@ public class TextPrinter : MonoBehaviour
 	private void PrintText()
 	{
 		// 텍스트 초기화
-		uiLabel.text = "";
+		uiText.text = "";
 
 		// 큐에 텍스트가 남아있으면
 		if (textQueue.Count > 0)
@@ -150,15 +152,18 @@ public class TextPrinter : MonoBehaviour
 	}
 
 	// 텍스트 큐 출력
-	public void PrintTextQueue(Queue<string> text)
+	public void PrintTextQueue(Queue<string> text, string title)
 	{
 		// 초기화
 		gameObject.SetActive(true);
 		StopCoroutine(printEachTextRoutine);
 
 		// 텍스트 초기화
-		uiLabel.text = "";
+		uiText.text = "";
 		textQueue = new Queue<string>(text);
+
+		// 타이틀 초기화
+		uiTitle.text = title;
 
 		// 텍스트 출력
 		PrintText();
@@ -169,7 +174,7 @@ public class TextPrinter : MonoBehaviour
 	{
 		for (int i = 0; i < currentText.Length; i++)
 		{
-			uiLabel.text += currentText[i];
+			uiText.text += currentText[i];
 
 			yield return new WaitForSeconds(0.1f);
 		}

@@ -6208,7 +6208,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -6232,7 +6232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0000004172325, y: 2.3999996, z: -30}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 71109718}
@@ -151607,6 +151607,7 @@ GameObject:
   - component: {fileID: 1617088181}
   - component: {fileID: 1617088183}
   - component: {fileID: 1617088179}
+  - component: {fileID: 1617088180}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -151670,6 +151671,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillCoolDownTextures: []
+--- !u!114 &1617088180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617088175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d1a0f5b97aab949bf8e967834aad33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1617088181
 MonoBehaviour:
   m_ObjectHideFlags: 0

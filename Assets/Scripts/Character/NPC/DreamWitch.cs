@@ -15,7 +15,7 @@ public class DreamWitch : NPC
 		textQueue.Enqueue("Ahhhhhhhhhhhh!\nYou so fuckin' precious when you smile\nABC");
 		textQueue.Enqueue("Im waking up.\nI feel it in my bones.\nEnough to make my systems blow.");
 
-		OnConverseWindow(textQueue);
+		OnConverseWindow(textQueue, "DreamWitch");
 
 		return TextPrinter;
 	}
