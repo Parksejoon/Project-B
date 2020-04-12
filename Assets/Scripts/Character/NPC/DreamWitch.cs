@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 // 꿈의 마녀 NPC
-// 던전 진입, 
+// 던전 진입, 꿈 조각 설정 NPC 
 public class DreamWitch : NPC
 {
 	// NPC와 대화

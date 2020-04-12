@@ -4,6 +4,7 @@ using UnityEngine;
 
 
 // NPC의 기본 클래스
+// 기본적인 대화, 선택지 선택
 public abstract class NPC : MonoBehaviour, IInteractionHandler
 {
 	private Interacter currentInteracter = null;			// 현재 상호작용중인 상호작용자
