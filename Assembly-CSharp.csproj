@@ -322,6 +322,7 @@
     <Compile Include="Assets\Scripts\Systems\Others\ResourceLoader.cs" />
     <Compile Include="Assets\Scripts\Systems\RandomMapGenerator.cs" />
     <Compile Include="Assets\Scripts\Systems\UI\Pause.cs" />
+    <Compile Include="Assets\Scripts\UI\ConverseSelection.cs" />
     <Compile Include="Assets\Scripts\UI\TextPrinter.cs" />
     <None Include="Assets\Add-Ons\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
     <None Include="Assets\Add-Ons\NGUI\ReadMe - 3.12.1.txt" />
