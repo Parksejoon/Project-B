@@ -7,8 +7,13 @@ using UnityEngine;
 public class Interacter : MonoBehaviour
 {
 	private bool interactionAxisInUse = false;      // 상호작용 키 입력 플래그
-	private bool inInteraction = false;				// 상호작용 중인지 플래그
+	private bool inInteraction = false;             // 상호작용 중인지 플래그
 
+	// 입력 제어용 스크립트 목록
+	[SerializeField]
+	private PlayerController		playerController;
+	[SerializeField]
+	private CustomBlockBuilder		customBlockBuilder;
 
 	// 프레임
 	private void Update()
@@ -28,10 +33,8 @@ public class Interacter : MonoBehaviour
 	public void EndInteract()
 	{
 		// 입력 제어 해제
-		InputManager.SetAxis("Vertical", true);
-		InputManager.SetAxis("Horizontal", true);
-		InputManager.SetAxis("Jump", true);
-		InputManager.SetAxis("Setblock", true);
+		playerController.enabled = true;
+		customBlockBuilder.enabled = true;
 
 		inInteraction = false;
 	}
@@ -44,10 +47,8 @@ public class Interacter : MonoBehaviour
 		inInteraction = true;
 
 		// 입력 제어
-		InputManager.SetAxis("Vertical", false);
-		InputManager.SetAxis("Horizontal", false);
-		InputManager.SetAxis("Jump", false);
-		InputManager.SetAxis("Setblock", false);
+		playerController.enabled = false;
+		customBlockBuilder.enabled = false;
 	}
 
 	// 주위에 상호 작용 가능한 개체를 찾아 상호작용을 진행

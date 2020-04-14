@@ -8,15 +8,13 @@ using UnityEngine;
 public class DreamWitch : NPC
 {
 	// NPC와 대화
-	public override TextPrinter Converse()
+	public override void Converse()
 	{
 		Queue<string> textQueue = new Queue<string>();
 
 		textQueue.Enqueue("Ahhhhhhhhhhhh!\nYou so fuckin' precious when you smile\nABC");
 		textQueue.Enqueue("Im waking up.\nI feel it in my bones.\nEnough to make my systems blow.");
 
-		OnConverseWindow(textQueue, "DreamWitch");
-
-		return TextPrinter;
+		OnTextPrintWindow(textQueue, "DreamWitch");
 	}
 }

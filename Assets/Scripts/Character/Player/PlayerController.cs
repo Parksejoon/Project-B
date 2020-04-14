@@ -62,6 +62,12 @@ public class PlayerController : MonoBehaviour
 		Move();
 	}
 
+	// 비활성화
+	public void OnDisable()
+	{
+		moveParticle.flagArray[0] = false;
+	}
+
 	// 점프
 	private void Jump()
 	{

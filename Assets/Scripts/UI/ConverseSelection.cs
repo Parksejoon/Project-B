@@ -10,6 +10,8 @@ public class ConverseSelection : MonoBehaviour
 
 	[SerializeField]
 	private GameObject	choicePrefab;       // 선택지 프리팹
+	[SerializeField]
+	private Transform	choiceParent;		// 선택지 부모 transform
 
 	private int			choiceCount;		// 선택지 갯수
 
@@ -25,7 +27,7 @@ public class ConverseSelection : MonoBehaviour
 		for (int i = 0; i < choiceCount; i++)
 		{
 			// (!! 오브젝트 풀 사용 !!)
-			Instantiate(choicePrefab, transform);
+			Instantiate(choicePrefab, choiceParent);
 		}
 	}
 

@@ -7,20 +7,28 @@ using UnityEngine;
 // 기본적인 대화, 선택지 선택
 public abstract class NPC : MonoBehaviour, IInteractionHandler
 {
-	private Interacter currentInteracter = null;			// 현재 상호작용중인 상호작용자
-
-	[SerializeField] TextPrinter textPrinter; public TextPrinter TextPrinter		// 텍스트 출력기
+	private Interacter currentInteracter = null;            // 현재 상호작용중인 상호작용자
+	
+	// 텍스트 출력기
+	[SerializeField] TextPrinter textPrinter; public TextPrinter TextPrinter		
 	{
 		get { return textPrinter; }
 		private set { textPrinter = value; }
 	}
 
+	// 선택지
+	[SerializeField] ConverseSelection converseSelection; public ConverseSelection ConverseSelection
+	{
+		get { return converseSelection; }
+		private set { converseSelection = value; }
+	}
+
 
 	// NPC에게 대화를 거는 함수
-	public abstract TextPrinter Converse();
+	public abstract void Converse();
 
-	// 대화 창 출력
-	protected virtual void OnConverseWindow(Queue<string> textQueue, string title)
+	// 텍스트 창 출력
+	protected virtual void OnTextPrintWindow(Queue<string> textQueue, string title)
 	{
 		// 종료 콜백 함수 설정
 		textPrinter.SetCallbackFunction(currentInteracter.EndInteract);
