@@ -37,6 +37,12 @@ public abstract class NPC : MonoBehaviour, IInteractionHandler
 		textPrinter.PrintTextQueue(textQueue, title);
 	}
 
+	// 선택지 창 출력
+	protected void OnConverseSelectionWindow(ConverseSelection.ChoiceCallback[] callback)
+	{
+		converseSelection.CreateChoices(callback);
+	}
+
 	// 상호작용 받음
 	public void Interact(Interacter interacter)
 	{

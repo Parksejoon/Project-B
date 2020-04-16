@@ -6,7 +6,7 @@ public class ConverseSelection : MonoBehaviour
 {
 	public delegate void ChoiceCallback();
 
-	private ChoiceCallback[] callbacks;		// 선택시 호출할 콜백 함수 목록
+	public ChoiceCallback[] callbacks;		// 선택시 호출할 콜백 함수 목록
 
 	[SerializeField]
 	private GameObject	choicePrefab;       // 선택지 프리팹
@@ -21,8 +21,8 @@ public class ConverseSelection : MonoBehaviour
 	{
 		gameObject.SetActive(true);
 
-		choiceCount = callbacks.Length;
 		callbacks = _callbacks;
+		choiceCount = callbacks.Length;
 
 		for (int i = 0; i < choiceCount; i++)
 		{
