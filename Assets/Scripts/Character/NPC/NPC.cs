@@ -5,7 +5,7 @@ using UnityEngine;
 
 // NPC의 기본 클래스
 // 기본적인 대화, 선택지 선택
-public abstract class NPC : MonoBehaviour, IInteractionHandler
+public abstract class NPC : MonoBehaviour, IInteractedHandler
 {
 	private Interacter currentInteracter = null;            // 현재 상호작용중인 상호작용자
 	
@@ -22,6 +22,8 @@ public abstract class NPC : MonoBehaviour, IInteractionHandler
 		get { return converseSelection; }
 		private set { converseSelection = value; }
 	}
+
+	private bool onInteraction = false;		// 상호작용 중인지
 
 
 	// NPC에게 대화를 거는 함수
@@ -46,8 +48,15 @@ public abstract class NPC : MonoBehaviour, IInteractionHandler
 	// 상호작용 받음
 	public void Interact(Interacter interacter)
 	{
+		// 상호작용 설정
 		currentInteracter = interacter;
 		
 		Converse();
+	}
+
+	// 추가 상호작용
+	public void ExtraInteract()
+	{
+		textPrinter.NextConverse();
 	}
 }

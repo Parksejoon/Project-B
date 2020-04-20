@@ -43,29 +43,6 @@ public class TextPrinter : MonoBehaviour
 		printStats = PrintStatus.Nothing;
 	}
 
-	// 프레임
-	private void Update()
-	{
-		// 입력 트리거
-		if (Input.GetAxisRaw("Interaction") != 0)
-		{
-			if (interactionAxisInUse == false)
-			{
-				// 상호작용 시도
-				NextConverse();
-
-				// 플래그 설정
-				interactionAxisInUse = true;
-			}
-		}
-
-		// 입력 해제 트리거
-		if (Input.GetAxisRaw("Interaction") == 0)
-		{
-			interactionAxisInUse = false;
-		}
-	}
-
 	// 대화 계속하기
 	public void NextConverse()
 	{
