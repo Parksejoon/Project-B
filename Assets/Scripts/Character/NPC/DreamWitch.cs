@@ -8,16 +8,27 @@ using UnityEngine;
 public class DreamWitch : NPC
 {
 	// NPC와 대화
-	public override void Converse()
+	public override void StartConverse()
 	{
 		Queue<string> textQueue = new Queue<string>();
 
 		textQueue.Enqueue("Ahhhhhhhhhhhh!\nYou so fuckin' precious when you smile\nABC");
 		textQueue.Enqueue("Im waking up.\nI feel it in my bones.\nEnough to make my systems blow.");
 
-		OnTextPrintWindow(textQueue, "DreamWitch");
+		TextPrinterWindow.SetTextQueue(textQueue, "DreamWitch");
+		ConverseSelectionWindow.SetChoices(new ConverseSelection.ChoiceCallback[]
+											{ Test1, Test2, Test3, Test4, Test5 });
 
-		OnConverseSelectionWindow(new ConverseSelection.ChoiceCallback[]{ Test1, Test2, Test3, Test4, Test5});
+		// 대화 진행 큐 설정
+		converseQueue = new Queue<ConverseFunction>();
+
+		for (int i = 0; i < (textQueue.Count * 2) - 1; i++)
+		{
+			converseQueue.Enqueue(TextPrinterWindow.NextConverse);
+		}
+		converseQueue.Enqueue(ConverseSelectionWindow.EnableChoices);
+
+		TextPrinterWindow.NextConverse();
 	}
 
 	// 테스트 함수

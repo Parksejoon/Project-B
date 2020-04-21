@@ -39,25 +39,25 @@ public class TextPrinter : MonoBehaviour
 	}
 
 	// 대화 계속하기
-	public void NextConverse()
+	public bool NextConverse()
 	{
 		// 출력 상태 (0: 미출력, 1: 출력중, 2: 출력완료)
 		switch (printStats)
 		{
 			case PrintStatus.Nothing:
 				Debug.Log("Now, text does not printing");
-				return;
+				return false;
 
 			case PrintStatus.Printing:
 				SkipPrint();
-				return;
+				return true;
 
 			case PrintStatus.Done:
 				PrintText();
-				return; 
+				return true;
 
 			default:
-				return;
+				return false;
 		}
 	}
 
@@ -113,8 +113,8 @@ public class TextPrinter : MonoBehaviour
 		}
 	}
 
-	// 텍스트 큐 출력
-	public void PrintTextQueue(Queue<string> text, string title)
+	// 텍스트 큐 설정
+	public void SetTextQueue(Queue<string> text, string title)
 	{
 		// 초기화
 		gameObject.SetActive(true);
@@ -126,9 +126,6 @@ public class TextPrinter : MonoBehaviour
 
 		// 타이틀 초기화
 		uiTitle.text = title;
-
-		// 텍스트 출력
-		PrintText();
 	}
 
 	// 텍스트 한글자씩 출력 코루틴
