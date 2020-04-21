@@ -14,11 +14,6 @@ public class TextPrinter : MonoBehaviour
 		Done = 2
 	};
 
-	// 종료시 호출할 콜백 델리게이트
-	public delegate void EndPrintCallback();
-
-	private EndPrintCallback endPrintCallback;
-
 	[SerializeField]
 	private UILabel			uiText;					// 라벨
 	[SerializeField]
@@ -89,10 +84,6 @@ public class TextPrinter : MonoBehaviour
 		// 키 입력 초기화
 		interactionAxisInUse = true;
 
-		// 콜백 함수 호출
-		endPrintCallback();
-		endPrintCallback = null;
-
 		// 오브젝트 비활성화
 		gameObject.SetActive(false);
 	}
@@ -120,12 +111,6 @@ public class TextPrinter : MonoBehaviour
 			// 출력 종료
 			EndPrint();
 		}
-	}
-
-	// 종료 콜백 함수 설정
-	public void SetCallbackFunction(EndPrintCallback target)
-	{
-		endPrintCallback = target;
 	}
 
 	// 텍스트 큐 출력

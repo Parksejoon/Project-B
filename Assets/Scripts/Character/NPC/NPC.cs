@@ -7,8 +7,8 @@ using UnityEngine;
 // 기본적인 대화, 선택지 선택
 public abstract class NPC : MonoBehaviour, IInteractedHandler
 {
-	private Interacter currentInteracter = null;            // 현재 상호작용중인 상호작용자
-	
+	private delegate void ConverseFunction();			// 대화 큐에 사용될 델리게이트
+
 	// 텍스트 출력기
 	[SerializeField] TextPrinter textPrinter; public TextPrinter TextPrinter		
 	{
@@ -23,7 +23,10 @@ public abstract class NPC : MonoBehaviour, IInteractedHandler
 		private set { converseSelection = value; }
 	}
 
-	private bool onInteraction = false;		// 상호작용 중인지
+	private bool onInteraction = false;						// 상호작용 중인지 체크하는 플래그
+	private Interacter currentInteracter = null;            // 현재 상호작용중인 상호작용자
+
+	private Queue<ConverseFunction> converseQueue;          // 대화 진행 큐
 
 
 	// NPC에게 대화를 거는 함수
@@ -32,9 +35,6 @@ public abstract class NPC : MonoBehaviour, IInteractedHandler
 	// 텍스트 창 출력
 	protected virtual void OnTextPrintWindow(Queue<string> textQueue, string title)
 	{
-		// 종료 콜백 함수 설정
-		textPrinter.SetCallbackFunction(currentInteracter.EndInteract);
-
 		// 대화 창 출력
 		textPrinter.PrintTextQueue(textQueue, title);
 	}
@@ -57,6 +57,14 @@ public abstract class NPC : MonoBehaviour, IInteractedHandler
 	// 추가 상호작용
 	public void ExtraInteract()
 	{
-		textPrinter.NextConverse();
+		if (converseQueue.Count > 0)
+		{
+			textPrinter.NextConverse();
+		}
+		else
+		{
+			// 상호작용 end
+			currentInteracter.EndInteract();
+		}
 	}
 }
