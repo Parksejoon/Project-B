@@ -7,9 +7,12 @@ using UnityEngine;
 // 던전 진입, 꿈 조각 설정 NPC 
 public class DreamWitch : NPC
 {
-	// NPC와 대화
+	private bool printingFlag = false;			// 출력 플래그
+
+	// NPC와 대화 시작
 	public override void StartConverse()
 	{
+		// 초기화
 		Queue<string> textQueue = new Queue<string>();
 
 		textQueue.Enqueue("Ahhhhhhhhhhhh!\nYou so fuckin' precious when you smile\nABC");
@@ -19,16 +22,24 @@ public class DreamWitch : NPC
 		ConverseSelectionWindow.SetChoices(new ConverseSelection.ChoiceCallback[]
 											{ Test1, Test2, Test3, Test4, Test5 });
 
-		// 대화 진행 큐 설정
-		converseQueue = new Queue<ConverseFunction>();
+		printingFlag = true;
+	}
 
-		for (int i = 0; i < (textQueue.Count * 2) - 1; i++)
+	// 추가 상호작용
+	public override void ExtraInteract()
+	{
+		if (printingFlag)
 		{
-			converseQueue.Enqueue(TextPrinterWindow.NextConverse);
+			if (!TextPrinterWindow.ProgressConverse())
+			{
+				ConverseSelectionWindow.EnableChoices();
+				printingFlag = false;
+			}
 		}
-		converseQueue.Enqueue(ConverseSelectionWindow.EnableChoices);
+		else
+		{
 
-		TextPrinterWindow.NextConverse();
+		}
 	}
 
 	// 테스트 함수

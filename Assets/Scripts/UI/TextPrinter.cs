@@ -15,18 +15,17 @@ public class TextPrinter : MonoBehaviour
 	};
 
 	[SerializeField]
-	private UILabel			uiText;					// 라벨
+	private UILabel			uiText;					// 텍스트 라벨
 	[SerializeField]
-	private UILabel			uiTitle;				// 라벨
+	private UILabel			uiTitle;                // 타이틀 라벨
+	[SerializeField]
+	private float			printDelay = 0.01f;	// 출력 딜레이
 
 	private IEnumerator		printEachTextRoutine;   // 한글자씩 출력하는 코루틴
 
 	private Queue<string>	textQueue;				// 출력 텍스트 큐
 	private string			currentText;            // 현재 문자열
 	private PrintStatus		printStats;             // 출력 상태
-
-	// (## 스크립트를 넘어오자 마자 true가되서 바로 텍스트가 스킵되는 현상을 막기위해 초기화값을 true로 설정 ##)
-	private bool interactionAxisInUse = true;      // 상호작용 키 입력 플래그 
 
 
 	// 초기화
@@ -38,8 +37,11 @@ public class TextPrinter : MonoBehaviour
 		printStats = PrintStatus.Nothing;
 	}
 
-	// 대화 계속하기
-	public bool NextConverse()
+	/// <summary>
+	/// 추가적인 입력에 대해 텍스트 출력을 진행
+	/// true: 출력중 / false: 출력종료
+	/// </summary>
+	public bool ProgressConverse()
 	{
 		// 출력 상태 (0: 미출력, 1: 출력중, 2: 출력완료)
 		switch (printStats)
@@ -49,54 +51,57 @@ public class TextPrinter : MonoBehaviour
 				return false;
 
 			case PrintStatus.Printing:
-				SkipPrint();
-				return true;
+				return SkipPrint();
 
 			case PrintStatus.Done:
-				PrintText();
-				return true;
+				return PrintText();
 
 			default:
 				return false;
 		}
 	}
-
+	
 	// 출력 스킵
-	private void SkipPrint()
+	private bool SkipPrint()
 	{
 		// 출력중인 텍스트 스킵
 		StopCoroutine(printEachTextRoutine);
 		uiText.text = currentText;
 
-		// 상태 초기화
-		printStats = PrintStatus.Done;
-	}
-
-	// 출력 종료
-	private void EndPrint()
-	{
-		// 텍스트 초기화
-		uiText.text = "";
-
-		// 상태 초기화
-		printStats = 0;
-
-		// 키 입력 초기화
-		interactionAxisInUse = true;
-
-		// 오브젝트 비활성화
-		gameObject.SetActive(false);
-	}
-
-	// 텍스트 출력
-	private void PrintText()
-	{
-		// 텍스트 초기화
-		uiText.text = "";
-
 		// 큐에 텍스트가 남아있으면
 		if (textQueue.Count > 0)
 		{
+			// 상태 초기화
+			printStats = PrintStatus.Done;
+
+			return true;
+		}
+		// 큐가 비어있으면
+		else
+		{
+			// 출력 종료
+			EndPrint();
+
+			return false;
+		}
+	}
+	
+	// 출력 종료
+	private void EndPrint()
+	{
+		// 상태 초기화
+		printStats = PrintStatus.Nothing;
+	}
+
+	// 텍스트 출력
+	private bool PrintText()
+	{
+		// 큐에 텍스트가 남아있으면
+		if (textQueue.Count > 0)
+		{
+			// 텍스트 초기화
+			uiText.text = "";
+
 			// 큐에 있는 새로운 텍스트 출력
 			currentText = textQueue.Dequeue();
 			printEachTextRoutine = PrintEachText();
@@ -104,16 +109,19 @@ public class TextPrinter : MonoBehaviour
 
 			// 상태 초기화
 			printStats = PrintStatus.Printing;
+
+			return true;
 		}
 		// 큐가 비어있으면
 		else
 		{
-			// 출력 종료
-			EndPrint();
+			return false;
 		}
 	}
-
-	// 텍스트 큐 설정
+	
+	/// <summary>
+	/// 출력될 텍스트 큐를 설정
+	/// </summary>
 	public void SetTextQueue(Queue<string> text, string title)
 	{
 		// 초기화
@@ -126,6 +134,9 @@ public class TextPrinter : MonoBehaviour
 
 		// 타이틀 초기화
 		uiTitle.text = title;
+
+		// 첫 텍스트 출력
+		PrintText();
 	}
 
 	// 텍스트 한글자씩 출력 코루틴
@@ -135,7 +146,7 @@ public class TextPrinter : MonoBehaviour
 		{
 			uiText.text += currentText[i];
 
-			yield return new WaitForSeconds(0.1f);
+			yield return new WaitForSeconds(printDelay);
 		}
 
 		// 상태 초기화

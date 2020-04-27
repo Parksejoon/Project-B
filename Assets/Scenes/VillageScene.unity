@@ -20533,6 +20533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiText: {fileID: 1484502254}
   uiTitle: {fileID: 162493085}
+  printDelay: 0.01
 --- !u!1 &1091108224
 GameObject:
   m_ObjectHideFlags: 0

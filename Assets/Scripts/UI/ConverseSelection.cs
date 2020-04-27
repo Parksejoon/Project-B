@@ -24,7 +24,7 @@ public class ConverseSelection : MonoBehaviour
 	}
 
 	// 선택지 활성화
-	public bool EnableChoices()
+	public void EnableChoices()
 	{
 		gameObject.SetActive(true);
 	
@@ -33,8 +33,6 @@ public class ConverseSelection : MonoBehaviour
 			// (!! 오브젝트 풀 사용 !!)
 			Instantiate(choicePrefab, choiceParent);
 		}
-
-		return true;
 	}
 
 	// 선택
