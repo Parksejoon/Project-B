@@ -60,6 +60,12 @@ public class TextPrinter : MonoBehaviour
 				return false;
 		}
 	}
+
+	// 텍스트 창 종료
+	public void DisablePrint()
+	{
+		gameObject.SetActive(false);
+	}
 	
 	// 출력 스킵
 	private bool SkipPrint()

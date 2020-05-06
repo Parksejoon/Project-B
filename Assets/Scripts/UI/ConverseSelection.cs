@@ -31,7 +31,7 @@ public class ConverseSelection : MonoBehaviour
 		for (int i = 0; i < choiceCount; i++)
 		{
 			// (!! 오브젝트 풀 사용 !!)
-			Instantiate(choicePrefab, choiceParent);
+			Instantiate(choicePrefab, choiceParent).GetComponent<ConverseChoice>().SetChoice(i);
 		}
 	}
 

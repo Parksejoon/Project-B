@@ -38,7 +38,8 @@ public class DreamWitch : NPC
 		}
 		else
 		{
-
+			TextPrinterWindow.DisablePrint();
+			EndInteract();
 		}
 	}
 
@@ -47,20 +48,24 @@ public class DreamWitch : NPC
 	{
 		Debug.Log("Test1");
 	}
+
 	public void Test2()
 	{
-		Debug.Log("Test1");
+		Debug.Log("Test2");
 	}
+
 	public void Test3()
 	{
-		Debug.Log("Test1");
+		Debug.Log("Test3");
 	}
+
 	public void Test4()
 	{
-		Debug.Log("Test1");
+		Debug.Log("Test4");
 	}
+
 	public void Test5()
 	{
-		Debug.Log("Test1");
+		Debug.Log("Test5");
 	}
 }
