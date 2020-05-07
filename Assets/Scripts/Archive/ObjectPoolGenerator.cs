@@ -11,6 +11,6 @@ public class ObjectPoolGenerator : MonoBehaviour
 	// 초기화
 	private void Awake()
 	{
-		ObjectPoolManager.Create("Ball", ballPrefab, ballSize);
+		//ObjectPoolManager.Create("Ball", ballPrefab, ballSize);
 	}
 }

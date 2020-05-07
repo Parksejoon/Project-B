@@ -31,9 +31,9 @@ public class CustomBlockBuilder : MonoBehaviour
 
 		ResourceLoader.Load("Effects/Block");
 
-		ObjectPoolManager.Create("BlockCreated", ResourceLoader.Get("BlockCreated"), 10);
-		ObjectPoolManager.Create("CountExcess", ResourceLoader.Get("CountExcess"), 20);
-		ObjectPoolManager.Create("SpaceNarrower", ResourceLoader.Get("SpaceNarrower"), 20);
+		ObjectPoolManager.Create("BlockCreated", ResourceLoader.Get("BlockCreated"), 10, transform);
+		ObjectPoolManager.Create("CountExcess", ResourceLoader.Get("CountExcess"), 20, transform);
+		ObjectPoolManager.Create("SpaceNarrower", ResourceLoader.Get("SpaceNarrower"), 20, transform);
 
 		clickTimer = ClickTimer();
 	}

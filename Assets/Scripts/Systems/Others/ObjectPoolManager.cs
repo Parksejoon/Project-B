@@ -8,13 +8,13 @@ public class ObjectPoolManager : MonoBehaviour
 	
 
 	// 오브젝트 생성
-	public static void Create(string name, GameObject prefab, int size)
+	public static void Create(string name, GameObject prefab, int size, Transform parent)
 	{
 		Stack<GameObject> objects = new Stack<GameObject>(size);
 
 		for (int i = 0; i < size; i++)
 		{
-			GameObject gameObj = Instantiate(prefab, Vector3.zero, Quaternion.identity) as GameObject;
+			GameObject gameObj = Instantiate(prefab, Vector3.zero, Quaternion.identity, parent) as GameObject;
 
 			gameObj.SetActive(false);
 
@@ -23,8 +23,13 @@ public class ObjectPoolManager : MonoBehaviour
 
 		objectPools.Add(name, objects);
 	}
-
-	// 오브젝트 가져오기
+	
+	/// <summary>
+	/// 오브젝트 가져오기
+	/// </summary>
+	/// <param name="name">name of object</param>
+	/// <param name="position">if (position == Vector3.positiveInf) => dont change positon</param>
+	/// <returns></returns>
 	public static GameObject GetGameObject(string name, Vector3 position)
 	{
 		Stack<GameObject> objects = objectPools[name];
@@ -34,7 +39,13 @@ public class ObjectPoolManager : MonoBehaviour
 			GameObject gameObj = objects.Pop();
 
 			gameObj.SetActive(true);
-			gameObj.transform.position = position;
+
+			if (position.x != Vector3.positiveInfinity.x)
+			{
+				Debug.Log(position);
+				Debug.Log(Vector3.positiveInfinity);
+				gameObj.transform.position = position;
+			}
 
 			return gameObj;
 		}

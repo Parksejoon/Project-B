@@ -17,7 +17,7 @@ public class RangeWeapon : Weapon
 	// 시작
 	private void Start()
 	{
-		ObjectPoolManager.Create("RangeWeapon_projectile", projectile, 50);
+		ObjectPoolManager.Create("RangeWeapon_projectile", projectile, 50, transform);
 	}
 
 	// 공격
