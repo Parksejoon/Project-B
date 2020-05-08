@@ -51,9 +51,9 @@ public class ConverseSelection : MonoBehaviour
 	// 선택지 비활성화
 	public void DisableChoices()
 	{
-		foreach (GameObject gameObj in choicesArray)
+		for (int i = choicesArray.Count - 1; i >= 0 ; i--)
 		{
-			ObjectPoolManager.Release("Choices", gameObj);
+			ObjectPoolManager.Release("Choices", choicesArray[i]);
 		}
 
 		gameObject.SetActive(false);
