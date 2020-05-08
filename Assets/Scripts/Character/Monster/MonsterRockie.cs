@@ -22,7 +22,7 @@ public class MonsterRockie : Monster
 		// 스텟 초기화 ( 임시 )
 		Statistics stats;
 
-		stats.max_health_point = 5;
+		stats.max_health_point = 20;
 		stats.attack_damage = 1;
 		stats.move_speed = 0.1f;
 		stats.attack_speed = 1.0f;
@@ -38,6 +38,8 @@ public class MonsterRockie : Monster
 			ResetBlock
 		};
 
+		// 몬스터 체력 게이지 링크
+		linkHpGauge = true;
 
 		Init();
 	}

@@ -468,9 +468,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 9.240551, y: 2.6857224, z: -5032.9727}
+    m_Target: {x: -0.28328076, y: 5.6335874, z: -8}
     speed: 2
-    m_Value: {x: 9.240551, y: 2.6857224, z: -5032.9727}
+    m_Value: {x: -0.28328076, y: 5.6335874, z: -8}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 2
@@ -503,9 +503,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 28.155407
+    m_Target: 22
     speed: 2
-    m_Value: 28.155407
+    m_Value: 22
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -559,7 +559,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 16620
+  m_LastSelectedObjectID: 44954
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -694,7 +694,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 70fbffff
+      m_ExpandedIDs: 7643fbffc864fbffd064fbffb2fdfbff00fffbff4820fcff46b1fcffbeb2fcffeebcfcff80ccfcffa435feff5677feff848afeffba8afeffc094feff1e9afeff96a5feffacc9feffbed0feff14d9feff82d9feff0edafeff52dbfeff80dbfeffbcdbfeffa2d2ffff70fbfffff4ffffff98400000b2400000fc4000002c4100004a4100005c4100002e7d0000027e0000207e0000189a0000929a0000c29a00009aaf0000e2af0000c2b00000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -828,19 +828,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/UI
+    - Assets/Prefabs/Monster
   m_ViewMode: 1
   m_StartGridSize: 71
   m_LastFolders:
-  - Assets/Scripts/UI
+  - Assets/Prefabs/Monster
   m_LastFoldersGridSize: 71
   m_LastProjectPath: C:\Users\qkeh4\Documents\Unity Projects\Project B
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 931}
-    m_SelectedIDs: bc340000
-    m_LastClickedID: 13500
+    scrollPos: {x: 0, y: 587}
+    m_SelectedIDs: e6390000
+    m_LastClickedID: 14822
     m_ExpandedIDs: 000000005a330000c2330000ec330000f23300003e34000058340000ce340000d0340000e23400007c3500008435000096350000b4350000b8350000043700002e3700003c370000443700005237000096370000b8370000f0370000ea390000163a0000363a0000483a0000543a0000a43a0000a63a0000a83a0000663d00002c4200002e4200003042000032420000344200003642000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -896,7 +896,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: fa28000052290000222a0000f0290000182a0000e82900001c290000702a0000f8280000242a0000e6280000fc280000a6290000e22900001e2a0000ec290000b4300000a40a00000c0a0000f6300000e40b0000ea0b0000ec0b00006a0e0000521200008c60fffffe0e00004a0e0000a00f00009210000054120000c60e0000580f000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

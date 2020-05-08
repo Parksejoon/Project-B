@@ -13,7 +13,9 @@ public abstract class Monster : Character
 	[SerializeField]
 	protected Collider2D[]		colliders;          // 충돌체 모음
 
-	protected MonsterPattern[]	singlePattern;		// 기본 반복 패턴 모음
+	protected MonsterPattern[]	singlePattern;      // 기본 반복 패턴 모음
+
+	protected bool				linkHpGauge = false;// 체력바를 링킹 할 것인지
 
 
 	// 초기화
@@ -28,7 +30,15 @@ public abstract class Monster : Character
 		// 대미지 계산
 		base.Dealt(damage, attackPosition);
 
+		if (linkHpGauge) SyncHpGauge();
+
 		StartCoroutine(DealtColorAnimation());
+	}
+
+	// 현재 존재하는 HP게이지와 동기화
+	public void SyncHpGauge()
+	{
+		HPGauge.instance.SetHpSlider((float)HealthPoint / Stats.max_health_point);
 	}
 	
 	// 좌우 반전
