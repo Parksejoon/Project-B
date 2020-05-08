@@ -6,14 +6,15 @@ public class ConverseSelection : MonoBehaviour
 {
 	public delegate void ChoiceCallback();
 
-	public ChoiceCallback[] choiceCallbacks;		// 선택시 호출할 콜백 함수 목록
 
 	[SerializeField]
 	private GameObject			choicePrefab;		// 선택지 프리팹
 	[SerializeField]
 	private Transform			choiceParent;       // 선택지 부모 transform
 
-	private List<GameObject>	choicesArray;		// 선택지 목록 array
+	public	ChoiceCallback[]	choicesCallbacks;   // 선택시 호출할 콜백 함수 목록
+	private string[]			choicesNames;		// 선택지 이름 목록
+	private List<GameObject>	choicesArray;       // 선택지 목록 array
 
 	private int					choiceCount;		// 선택지 갯수
 
@@ -25,9 +26,10 @@ public class ConverseSelection : MonoBehaviour
 	}
 
 	// 선택지 설정
-	public void SetChoices(ChoiceCallback[] callbacks)
+	public void SetChoices(ChoiceCallback[] callbacks, string[] names)
 	{
-		choiceCallbacks = callbacks;
+		choicesCallbacks = callbacks;
+		choicesNames = names;
 		choiceCount = callbacks.Length;
 	}
 
@@ -41,7 +43,7 @@ public class ConverseSelection : MonoBehaviour
 		{
 			GameObject target = ObjectPoolManager.GetGameObject("Choices", Vector3.positiveInfinity);
 
-			target.GetComponent<ConverseChoice>().SetChoice(i);
+			target.GetComponent<ConverseChoice>().SetChoice(i, choicesNames[i]);
 			choicesArray.Add(target);
 		}
 	}
@@ -60,7 +62,7 @@ public class ConverseSelection : MonoBehaviour
 	// 선택
 	public void ChooseChoice(int index)
 	{
-		choiceCallbacks[index]();
+		choicesCallbacks[index]();
 
 		DisableChoices();
 	}

@@ -41,7 +41,7 @@ public abstract class NPC : MonoBehaviour, IInteractedHandler
 	}
 
 	// 상호작용 끝
-	public void EndInteract()
+	public virtual void EndInteract()
 	{
 		currentInteracter.EndInteract();
 		currentInteracter = null;
