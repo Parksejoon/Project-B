@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 // 꿈의 마녀 NPC
 // 던전 진입, 꿈 조각 설정 NPC 
 public class DreamWitch : NPC
 {
-	private bool printingFlag = false;			// 출력 플래그
+	private bool printingFlag = false;          // 출력 플래그
 
 	// NPC와 대화 시작
 	public override void StartConverse()
@@ -19,8 +20,8 @@ public class DreamWitch : NPC
 		textQueue.Enqueue("Im waking up.\nI feel it in my bones.\nEnough to make my systems blow.");
 
 		TextPrinterWindow.SetTextQueue(textQueue, "DreamWitch");
-		ConverseSelectionWindow.SetChoices(new ConverseSelection.ChoiceCallback[] { Test1, Test2, Test3, Test4, Test5 },
-										new string[] { "Fuck", "Shit", "Holy", "No", "Yes" });
+		ConverseSelectionWindow.SetChoices(new ConverseSelection.ChoiceCallback[] { EnterDungeon, ExitConverse },
+										new string[] { "Enter Dungeon", "Exit" });
 
 		printingFlag = true;
 	}
@@ -48,35 +49,17 @@ public class DreamWitch : NPC
 
 		base.EndInteract();
 	}
-
-	// 테스트 함수
-	public void Test1()
+	
+	public void EnterDungeon()
 	{
-		Debug.Log("Test1");
+		Debug.Log("Enter The Dungeon");
+		SceneManager.LoadScene(0);
 		EndInteract();
 	}
 
-	public void Test2()
+	public void ExitConverse()
 	{
-		Debug.Log("Test2");
-		EndInteract();
-	}
-
-	public void Test3()
-	{
-		Debug.Log("Test3");
-		EndInteract();
-	}
-
-	public void Test4()
-	{
-		Debug.Log("Test4");
-		EndInteract();
-	}
-
-	public void Test5()
-	{
-		Debug.Log("Test5");
+		Debug.Log("Exit");
 		EndInteract();
 	}
 }
