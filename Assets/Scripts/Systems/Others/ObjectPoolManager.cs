@@ -5,11 +5,23 @@ using UnityEngine;
 public class ObjectPoolManager : MonoBehaviour
 {
 	private static Dictionary<string, Stack<GameObject>> objectPools = new Dictionary<string, Stack<GameObject>>();
-	
+
+
+	private void Awake()
+	{
+		Debug.Log(gameObject.name);
+	}
 
 	// 오브젝트 생성
 	public static void Create(string name, GameObject prefab, int size, Transform parent)
 	{
+		// 이미 풀에 있으면 삭제 후 재생성
+		if (objectPools.ContainsKey(name) == true)
+		{
+			Remove(name);
+			Debug.Log("ObjPool: Same object had created.");
+		}
+
 		Stack<GameObject> objects = new Stack<GameObject>(size);
 
 		for (int i = 0; i < size; i++)
@@ -40,10 +52,10 @@ public class ObjectPoolManager : MonoBehaviour
 
 			gameObj.SetActive(true);
 
-			if (position.x != Vector3.positiveInfinity.x)
+			// 만약 vector의 요소가 inf이면 position값을 변경하지 않음
+			if (position.x != float.PositiveInfinity)
 			{
 				Debug.Log(position);
-				Debug.Log(Vector3.positiveInfinity);
 				gameObj.transform.position = position;
 			}
 
