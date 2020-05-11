@@ -53,7 +53,7 @@ public class DreamWitch : NPC
 	public void EnterDungeon()
 	{
 		Debug.Log("Enter The Dungeon");
-		SceneManager.LoadScene(0);
+		SceneManager.LoadScene(SceneNumber.BattleScene.ToString());
 		EndInteract();
 	}
 

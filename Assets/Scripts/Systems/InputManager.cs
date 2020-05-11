@@ -27,9 +27,9 @@ public class InputManager : MonoBehaviour
 		if (instance == null)
 		{
 			instance = this;
-		}
 
-		ReadAxes();
+			ReadAxes();
+		}
 	}
 
 	// axis들을 불러오는 함수

@@ -8,20 +8,26 @@ public abstract class Monster : Character
 
 
 	[SerializeField]
-	protected SpriteRenderer	sprite;             // 몬스터 sprite
+	protected SpriteRenderer	sprite;					// 몬스터 sprite
 
 	[SerializeField]
-	protected Collider2D[]		colliders;          // 충돌체 모음
+	protected Collider2D[]		colliders;				// 충돌체 모음
 
-	protected MonsterPattern[]	singlePattern;      // 기본 반복 패턴 모음
+	protected MonsterPattern[]	singlePattern;			// 기본 반복 패턴 모음
 
-	protected bool				linkHpGauge = false;// 체력바를 링킹 할 것인지
+	protected bool				linkHpGauge = false;	// 체력바를 링킹 할 것인지
 
 
 	// 초기화
 	protected void Init()
 	{
 		sprite = GetComponentInChildren<SpriteRenderer>();
+
+		AttackCore attackCore = GetComponentInChildren<AttackCore>();
+		if (attackCore != null)
+		{
+			attackCore.SetAttack(Stats.attack_damage, "Player");
+		}
 	}
 
 	// 피격

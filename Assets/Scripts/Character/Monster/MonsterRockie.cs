@@ -6,9 +6,6 @@ public class MonsterRockie : Monster
 {
 	private int		directionSpeed = 1;                 // 방향 속도
 
-	// 충돌 필터
-	private ContactFilter2D		moveContactFilter;      // 이동시 사용할 contactFilter
-
 	// 플래그
 	private bool		moveFlag = false;   // 이동 플래그
 
@@ -16,10 +13,7 @@ public class MonsterRockie : Monster
 	// 초기화
 	private void Awake()
 	{
-		// 필터의 레이어 마스크 설정(레이어 8번 map)
-		moveContactFilter.SetLayerMask(1 << 8);
-
-		// 스텟 초기화 ( 임시 )
+		// 스텟 초기화 (!! 임시 !!)
 		Statistics stats;
 
 		stats.max_health_point = 20;
@@ -31,14 +25,13 @@ public class MonsterRockie : Monster
 
 		SetStats(stats);
 
-		// 패턴 초기화 ( 임시 )
+		// 패턴 초기화 (!! 임시 !!)
 		singlePattern = new[]
 		{
 			new MonsterPattern(Move),
 			ResetBlock
 		};
-
-		// 몬스터 체력 게이지 링크
+		
 		linkHpGauge = true;
 
 		Init();
@@ -107,6 +100,7 @@ public class MonsterRockie : Monster
 			// 앞쪽 벽면 레이캐스트
 			Debug.DrawRay(transform.position, transform.right * directionSpeed * 1f, Color.red);
 
+			// 레이어 8번 = Map
 			raycastHit2D = Physics2D.Raycast(transform.position, transform.right * directionSpeed, 1f, (1 << 8));
 
 			if (raycastHit2D)
@@ -117,7 +111,6 @@ public class MonsterRockie : Monster
 			yield return null;
 		}
 		
-		// 1초 딜레이
 		yield return new WaitForSeconds(1f);
 	}
 

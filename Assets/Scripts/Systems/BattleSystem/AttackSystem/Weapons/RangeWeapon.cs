@@ -25,7 +25,13 @@ public class RangeWeapon : Weapon
 	{
 		GameObject newProjectile = ObjectPoolManager.GetGameObject("RangeWeapon_projectile", transform.position);
 
+		if (newProjectile == null)
+		{
+			Debug.Log("No projectile exist.");
+			return;
+		}
+
 		newProjectile.GetComponent<AttackCore>().SetAttack(playerManager.Stats.attack_damage, targetTag);
-		newProjectile.GetComponent<Projectile>().SetVector(projectileSpeed, mousePosition - currentPosition);
+		newProjectile.GetComponent<Projectile>().Init(projectileSpeed, mousePosition - currentPosition, 1f, "RangeWeapon_projectile");
 	}
 }

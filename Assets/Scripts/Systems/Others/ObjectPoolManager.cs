@@ -11,8 +11,14 @@ public class ObjectPoolManager : MonoBehaviour
 	{
 		Debug.Log(gameObject.name);
 	}
-
-	// 오브젝트 생성
+	
+	/// <summary>
+	/// 오브젝트 생성
+	/// </summary>
+	/// <param name="name">name of object</param>
+	/// <param name="prefab">object's prefab</param>
+	/// <param name="size">target object pool size</param>
+	/// <param name="parent">objects parent</param>
 	public static void Create(string name, GameObject prefab, int size, Transform parent)
 	{
 		// 이미 풀에 있으면 삭제 후 재생성
@@ -66,8 +72,12 @@ public class ObjectPoolManager : MonoBehaviour
 			return null;
 		}
 	}
-
-	// 오브젝트 해제
+	
+	/// <summary>
+	/// 오브젝트를 풀로 돌려놓음
+	/// </summary>
+	/// <param name="name">name of object</param>
+	/// <param name="gameObj">target object</param>
 	public static void Release(string name, GameObject gameObj)
 	{
 		Stack<GameObject> objects = objectPools[name];
@@ -76,10 +86,18 @@ public class ObjectPoolManager : MonoBehaviour
 
 		objects.Push(gameObj);
 	}
-
-	// 풀에서 삭제
+	
+	/// <summary>
+	/// 풀에서 오브젝트를 영구히 삭제
+	/// </summary>
+	/// <param name="name">name of object</param>
 	public static void Remove(string name)
 	{
+		foreach (var obj in objectPools[name])
+		{
+			Destroy(obj);
+		}
+
 		objectPools.Remove(name);
 	}
 }

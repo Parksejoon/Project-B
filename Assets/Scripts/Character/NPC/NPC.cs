@@ -27,6 +27,7 @@ public abstract class NPC : MonoBehaviour, IInteractedHandler
 
 	// 대화 시작 함수
 	public abstract void StartConverse();
+
 	// 추가 상호작용
 	public abstract void ExtraInteract();
 

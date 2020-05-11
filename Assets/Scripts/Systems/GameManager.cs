@@ -12,6 +12,12 @@
 
 using UnityEngine;
 
+public enum SceneNumber
+{
+	BattleScene = 0,
+	VillageScene = 1
+}
+
 // 전투 게임 매니저
 // 게임 오버, 시작 초기화, 연출 연결
 public class GameManager : MonoBehaviour
