@@ -13,7 +13,8 @@ public class MonsterSpawnSystem : MonoBehaviour
 	// 프레임
 	private void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.I))
+		// (!! 임시로 몬스터 생성 !!)
+		if (Input.GetKeyDown(KeyCode.Y))
 		{
 			SpawnMonster();
 		}
