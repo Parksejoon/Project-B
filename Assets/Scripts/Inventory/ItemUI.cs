@@ -9,7 +9,7 @@ public struct ItemData
 	public Texture texture;
 }
 
-public abstract class ItemUI : MonoBehaviour
+public class ItemUI : MonoBehaviour
 {
 	private ItemData	itemData;		// 아이템 데이터
 
@@ -29,17 +29,21 @@ public abstract class ItemUI : MonoBehaviour
 	}
 
 	// 존재하는지 확인
-	public bool IsExist()
+	public bool IsEmpty()
 	{
-		if (itemData.code == 0) return false;
+		if (itemData.code == 0) return true;
 
-		return true;
+		return false;
 	}
 
 	// 아이템 등록
 	public void SetItem(ItemData _itemData)
 	{
+		Debug.Log("ASDFF");
+
 		itemData = _itemData;
+
+		Refresh();
 	}
 
 	// 아이템 삭제
@@ -48,5 +52,7 @@ public abstract class ItemUI : MonoBehaviour
 		itemData.code = 0;
 		itemData.name = "";
 		itemData.texture = null;
+
+		Refresh();
 	}
 }

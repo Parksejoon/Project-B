@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
 	[SerializeField]
 	private GameObject		inventoryPanel;			// 인벤토리 패널
 
-	private ItemUI[]		inventoryArray;	// UI에 표시되는 아이템들의 배열
+	private ItemUI[]		inventoryArray;			// UI에 표시되는 아이템들의 배열
 
 	private bool			isOpen = false;         // 인벤토리가 열려있는지
 
@@ -15,7 +15,7 @@ public class InventoryManager : MonoBehaviour
 	// 초기화
 	private void Awake()
 	{
-		inventoryArray = inventoryPanel.transform.Find("Grid").GetComponentsInChildren<ItemUI>();
+		inventoryArray = inventoryPanel.GetComponentsInChildren<ItemUI>();
 	}
 
 	// 프레임
@@ -33,7 +33,7 @@ public class InventoryManager : MonoBehaviour
 	{
 		foreach (var targetUI in inventoryArray)
 		{
-			if (targetUI.IsExist())
+			if (targetUI.IsEmpty())
 			{
 				targetUI.SetItem(itemData);
 
