@@ -301,6 +301,8 @@
     <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\Weapons\Projectile.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\Weapons\RangeWeapon.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\Weapons\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\Weapons\WeaponManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\Weapons\WeaponUI.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\MonsterSpawnSystem.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\RandomMapGenerator.cs" />
     <Compile Include="Assets\Scripts\Systems\DontDestroyObj.cs" />

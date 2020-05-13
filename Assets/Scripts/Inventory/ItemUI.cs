@@ -2,11 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ItemType
+{
+	Weapon = 0
+}
+
 public struct ItemData
 {
 	public int code;
 	public string name;
 	public Texture texture;
+	public GameObject prefab;
+	public ItemType itemType;
+
 }
 
 public class ItemUI : MonoBehaviour
@@ -14,7 +22,7 @@ public class ItemUI : MonoBehaviour
 	public static ItemUI	clickTarget;			// 현재 클릭으로 들고있는 아이템UI
 	private BoxCollider2D	boxCollider2D;			// 클릭용 collider
 
-	private ItemData	itemData;               // 아이템 데이터
+	protected ItemData	itemData;               // 아이템 데이터
 	private Vector3		originPositon;          // 원래 자리
 	private IEnumerator mouseFollow;			// 마우스 따라가기 코루틴
 
@@ -22,7 +30,7 @@ public class ItemUI : MonoBehaviour
 
 
 	// 초기화
-	private void Awake()
+	public virtual void Init()
 	{
 		boxCollider2D = GetComponent<BoxCollider2D>();
 		uITexture = GetComponent<UITexture>();
@@ -32,6 +40,12 @@ public class ItemUI : MonoBehaviour
 		GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(ClickItem));
 	}
 
+	// 아이템 데이터 가져오기
+	public ItemData GetItemData()
+	{
+		return itemData;
+	}
+
 	// copy
 	private void Copy(ItemUI target)
 	{
@@ -39,7 +53,7 @@ public class ItemUI : MonoBehaviour
 	}
 
 	// refresh
-	private void Refresh()
+	protected virtual void Refresh()
 	{
 		uITexture.mainTexture = itemData.texture;
 	}

@@ -16,6 +16,11 @@ public class InventoryManager : MonoBehaviour
 	private void Awake()
 	{
 		inventoryArray = inventoryPanel.GetComponentsInChildren<ItemUI>();
+
+		foreach (var itemUI in inventoryArray)
+		{
+			itemUI.Init();
+		}
 	}
 
 	// 프레임
