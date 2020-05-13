@@ -41,6 +41,7 @@ public class InventoryManager : MonoBehaviour
 			}
 		}
 
+		Debug.Log("Inventory is full.");
 		return false;
 	}
 

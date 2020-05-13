@@ -18,13 +18,44 @@ public class TestInventory : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.N))
 		{
-			Debug.Log("ASD");
-
 			ItemData itemData;
 
 			itemData.code = 1;
-			itemData.name = "ASD";
+			itemData.name = "1";
 			itemData.texture = texture1;
+
+			inventoryManager.AddItem(itemData);
+		}
+
+		if (Input.GetKeyDown(KeyCode.M))
+		{
+			ItemData itemData;
+
+			itemData.code = 2;
+			itemData.name = "2";
+			itemData.texture = texture2;
+
+			inventoryManager.AddItem(itemData);
+		}
+
+		if (Input.GetKeyDown(KeyCode.J))
+		{
+			ItemData itemData;
+
+			itemData.code = 3;
+			itemData.name = "3";
+			itemData.texture = texture3;
+
+			inventoryManager.AddItem(itemData);
+		}
+
+		if (Input.GetKeyDown(KeyCode.K))
+		{
+			ItemData itemData;
+
+			itemData.code = 4;
+			itemData.name = "4";
+			itemData.texture = texture4;
 
 			inventoryManager.AddItem(itemData);
 		}

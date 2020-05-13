@@ -311,6 +311,7 @@
     <Compile Include="Assets\Scripts\Systems\Others\ResourceLoader.cs" />
     <Compile Include="Assets\Scripts\Systems\UI\HPGauge.cs" />
     <Compile Include="Assets\Scripts\Systems\UI\Pause.cs" />
+    <Compile Include="Assets\Scripts\UI\CameraManager.cs" />
     <Compile Include="Assets\Scripts\UI\ConverseChoice.cs" />
     <Compile Include="Assets\Scripts\UI\ConverseSelection.cs" />
     <Compile Include="Assets\Scripts\UI\TextPrinter.cs" />
