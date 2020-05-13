@@ -11,10 +11,12 @@ public struct ItemData
 
 public class ItemUI : MonoBehaviour
 {
-	private static ItemUI	clickTarget;			// 현재 클릭으로 들고있는 아이템UI
+	public static ItemUI	clickTarget;			// 현재 클릭으로 들고있는 아이템UI
 	private BoxCollider2D	boxCollider2D;			// 클릭용 collider
 
 	private ItemData	itemData;               // 아이템 데이터
+	private Vector3		originPositon;          // 원래 자리
+	private IEnumerator mouseFollow;			// 마우스 따라가기 코루틴
 
 	private UITexture	uITexture;				// 텍스쳐
 
@@ -23,8 +25,9 @@ public class ItemUI : MonoBehaviour
 	private void Awake()
 	{
 		boxCollider2D = GetComponent<BoxCollider2D>();
-
 		uITexture = GetComponent<UITexture>();
+
+		originPositon = transform.position;
 
 		GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(ClickItem));
 	}
@@ -41,6 +44,12 @@ public class ItemUI : MonoBehaviour
 		uITexture.mainTexture = itemData.texture;
 	}
 
+	// position reset
+	private void ResetPosition()
+	{
+		transform.position = originPositon;
+	}
+
 	// 스왑
 	private void Swap(ref ItemUI target)
 	{
@@ -49,6 +58,9 @@ public class ItemUI : MonoBehaviour
 		temp.Copy(target);
 		target.Copy(this);
 		Copy(temp);
+
+		Refresh();
+		target.Refresh();
 	}
 
 	// 홀드
@@ -56,12 +68,34 @@ public class ItemUI : MonoBehaviour
 	{
 		clickTarget = this;
 		boxCollider2D.enabled = false;
-		StartCoroutine(MouseFollow());
+
+		mouseFollow = MouseFollow();
+		StartCoroutine(mouseFollow);
+	}
+
+	// 언홀드
+	private void UnHold()
+	{
+		boxCollider2D.enabled = true;
+		
+		if (mouseFollow != null)
+		{
+			StopCoroutine(mouseFollow);
+		}
+
+		ResetPosition();
+	}
+
+	// ($$ 데이터 디버그 로그 $$)
+	public void ShowData()
+	{
+		Debug.Log(gameObject.name + itemData.code);
 	}
 
 	// 아이템 클릭
 	public void ClickItem()
 	{
+		// 새로 아이템을 드는 경우
 		if (clickTarget == null)
 		{
 			// 아이템이 있으면 홀딩
@@ -70,19 +104,21 @@ public class ItemUI : MonoBehaviour
 				Hold();
 			}
 		}
+		// 기존에 있는 아이템을 바꾸는 경우
 		else
 		{
-			// 비어있으면 그자리에 옮김
+			// 비어있으면 언홀드
 			if (IsEmpty())
 			{
+				clickTarget.UnHold();
+
 				Swap(ref clickTarget);
 
 				clickTarget = null;
 			}
-			// 아이템이 있으면 그 아이템을 들고, 들고있던 아이템을 내려놓음
 			else
 			{
-
+				Swap(ref clickTarget);
 			}
 		}
 	}

@@ -13,7 +13,7 @@ public class TestInventory : MonoBehaviour
 	public Texture texture4;
 
 
-	// 프레임
+	// ($$ 프레임 $$)
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.N))
@@ -58,6 +58,11 @@ public class TestInventory : MonoBehaviour
 			itemData.texture = texture4;
 
 			inventoryManager.AddItem(itemData);
+		}
+
+		if (Input.GetKeyDown(KeyCode.H))
+		{
+			Debug.Log(ItemUI.clickTarget.gameObject.name);
 		}
 	}
 }

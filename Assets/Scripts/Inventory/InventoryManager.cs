@@ -21,10 +21,20 @@ public class InventoryManager : MonoBehaviour
 	// 프레임
 	private void Update()
 	{
+		// (## 인벤토리 여는 키 ##)
 		if (Input.GetKeyDown(KeyCode.I))
 		{
 			isOpen = !isOpen;
 			inventoryPanel.SetActive(isOpen);
+		}
+
+		// ($$ 테스트용 $$)
+		if (Input.GetKeyDown(KeyCode.L))
+		{
+			foreach (var targetUI in inventoryArray)
+			{
+				targetUI.ShowData();
+			}
 		}
 	}
 
