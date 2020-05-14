@@ -8,11 +8,11 @@ public class WeaponUI : ItemUI
 	private WeaponManager weaponManager;        // 무기 매니저
 
 
-	// 초기화
-	private void Awake()
-	{
-		Init();
-	}
+	//// 초기화
+	//private void Awake()
+	//{
+	//	Init();
+	//}
 
 	// refresh
 	protected override void Refresh()
