@@ -8,12 +8,6 @@ public class WeaponUI : ItemUI
 	private WeaponManager weaponManager;        // 무기 매니저
 
 
-	//// 초기화
-	//private void Awake()
-	//{
-	//	Init();
-	//}
-
 	// refresh
 	protected override void Refresh()
 	{
@@ -22,7 +16,6 @@ public class WeaponUI : ItemUI
 		if (itemData.code != 0)
 		{
 			weaponManager.SetWeapon(itemData.prefab);
-			weaponManager.CreateWeapon();
 		}
 
 		base.Refresh();

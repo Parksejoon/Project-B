@@ -292,6 +292,7 @@
     <Compile Include="Assets\Scripts\Objects\UnstableBlock.cs" />
     <Compile Include="Assets\Scripts\Stage\StageSelecter.cs" />
     <Compile Include="Assets\Scripts\Systems\AnimatorTest.cs" />
+    <Compile Include="Assets\Scripts\Systems\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\AttackCore.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\Skills\PlayerSkillManager.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\Skills\Skill_BlockReset.cs" />
