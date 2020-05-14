@@ -25,20 +25,25 @@ public abstract class Weapon : MonoBehaviour
 	// 입력 확인
 	private void CheckKey()
 	{
-		if (Input.GetAxis("Attack") != 0)
+		if (InputManager.GetButtonDown("Attack"))
 		{
-			if (attackAxisInUse == false)
-			{
-				Attack(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
-				attackAxisInUse = true;
-			}
+			Attack(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
 		}
 
-		if (Input.GetAxis("Attack") == 0)
-		{
-			attackAxisInUse = false;
-		}
+		//if (Input.GetAxis("Attack") != 0)
+		//{
+		//	if (attackAxisInUse == false)
+		//	{
+		//		Attack(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+		
+		//		attackAxisInUse = true;
+		//	}
+		//}
+
+		//if (Input.GetAxis("Attack") == 0)
+		//{
+		//	attackAxisInUse = false;
+		//}
 	}
 
 	// player manager 초기화

@@ -23,6 +23,7 @@ public class WeaponManager : MonoBehaviour
 	// 무기 생성
 	public void CreateWeapon()
 	{
-		 currentWeapon = Instantiate(weaponPrefab);
+		currentWeapon = Instantiate(weaponPrefab, Vector3.zero, Quaternion.identity, transform);
+		currentWeapon.transform.localPosition = new Vector3(0, 0, (int)RenderPriority.Weapon);
 	}
 }
