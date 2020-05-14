@@ -5,8 +5,14 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
 	private GameObject	weaponPrefab;		// 무기 프리팹
-	private GameObject	currentWeapon;		// 현재 무기
-	
+	private GameObject	currentWeapon;      // 현재 무기
+
+
+	// 시작
+	public void Start()
+	{
+		
+	}
 
 	// 무기 장착
 	public void SetWeapon(GameObject weapon)
