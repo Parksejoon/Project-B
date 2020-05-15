@@ -291,8 +291,6 @@
     <Compile Include="Assets\Scripts\Objects\SelfDestroyer.cs" />
     <Compile Include="Assets\Scripts\Objects\UnstableBlock.cs" />
     <Compile Include="Assets\Scripts\Stage\StageSelecter.cs" />
-    <Compile Include="Assets\Scripts\Systems\AnimatorTest.cs" />
-    <Compile Include="Assets\Scripts\Systems\BattleManager.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\AttackCore.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\Skills\PlayerSkillManager.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\Skills\Skill_BlockReset.cs" />
@@ -306,10 +304,12 @@
     <Compile Include="Assets\Scripts\Systems\BattleSystem\AttackSystem\Weapons\WeaponUI.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\MonsterSpawnSystem.cs" />
     <Compile Include="Assets\Scripts\Systems\BattleSystem\RandomMapGenerator.cs" />
-    <Compile Include="Assets\Scripts\Systems\DontDestroyObj.cs" />
     <Compile Include="Assets\Scripts\Systems\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\InitSceneChanger.cs" />
     <Compile Include="Assets\Scripts\Systems\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\Others\DataSaver.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\Depth.cs" />
+    <Compile Include="Assets\Scripts\Systems\Others\DontDestroyObj.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\ObjectPoolManager.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\ResourceLoader.cs" />
     <Compile Include="Assets\Scripts\Systems\UI\HPGauge.cs" />

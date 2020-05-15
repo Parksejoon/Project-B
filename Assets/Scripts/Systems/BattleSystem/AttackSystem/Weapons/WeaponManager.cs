@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -14,13 +15,18 @@ public class WeaponManager : MonoBehaviour
 	// 시작
 	public void Start()
 	{
-		
+		if (SceneManager.GetActiveScene().buildIndex == (int)SceneNumber.BattleScene)
+		{
+			weaponPrefab = DataSaver.GetData("CurrentWeapon") as GameObject;
+			CreateWeapon();
+		}
 	}
 
 	// 무기 장착
 	public void SetWeapon(GameObject weapon)
 	{
 		weaponPrefab = weapon;
+		DataSaver.SaveData("CurrentWeapon", weapon);
 	}
 
 	// 무기 삭제

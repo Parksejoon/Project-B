@@ -16,7 +16,8 @@ using UnityEngine;
 public enum SceneNumber
 {
 	BattleScene = 0,
-	VillageScene = 1
+	VillageScene = 1,
+	InitScene = 2
 }
 
 public enum RenderPriority
