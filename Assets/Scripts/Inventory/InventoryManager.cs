@@ -45,6 +45,13 @@ public class InventoryManager : MonoBehaviour
 		}
 	}
 
+	// 인벤토리 목록 저장
+	private void SaveData()
+	{
+		DataCache.SaveData("InventoryItemList", inventoryArray);
+	}
+
+
 	// 아이템 추가
 	public bool AddItem(ItemData itemData)
 	{

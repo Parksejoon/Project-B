@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataSaver
+public class DataCache
 {
 	private static Dictionary<string, object> dataMap = new Dictionary<string, object>();       // 임시로 저장할 데이터 맵
 
-	private static JsonData jsonData;			// json 데이터
-
 
 	// 데이터 저장
-	public static void SaveData(string key, object value)
+	public static void SaveData(string key, object obj)
 	{
-		dataMap[key] = value;
+		dataMap[key] = obj;
 	}
 
 	// 데이터 삭제

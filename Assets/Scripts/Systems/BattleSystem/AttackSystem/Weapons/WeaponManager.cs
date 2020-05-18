@@ -17,7 +17,7 @@ public class WeaponManager : MonoBehaviour
 	{
 		if (SceneManager.GetActiveScene().buildIndex == (int)SceneNumber.BattleScene)
 		{
-			weaponPrefab = DataSaver.GetData("CurrentWeapon") as GameObject;
+			weaponPrefab = DataCache.GetData("CurrentWeapon") as GameObject;
 			CreateWeapon();
 		}
 	}
@@ -26,7 +26,7 @@ public class WeaponManager : MonoBehaviour
 	public void SetWeapon(GameObject weapon)
 	{
 		weaponPrefab = weapon;
-		DataSaver.SaveData("CurrentWeapon", weapon);
+		DataCache.SaveData("CurrentWeapon", weapon);
 	}
 
 	// 무기 삭제

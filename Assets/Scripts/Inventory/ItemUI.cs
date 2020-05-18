@@ -19,8 +19,9 @@ public struct ItemData
 
 public class ItemUI : MonoBehaviour
 {
-	public static ItemUI	clickTarget;			// 현재 클릭으로 들고있는 아이템UI
-	private BoxCollider2D	boxCollider2D;			// 클릭용 collider
+	public static ItemUI	clickTarget;		// 현재 클릭으로 들고있는 아이템UI
+
+	private BoxCollider2D	boxCollider2D;		// 클릭용 collider
 
 	protected ItemData	itemData;               // 아이템 데이터
 	private Vector3		originPositon;          // 원래 자리

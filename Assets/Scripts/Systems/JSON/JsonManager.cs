@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 public class JsonManager : MonoBehaviour
 {
 	/// <summary>
-	/// create json file
+	/// save json data to file
 	/// </summary>
 	/// <param name="createPath">json file location</param>
 	/// <param name="fileName">json file name</param>
@@ -23,7 +23,7 @@ public class JsonManager : MonoBehaviour
 	}
 
 	/// <summary>
-	/// load json file
+	/// load json data from file
 	/// </summary>
 	/// <typeparam name="T">converted target object type</typeparam>
 	/// <param name="loadPath">json file location</param>
