@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class DataSaver
 {
-	private static Dictionary<string, object> dataMap = new Dictionary<string, object>();		// 데이터 맵
+	private static Dictionary<string, object> dataMap = new Dictionary<string, object>();       // 임시로 저장할 데이터 맵
+
+	private static JsonData jsonData;			// json 데이터
 
 
 	// 데이터 저장

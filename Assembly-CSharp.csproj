@@ -307,7 +307,9 @@
     <Compile Include="Assets\Scripts\Systems\GameManager.cs" />
     <Compile Include="Assets\Scripts\Systems\InitSceneChanger.cs" />
     <Compile Include="Assets\Scripts\Systems\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\JSON\JData.cs" />
     <Compile Include="Assets\Scripts\Systems\JSON\JsonManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\JSON\JVector3.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\DataSaver.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\Depth.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\DontDestroyObj.cs" />

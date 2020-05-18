@@ -46,7 +46,7 @@ public class JsonManager : MonoBehaviour
 	/// convert object to json data string
 	/// </summary>
 	/// <param name="obj">target object</param>
-	/// <returns></returns>
+	/// <returns>converted object</returns>
 	public static string ObjectToJson(object obj)
 	{
 		return JsonConvert.SerializeObject(obj);
