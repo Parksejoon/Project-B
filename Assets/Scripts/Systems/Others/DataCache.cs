@@ -20,8 +20,8 @@ public class DataCache
 	}
 
 	// 데이터 가져오기
-	public static object GetData(string key)
+	public static T GetData<T>(string key) where T : class
 	{
-		return dataMap.ContainsKey(key) ? dataMap[key] : null;
+		return (dataMap.ContainsKey(key) ? dataMap[key] : null) as T;
 	}
 }

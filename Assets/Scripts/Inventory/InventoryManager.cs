@@ -15,6 +15,7 @@ public class InventoryManager : MonoBehaviour
 	// 초기화
 	private void Awake()
 	{
+		inventoryArray = DataCache.GetData<ItemUI[]>("InventoryItemList");
 		inventoryArray = inventoryPanel.GetComponentInChildren<UIGrid>().GetComponentsInChildren<ItemUI>();
 
 		ItemUI[] itemSlotArray = inventoryPanel.GetComponentsInChildren<ItemUI>();

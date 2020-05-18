@@ -17,7 +17,7 @@ public class WeaponManager : MonoBehaviour
 	{
 		if (SceneManager.GetActiveScene().buildIndex == (int)SceneNumber.BattleScene)
 		{
-			weaponPrefab = DataCache.GetData("CurrentWeapon") as GameObject;
+			weaponPrefab = DataCache.GetData<GameObject>("CurrentWeapon");
 			CreateWeapon();
 		}
 	}
