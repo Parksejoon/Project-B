@@ -307,6 +307,8 @@
     <Compile Include="Assets\Scripts\Systems\GameManager.cs" />
     <Compile Include="Assets\Scripts\Systems\InitSceneChanger.cs" />
     <Compile Include="Assets\Scripts\Systems\InputManager.cs" />
+    <Compile Include="Assets\Scripts\Systems\JSON\JsonExample.cs" />
+    <Compile Include="Assets\Scripts\Systems\JSON\JTestClass.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\DataSaver.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\Depth.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\DontDestroyObj.cs" />
@@ -610,6 +612,9 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Assets/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
