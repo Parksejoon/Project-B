@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 	// 비활성화
 	public void OnDisable()
 	{
-		moveParticle.flagArray[0] = false;
+		moveParticle.SetParticleFlag(MoveParticle.MoveFlagType.NoMove, false);
 	}
 
 	// 점프
@@ -134,12 +134,12 @@ public class PlayerController : MonoBehaviour
 
 		position.x += horizontalMove * Time.deltaTime * playerManager.Stats.move_speed;
 		playerTransform.position = position;
-		moveParticle.flagArray[0] = false;
+		moveParticle.SetParticleFlag(MoveParticle.MoveFlagType.NoMove, false);
 
 		if (horizontalMove < 0)
 		{
 			spriteRenderer.flipX = true;
-			moveParticle.flagArray[0] = true;
+			moveParticle.SetParticleFlag(MoveParticle.MoveFlagType.NoMove, true);
 
 			if (velocity.x > 0)
 			{
@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
 		else if (horizontalMove > 0)
 		{
 			spriteRenderer.flipX = false;
-			moveParticle.flagArray[0] = true;
+			moveParticle.SetParticleFlag(MoveParticle.MoveFlagType.NoMove, true);
 
 			if (velocity.x < 0)
 			{

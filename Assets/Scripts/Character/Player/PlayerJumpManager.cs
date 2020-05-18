@@ -47,7 +47,7 @@ public class PlayerJumpManager : MonoBehaviour
 			playerController.ResetJump();
 
 			// 이펙트 플래그 설정
-			moveParticle.flagArray[1] = true;
+			moveParticle.SetParticleFlag(MoveParticle.MoveFlagType.OnAir, true);
 
 			// 플래그 설정
 			if (!collision.CompareTag("CustomBlock") && !collision.CompareTag("Ball"))
@@ -87,7 +87,7 @@ public class PlayerJumpManager : MonoBehaviour
 			playerController.Flight();
 
 			// 이펙트 플래그 설정
-			moveParticle.flagArray[1] = false;
+			moveParticle.SetParticleFlag(MoveParticle.MoveFlagType.OnAir, false);
 
 			// 플래그 설정
 			if (!collision.CompareTag("CustomBlock") && !collision.CompareTag("Ball"))
