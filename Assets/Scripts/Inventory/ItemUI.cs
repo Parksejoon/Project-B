@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum ItemType
 {
-	Weapon = 0
+	None = 0,
+	Weapon = 1
 }
 
 public struct ItemData
@@ -20,14 +21,14 @@ public struct ItemData
 public class ItemUI : MonoBehaviour
 {
 	public static ItemUI	clickTarget;		// 현재 클릭으로 들고있는 아이템UI
+	private BoxCollider2D	boxCollider2D;      // 클릭용 collider
+	private UITexture		uITexture;          // 텍스쳐 ui
 
-	private BoxCollider2D	boxCollider2D;		// 클릭용 collider
+	protected ItemData		itemData;			// 아이템 데이터
 
-	protected ItemData	itemData;               // 아이템 데이터
 	private Vector3		originPositon;          // 원래 자리
-	private IEnumerator mouseFollow;			// 마우스 따라가기 코루틴
+	private IEnumerator mouseFollow;            // 마우스 따라가기 코루틴
 
-	private UITexture	uITexture;				// 텍스쳐
 
 
 	// 초기화
@@ -39,12 +40,19 @@ public class ItemUI : MonoBehaviour
 		originPositon = transform.position;
 
 		GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(ClickItem));
+
+		DataRefresh();
 	}
 
-	// 아이템 데이터 가져오기
-	public ItemData GetItemData()
+	public void SetItemCode(int itemCode)
 	{
-		return itemData;
+		itemData.code = itemCode;
+
+	}
+
+	public int GetItemCode()
+	{
+		return itemData.code;
 	}
 
 	// copy
@@ -52,9 +60,16 @@ public class ItemUI : MonoBehaviour
 	{
 		itemData = target.itemData;
 	}
+	
+	// 데이터 refresh
+	// 아이템 코드로 아이템 데이터를 재설정
+	private void DataRefresh()
+	{
+		itemData = ItemParser.GetItemByCode(itemData.code);
+	}
 
-	// refresh
-	protected virtual void Refresh()
+	// 텍스쳐 refresh
+	private void TextureRefresh()
 	{
 		uITexture.mainTexture = itemData.texture;
 	}
@@ -74,8 +89,8 @@ public class ItemUI : MonoBehaviour
 		target.Copy(this);
 		Copy(temp);
 
-		Refresh();
-		target.Refresh();
+		TextureRefresh();
+		target.TextureRefresh();
 	}
 
 	// 홀드
@@ -151,7 +166,7 @@ public class ItemUI : MonoBehaviour
 	{
 		itemData = _itemData;
 
-		Refresh();
+		TextureRefresh();
 	}
 
 	// 아이템 삭제
@@ -161,7 +176,7 @@ public class ItemUI : MonoBehaviour
 		itemData.name = "";
 		itemData.texture = null;
 
-		Refresh();
+		TextureRefresh();
 	}
 
 	// 마우스 따라감 코루틴

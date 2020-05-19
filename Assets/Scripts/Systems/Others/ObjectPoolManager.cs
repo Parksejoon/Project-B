@@ -61,7 +61,6 @@ public class ObjectPoolManager : MonoBehaviour
 			// 만약 vector의 요소가 inf이면 position값을 변경하지 않음
 			if (position.x != float.PositiveInfinity)
 			{
-				Debug.Log(position);
 				gameObj.transform.position = position;
 			}
 

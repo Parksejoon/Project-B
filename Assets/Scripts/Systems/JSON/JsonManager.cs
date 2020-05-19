@@ -5,7 +5,7 @@ using System.IO;
 using System.Text;
 using Newtonsoft.Json;
 
-public class JsonManager : MonoBehaviour
+public class JsonManager
 {
 	/// <summary>
 	/// save json data to file

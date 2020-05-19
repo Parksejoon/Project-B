@@ -5680,6 +5680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1998416626}
+  weaponItemUI: {fileID: 702615827}
 --- !u!1 &330243522
 GameObject:
   m_ObjectHideFlags: 0
@@ -15296,7 +15297,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetParticle: {fileID: 568456173}
   flagSize: 2
-  flagArray: 
 --- !u!199 &568456172
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -20355,7 +20355,7 @@ GameObject:
   - component: {fileID: 702615826}
   - component: {fileID: 702615825}
   m_Layer: 5
-  m_Name: Weapon
+  m_Name: WeaponUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20435,10 +20435,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 702615823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b59adec50740657478532c52d093297d, type: 3}
+  m_Script: {fileID: 11500000, guid: a766f6158620ed2468c3d732b84ebe8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponManager: {fileID: 240993518}
 --- !u!114 &702615828
 MonoBehaviour:
   m_ObjectHideFlags: 0

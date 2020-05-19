@@ -13,6 +13,15 @@ public class DataCache
 		dataMap[key] = obj;
 	}
 
+	// 배열로 데이터 저장
+	public static void SaveData(string key, object[] objs)
+	{
+		for (int i = 0; i < objs.Length; i++)
+		{
+			dataMap[key + "_" + i] = objs[i];
+		}
+	}
+
 	// 데이터 삭제
 	public static void RemoveData(string key)
 	{
@@ -20,8 +29,21 @@ public class DataCache
 	}
 
 	// 데이터 가져오기
-	public static T GetData<T>(string key) where T : class
+	public static T GetData<T>(string key)
 	{
-		return (dataMap.ContainsKey(key) ? dataMap[key] : null) as T;
+		return (T)(dataMap.ContainsKey(key) ? dataMap[key] : null);
+	}
+
+	// 배열 데이터 가져오기
+	public static T[] GetArrayData<T>(string key)
+	{
+		List<T> returnList = new List<T>();
+
+		for (int i = 0; dataMap.ContainsKey(key + "_" + i); i++)
+		{
+			returnList.Add((T)dataMap[key + "_" + i]);
+		}
+
+		return returnList.ToArray();
 	}
 }

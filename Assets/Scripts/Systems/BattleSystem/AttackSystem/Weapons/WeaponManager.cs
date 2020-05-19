@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class WeaponManager : MonoBehaviour
 {
 	[SerializeField]
-	private Transform	playerTransform;	// 플레이어 오브젝트
+	private Transform	playerTransform;    // 플레이어 오브젝트
+	[SerializeField]
+	private ItemUI		weaponItemUI;		// 무기 아이템 슬롯
 
 	private GameObject	weaponPrefab;		// 무기 프리팹
 	private GameObject	currentWeapon;      // 현재 무기
@@ -15,6 +17,8 @@ public class WeaponManager : MonoBehaviour
 	// 시작
 	public void Start()
 	{
+		//weaponItemUI.SetItemCode()
+
 		if (SceneManager.GetActiveScene().buildIndex == (int)SceneNumber.BattleScene)
 		{
 			weaponPrefab = DataCache.GetData<GameObject>("CurrentWeapon");
