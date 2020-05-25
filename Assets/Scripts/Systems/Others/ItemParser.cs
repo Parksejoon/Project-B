@@ -34,6 +34,12 @@ public class ItemParser : MonoBehaviour
 		return returnValue;
 	}
 
+	// 코드로 아이템 프리팹을 가져옴
+	public static GameObject GetPrefabByCode(int itemCode)
+	{
+		return null;
+	}
+
 	// 아이템 코드로 아이템 타입 확인
 	public static ItemType GetItemTypeByCode(int itemCode)
 	{

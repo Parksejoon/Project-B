@@ -17,8 +17,10 @@ public class InventoryManager : MonoBehaviour
 	{
 		// 인벤토리 배열 초기화
 		inventoryArray = inventoryPanel.GetComponentInChildren<UIGrid>().GetComponentsInChildren<ItemUI>();
-		int[] itemCodeList = DataCache.GetArrayData<int>("InventoryItemList");
 
+		// 데이터 셋
+		int[] itemCodeList = DataCache.GetArrayData<int>("InventoryItemList");
+		
 		for (int i = 0; i < itemCodeList.Length; i++)
 		{
 			inventoryArray[i].SetItemCode(itemCodeList[i]);

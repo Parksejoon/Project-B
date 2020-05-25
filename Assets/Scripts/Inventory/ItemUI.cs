@@ -26,8 +26,8 @@ public class ItemUI : MonoBehaviour
 
 	protected ItemData		itemData;			// 아이템 데이터
 
-	private Vector3		originPositon;          // 원래 자리
-	private IEnumerator mouseFollow;            // 마우스 따라가기 코루틴
+	private Vector3			originPositon;      // 원래 자리
+	private IEnumerator		mouseFollow;        // 마우스 따라가기 코루틴
 
 
 
@@ -47,7 +47,6 @@ public class ItemUI : MonoBehaviour
 	public void SetItemCode(int itemCode)
 	{
 		itemData.code = itemCode;
-
 	}
 
 	public int GetItemCode()
@@ -66,6 +65,7 @@ public class ItemUI : MonoBehaviour
 	private void DataRefresh()
 	{
 		itemData = ItemParser.GetItemByCode(itemData.code);
+		TextureRefresh();
 	}
 
 	// 텍스쳐 refresh

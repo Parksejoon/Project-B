@@ -17,20 +17,20 @@ public class WeaponManager : MonoBehaviour
 	// 시작
 	public void Start()
 	{
-		//weaponItemUI.SetItemCode()
-
+		// 배틀 씬이면
 		if (SceneManager.GetActiveScene().buildIndex == (int)SceneNumber.BattleScene)
 		{
-			weaponPrefab = DataCache.GetData<GameObject>("CurrentWeapon");
+			int enquippedWeponCode = DataCache.GetData<int>("EquippedWepon");
+			weaponPrefab = ItemParser.GetPrefabByCode(enquippedWeponCode);
+			weaponItemUI
 			CreateWeapon();
 		}
 	}
 
 	// 무기 장착
-	public void SetWeapon(GameObject weapon)
+	public void EquipWeapon(int itemCode)
 	{
-		weaponPrefab = weapon;
-		DataCache.SaveData("CurrentWeapon", weapon);
+		DataCache.SaveData("EquippedWepon", itemCode);
 	}
 
 	// 무기 삭제
