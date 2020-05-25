@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataCache
+public class DataCache<T> where T : struct
 {
 	private static Dictionary<string, object> dataMap = new Dictionary<string, object>();       // 임시로 저장할 데이터 맵
 
 
 	// 데이터 저장
-	public static void SaveData(string key, object obj)
+	public static void SaveData(string key, T obj)
 	{
 		dataMap[key] = obj;
 	}
 
 	// 배열로 데이터 저장
-	public static void SaveData(string key, object[] objs)
+	public static void SaveArrayData(string key, T[] objs)
 	{
 		for (int i = 0; i < objs.Length; i++)
 		{
@@ -29,13 +29,13 @@ public class DataCache
 	}
 
 	// 데이터 가져오기
-	public static T GetData<T>(string key)
+	public static T GetData(string key)
 	{
-		return (T)(dataMap.ContainsKey(key) ? dataMap[key] : null);
+		return (T)(dataMap.ContainsKey(key) ? dataMap[key] : 0);
 	}
 
 	// 배열 데이터 가져오기
-	public static T[] GetArrayData<T>(string key)
+	public static T[] GetArrayData(string key)
 	{
 		List<T> returnList = new List<T>();
 

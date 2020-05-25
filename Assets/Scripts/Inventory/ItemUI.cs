@@ -15,7 +15,6 @@ public struct ItemData
 	public Texture texture;
 	public GameObject prefab;
 	public ItemType itemType;
-
 }
 
 public class ItemUI : MonoBehaviour
@@ -37,24 +36,36 @@ public class ItemUI : MonoBehaviour
 		boxCollider2D = GetComponent<BoxCollider2D>();
 		uITexture = GetComponent<UITexture>();
 
-		originPositon = transform.position;
-
+		// 클릭 활성화
 		GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(ClickItem));
 
+		// 초기 포지션값 생성
+		originPositon = transform.position;
+
+		// refresh 실행
 		DataRefresh();
+		TextureRefresh();
 	}
 
+	// 아이템 코드 set
 	public void SetItemCode(int itemCode)
 	{
 		itemData.code = itemCode;
 	}
 
+	// 아이템 코드 get
 	public int GetItemCode()
 	{
 		return itemData.code;
 	}
 
-	// copy
+	// 아이템 프리팹 get
+	public GameObject GetPrefab()
+	{
+		return itemData.prefab;
+	}
+
+	// copy item ui struct
 	private void Copy(ItemUI target)
 	{
 		itemData = target.itemData;
@@ -65,7 +76,6 @@ public class ItemUI : MonoBehaviour
 	private void DataRefresh()
 	{
 		itemData = ItemParser.GetItemByCode(itemData.code);
-		TextureRefresh();
 	}
 
 	// 텍스쳐 refresh
@@ -119,7 +129,7 @@ public class ItemUI : MonoBehaviour
 	// ($$ 데이터 디버그 로그 $$)
 	public void ShowData()
 	{
-		Debug.Log(gameObject.name + itemData.code);
+		Debug.Log(gameObject.name + " " + itemData.code);
 	}
 
 	// 아이템 클릭

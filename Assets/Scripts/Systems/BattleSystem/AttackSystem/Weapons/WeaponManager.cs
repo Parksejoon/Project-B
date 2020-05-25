@@ -9,10 +9,21 @@ public class WeaponManager : MonoBehaviour
 	private Transform	playerTransform;    // 플레이어 오브젝트
 	[SerializeField]
 	private ItemUI		weaponItemUI;		// 무기 아이템 슬롯
+	
+	private GameObject	currentWeapon;      // 현재 장착중인 실체화된 무기
 
-	private GameObject	weaponPrefab;		// 무기 프리팹
-	private GameObject	currentWeapon;      // 현재 무기
+	private const string dataCacheEquippedWeaponKey = "EquippedWeapon";
 
+
+	// 초기화 
+	private void Awake()
+	{
+		// 데이터 셋
+		weaponItemUI.SetItemCode(DataCache<int>.GetData(dataCacheEquippedWeaponKey));
+
+		// 슬롯 초기화
+		weaponItemUI.Init();
+	}
 
 	// 시작
 	public void Start()
@@ -20,27 +31,24 @@ public class WeaponManager : MonoBehaviour
 		// 배틀 씬이면
 		if (SceneManager.GetActiveScene().buildIndex == (int)SceneNumber.BattleScene)
 		{
-			int enquippedWeponCode = DataCache.GetData<int>("EquippedWepon");
-			weaponPrefab = ItemParser.GetPrefabByCode(enquippedWeponCode);
-			weaponItemUI
-			CreateWeapon();
+			CreateWeapon(weaponItemUI.GetPrefab());
 		}
 	}
-
-	// 무기 장착
-	public void EquipWeapon(int itemCode)
+	
+	// 오브젝트 비활성화 시
+	private void OnDisable()
 	{
-		DataCache.SaveData("EquippedWepon", itemCode);
+		SaveData();
 	}
 
-	// 무기 삭제
-	public void DeleteWeapon()
+	// 무기 데이터 저장
+	private void SaveData()
 	{
-		Destroy(currentWeapon);
+		DataCache<int>.SaveData(dataCacheEquippedWeaponKey, weaponItemUI.GetItemCode());
 	}
 
 	// 무기 생성
-	public void CreateWeapon()
+	public void CreateWeapon(GameObject weaponPrefab)
 	{
 		if (weaponPrefab == null) return;
 

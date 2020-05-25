@@ -11,19 +11,22 @@ public class InventoryManager : MonoBehaviour
 
 	private bool			isOpen = false;         // 인벤토리가 열려있는지
 
+	private const string dataCaheInventoryItemListKey = "InventoryItemList";
+
 
 	// 초기화
 	private void Awake()
 	{
-		// 인벤토리 배열 초기화
+		// 인벤토리 슬롯 UI 가져오기
 		inventoryArray = inventoryPanel.GetComponentInChildren<UIGrid>().GetComponentsInChildren<ItemUI>();
 
 		// 데이터 셋
-		int[] itemCodeList = DataCache.GetArrayData<int>("InventoryItemList");
+		int[] itemCodeList = DataCache<int>.GetArrayData(dataCaheInventoryItemListKey);
 		
 		for (int i = 0; i < itemCodeList.Length; i++)
 		{
 			inventoryArray[i].SetItemCode(itemCodeList[i]);
+			Debug.Log(itemCodeList[i]);
 		}
 
 		// 슬롯 목록 초기화
@@ -70,8 +73,8 @@ public class InventoryManager : MonoBehaviour
 		{
 			itemCodeList.Add(itemUI.GetItemCode());
 		}
-
-		DataCache.SaveData("InventoryItemList", itemCodeList.ToArray());
+		
+		DataCache<int>.SaveArrayData(dataCaheInventoryItemListKey, itemCodeList.ToArray());
 	}
 
 	// 아이템 추가

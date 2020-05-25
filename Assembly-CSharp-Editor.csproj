@@ -201,6 +201,7 @@
     <Compile Include="Assets\Add-Ons\NGUI\Scripts\Editor\UIWidgetContainerEditor.cs" />
     <Compile Include="Assets\Add-Ons\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
     <Compile Include="Assets\Add-Ons\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
+    <Compile Include="Assets\Editor\StartScene.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:/Users/qkeh4/Documents/Unity Projects/Project B/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
