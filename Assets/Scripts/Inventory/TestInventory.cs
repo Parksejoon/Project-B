@@ -72,10 +72,5 @@ public class TestInventory : MonoBehaviour
 
 			inventoryManager.AddItem(itemData);
 		}
-
-		if (Input.GetKeyDown(KeyCode.H))
-		{
-			Debug.Log(ItemUI.clickTarget.gameObject.name);
-		}
 	}
 }
