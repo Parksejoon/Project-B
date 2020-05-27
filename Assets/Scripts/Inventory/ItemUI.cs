@@ -29,7 +29,6 @@ public class ItemUI : MonoBehaviour
 	private IEnumerator		mouseFollow;        // 마우스 따라가기 코루틴
 
 
-
 	// 초기화
 	public virtual void Init()
 	{

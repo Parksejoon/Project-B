@@ -10,19 +10,18 @@ public class WeaponManager : MonoBehaviour
 	[SerializeField]
 	private ItemUI		weaponItemUI;		// 무기 아이템 슬롯
 	
-	private GameObject	currentWeapon;      // 현재 장착중인 실체화된 무기
+	private GameObject	equippedWeapon;      // 현재 장착중인 실체화된 무기
 
-	private const string dataCacheEquippedWeaponKey = "EquippedWeapon";
+	private const string dataKeyOfEquippedWeapon = "EquippedWeapon";
 
 
 	// 초기화 
 	private void Awake()
 	{
-		// 데이터 셋
-		weaponItemUI.SetItemCode(DataCache<int>.GetData(dataCacheEquippedWeaponKey));
+		var temp = DataCache<int>.GetData(dataKeyOfEquippedWeapon);
 
-		// 슬롯 초기화
-		weaponItemUI.Init();
+		// 데이터 셋
+		weaponItemUI.SetItemCode(DataCache<int>.GetData(dataKeyOfEquippedWeapon));
 	}
 
 	// 시작
@@ -44,15 +43,18 @@ public class WeaponManager : MonoBehaviour
 	// 무기 데이터 저장
 	private void SaveData()
 	{
-		DataCache<int>.SaveData(dataCacheEquippedWeaponKey, weaponItemUI.GetItemCode());
+		DataCache<int>.SaveData(dataKeyOfEquippedWeapon, weaponItemUI.GetItemCode());
 	}
 
 	// 무기 생성
 	public void CreateWeapon(GameObject weaponPrefab)
 	{
-		if (weaponPrefab == null) return;
+		if (weaponPrefab == null)
+		{
+			return;
+		}
 
-		currentWeapon = Instantiate(weaponPrefab, Vector3.zero, Quaternion.identity, playerTransform);
-		currentWeapon.transform.localPosition = new Vector3(0, 0, (int)RenderPriority.Weapon);
+		equippedWeapon = Instantiate(weaponPrefab, Vector3.zero, Quaternion.identity, playerTransform);
+		equippedWeapon.transform.localPosition = new Vector3(0, 0, (int)RenderPriority.Weapon);
 	}
 }

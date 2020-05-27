@@ -26,9 +26,12 @@ public class InventoryManager : MonoBehaviour
 		for (int i = 0; i < itemCodeList.Length; i++)
 		{
 			inventoryArray[i].SetItemCode(itemCodeList[i]);
-			Debug.Log(itemCodeList[i]);
 		}
+	}
 
+	// 시작 
+	private void Start()
+	{
 		// 슬롯 목록 초기화
 		ItemUI[] itemSlotArray = inventoryPanel.GetComponentsInChildren<ItemUI>();
 
