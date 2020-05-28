@@ -23,52 +23,14 @@ public class TestInventory : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.N))
 		{
-			ItemData itemData;
-
-			itemData.code = 1;
-			itemData.name = "1";
-			itemData.texture = texture1;
-			itemData.prefab = prefab1;
-			itemData.itemType = ItemType.Weapon;
+			ItemData itemData = ItemParser.GetItemByCode(1);
 
 			inventoryManager.AddItem(itemData);
 		}
 
 		if (Input.GetKeyDown(KeyCode.M))
 		{
-			ItemData itemData;
-
-			itemData.code = 2;
-			itemData.name = "2";
-			itemData.texture = texture2;
-			itemData.prefab = prefab2;
-			itemData.itemType = ItemType.Weapon;
-
-			inventoryManager.AddItem(itemData);
-		}
-
-		if (Input.GetKeyDown(KeyCode.J))
-		{
-			ItemData itemData;
-
-			itemData.code = 3;
-			itemData.name = "3";
-			itemData.texture = texture3;
-			itemData.prefab = prefab3;
-			itemData.itemType = ItemType.Weapon;
-
-			inventoryManager.AddItem(itemData);
-		}
-
-		if (Input.GetKeyDown(KeyCode.K))
-		{
-			ItemData itemData;
-
-			itemData.code = 4;
-			itemData.name = "4";
-			itemData.texture = texture4;
-			itemData.prefab = prefab4;
-			itemData.itemType = ItemType.Weapon;
+			ItemData itemData = ItemParser.GetItemByCode(2);
 
 			inventoryManager.AddItem(itemData);
 		}

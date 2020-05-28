@@ -2,8 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ItemType
+{
+	None = 0,
+	Weapon = 1
+}
+
+public struct ItemData
+{
+	public int			code;
+	public string		name;
+	public ItemType		itemType;
+	public Texture2D	sprite;
+	public GameObject	prefab;
+}
+
 public class ItemParser : MonoBehaviour
 {
+	private static Dictionary<int, string> itemNameDictionary;
+
+
 	// 코드로 아이템 데이터를 가져옴
 	public static ItemData GetItemByCode(int itemCode)
 	{
@@ -12,7 +30,7 @@ public class ItemParser : MonoBehaviour
 		returnValue.code = itemCode;
 		returnValue.itemType = GetItemTypeByCode(itemCode);
 		returnValue.name = "Temp";
-		returnValue.texture = GetTextureByCode(itemCode);
+		returnValue.sprite = GetSpriteByCode(itemCode);
 		returnValue.prefab = GetPrefabByCode(itemCode);
 
 		return returnValue;
@@ -30,7 +48,7 @@ public class ItemParser : MonoBehaviour
 
 			case ItemType.Weapon:
 
-				returnValue = Resources.Load("Weapons/" + itemCode) as GameObject;
+				returnValue = Resources.Load("Weapons/" + itemCode + "/Prefab") as GameObject;
 				break;
 
 			default:
@@ -42,9 +60,9 @@ public class ItemParser : MonoBehaviour
 	}
 
 	// 코드로 아이템 텍스쳐를 가져옴
-	public static Texture GetTextureByCode(int itemCode)
+	public static Texture2D GetSpriteByCode(int itemCode)
 	{
-		Texture returnValue = null;
+		Texture2D returnValue = null;
 
 		switch (GetItemTypeByCode(itemCode))
 		{
@@ -53,7 +71,7 @@ public class ItemParser : MonoBehaviour
 
 			case ItemType.Weapon:
 
-				returnValue = Resources.Load("Texture/Weapons" + itemCode) as Texture;
+				returnValue = Resources.Load("Weapons/" + itemCode + "/Sprite") as Texture2D;
 				break;
 
 			default:

@@ -8,7 +8,7 @@ public class WeaponManager : MonoBehaviour
 	[SerializeField]
 	private Transform	playerTransform;    // 플레이어 오브젝트
 	[SerializeField]
-	private ItemUI		weaponItemUI;		// 무기 아이템 슬롯
+	private ItemSlot	weaponItemUI;		// 무기 아이템 슬롯
 	
 	private GameObject	equippedWeapon;     // 현재 장착중인 실체화된 무기
 
@@ -18,10 +18,10 @@ public class WeaponManager : MonoBehaviour
 	// 초기화 
 	private void Awake()
 	{
-		var temp = DataCache<int>.GetData(dataKeyOfEquippedWeapon);
+		var itemCode = DataCache<int>.GetData(dataKeyOfEquippedWeapon);
 
 		// 데이터 셋
-		weaponItemUI.SetItemCode(DataCache<int>.GetData(dataKeyOfEquippedWeapon));
+		weaponItemUI.SetItem(ItemParser.GetItemByCode(itemCode));
 	}
 
 	// 시작

@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
 	[SerializeField]
 	private GameObject		inventoryPanel;         // 인벤토리 패널
 
-	private ItemUI[]		inventoryArray;         // 아이템 인벤토리 배열
+	private ItemSlot[]		inventoryArray;         // 아이템 인벤토리 배열
 
 	private bool			isOpen = false;         // 인벤토리가 열려있는지
 
@@ -18,27 +18,28 @@ public class InventoryManager : MonoBehaviour
 	private void Awake()
 	{
 		// 인벤토리 슬롯 UI 가져오기
-		inventoryArray = inventoryPanel.GetComponentInChildren<UIGrid>().GetComponentsInChildren<ItemUI>();
+		inventoryArray = inventoryPanel.GetComponentInChildren<UIGrid>().GetComponentsInChildren<ItemSlot>();
+
+		// 슬롯 목록 초기화
+		ItemSlot[] itemSlotArray = inventoryPanel.GetComponentsInChildren<ItemSlot>();
+
+		foreach (var itemUI in itemSlotArray)
+		{
+			itemUI.Init();
+		}
 
 		// 데이터 셋
 		int[] itemCodeList = DataCache<int>.GetArrayData(dataCaheInventoryItemListKey);
 		
 		for (int i = 0; i < itemCodeList.Length; i++)
 		{
-			inventoryArray[i].SetItemCode(itemCodeList[i]);
+			inventoryArray[i].SetItem(ItemParser.GetItemByCode(itemCodeList[i]));
 		}
 	}
 
 	// 시작 
 	private void Start()
 	{
-		// 슬롯 목록 초기화
-		ItemUI[] itemSlotArray = inventoryPanel.GetComponentsInChildren<ItemUI>();
-
-		foreach (var itemUI in itemSlotArray)
-		{
-			itemUI.Init();
-		}
 	}
 
 	// 프레임
@@ -85,7 +86,7 @@ public class InventoryManager : MonoBehaviour
 	// 아이템 홀드 리셋
 	public void ResetHoldItem()
 	{
-		ItemUI.ResetHold();
+		ItemSlot.ResetHold();
 	}
 
 	// 아이템 추가
