@@ -47,6 +47,8 @@ public class InventoryManager : MonoBehaviour
 		// (## 인벤토리 여는 키 ##)
 		if (Input.GetKeyDown(KeyCode.I))
 		{
+			ResetHoldItem();
+
 			isOpen = !isOpen;
 			inventoryPanel.SetActive(isOpen);
 		}
