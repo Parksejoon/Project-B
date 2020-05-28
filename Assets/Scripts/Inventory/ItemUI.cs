@@ -43,63 +43,21 @@ public class ItemUI : MonoBehaviour
 
 		// refresh 실행
 		DataRefresh();
-		TextureRefresh();
 	}
 
-	// 아이템 코드 set
-	public void SetItemCode(int itemCode)
+	// ($$ 데이터 디버그 로그 $$)
+	public void ShowData()
 	{
-		itemData.code = itemCode;
+		Debug.Log(gameObject.name + " " + itemData.code);
 	}
 
-	// 아이템 코드 get
-	public int GetItemCode()
+	// 홀드 리셋
+	public static void ResetHold()
 	{
-		return itemData.code;
-	}
-
-	// 아이템 프리팹 get
-	public GameObject GetPrefab()
-	{
-		return itemData.prefab;
-	}
-
-	// copy item ui struct
-	private void Copy(ItemUI target)
-	{
-		itemData = target.itemData;
-	}
-	
-	// 데이터 refresh
-	// 아이템 코드로 아이템 데이터를 재설정
-	private void DataRefresh()
-	{
-		itemData = ItemParser.GetItemByCode(itemData.code);
-	}
-
-	// 텍스쳐 refresh
-	private void TextureRefresh()
-	{
-		uITexture.mainTexture = itemData.texture;
-	}
-
-	// position reset
-	private void ResetPosition()
-	{
-		transform.position = originPositon;
-	}
-
-	// 스왑
-	private void Swap(ref ItemUI target)
-	{
-		ItemUI temp = new ItemUI();
-
-		temp.Copy(target);
-		target.Copy(this);
-		Copy(temp);
-
-		TextureRefresh();
-		target.TextureRefresh();
+		if (clickTarget != null)
+		{
+			clickTarget.UnHold();
+		}
 	}
 
 	// 홀드
@@ -113,7 +71,7 @@ public class ItemUI : MonoBehaviour
 	}
 
 	// 언홀드
-	private void UnHold()
+	private void UnHold(ItemUI swapTarget)
 	{
 		boxCollider2D.enabled = true;
 		
@@ -123,12 +81,23 @@ public class ItemUI : MonoBehaviour
 		}
 
 		ResetPosition();
+
+		Swap(swapTarget);
+
+		clickTarget = null;
 	}
 
-	// ($$ 데이터 디버그 로그 $$)
-	public void ShowData()
+	private void UnHold()
 	{
-		Debug.Log(gameObject.name + " " + itemData.code);
+		boxCollider2D.enabled = true;
+
+		if (mouseFollow != null)
+		{
+			StopCoroutine(mouseFollow);
+		}
+
+		ResetPosition();
+		clickTarget = null;
 	}
 
 	// 아이템 클릭
@@ -149,25 +118,13 @@ public class ItemUI : MonoBehaviour
 			// 비어있으면 언홀드
 			if (IsEmpty())
 			{
-				clickTarget.UnHold();
-
-				Swap(ref clickTarget);
-
-				clickTarget = null;
+				clickTarget.UnHold(this);
 			}
 			else
 			{
-				Swap(ref clickTarget);
+				Swap(clickTarget);
 			}
 		}
-	}
-
-	// 존재하는지 확인
-	public bool IsEmpty()
-	{
-		if (itemData.code == 0) return true;
-
-		return false;
 	}
 
 	// 아이템 등록
@@ -182,10 +139,73 @@ public class ItemUI : MonoBehaviour
 	public void DeleteItem()
 	{
 		itemData.code = 0;
-		itemData.name = "";
-		itemData.texture = null;
+
+		DataRefresh();
+	}
+
+	// 아이템 코드 set
+	public void SetItemCode(int itemCode)
+	{
+		itemData.code = itemCode;
+	}
+
+	// 아이템 코드 get
+	public int GetItemCode()
+	{
+		return itemData.code;
+	}
+
+	// 아이템 프리팹 get
+	public GameObject GetPrefab()
+	{
+		return itemData.prefab;
+	}
+
+	// 존재하는지 확인
+	public bool IsEmpty()
+	{
+		if (itemData.code == 0) return true;
+
+		return false;
+	}
+
+	// copy item ui struct
+	private void Copy(ItemUI target)
+	{
+		itemData = target.itemData;
+	}
+
+	// 데이터 refresh
+	// 아이템 코드로 아이템 데이터를 재설정
+	private void DataRefresh()
+	{
+		itemData = ItemParser.GetItemByCode(itemData.code);
+		TextureRefresh();
+	}
+
+	// 텍스쳐 refresh
+	private void TextureRefresh()
+	{
+		uITexture.mainTexture = itemData.texture;
+	}
+
+	// position reset
+	private void ResetPosition()
+	{
+		transform.position = originPositon;
+	}
+
+	// 스왑
+	private void Swap(ItemUI target)
+	{
+		ItemUI temp = new ItemUI();
+
+		temp.Copy(target);
+		target.Copy(this);
+		Copy(temp);
 
 		TextureRefresh();
+		target.TextureRefresh();
 	}
 
 	// 마우스 따라감 코루틴

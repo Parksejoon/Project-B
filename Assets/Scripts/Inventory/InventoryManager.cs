@@ -80,6 +80,12 @@ public class InventoryManager : MonoBehaviour
 		DataCache<int>.SaveArrayData(dataCaheInventoryItemListKey, itemCodeList.ToArray());
 	}
 
+	// 아이템 홀드 리셋
+	public void ResetHoldItem()
+	{
+		ItemUI.ResetHold();
+	}
+
 	// 아이템 추가
 	public bool AddItem(ItemData itemData)
 	{
