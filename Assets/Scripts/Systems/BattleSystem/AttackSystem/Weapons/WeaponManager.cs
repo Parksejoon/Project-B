@@ -10,7 +10,7 @@ public class WeaponManager : MonoBehaviour
 	[SerializeField]
 	private ItemUI		weaponItemUI;		// 무기 아이템 슬롯
 	
-	private GameObject	equippedWeapon;      // 현재 장착중인 실체화된 무기
+	private GameObject	equippedWeapon;     // 현재 장착중인 실체화된 무기
 
 	private const string dataKeyOfEquippedWeapon = "EquippedWeapon";
 

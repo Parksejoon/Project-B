@@ -266,7 +266,9 @@ public class UIDrawCall : MonoBehaviour
 		{
 			mTexture = value;
 			if (mBlock == null) mBlock = new MaterialPropertyBlock();
-			mBlock.SetTexture("_MainTex", value ?? Texture2D.whiteTexture);
+			//mBlock.SetTexture("_MainTex", value ?? Texture2D.whiteTexture);
+			if (value == null) mBlock.Clear();
+			else mBlock.SetTexture("_MainTex", value);
 		}
 	}
 

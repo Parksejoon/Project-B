@@ -70,7 +70,7 @@ public class ItemUI : MonoBehaviour
 		StartCoroutine(mouseFollow);
 	}
 
-	// 언홀드
+	// 언홀드 스왑
 	private void UnHold(ItemUI swapTarget)
 	{
 		boxCollider2D.enabled = true;
@@ -87,6 +87,7 @@ public class ItemUI : MonoBehaviour
 		clickTarget = null;
 	}
 
+	// 언홀드
 	private void UnHold()
 	{
 		boxCollider2D.enabled = true;
