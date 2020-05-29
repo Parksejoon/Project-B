@@ -13,13 +13,14 @@ public struct ItemData
 	public int			code;
 	public string		name;
 	public ItemType		itemType;
-	public Texture2D	sprite;
+	public Texture2D	texture;
 	public GameObject	prefab;
 }
 
 public class ItemParser : MonoBehaviour
 {
-	private static Dictionary<int, string> itemNameDictionary;
+	private static Dictionary<int, string>	itemNameDictionary;
+	private static GameObject				fieldDroppedItemPrefab;
 
 
 	// 코드로 아이템 데이터를 가져옴
@@ -30,7 +31,7 @@ public class ItemParser : MonoBehaviour
 		returnValue.code		= itemCode;
 		returnValue.itemType	= GetItemTypeByCode(itemCode);
 		returnValue.name		= itemNameDictionary.ContainsKey(itemCode) ? itemNameDictionary[itemCode] : "";
-		returnValue.sprite		= GetSpriteByCode(itemCode);
+		returnValue.texture		= GetSpriteByCode(itemCode);
 		returnValue.prefab		= GetPrefabByCode(itemCode);
 
 		return returnValue;
@@ -88,6 +89,12 @@ public class ItemParser : MonoBehaviour
 
 
 		return returnValue;
+	}
+
+	// 필드 드랍 프리팹을 가져옴
+	public static GameObject GetFieldPrefab()
+	{
+		return fieldDroppedItemPrefab;
 	}
 
 	// 아이템 코드로 아이템 타입 확인
