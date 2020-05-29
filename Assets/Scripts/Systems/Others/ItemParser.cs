@@ -27,13 +27,23 @@ public class ItemParser : MonoBehaviour
 	{
 		ItemData returnValue;
 
-		returnValue.code = itemCode;
-		returnValue.itemType = GetItemTypeByCode(itemCode);
-		returnValue.name = "Temp";
-		returnValue.sprite = GetSpriteByCode(itemCode);
-		returnValue.prefab = GetPrefabByCode(itemCode);
+		returnValue.code		= itemCode;
+		returnValue.itemType	= GetItemTypeByCode(itemCode);
+		returnValue.name		= itemNameDictionary[itemCode];
+		returnValue.sprite		= GetSpriteByCode(itemCode);
+		returnValue.prefab		= GetPrefabByCode(itemCode);
 
 		return returnValue;
+	}
+
+	// 모든 아이템 이름 dictionary를 json으로 불러옴
+	public static void InitNameDictionary()
+	{
+		var jsonText = Resources.Load("Names") as TextAsset;
+
+		itemNameDictionary = JsonManager.JsonToOject<Dictionary<int, string>>(jsonText.ToString());
+
+		Debug.Log(itemNameDictionary[0]);
 	}
 
 	// 코드로 아이템 프리팹을 가져옴

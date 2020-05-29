@@ -157,7 +157,7 @@ public class ItemSlot : MonoBehaviour
 
 	// 텍스쳐 refresh
 	private void TextureRefresh()
-	{ }
+	{ 
 		uITexture.mainTexture = itemData.sprite;
 	}
 

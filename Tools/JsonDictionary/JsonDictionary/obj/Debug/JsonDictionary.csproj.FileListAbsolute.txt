@@ -1,0 +1,9 @@
+C:\Users\qkeh4\Documents\Unity Projects\Project B\Tools\JsonDictionary\JsonDictionary\bin\Debug\JsonDictionary.exe.config
+C:\Users\qkeh4\Documents\Unity Projects\Project B\Tools\JsonDictionary\JsonDictionary\bin\Debug\JsonDictionary.exe
+C:\Users\qkeh4\Documents\Unity Projects\Project B\Tools\JsonDictionary\JsonDictionary\bin\Debug\JsonDictionary.pdb
+C:\Users\qkeh4\Documents\Unity Projects\Project B\Tools\JsonDictionary\JsonDictionary\obj\Debug\JsonDictionary.csprojAssemblyReference.cache
+C:\Users\qkeh4\Documents\Unity Projects\Project B\Tools\JsonDictionary\JsonDictionary\obj\Debug\JsonDictionary.csproj.CoreCompileInputs.cache
+C:\Users\qkeh4\Documents\Unity Projects\Project B\Tools\JsonDictionary\JsonDictionary\obj\Debug\JsonDictionary.exe
+C:\Users\qkeh4\Documents\Unity Projects\Project B\Tools\JsonDictionary\JsonDictionary\obj\Debug\JsonDictionary.pdb
+C:\Users\qkeh4\Documents\Unity Projects\Project B\Tools\JsonDictionary\JsonDictionary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\qkeh4\Documents\Unity Projects\Project B\Tools\JsonDictionary\JsonDictionary\obj\Debug\JsonDictionary.csproj.CopyComplete
