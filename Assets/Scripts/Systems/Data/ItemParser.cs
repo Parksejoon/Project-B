@@ -20,7 +20,6 @@ public struct ItemData
 public class ItemParser : MonoBehaviour
 {
 	private static Dictionary<int, string>	itemNameDictionary;
-	private static GameObject				fieldDroppedItemPrefab;
 
 
 	// 코드로 아이템 데이터를 가져옴
@@ -37,9 +36,10 @@ public class ItemParser : MonoBehaviour
 		return returnValue;
 	}
 
-	// 모든 아이템 이름 dictionary를 json으로 불러옴
-	public static void InitNameDictionary()
+	// 초기화
+	public static void Init()
 	{
+		// 모든 아이템 이름 dictionary를 json으로 불러옴
 		var jsonText = Resources.Load("Names") as TextAsset;
 
 		itemNameDictionary = JsonManager.JsonToOject<Dictionary<int, string>>(jsonText.ToString());
@@ -89,12 +89,6 @@ public class ItemParser : MonoBehaviour
 
 
 		return returnValue;
-	}
-
-	// 필드 드랍 프리팹을 가져옴
-	public static GameObject GetFieldPrefab()
-	{
-		return fieldDroppedItemPrefab;
 	}
 
 	// 아이템 코드로 아이템 타입 확인

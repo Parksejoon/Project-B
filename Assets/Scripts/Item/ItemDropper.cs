@@ -20,7 +20,9 @@ struct Drop
 public class ItemDropper : MonoBehaviour
 {
 	[SerializeField]
-	private Drop[]		dropItemList;		// 드롭 아이템 목록
+	private Drop[]		dropItemList;       // 드롭 아이템 목록
+	[SerializeField]
+	private GameObject	droppedItemPrefab;	// 드롭 아이템 프리팹
 
 
 	// 랜덤 아이템 드롭
@@ -42,8 +44,12 @@ public class ItemDropper : MonoBehaviour
 			}
 		}
 		
-		var obj = Instantiate(ItemParser.GetFieldPrefab(), transform.position, Quaternion.identity, transform);
+		if (target.itemCode != 0)
+		{
+			var obj = Instantiate(droppedItemPrefab, transform.position, Quaternion.identity);
 
-		obj.GetComponent<FieldItem>().Init(ItemParser.GetItemByCode(target.itemCode));
+			obj.GetComponent<FieldItem>().Init(ItemParser.GetItemByCode(target.itemCode));
+			Debug.Log("ASD");
+		}
 	}
 }

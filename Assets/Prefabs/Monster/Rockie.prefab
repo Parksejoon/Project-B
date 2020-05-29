@@ -306,6 +306,8 @@ MonoBehaviour:
   dropItemList:
   - itemCode: 1
     dropChance: 1
+  droppedItemPrefab: {fileID: 9107224317625808284, guid: e3c04dac2662c9d4c83dd68f06693b82,
+    type: 3}
 --- !u!114 &5547162549124710543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,7 +320,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90ef5034a0907b45b893ade85464e26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 212919897550888006}
   colliders: []
 --- !u!50 &50623028606139924
 Rigidbody2D:

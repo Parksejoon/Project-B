@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 		Application.targetFrameRate = 60;
 
 		// item parser-item name dictionary 초기화
-		ItemParser.InitNameDictionary();
+		ItemParser.Init();
 	}
 
 	// 게임 오버

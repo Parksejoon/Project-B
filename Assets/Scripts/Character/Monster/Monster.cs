@@ -6,9 +6,9 @@ public abstract class Monster : Character
 	public delegate IEnumerator		MonsterPattern();		// 몬스터 패턴 델리게이트
 	public delegate void			FlagFunc(bool isTrue);	// 플래그 델리게이트
 
-
-	[SerializeField]
-	protected SpriteRenderer	sprite;					// 몬스터 sprite
+	
+	protected SpriteRenderer	sprite;                 // 몬스터 sprite
+	protected ItemDropper		itemDropper;			// 아이템 드로퍼
 
 	[SerializeField]
 	protected Collider2D[]		colliders;				// 충돌체 모음
@@ -21,7 +21,8 @@ public abstract class Monster : Character
 	// 초기화
 	protected void Init()
 	{
-		sprite = GetComponentInChildren<SpriteRenderer>();
+		if (sprite == null) sprite = GetComponentInChildren<SpriteRenderer>();
+		if (itemDropper == null) itemDropper = GetComponent<ItemDropper>();
 
 		AttackCore attackCore = GetComponentInChildren<AttackCore>();
 		if (attackCore != null)
@@ -47,10 +48,24 @@ public abstract class Monster : Character
 		HPGauge.instance.SetHpSlider((float)HealthPoint / Stats.max_health_point);
 	}
 	
+	// 아이템 드랍
+	protected void DropItem()
+	{
+		itemDropper.DropRandomItem();
+	}
+
 	// 좌우 반전
 	protected virtual void Reverse()
 	{
 		sprite.flipX = !sprite.flipX;
+	}
+
+	// 사망
+	protected override void Dead()
+	{
+		Debug.Log("Monster is dead.");
+		DropItem();
+		Destroy(gameObject);
 	}
 
 	// 플래그 타이머

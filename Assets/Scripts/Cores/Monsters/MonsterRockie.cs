@@ -61,14 +61,6 @@ public class MonsterRockie : Monster
 		}
 	}
 
-	// 사망
-	protected override void Dead()
-	{
-		Destroy(gameObject);
-
-		Debug.Log("Rockie is dead.");
-	}
-
 	// 좌우 반전
 	protected override void Reverse()
 	{
