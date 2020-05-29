@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
 
 		// 그래픽 설정 (!! 나중에 그래픽 관련 스크립트로 옮기세요 !!)
 		Application.targetFrameRate = 60;
+
+		// item parser-item name dictionary 초기화
+		ItemParser.InitNameDictionary();
 	}
 
 	// 게임 오버

@@ -37,11 +37,6 @@ public class InventoryManager : MonoBehaviour
 		}
 	}
 
-	// 시작 
-	private void Start()
-	{
-	}
-
 	// 프레임
 	private void Update()
 	{
