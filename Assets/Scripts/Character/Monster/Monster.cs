@@ -63,7 +63,7 @@ public abstract class Monster : Character
 	// 사망
 	protected override void Dead()
 	{
-		Debug.Log("Monster is dead.");
+		BattleManager.instance.OpenPortal();
 		DropItem();
 		Destroy(gameObject);
 	}

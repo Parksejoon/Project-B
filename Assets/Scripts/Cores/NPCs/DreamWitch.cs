@@ -19,8 +19,8 @@ public class DreamWitch : NPC
 		textQueue.Enqueue("Ahhhhhhhhhhhh!\nYou so fuckin' precious when you smile\nABC");
 		textQueue.Enqueue("Im waking up.\nI feel it in my bones.\nEnough to make my systems blow.");
 
-		TextPrinterWindow.SetTextQueue(textQueue, "DreamWitch");
-		ConverseSelectionWindow.SetChoices(new ConverseSelection.ChoiceCallback[] { EnterDungeon, ExitConverse },
+		textPrinterWindow.SetTextQueue(textQueue, "DreamWitch");
+		converseSelectionWindow.SetChoices(new ConverseSelection.ChoiceCallback[] { EnterDungeon, ExitConverse },
 										new string[] { "Enter Dungeon", "Exit" });
 
 		printingFlag = true;
@@ -31,9 +31,9 @@ public class DreamWitch : NPC
 	{
 		if (printingFlag)
 		{
-			if (!TextPrinterWindow.ProgressConverse())
+			if (!textPrinterWindow.ProgressConverse())
 			{
-				ConverseSelectionWindow.EnableChoices();
+				converseSelectionWindow.EnableChoices();
 				printingFlag = false;
 			}
 		}
@@ -45,21 +45,19 @@ public class DreamWitch : NPC
 	// 상호작용 종료
 	public override void EndInteract()
 	{
-		TextPrinterWindow.DisablePrint();
+		textPrinterWindow.DisablePrint();
 
 		base.EndInteract();
 	}
 	
 	public void EnterDungeon()
 	{
-		Debug.Log("Enter The Dungeon");
-		SceneManager.LoadScene(SceneNumber.BattleScene.ToString());
 		EndInteract();
+		SceneManager.LoadScene((int)SceneNumber.BattleScene);
 	}
 
 	public void ExitConverse()
 	{
-		Debug.Log("Exit");
 		EndInteract();
 	}
 }

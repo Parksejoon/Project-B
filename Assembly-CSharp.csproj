@@ -265,10 +265,11 @@
     <Compile Include="Assets\Add-Ons\NGUI\Scripts\UI\UITooltip.cs" />
     <Compile Include="Assets\Add-Ons\NGUI\Scripts\UI\UIViewport.cs" />
     <Compile Include="Assets\Scripts\Battle\AttackCore.cs" />
-    <Compile Include="Assets\Scripts\Battle\MonsterSpawnSystem.cs" />
-    <Compile Include="Assets\Scripts\Battle\RandomMapGenerator.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\PlayerSkillManager.cs" />
     <Compile Include="Assets\Scripts\Battle\Skills\SkillManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\Systems\BattleManager.cs" />
+    <Compile Include="Assets\Scripts\Battle\Systems\PortalSpawner.cs" />
+    <Compile Include="Assets\Scripts\Battle\Systems\RandomMapGenerator.cs" />
     <Compile Include="Assets\Scripts\Battle\Weapons\Projectile.cs" />
     <Compile Include="Assets\Scripts\Battle\Weapons\Weapon.cs" />
     <Compile Include="Assets\Scripts\Battle\Weapons\WeaponManager.cs" />
@@ -287,6 +288,7 @@
     <Compile Include="Assets\Scripts\Character\Player\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Cores\Monsters\MonsterRockie.cs" />
     <Compile Include="Assets\Scripts\Cores\NPCs\DreamWitch.cs" />
+    <Compile Include="Assets\Scripts\Cores\NPCs\Portal.cs" />
     <Compile Include="Assets\Scripts\Cores\Skills\Skill_BlockReset.cs" />
     <Compile Include="Assets\Scripts\Cores\Skills\Skill_None.cs" />
     <Compile Include="Assets\Scripts\Cores\Weapons\MeleeWeapon.cs" />
@@ -310,7 +312,7 @@
     <Compile Include="Assets\Scripts\Systems\Data\ObjectPoolManager.cs" />
     <Compile Include="Assets\Scripts\Systems\Data\ResourceLoader.cs" />
     <Compile Include="Assets\Scripts\Systems\GameManager.cs" />
-    <Compile Include="Assets\Scripts\Systems\InitSceneChanger.cs" />
+    <Compile Include="Assets\Scripts\Systems\Init\InitSceneChanger.cs" />
     <Compile Include="Assets\Scripts\Systems\InputManager.cs" />
     <Compile Include="Assets\Scripts\Systems\JSON\JData.cs" />
     <Compile Include="Assets\Scripts\Systems\JSON\JsonManager.cs" />

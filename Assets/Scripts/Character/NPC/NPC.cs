@@ -7,22 +7,11 @@ using UnityEngine;
 // 기본적인 대화, 선택지 선택
 public abstract class NPC : MonoBehaviour, IInteractedHandler
 {
-	// 텍스트 출력기
-	[SerializeField] TextPrinter textPrinterWindow; public TextPrinter TextPrinterWindow	
-	{
-		get { return textPrinterWindow; }
-		private set { textPrinterWindow = value; }
-	}
+	public TextPrinter			textPrinterWindow;			// 텍스트 출력 UI
+	public ConverseSelection	converseSelectionWindow;	// 선택지 UI
 
-	// 선택지
-	[SerializeField] ConverseSelection converseSelectionWindow; public ConverseSelection ConverseSelectionWindow
-	{
-		get { return converseSelectionWindow; }
-		private set { converseSelectionWindow = value; }
-	}
-
-	private bool onInteraction = false;						// 상호작용 중인지 체크하는 플래그
-	private Interacter currentInteracter = null;            // 현재 상호작용중인 상호작용자
+	private bool		onInteraction = false;				// 상호작용 중인지 체크하는 플래그
+	private Interacter	currentInteracter = null;           // 현재 상호작용중인 상호작용자
 
 
 	// 대화 시작 함수

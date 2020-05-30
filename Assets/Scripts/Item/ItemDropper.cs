@@ -49,7 +49,6 @@ public class ItemDropper : MonoBehaviour
 			var obj = Instantiate(droppedItemPrefab, transform.position, Quaternion.identity);
 
 			obj.GetComponent<FieldItem>().Init(ItemParser.GetItemByCode(target.itemCode));
-			Debug.Log("ASD");
 		}
 	}
 }
