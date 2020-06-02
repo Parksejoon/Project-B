@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+	public static InventoryManager instance;				// 싱글톤
+
 	[SerializeField]
 	private GameObject		inventoryPanel;         // 인벤토리 패널
 
@@ -17,6 +19,16 @@ public class InventoryManager : MonoBehaviour
 	// 초기화
 	private void Awake()
 	{
+		// 싱글톤 초기화
+		if (instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Destroy(this);
+		}
+
 		// 인벤토리 슬롯 UI 가져오기
 		inventoryArray = inventoryPanel.GetComponentInChildren<UIGrid>().GetComponentsInChildren<ItemSlot>();
 

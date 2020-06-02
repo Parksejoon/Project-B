@@ -1,4 +1,6 @@
-﻿/*
+﻿using UnityEngine;
+
+/*
 
 
 ##### 여기에 대부분의 필요한 정보를 메모할 예정 #####
@@ -10,8 +12,6 @@
 ($$ 테스트용으로 만들어둔 코드 $$)
 
 */
-
-using UnityEngine;
 
 public enum SceneNumber
 {

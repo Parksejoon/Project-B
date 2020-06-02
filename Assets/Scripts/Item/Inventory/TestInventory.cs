@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class TestInventory : MonoBehaviour
 {
-	[SerializeField]
-	private InventoryManager inventoryManager;      // 인벤토리 매니저
-
 	public GameObject prefab1;
 	public GameObject prefab2;
 	public GameObject prefab3;
@@ -25,14 +22,14 @@ public class TestInventory : MonoBehaviour
 		{
 			ItemData itemData = ItemParser.GetItemByCode(1);
 
-			inventoryManager.AddItem(itemData);
+			InventoryManager.instance.AddItem(itemData);
 		}
 
 		if (Input.GetKeyDown(KeyCode.M))
 		{
 			ItemData itemData = ItemParser.GetItemByCode(2);
 
-			inventoryManager.AddItem(itemData);
+			InventoryManager.instance.AddItem(itemData);
 		}
 	}
 }

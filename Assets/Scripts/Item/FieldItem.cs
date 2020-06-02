@@ -15,12 +15,29 @@ public class FieldItem : MonoBehaviour
 		spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 
+	// 트리거 엔터
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.CompareTag("Player"))
+		{
+			Debug.Log("AD");
+			InventoryManager.instance.AddItem(itemData);
+			DeleteThis();	
+		}
+	}
+
 	// 초기화
 	public void Init(ItemData _itemData)
 	{
 		itemData = _itemData;
 
 		spriteRenderer.sprite = Sprite.Create(itemData.texture, new Rect(0, 0, itemData.texture.width, itemData.texture.height), new Vector2(0.5f, 0.5f));
+	}
+
+	// 아이템 삭제
+	private void DeleteThis()
+	{
+		Destroy(gameObject);
 	}
 
 	public ItemData GetItemData()

@@ -101,13 +101,6 @@ public class CustomBlockBuilder : MonoBehaviour
 			}
 		}
 
-		//customBlockPrefab = InventoryManager.instance.UseItem(slotNumber);
-
-		//if (customBlockPrefab == null)
-		//{
-		//	return false;
-		//}
-
 		return true;
 	}
 

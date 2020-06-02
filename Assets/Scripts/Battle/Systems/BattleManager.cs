@@ -46,6 +46,6 @@ public class BattleManager : MonoBehaviour
 	// 몬스터 사망
 	public void OpenPortal()
 	{
-		portalSpawner.SpawnPortal(Vector3.zero);
+		portalSpawner.SpawnPortal(new Vector2(0, -1.3f));
 	}
 }
