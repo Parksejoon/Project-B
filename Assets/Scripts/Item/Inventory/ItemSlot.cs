@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ItemSlot : MonoBehaviour
 {
-	public static ItemSlot	clickTarget;		// 현재 클릭으로 들고있는 아이템UI
+	public static ItemSlot		clickTarget;			// 현재 클릭으로 들고있는 아이템UI
+	public static GameObject	itemDescriptionPanel;	// 아이템 설명 패널
+
 	private BoxCollider2D	boxCollider2D;      // 클릭용 collider
 	private UITexture		uITexture;          // 텍스쳐 ui
 
@@ -12,6 +14,9 @@ public class ItemSlot : MonoBehaviour
 
 	private Vector3			originPositon;      // 원래 자리
 	private IEnumerator		mouseFollow;        // 마우스 따라가기 코루틴
+	private IEnumerator		descriptionTimer;   // 설명창 타이머 코루틴
+
+	private bool			timerFlag;			// 타이머 플래그
 
 
 	// 초기화
@@ -21,7 +26,10 @@ public class ItemSlot : MonoBehaviour
 		uITexture = GetComponent<UITexture>();
 
 		// 클릭 활성화
-		GetComponent<UIEventTrigger>().onClick.Add(new EventDelegate(ClickItem));
+		var eventTrigger = GetComponent<UIEventTrigger>();
+		eventTrigger.onClick.Add(new EventDelegate(ClickItem));
+		eventTrigger.onHoverOver.Add(new EventDelegate(StartDescriptionTimer));
+		eventTrigger.onHoverOut.Add(new EventDelegate(StopDescriptionTimer));
 
 		// 초기 포지션값 생성
 		originPositon = transform.position;
@@ -84,6 +92,39 @@ public class ItemSlot : MonoBehaviour
 
 		ResetPosition();
 		clickTarget = null;
+	}
+
+	// 아이템 설명창 타이머 시작
+	public void StartDescriptionTimer()
+	{
+		// 아무것도 클릭중이 아닐 때 & 아이템이 존재할 때
+		if (clickTarget == null && itemData.code != 0)
+		{
+			descriptionTimer = DescriptionTimer();
+			StartCoroutine(descriptionTimer);
+		}
+	}
+
+	// 아이템 설명창 타이머 중지
+	public void StopDescriptionTimer()
+	{
+		if (descriptionTimer != null)
+		{
+			StopCoroutine(descriptionTimer);
+		}
+	}
+
+	// 아이템 설명 표시
+	private void ShowItemDescription()
+	{
+		itemDescriptionPanel.SetActive(true);
+		itemDescriptionPanel.transform.position = (Vector2)CameraManager.uiCamera.ScreenToWorldPoint(Input.mousePosition);
+	}
+
+	// 아이템 설명 끔
+	private void DisableItemDescription()
+	{
+		itemDescriptionPanel.SetActive(false);
 	}
 
 	// 아이템 클릭
@@ -157,7 +198,7 @@ public class ItemSlot : MonoBehaviour
 
 	// 텍스쳐 refresh
 	private void TextureRefresh()
-	{ 
+	{
 		uITexture.mainTexture = itemData.texture;
 	}
 
@@ -189,5 +230,74 @@ public class ItemSlot : MonoBehaviour
 
 			yield return null;
 		}
+	}
+
+	// 설명창 타이머 코루틴
+	private IEnumerator DescriptionTimer()
+	{
+		bool descriptionEnabled = false;
+		var previousPos = (Vector2)CameraManager.uiCamera.ScreenToWorldPoint(Input.mousePosition);
+		var timerCor = MouseOverTimer();
+
+		StartCoroutine(timerCor);
+
+		while (clickTarget == null)
+		{
+			var currentPos = (Vector2)CameraManager.uiCamera.ScreenToWorldPoint(Input.mousePosition);
+
+			// 설명창이 띄어져있으면
+			if (descriptionEnabled)
+			{
+				// 마우스가 이동 했으면
+				if (previousPos != currentPos)
+				{
+					// 설명창을 끔
+					DisableItemDescription();
+
+					// 타이머를 재시작
+					descriptionEnabled = false;
+					StartCoroutine(timerCor);
+				}
+			}
+			// 설명창이 띄어져있지 않으면
+			else
+			{
+				// 마우스가 이동 했으면
+				if (previousPos != currentPos)
+				{
+					previousPos = currentPos;
+
+					// 타이머를 처음부터 다시 측정
+					StopCoroutine(timerCor);
+
+					timerCor = MouseOverTimer();
+					StartCoroutine(timerCor);
+				}
+
+				// 시간이 다되면
+				if (timerFlag)
+				{
+					// 설명창을 띄움
+					ShowItemDescription();
+
+					// 설명창이 띄어져있다고 flag를 변경
+					descriptionEnabled = true;
+				}
+			}
+
+			yield return null;
+		}
+
+		DisableItemDescription();
+	}
+
+	// 마우스 올려논 시간 타이머 코루틴
+	private IEnumerator MouseOverTimer()
+	{
+		timerFlag = false;
+
+		yield return new WaitForSeconds(0.5f);
+
+		timerFlag = true;
 	}
 }

@@ -7,9 +7,11 @@ public class InventoryManager : MonoBehaviour
 	public static InventoryManager instance;				// 싱글톤
 
 	[SerializeField]
-	private GameObject		inventoryPanel;         // 인벤토리 패널
+	private GameObject		inventoryPanel;         // 인벤토리창 패널
+	[SerializeField]
+	private GameObject		itemDescriptionPanel;	// 아이템 설명창 패널
 
-	private ItemSlot[]		inventoryArray;         // 아이템 인벤토리 배열
+	private ItemSlot[]		inventoryArray;         // 아이템 슬롯 배열
 
 	private bool			isOpen = false;         // 인벤토리가 열려있는지
 
@@ -28,6 +30,9 @@ public class InventoryManager : MonoBehaviour
 		{
 			Destroy(this);
 		}
+
+		// 아이템 설명 ui 설정
+		ItemSlot.itemDescriptionPanel = itemDescriptionPanel;
 
 		// 인벤토리 슬롯 UI 가져오기
 		inventoryArray = inventoryPanel.GetComponentInChildren<UIGrid>().GetComponentsInChildren<ItemSlot>();
