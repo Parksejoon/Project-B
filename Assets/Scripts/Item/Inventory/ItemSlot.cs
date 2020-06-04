@@ -241,8 +241,17 @@ public class ItemSlot : MonoBehaviour
 
 		StartCoroutine(timerCor);
 
-		while (clickTarget == null)
+		while (true)
 		{
+			if (clickTarget != null)
+			{
+				DisableItemDescription();
+				descriptionEnabled = false;
+				yield return null;
+
+				continue;
+			}
+
 			var currentPos = (Vector2)CameraManager.uiCamera.ScreenToWorldPoint(Input.mousePosition);
 
 			// 설명창이 띄어져있으면
