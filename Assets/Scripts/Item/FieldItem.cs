@@ -20,7 +20,6 @@ public class FieldItem : MonoBehaviour
 	{
 		if (collision.CompareTag("Player"))
 		{
-			Debug.Log("AD");
 			InventoryManager.instance.AddItem(itemData);
 			DeleteThis();	
 		}

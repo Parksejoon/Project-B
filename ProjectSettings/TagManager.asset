@@ -14,6 +14,7 @@ TagManager:
   - Monster
   - PlayerAttack
   - NPC
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,7 @@ TagManager:
   - Monster
   - Object
   - InvPlayer
-  - 
+  - ItemCollider
   - 
   - 
   - 

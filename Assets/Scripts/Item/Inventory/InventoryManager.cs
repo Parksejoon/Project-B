@@ -9,7 +9,9 @@ public class InventoryManager : MonoBehaviour
 	[SerializeField]
 	private GameObject		inventoryPanel;         // 인벤토리창 패널
 	[SerializeField]
-	private GameObject		itemDescriptionPanel;	// 아이템 설명창 패널
+	private GameObject		itemDescriptionPanel;   // 아이템 설명창 패널
+	[SerializeField]
+	private GameObject		droppedItemPrefab;		// 드롭 아이템 프리팹
 
 	private ItemSlot[]		inventoryArray;         // 아이템 슬롯 배열
 
@@ -82,6 +84,16 @@ public class InventoryManager : MonoBehaviour
 		SaveData();
 	}
 
+	// 현재 들고있는 아이템 드랍
+	public void DropItem()
+	{
+		if (ItemSlot.clickTarget != null)
+		{
+			var obj = Instantiate(droppedItemPrefab, Vector2.zero, Quaternion.identity);
+			obj.GetComponent<FieldItem>().Init(ItemParser.GetItemByCode(ItemSlot.clickTarget.DropItem()));
+		}
+	}
+
 	// 인벤토리 목록 저장
 	private void SaveData()
 	{
@@ -113,8 +125,7 @@ public class InventoryManager : MonoBehaviour
 				return true;
 			}
 		}
-
-		Debug.Log("Inventory is full.");
+		
 		return false;
 	}
 

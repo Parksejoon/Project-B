@@ -38,6 +38,12 @@ public class ItemSlot : MonoBehaviour
 		TextureRefresh();
 	}
 
+	// 꺼질 때
+	private void OnDisable()
+	{
+		DisableItemDescription();
+	}
+
 	// ($$ 데이터 디버그 로그 $$)
 	public void ShowData()
 	{
@@ -94,6 +100,17 @@ public class ItemSlot : MonoBehaviour
 		clickTarget = null;
 	}
 
+	// 현재 들고있는 아이템 드랍
+	public int DropItem()
+	{
+		UnHold();
+
+		var code = GetItemCode();
+		DeleteItem();
+
+		return code;
+	}
+
 	// 아이템 설명창 타이머 시작
 	public void StartDescriptionTimer()
 	{
@@ -117,8 +134,16 @@ public class ItemSlot : MonoBehaviour
 	// 아이템 설명 표시
 	private void ShowItemDescription()
 	{
+		if (itemData.code == 0) return;
+
 		itemDescriptionPanel.SetActive(true);
-		itemDescriptionPanel.transform.position = (Vector2)CameraManager.uiCamera.ScreenToWorldPoint(Input.mousePosition);
+
+		var pos = (Vector2)CameraManager.uiCamera.ScreenToWorldPoint(Input.mousePosition);
+
+		pos.x += itemDescriptionPanel.transform.lossyScale.x / 2f;
+		//pos.y -= 2;
+
+		itemDescriptionPanel.transform.position = pos;
 	}
 
 	// 아이템 설명 끔
@@ -296,8 +321,6 @@ public class ItemSlot : MonoBehaviour
 
 			yield return null;
 		}
-
-		DisableItemDescription();
 	}
 
 	// 마우스 올려논 시간 타이머 코루틴
